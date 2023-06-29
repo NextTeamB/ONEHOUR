@@ -1,0 +1,290 @@
+@font-face {
+  font-family: "Arimo";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+}
+
+@font-face {
+  font-family: "segoeui";
+  src: url("./segoeui.ttf");
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pretendard-sb";
+  src: url("../../public/Pretendard-SemiBold.woff");
+}
+
+.LoginForm {
+  /* background-color: #f7f7f7; */
+  width: 100%;
+  -webkit-box-pack: center;
+  display: flex;
+  justify-content: center;
+  min-height: 1080px;
+  height: 100%;
+  display: flex;
+}
+
+.LoginBox {
+  max-width: 400px;
+  width: 100%;
+  margin: auto auto;
+  display: flex;
+  /* align-items: flex-end; */
+  justify-items: center;
+  overflow: auto;
+  flex-direction: column;
+  /* max-height: calc(100vh - 80px); */
+  background-color: white;
+  border: 1px solid #e1e2e3;
+  border-radius: 5px;
+  padding: 20px;
+}
+.LoginTitle {
+  font-size: 26px;
+  letter-spacing: -0.023em;
+  text-align: center;
+  font-family: "pretendard-sb";
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.subtitle {
+  color: #888;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 14px;
+}
+
+.formTitle {
+  margin: 17px 0px 7px 0px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #888;
+}
+
+.emailInputBox {
+  /* width: 100%; */
+  height: 50px;
+  min-height: 50px;
+  padding: 0px 12px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #e1e2e3;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+.emailInputBox1 {
+  /* width: 100%; */
+  height: 50px;
+  min-height: 50px;
+  padding: 0px 12px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #fe415c;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.emailInputBox:focus {
+  /* width: 100%; */
+  border: 1px solid #6ab5ff;
+}
+
+/* .submitBtn {
+  cursor: default;
+  border: none;
+  background-color: #f2f4f7;
+  color: #ccc;
+} */
+
+.submitBtn {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  height: 50px;
+  min-height: 50px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  background-color: #6ab5ff;
+}
+
+.unactiveBtn {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  height: 50px;
+  min-height: 50px;
+  background-color: #f2f4f7;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  color: #ccc;
+  cursor: default;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.LOGO {
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 56px;
+  margin-bottom: 10px;
+  padding-left: -2px;
+}
+
+.warning {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #fe415c;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 8px;
+  margin-top: 0px;
+}
+
+.nowarning {
+  display: none;
+}
+
+.subTitle2 {
+  color: #939393;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.025em;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-bottom: 26px;
+}
+
+.kakaoLogin {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0px;
+  display: inline-block;
+}
+
+.kakaotitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  color: #888;
+  text-align: center;
+  letter-spacing: 0.031em;
+  font-size: 11px;
+  line-height: 14px;
+  text-transform: capitalize;
+}
+
+.platforms {
+  margin: 0 auto;
+}
+
+.findBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.findBtn > p {
+  margin-bottom: 0;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.forgotten {
+  color: #767676;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.0145em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 30px;
+}
+
+.chevron {
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  opacity: 0.5;
+}
+
+.liner {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e1e2e3;
+  margin-top: 30px;
+}
+
+.partSection {
+  margin: 30px auto 15px auto;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.terms {
+  margin-right: 12px;
+  color: #767676;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.0192em;
+  text-align: center;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.policy {
+  color: #767676;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.0192em;
+  text-align: center;
+  line-height: 18px;
+  font-weight: 900;
+}
+
+.footer {
+  font-size: 10px;
+  line-height: 16px;
+  margin-bottom: 30px;
+  letter-spacing: 0.025em;
+  text-align: center;
+  font-family: "Arimo";
+  color: #888;
+  font-weight: 400;
+}
