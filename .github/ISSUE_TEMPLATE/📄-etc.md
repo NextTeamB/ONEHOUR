@@ -3,7 +3,7 @@ name: "\U0001F4C4 ETC"
 about: 기타 작업 사항을 작성해주세요.
 title: ''
 labels: ''
-assignees: ''
+assignees: haesol822, Dropper-in, tennto
 
 ---
 
