@@ -1,0 +1,1351 @@
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../public/Arimo-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../public/Arimo-Medium.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../public/Arimo-Bold.ttf");
+  font-weight: 400;
+}
+
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+
+
+@media (min-width: 990px) and (max-width: 1200px) {
+  .root {
+    width: 100%;
+  }
+  .section1 {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 80%;
+    background-color: white;
+    margin: 0 auto;
+    min-height: 340px;
+    z-index: 0;
+  }
+  .deco1 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.4);
+    top: -350px;
+    left: -200px;
+  }
+  .pagetitle {
+    position: relative;
+    font-family: "Arimo_BLD";
+    font-size: 40px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    text-align: left;
+    margin: 80px auto 0px 100px ;
+    z-index: 1;
+  }
+  .article1 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 16px;
+    margin: 30px auto 0px 100px;
+  }
+  .article1_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    width: 350px;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 100px;
+  }
+  .deco2 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    transform: scale(0.4);
+    bottom: -250px;
+    right: -480px;
+  }
+
+  /* section2 */
+  .section2 {
+    overflow: hidden;
+    position: relative;
+    min-height: 320px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .dummy {
+    width: 36%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: left;
+    margin: 60px 28px auto 100px;
+  }
+  .articlebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: right;
+    margin-right: 100px;
+  }
+  .article2 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 2px;
+  }
+  .article2_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: left;
+  }
+  .Btnbox {
+    position: relative;
+    width: 136px;
+    height: 42px;
+    top: 8px;
+    z-index: 20;
+  }
+  .guideBtn:hover {
+    cursor: pointer;
+  }
+  .guideBtn {
+    position: relative;
+    width: 136px;
+    height: 42px;
+    font-size: 12px;
+    font-weight: bold;
+    left: 0px;
+    color: #383838;
+    border: none;
+    background-color: #B9DBFD;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .guideBtn > span {
+    margin-right: 8px;
+  }
+  .arrowforward {
+    /* transform: scale(0.1); */
+    width: 6px;
+    height: 9px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+  }
+
+  /* section3 */
+  .section3 {
+    position: relative;
+    min-height: 840px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .article3 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 16px;
+    padding-bottom: 12px;
+  }
+  .article3_box12 {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .article3_box1 {
+    position: relative;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    padding: 40px 0;
+    margin-right: 24px;
+    background-color: #E0F7FF;
+    border: none;
+    border-radius: 20px;
+  }
+  .box1_textbox {
+    width: 78%;
+    color: #6AB5FF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box1_title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  .box1_sub {
+    font-size: 12px;    
+    margin-bottom: 0px;
+  }
+  .example5 {
+    width: 80%;
+    height: auto;
+    margin-top: 26px;
+    align-items: center;
+    display: flex;
+  }
+  .article3_box2 {
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    padding: 40px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #6AB5FF;
+  }
+  .box2_textbox {
+    width: 78%;
+    color: #FFFFFF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box2_title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  .box2_sub1 {
+    color: #ededed;
+    font-size: 12px;    
+    margin-bottom: 0px;
+    line-height: 18px;
+  }
+  .box2_sub2 {
+    font-size: 12px;    
+    margin: 0px;
+    line-height: 18px;
+  }
+  .article3_box3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin-top: 24px;
+    padding: 48px 0;
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 20px;
+  }
+  .box3_textbox {
+    width: 78%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: left;
+    color: #000000;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+    margin-left: 48px;
+  }
+  .box3_title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .box3_sub {
+    font-size: 11px;
+    width: 200px;
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+  .dataprocess {
+    width:45%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: right;
+    margin-right: 48px;
+  }
+
+  /* section4 */
+  .section4 {
+    overflow: hidden;
+    position: relative;
+    min-height: 500px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 0 auto;
+    padding-top: 40px;
+    z-index: 10;
+  }
+  .threearrows {
+    width: 2.6%;
+    height: auto;
+    margin: 24px auto;
+  }
+  .article4_01 {
+    font-family: "Arimo_BLD";
+    font-size: 13px;
+    color: #6ab5ff;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_02 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_03 {
+    font-family: "Arimo_BLD";
+    font-size: 28px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .Btnbox2 {
+    position: relative;
+    width: 144px;
+    height: 44px;
+    top: 16px;
+    z-index: 20;
+  }
+  .startBtn:hover {
+    cursor: pointer;
+  }
+  .startBtn {
+    font-family: "Arimo_BLD";
+    position: relative;
+    width: 144px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    background-color: #6AB5FF;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .deco3 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.4);
+    top: 90px;
+    left: -420px;
+  }
+  /*footer*/
+  .footer {
+    min-height: 400px;
+    background-color: #dedede;
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .footerLogo {
+    width: 14%;
+    height: auto;
+    margin: 80px 94px;
+  }
+  .articleFooter {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 16px;
+    position: absolute;
+    left: 100px;
+    top: 120px;
+  }
+  .member1 {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+  }
+  .member1 > p {
+    display: inline-block;
+  }
+  .PL {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 14px;
+  }
+  .Leader {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 80px;
+    font-size: 14px;
+  }
+  .DV {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 53px;
+    font-size: 14px;
+  }
+  .member2 > p {
+    display: inline-block;
+  }
+  .member3 > p {
+    display: inline-block;
+  }
+  .member2 {
+    position: absolute;
+    left: 100px;
+    top: 200px;
+  }
+  .member3 {
+    position: absolute;
+    left: 100px;
+    top: 220px;
+  }
+  .footerTitle {
+    font-family: "Arimo_RGR";
+    letter-spacing: -1px;
+    position: absolute;
+    bottom: 80px;
+    left: 100px;
+    font-size: 14px;
+  }
+  .fhr {
+    position: absolute;
+    bottom: 50px;
+    border: #cecece 1px solid;
+    width: 100%;
+  }
+}
+
+/******************* MEDIA 1200 **********************/
+/******************* MEDIA 1200 **********************/
+/******************* MEDIA 1200 **********************/
+/******************* MEDIA 1200 **********************/
+/******************* MEDIA 1200 **********************/
+
+
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+  .root {
+    width: 100%;
+    min-height: 2700px;
+  }
+  .section1 {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 80%;
+    background-color: white;
+    margin: 0 auto;
+    min-height: 400px;
+    z-index: 0;
+  }
+  .deco1 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.4);
+    top: -350px;
+    left: -200px;
+  }
+  .pagetitle {
+    position: relative;
+    font-family: "Arimo_BLD";
+    font-size: 40px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    text-align: left;
+    margin: 100px auto 0px 120px ;
+    z-index: 1;
+  }
+  .article1 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 18px;
+    margin: 40px auto 10px 120px;
+  }
+  .article1_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 12px;
+    line-height: 22px;
+    margin-left: 120px;
+  }
+  .deco2 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    transform: scale(0.4);
+    bottom: -250px;
+    right: -480px;
+  }
+
+  /* section2 */
+  .section2 {
+    overflow: hidden;
+    position: relative;
+    min-height: 320px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .dummy {
+    width: 36%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: left;
+    margin: 30px 30px auto 120px;
+  }
+  .articlebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: right;
+    width: auto;
+    margin-right: 120px;
+  }
+  .article2 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 12px;
+  }
+  .article2_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: left;
+  }
+  .Btnbox {
+    position: relative;
+    width: 136px;
+    height: 42px;
+    top: 12px;
+    z-index: 20;
+  }
+  .guideBtn:hover {
+    cursor: pointer;
+  }
+  .guideBtn {
+    position: relative;
+    width: 136px;
+    height: 42px;
+    font-size: 12px;
+    font-weight: bold;
+    left: 0px;
+    color: #383838;
+    border: none;
+    background-color: #B9DBFD;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .guideBtn > span {
+    margin-right: 8px;
+  }
+  .arrowforward {
+    /* transform: scale(0.1); */
+    width: 6px;
+    height: 9px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+  }
+
+  /* section3 */
+  .section3 {
+    position: relative;
+    min-height: 840px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .article3 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 18px;
+    padding-bottom: 20px;
+  }
+  .article3_box12 {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+  .article3_box1 {
+    position: relative;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    padding: 40px 0;
+    margin-right: 24px;
+    background-color: #E0F7FF;
+    border: none;
+    border-radius: 20px;
+  }
+  .box1_textbox {
+    width: 78%;
+    color: #6AB5FF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box1_title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 0px;
+  }
+  .box1_sub {
+    font-size: 12px;    
+    margin-bottom: 0px;
+  }
+  .example5 {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+  }
+  .article3_box2 {
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    padding: 40px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #6AB5FF;
+  }
+  .box2_textbox {
+    width: 78%;
+    color: #FFFFFF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box2_title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 0px;
+  }
+  .box2_sub1 {
+    color: #ededed;
+    font-size: 12px;    
+    margin-bottom: 0px;
+    line-height: 18px;
+  }
+  .box2_sub2 {
+    font-size: 12px;    
+    margin: 0px;
+    line-height: 18px;
+  }
+  .article3_box3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin-top: 24px;
+    padding: 48px 0;
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 20px;
+  }
+  .box3_textbox {
+    width: 78%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: left;
+    color: #000000;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+    margin-left: 48px;
+  }
+  .box3_title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .box3_sub {
+    font-size: 11px;    
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+  .dataprocess {
+    width:34%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: right;
+    margin-right: 48px;
+  }
+
+  /* section4 */
+  .section4 {
+    overflow: hidden;
+    position: relative;
+    min-height: 580px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 0 auto;
+    padding-top: 40px;
+    z-index: 10;
+  }
+  .threearrows {
+    width: 2.6%;
+    height: auto;
+    margin: 24px auto;
+  }
+  .article4_01 {
+    font-family: "Arimo_BLD";
+    font-size: 15px;
+    color: #6ab5ff;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_02 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_03 {
+    font-family: "Arimo_BLD";
+    font-size: 28px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    font-weight: 700;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .Btnbox2 {
+    position: relative;
+    width: 162px;
+    height: 50px;
+    top: 18px;
+    z-index: 20;
+  }
+  .startBtn:hover {
+    cursor: pointer;
+  }
+  .startBtn {
+    font-family: "Arimo_BLD";
+    position: relative;
+    width: 162px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    background-color: #6AB5FF;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .deco3 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.4);
+    top: 180px;
+    left: -430px;
+  }
+  /*footer*/
+  .footer {
+    min-height: 480px;
+    background-color: #dedede;
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .footerLogo {
+    width: 14%;
+    height: auto;
+    margin: 80px 114px;
+  }
+  .articleFooter {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 18px;
+    position: absolute;
+    left: 120px;
+    top: 140px;
+  }
+  .member1 {
+    position: absolute;
+    top: 200px;
+    left: 120px;
+  }
+  .member1 > p {
+    display: inline-block;
+  }
+  .PL {
+    font-size: 16px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+  }
+  .Leader {
+    font-size: 16px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 100px;
+  }
+  .DV {
+    font-size: 16px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 70px;
+  }
+  .member2 > p {
+    display: inline-block;
+  }
+  .member3 > p {
+    display: inline-block;
+  }
+  .member2 {
+    position: absolute;
+    left: 120px;
+    top: 240px;
+  }
+  .member3 {
+    position: absolute;
+    left: 120px;
+    top: 280px;
+  }
+  .footerTitle {
+    font-family: "Arimo_RGR";
+    letter-spacing: -1px;
+    position: absolute;
+    bottom: 80px;
+    left: 120px;
+  }
+  .fhr {
+    position: absolute;
+    bottom: 50px;
+    border: #cecece 1px solid;
+    width: 100%;
+  }
+}
+
+/******************* MEDIA 1440 **********************/
+/******************* MEDIA 1440 **********************/
+/******************* MEDIA 1440 **********************/
+/******************* MEDIA 1440 **********************/
+/******************* MEDIA 1440 **********************/
+
+@media screen and (min-width: 1440px) {
+  .root {
+    width: 100%;
+    min-height: 3000px;
+  }
+  .section1 {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 80%;
+    background-color: white;
+    margin: 0 auto;
+    min-height: 460px;
+    z-index: 0;
+  }
+  .deco1 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.5);
+    top: -350px;
+    left: -160px;
+  }
+  .pagetitle {
+    position: relative;
+    font-family: "Arimo_BLD";
+    font-size: 52px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    text-align: left;
+    margin: 100px auto 0px 140px ;
+    z-index: 1;
+  }
+  .article1 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    margin: 40px auto 10px 140px;
+  }
+  .article1_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 16px;
+    line-height: 26px;
+    margin-left: 140px;
+  }
+  .deco2 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    transform: scale(0.5);
+    bottom: -250px;
+    right: -450px;
+  }
+
+  /* section2 */
+  .section2 {
+    overflow: hidden;
+    position: relative;
+    min-height: 460px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .dummy {
+    width: 36%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: left;
+    margin: 100px 36px auto 140px;
+  }
+  .articlebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: right;
+    margin-right: 140px;
+  }
+  .article2 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    text-align: left;
+    margin-bottom: 14px;
+  }
+  .article2_sub {
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+  }
+  .Btnbox {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    top: 16px;
+    z-index: 20;
+  }
+  .guideBtn:hover {
+    cursor: pointer;
+  }
+  .guideBtn {
+    position: relative;
+    width: 146px;
+    height: 48px;
+    font-size: 15px;
+    font-weight: bold;
+    left: 0px;
+    color: #383838;
+    border: none;
+    background-color: #B9DBFD;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .guideBtn > span {
+    margin-right: 8px;
+  }
+  .arrowforward {
+    /* transform: scale(0.1); */
+    width: 7px;
+    height: 12px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+  }
+
+  /* section3 */
+  .section3 {
+    position: relative;
+    min-height: 960px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  .article3 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    padding-bottom: 20px;
+  }
+  .article3_box12 {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+  .article3_box1 {
+    position: relative;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    padding: 40px 0;
+    margin-right: 24px;
+    background-color: #E0F7FF;
+    border: none;
+    border-radius: 20px;
+  }
+  .box1_textbox {
+    width: 78%;
+    color: #6AB5FF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box1_title {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 0px;
+  }
+  .box1_sub {
+    font-size: 16px;    
+    margin-bottom: 0px;
+  }
+  .example5 {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+  }
+  .article3_box2 {
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    padding: 40px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #6AB5FF;
+  }
+  .box2_textbox {
+    width: 78%;
+    color: #FFFFFF;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+  }
+  .box2_title {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 0px;
+  }
+  .box2_sub1 {
+    color: #ededed;
+    font-size: 16px;    
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+  .box2_sub2 {
+    font-size: 16px;    
+    margin: 0px;
+    line-height: 24px;
+  }
+  .article3_box3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin-top: 24px;
+    padding: 54px 0;
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 20px;
+  }
+  .box3_textbox {
+    width: 78%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    float: left;
+    color: #000000;
+    font-family: "Arimo_MED";
+    text-align: left;
+    letter-spacing: -1px;
+    margin-left: 54px;
+  }
+  .box3_title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .box3_sub {
+    font-size: 13px;    
+    margin-bottom: 0px;
+    line-height: 28px;
+  }
+  .dataprocess {
+    width:34%;
+    height: auto;
+    position: relative;
+    display: flex;
+    float: right;
+    margin-right: 54px;
+  }
+
+  /* section4 */
+  .section4 {
+    overflow: hidden;
+    position: relative;
+    min-height: 620px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  .threearrows {
+    width: 2.6%;
+    height: auto;
+    margin: 24px auto;
+  }
+  .article4_01 {
+    font-family: "Arimo_BLD";
+    font-size: 18px;
+    color: #6ab5ff;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_02 {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  .article4_03 {
+    font-family: "Arimo_BLD";
+    font-size: 32px;
+    color: #6ab5ff;
+    letter-spacing: -2.8px;
+    font-weight: 700;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .Btnbox2 {
+    position: relative;
+    width: 174px;
+    height: 54px;
+    top: 20px;
+    z-index: 20;
+  }
+  .startBtn:hover {
+    cursor: pointer;
+  }
+  .startBtn {
+    font-family: "Arimo_BLD";
+    position: relative;
+    width: 174px;
+    height: 54px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    background-color: #6AB5FF;
+    box-shadow: 2px 3px 4px #00000029;
+    border-radius: 80px;
+  }
+  .deco3 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform: scale(0.5);
+    top: 160px;
+    left: -400px;
+  }
+  /*footer*/
+  .footer {
+    min-height: 460px;
+    background-color: #dedede;
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .footerLogo {
+    width: 12%;
+    height: auto;
+    margin: 80px 114px;
+  }
+  .articleFooter {
+    font-family: "Arimo_MED";
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    position: absolute;
+    left: 120px;
+    top: 120px;
+  }
+  .member1 {
+    position: absolute;
+    top: 180px;
+    left: 120px;
+  }
+  .member1 > p {
+    display: inline-block;
+  }
+  .PL {
+    font-size: 18px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+  }
+  .Leader {
+    font-size: 18px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 100px;
+  }
+  .DV {
+    font-size: 18px;
+    font-family: "Arimo_MED";
+    letter-spacing: -1px;
+    margin-left: 64px;
+  }
+  .member2 > p {
+    display: inline-block;
+  }
+  .member3 > p {
+    display: inline-block;
+  }
+  .member2 {
+    position: absolute;
+    left: 120px;
+    top: 220px;
+  }
+  .member3 {
+    position: absolute;
+    left: 120px;
+    top: 260px;
+  }
+  .footerTitle {
+    font-family: "Arimo_RGR";
+    letter-spacing: -1px;
+    position: absolute;
+    bottom: 100px;
+    left: 120px;
+    font-size: 18px;
+  }
+  .fhr {
+    position: absolute;
+    bottom: 70px;
+    border: #cecece 1px solid;
+    width: 100%;
+  }
+}
