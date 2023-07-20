@@ -22,7 +22,7 @@
 /******************* MEDIA 990 **********************/
 /******************* MEDIA 990 **********************/
 
-@media (min-width: 990px) and (max-width: 1200px) {
+@media (min-width: 990px) and (max-width: 1199px) {
   .root {
     max-width: 100%;
   }
@@ -350,7 +350,7 @@
 /******************* MEDIA 1200 **********************/
 /******************* MEDIA 1200 **********************/
 
-@media screen and (min-width: 1200px) and (max-width: 1440px) {
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
   .root {
     width: 100%;
     min-height: 4100px;
