@@ -34,15 +34,16 @@ const Navigator = () => {
 		challengeIconSize: 26,
 	});
 	const menuData: menuProvider[] = [
-		{ name: '홈화면', path: '/home', icon: Icon1 },
-		{ name: '원아워 레코즈', path: '/records', icon: Icon2 },
-		{ name: '마이페이지', path: '/mypage', icon: Icon3 },
-		{ name: '챌린저스', path: '/challengers', icon: Icon4 },
-		{ name: '설정', path: '/settings', icon: Icon5 },
+		{ name: '홈화면', path: '/main/home', icon: Icon1 },
+		{ name: '원아워 레코즈', path: '/main/records', icon: Icon2 },
+		{ name: '마이페이지', path: '/main/mypage', icon: Icon3 },
+		{ name: '챌린저스', path: '/main/challengers', icon: Icon4 },
+		{ name: '설정', path: '/main/settings', icon: Icon5 },
 	];
 	const subMenus: string[] = ['개인정보 처리방침', '이용 약관', '로그아웃'];
 
-	useEffect(() => { //window 너비 변경을 감지하여 아이콘 사이즈 변경
+	useEffect(() => {
+		//window 너비 변경을 감지하여 아이콘 사이즈 변경
 		const onWindowResize = (e: Event) => {
 			var width: number = window.innerWidth;
 			var newIconSize = { ...iconSize };
