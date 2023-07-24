@@ -1,0 +1,301 @@
+@import '/public/utils'; /*변수파일 import*/
+
+@font-face {
+	font-family: 'Kicker_Trial';
+	src: url('../../public/KickerTrial-BlackItalic.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Arimo_BLD';
+	src: url('../../public/Arimo-Bold.ttf');
+	font-weight: 700;
+}
+
+$base: 16px;
+$color: #383838;
+$blue: #6ab5ff;
+.childrenWrapper {
+	margin-left: 360px;
+	@include displayNone {
+		display: none;
+	}
+	@include mobile {
+		margin-left: 280px;
+	}
+	@include tablet {
+		margin-left: 280px;
+	}
+	@include notebook {
+		margin-left: 330px;
+	}
+}
+.navWrapper {
+	position: fixed;
+	width: 360px;
+	background: #fff;
+	padding: 20px 24px 20px;
+	box-sizing: border-box;
+	font-family: 'Arimo_BLD';
+	letter-spacing: -0.6px;
+	z-index: 999;
+	overflow: hidden;
+	height: 100vh;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	.breakline {
+		margin: 0;
+		border: 1px solid #707070;
+		opacity: 0.2;
+	}
+
+	.logoWrapper {
+		display: flex;
+		align-items: center;
+		color: $blue;
+		height: 90px;
+		span {
+			font-size: $base + 4;
+		}
+	}
+
+	.profileWrapper {
+		display: flex;
+		align-items: center;
+		height: 100px;
+		span {
+			font-size: $base + 4;
+		}
+		a {
+			text-decoration: none;
+			color: $color;
+			display: flex;
+		}
+		.profile {
+			width: 60px;
+			height: 60px;
+			border-radius: 50px;
+			margin-right: 30px;
+			box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.16);
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			// background: url('/userIcon_login.png') no-repeat center/contain;
+		}
+	}
+
+	.commentWrapper {
+		margin-top: 10px;
+		height: 90px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.challengeButton {
+		display: flex;
+		background-color: $blue;
+		background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+		border-radius: $base;
+		height: 70px;
+		color: white;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Kicker_Trial';
+		font-size: $base + 5;
+		cursor: pointer;
+	}
+
+	.menuWrapper {
+		margin-top: 90px;
+		.menuList {
+			margin: 30px 10px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			position: relative;
+			text-decoration: none;
+			color: $color;
+			.menuText {
+				margin-left: 15px;
+			}
+		}
+	}
+
+	.subMenuWrapper {
+		margin-top: 50px;
+		.subMenuList {
+			margin: 30px 10px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+		}
+	}
+
+	@include displayNone {
+		width: 360px;
+		display: none;
+	}
+
+	/******************* MEDIA 990 **********************/
+	/******************* MEDIA 990 **********************/
+	/******************* MEDIA 990 **********************/
+	/******************* MEDIA 990 **********************/
+
+	@include mobile {
+		width: 250px;
+		font-size: $base - 5;
+		overflow: auto;
+		.logoWrapper {
+			height: 60px;
+			span {
+				font-size: $base - 3;
+			}
+		}
+
+		.profileWrapper {
+			height: 80px;
+			span {
+				font-size: $base - 3;
+			}
+			.profile {
+				width: 40px;
+				height: 40px;
+				margin-right: 20px;
+			}
+		}
+		.commentWrapper {
+			margin-top: 10px;
+			height: 65px;
+		}
+
+		.challengeButton {
+			border-radius: $base - 3;
+			height: 50px;
+			font-size: $base;
+		}
+
+		.menuWrapper {
+			margin-top: 60px;
+			.menuList {
+				margin: 25px 8px;
+			}
+		}
+
+		.subMenuWrapper {
+			margin-top: 40px;
+			.subMenuList {
+				margin: 22px 10px;
+			}
+		}
+	}
+
+	/******************* MEDIA 1200 **********************/
+	/******************* MEDIA 1200 **********************/
+	/******************* MEDIA 1200 **********************/
+	/******************* MEDIA 1200 **********************/
+	/******************* MEDIA 1200 **********************/
+
+	@include tablet {
+		width: 280px;
+		font-size: $base - 4;
+		.logoWrapper {
+			height: 60px;
+			span {
+				font-size: $base - 2;
+			}
+		}
+
+		.profileWrapper {
+			height: 80px;
+			span {
+				font-size: $base - 2;
+			}
+			.profile {
+				width: 45px;
+				height: 45px;
+				margin-right: 20px;
+			}
+		}
+		.commentWrapper {
+			margin-top: 10px;
+			height: 65px;
+		}
+
+		.challengeButton {
+			border-radius: $base - 2;
+			height: 55px;
+			font-size: $base;
+		}
+
+		.menuWrapper {
+			margin-top: 60px;
+			.menuList {
+				margin: 25px 8px;
+			}
+		}
+
+		.subMenuWrapper {
+			margin-top: 40px;
+			.subMenuList {
+				margin: 22px 10px;
+			}
+		}
+	}
+
+	/******************* MEDIA 1440 **********************/
+	/******************* MEDIA 1440 **********************/
+	/******************* MEDIA 1440 **********************/
+	/******************* MEDIA 1440 **********************/
+
+	@include notebook {
+		width: 330px;
+		font-size: $base - 2;
+		.logoWrapper {
+			height: 70px;
+			span {
+				font-size: $base;
+			}
+		}
+
+		.profileWrapper {
+			height: 80px;
+			span {
+				font-size: $base;
+			}
+			.profile {
+				width: 50px;
+				height: 50px;
+				margin-right: 25px;
+			}
+		}
+		.commentWrapper {
+			margin-top: 10px;
+			height: 80px;
+		}
+
+		.challengeButton {
+			height: 65px;
+			font-size: $base + 2;
+		}
+
+		.menuWrapper {
+			margin-top: 70px;
+			.menuList {
+				margin: 30px 10px;
+			}
+		}
+
+		.subMenuWrapper {
+			margin-top: 48px;
+			.subMenuList {
+				margin: 28px 10px;
+			}
+		}
+	}
+}
