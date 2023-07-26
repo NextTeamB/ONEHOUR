@@ -20,16 +20,27 @@ export default function Login(defaultValue: string) {
 
 function LoginForm() {
   const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActivePw, setIsActivePw] = useState<boolean>(false);
 
   const isPassedLogin = () => {
     return email.includes("@") && email.length > 5 && email.includes(".")
       ? setIsActive(true)
       : setIsActive(false);
   };
+  const isCorrectPassword = () => {
+    return password.length > 7 && isActive
+      ? setIsActivePw(true)
+      : setIsActivePw(false);
+  };
 
   const handleInput = (event: any) => {
     setEmail(event.target.value);
+  };
+
+  const handleInputPw = (event: any) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -71,13 +82,35 @@ function LoginForm() {
         >
           올바른 이메일을 입력해주세요
         </p>
+        <p className={styles.formTitle}>비밀번호</p>
+        <input
+          className={
+            isActivePw || password === ""
+              ? styles.emailInputBox
+              : styles.emailInputBox1
+          }
+          onChange={handleInputPw}
+          onKeyUp={isCorrectPassword}
+          type="password"
+          required
+          placeholder="비밀번호를 입력해주세요"
+        ></input>
+        <p
+          className={
+            isActivePw || password === "" ? styles.nowarning : styles.warning
+          }
+        >
+          올바른 비밀번호를 입력해주세요
+        </p>
         <button
           type="submit"
           formMethod="post"
           className={
-            isActive && email !== "" ? styles.submitBtn : styles.unactiveBtn
+            isActive && email !== "" && isActivePw && password !== ""
+              ? styles.submitBtn
+              : styles.unactiveBtn
           }
-          disabled={email === "" ? true : false}
+          disabled={email === "" && password === "" ? true : false}
         >
           이메일로 계속하기
         </button>
@@ -89,7 +122,7 @@ function LoginForm() {
           </button>
         </div>
         <button className={styles.findBtn}>
-          <p className={styles.forgotten}>계정을 잊으셨나요?</p>
+          <p className={styles.forgotten}>회원이 아니시라면</p>
           <span>
             <Image
               className={styles.chevron}
