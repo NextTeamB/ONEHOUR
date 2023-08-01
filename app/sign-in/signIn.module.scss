@@ -1,0 +1,266 @@
+@import "/public/utils"; /*변수파일 import*/
+
+@font-face {
+  font-family: "Kicker_Trial";
+  src: url("../../public/KickerTrial-BlackItalic.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../public/Arimo-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../public//Arimo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../public/Arimo-Medium.ttf");
+}
+
+$base: 16px;
+$color: #383838;
+$blue: #6ab5ff;
+
+.Upper {
+  /* background-color: #f7f7f7; */
+  width: 100%;
+  -webkit-box-pack: center;
+  display: flex;
+  justify-content: center;
+  min-height: 1080px;
+  height: 100%;
+  display: flex;
+}
+
+.signInBox {
+  max-width: 400px;
+  width: 100%;
+  margin: auto auto;
+  display: flex;
+  position: relative;
+  /* align-items: flex-end; */
+  justify-items: center;
+  overflow: auto;
+  flex-direction: column;
+  //   max-height: calc(100vh - 80px);
+  background-color: white;
+  border: 1px solid #e1e2e3;
+  border-radius: 5px;
+  padding: 20px;
+  h4 {
+    font-size: 20px;
+    letter-spacing: -0.023em;
+    text-align: center;
+    font-family: "pretendard-sb";
+    font-weight: 700;
+    line-height: 32px;
+    display: inline-block;
+    margin-left: 120px;
+  }
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: #888;
+  }
+  .emailInputBox {
+    height: 50px;
+    min-height: 50px;
+    padding: 0px 12px;
+    outline: none;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  .nameInputBox {
+    height: 50px;
+    min-height: 50px;
+    padding: 0px 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  .nicknameInputBox {
+    height: 50px;
+    min-height: 50px;
+    padding: 0px 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  .passwordInputBox1 {
+    height: 50px;
+    min-height: 50px;
+    padding: 0px 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  .passwordInputBox2 {
+    height: 50px;
+    min-height: 50px;
+    padding: 0px 12px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  .passwordInfo {
+    font-size: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 10px 0px 7px 0px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+}
+
+.agreeForm1 {
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: #333;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  input {
+    position: relative;
+    top: 2px;
+  }
+  hr {
+    color: #888;
+    opacity: 0.4;
+    margin: 10px 0px 5px 0px;
+  }
+}
+.agreeForm2 {
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #333;
+    display: inline-block;
+  }
+  input {
+    position: relative;
+    top: 2px;
+  }
+}
+.agreeForm3 {
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #333;
+    display: inline-block;
+  }
+  input {
+    position: relative;
+    top: 2px;
+  }
+}
+.agreeForm4 {
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #333;
+    display: inline-block;
+  }
+  input {
+    position: relative;
+    top: 2px;
+  }
+}
+.agreeForm5 {
+  h5 {
+    margin: 20px 0px 7px 0px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-left: 10px;
+    display: inline-block;
+  }
+  input {
+    position: relative;
+    top: 2px;
+  }
+}
+.closeBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.signInBtn1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  height: 50px;
+  min-height: 50px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #6ab5ff;
+}
+.signInBtn0 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  height: 50px;
+  min-height: 50px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #eaeaea;
+}
