@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Providers } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,31 +20,7 @@ export default function RootLayout({
         <title>페이지 이름</title>
       </head>
       <body className="Upper">
-        {/* <div className="menuList">
-          <nav className="Navbar1" role="navigation">
-            <h2 className="innerNav">원아워</h2>
-            <p className="hidden">원아워</p>
-          </nav>
-          <nav className="Navbar2" role="navigation">
-            <div className="innerNav_login">로그인 후 이용하세요</div>
-            <button className="LoginBtn">LOGIN</button>
-          </nav>
-          <nav className="Navbar3" role="navigation">
-            <div className="innerNav3">
-              <div className="innerNav_menu">네비게이션바 3-1</div>
-              <div className="innerNav_menu">네비게이션바 3-2</div>
-              <div className="innerNav_menu">네비게이션바 3-3</div>
-            </div>
-          </nav>
-          <nav className="Navbar4" role="navigation">
-            네비게이션바4
-          </nav>
-          <nav className="Navbar5" role="navigation">
-            네비게이션바5
-          </nav>
-        </div> */}
-        <></>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
