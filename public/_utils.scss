@@ -18,13 +18,13 @@ $notebook: 1440px;
 }
 /*반응형, 브라우저 크기가 1200px 이상, 1440px 이하일때*/
 @mixin tablet {
-	@media (min-width: $tablet) and (max-width: $notebook) {
+	@media (min-width: $tablet) and (max-width: 1920px) {
 		@content;
 	}
 }
 /*반응형, 브라우저 크기가 1440px 이상, 1920 이하일때*/
-@mixin notebook {
-	@media (min-width: $notebook) and (max-width: 1920px) {
-		@content;
-	}
-}
+// @mixin notebook {
+// 	@media (min-width: $notebook) and (max-width: 1920px) {
+// 		@content;
+// 	}
+// }
