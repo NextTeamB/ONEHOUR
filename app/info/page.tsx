@@ -15,7 +15,7 @@ import deco3 from "../../public/deco3.png";
 
 export default function info() {
   return (
-    <> 
+    <>
       <div className={styles.root}>
         {/* section1 */}
         <div className={styles.section1}>
@@ -23,7 +23,7 @@ export default function info() {
           <h1 className={styles.pagetitle}>
             We Make
             <br />
-            Better LIfe Style
+            Better Life Style
           </h1>
           <p className={styles.article1}>
             계획을 습관으로, 하루 한 시간 목표를 실천해보세요
@@ -50,7 +50,7 @@ export default function info() {
               자투리 시간을 잘 계획해 하루를 알차게 보내보기로 해요. 
               그럼 이제 원아워를 어떻게 사용할 지 알아볼까요?
             </p>
-            <Link href="../guide">
+            <Link href="../user-guidance">
               <div className={styles.Btnbox}>
                 <button className={styles.guideBtn}>
                   <span>사용 가이드</span>
