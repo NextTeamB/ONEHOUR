@@ -1,0 +1,102 @@
+$blue: #6AB5FF;
+$navy: #0B4F9F;
+$grey1: #383838;
+$grey2: #989898;
+$grey3: #E1E2E3;
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  padding-top: 70px;
+  padding-left: 100px;
+  font-family: 'Arimo_BLD';
+  letter-spacing: -1px;
+  .section1 {
+    .title {
+      font-family: 'Kicker_Trial';
+      color: $blue;
+      font-size: 28px;
+    }
+    .title_sub {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      color: $grey1;
+    }
+  }
+  .section3 {
+    
+    .btnWrapper {
+      
+      button:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+  
+  .section4 {
+    .article {
+      color: black;
+      span:nth-child(1) {
+        color: black;
+      }
+      span:nth-child(2) {
+        font-size: 5px;
+        margin-left: 20px;
+        color: $navy;
+      }
+    }
+  }
+  .section5 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    .btn {
+      position: relative;
+      width: 120px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      color: white;
+      border: none;
+      text-decoration: none;
+      border-radius: 80px;
+    }
+    .btn:hover {
+      cursor: pointer;
+    }
+    .exitBtn {
+      background-color: $grey2;
+      margin-right: 15px;
+    }
+    .startBtn {
+      background-color: $blue;
+      margin-right: 100px;
+    }
+  }
+  .article {
+    font-size: 20px;
+    font-weight: 600;
+    span:nth-child(1) {
+      color: $blue;
+    }
+    span:nth-child(3) {
+      font-size: 8px;
+      margin-left: 20px;
+      color: $navy;
+    }
+  }
+  .article_sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: $grey1;
+    margin-bottom: 20px;
+  }
+}

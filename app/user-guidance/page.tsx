@@ -15,7 +15,7 @@ export default function guide() {
       <div className={styles.root}>
         {/* section1 */}
         <div className={styles.section1}>
-          <Link href="/">
+          <Link href="../info">
             <div className={styles.Btnbox}>
               <button className={styles.backBtn}>
                 <Image
