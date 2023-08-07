@@ -1,15 +1,13 @@
-@import '/public/utils'; /*변수파일 import*/
+@import "/public/utils"; /*변수파일 import*/
 
 @font-face {
-	font-family: 'Kicker_Trial';
-	src: url('../../public/KickerTrial-BlackItalic.ttf');
-	font-weight: 400;
+	font-family: "Kicker_Trial";
+	src: url("../../public/KickerTrial-BlackItalic.ttf");
 }
 
 @font-face {
-	font-family: 'Arimo_BLD';
-	src: url('../../public/Arimo-Bold.ttf');
-	font-weight: 700;
+	font-family: "Arimo_BLD";
+	src: url("../../public/Arimo-Bold.ttf");
 }
 
 $base: 16px;
@@ -24,11 +22,11 @@ $blue: #6ab5ff;
 		margin-left: 280px;
 	}
 	@include tablet {
-		margin-left: 280px;
+		margin-left: 300px;
 	}
-	@include notebook {
-		margin-left: 330px;
-	}
+	// @include notebook {
+	// 	margin-left: 330px;
+	// }
 }
 .navWrapper {
 	position: fixed;
@@ -36,10 +34,10 @@ $blue: #6ab5ff;
 	background: #fff;
 	padding: 20px 24px 20px;
 	box-sizing: border-box;
-	font-family: 'Arimo_BLD';
+	font-family: "Arimo_BLD";
 	letter-spacing: -0.6px;
 	z-index: 999;
-	overflow: hidden;
+	overflow: auto;
 	height: 100vh;
 
 	::-webkit-scrollbar {
@@ -86,6 +84,11 @@ $blue: #6ab5ff;
 			justify-content: center;
 			align-items: center;
 			// background: url('/userIcon_login.png') no-repeat center/contain;
+			.profileIcon {
+				width: 25px;
+				height: auto;
+				color: $blue;
+			}
 		}
 	}
 
@@ -106,9 +109,13 @@ $blue: #6ab5ff;
 		color: white;
 		align-items: center;
 		justify-content: center;
-		font-family: 'Kicker_Trial';
+		font-family: "Kicker_Trial";
 		font-size: $base + 5;
 		cursor: pointer;
+		.challengeIcon {
+			width: 24px;
+			height: auto;
+		}
 	}
 
 	.menuWrapper {
@@ -123,6 +130,11 @@ $blue: #6ab5ff;
 			color: $color;
 			.menuText {
 				margin-left: 15px;
+			}
+			.menuIcon {
+				width: 30px;
+				height: auto;
+				color: $color;
 			}
 		}
 	}
@@ -167,6 +179,9 @@ $blue: #6ab5ff;
 				width: 40px;
 				height: 40px;
 				margin-right: 20px;
+				.profileIcon {
+					width: 18px;
+				}
 			}
 		}
 		.commentWrapper {
@@ -178,12 +193,18 @@ $blue: #6ab5ff;
 			border-radius: $base - 3;
 			height: 50px;
 			font-size: $base;
+			.challengeIcon {
+				width: 18px;
+			}
 		}
 
 		.menuWrapper {
 			margin-top: 60px;
 			.menuList {
 				margin: 25px 8px;
+				.menuIcon {
+					width: 20px;
+				}
 			}
 		}
 
@@ -202,7 +223,7 @@ $blue: #6ab5ff;
 	/******************* MEDIA 1200 **********************/
 
 	@include tablet {
-		width: 280px;
+		width: 300px;
 		font-size: $base - 4;
 		.logoWrapper {
 			height: 60px;
@@ -220,6 +241,9 @@ $blue: #6ab5ff;
 				width: 45px;
 				height: 45px;
 				margin-right: 20px;
+				.profileIcon {
+					width: 20px;
+				}
 			}
 		}
 		.commentWrapper {
@@ -231,12 +255,18 @@ $blue: #6ab5ff;
 			border-radius: $base - 2;
 			height: 55px;
 			font-size: $base;
+			.challengeIcon {
+				width: 22px;
+			}
 		}
 
 		.menuWrapper {
 			margin-top: 60px;
 			.menuList {
 				margin: 25px 8px;
+				.menuIcon {
+					width: 25px;
+				}
 			}
 		}
 
@@ -253,49 +283,52 @@ $blue: #6ab5ff;
 	/******************* MEDIA 1440 **********************/
 	/******************* MEDIA 1440 **********************/
 
-	@include notebook {
-		width: 330px;
-		font-size: $base - 2;
-		.logoWrapper {
-			height: 70px;
-			span {
-				font-size: $base;
-			}
-		}
+	// @include notebook {
+	// 	width: 330px;
+	// 	font-size: $base - 2;
+	// 	.logoWrapper {
+	// 		height: 70px;
+	// 		span {
+	// 			font-size: $base;
+	// 		}
+	// 	}
 
-		.profileWrapper {
-			height: 80px;
-			span {
-				font-size: $base;
-			}
-			.profile {
-				width: 50px;
-				height: 50px;
-				margin-right: 25px;
-			}
-		}
-		.commentWrapper {
-			margin-top: 10px;
-			height: 80px;
-		}
+	// 	.profileWrapper {
+	// 		height: 80px;
+	// 		span {
+	// 			font-size: $base;
+	// 		}
+	// 		.profile {
+	// 			width: 50px;
+	// 			height: 50px;
+	// 			margin-right: 25px;
+	// 		}
+	// 	}
+	// 	.commentWrapper {
+	// 		margin-top: 10px;
+	// 		height: 80px;
+	// 	}
 
-		.challengeButton {
-			height: 65px;
-			font-size: $base + 2;
-		}
+	// 	.challengeButton {
+	// 		height: 65px;
+	// 		font-size: $base + 2;
+	// 	}
 
-		.menuWrapper {
-			margin-top: 70px;
-			.menuList {
-				margin: 30px 10px;
-			}
-		}
+	// 	.menuWrapper {
+	// 		margin-top: 70px;
+	// 		.menuList {
+	// 			margin: 30px 10px;
+	// 			.menuIcon {
+	// 				width: 30px;
+	// 			}
+	// 		}
+	// 	}
 
-		.subMenuWrapper {
-			margin-top: 48px;
-			.subMenuList {
-				margin: 28px 10px;
-			}
-		}
-	}
+	// 	.subMenuWrapper {
+	// 		margin-top: 48px;
+	// 		.subMenuList {
+	// 			margin: 28px 10px;
+	// 		}
+	// 	}
+	// }
 }
