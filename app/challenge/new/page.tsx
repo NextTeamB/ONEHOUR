@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from "./new.module.scss";
 import Link from "next/link";
-import DiffBtn from './button'
+import DiffBtn from './button';
 import TextBox from './textbox';
 import { textOneState, textTwoState } from "../../stateJotai";
 import { useAtom } from "jotai";
@@ -12,26 +12,17 @@ import { difficultyAtom } from "../../stateJotai";
 export default function Newchallenge() {
 
   // DiffBtn
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const [difficulty, setDifficulty] = useAtom(difficultyAtom); // 난이도 데이터를 저장할 state
 
-  const handleButtonClick = (index: number) => {
-    if (clickedIndex === index) {
-      setClickedIndex(null);
-    } else {
-      setClickedIndex(index);
-    }
+  const handleDiffButtonClick = (label: string) => {
+    setDifficulty(prevDifficulty => prevDifficulty === label ? '' : label); // jotai atom 업데이트
   };
+
+  const btnArr = ["아주 쉬움", "쉬움", "보통", "어려움", "챌린지"];
 
   // TextBox
   const [text1, setText1] = useAtom(textOneState);
   const [text2, setText2] = useAtom(textTwoState);
-
-  const [difficulty, setDifficulty] = useAtom(difficultyAtom); // 난이도 데이터를 저장할 상태(state)
-
-  // 버튼 클릭시 난이도를 업데이트하는 콜백 함수
-  const handleDiffButtonClick = (label: string) => {
-    setDifficulty(label); // jotai atom 업데이트
-  };
 
   
 
@@ -68,11 +59,14 @@ export default function Newchallenge() {
             <p>(  사용자께서 체감하시는 난이도를 설정해주시는 것이 좋습니다  )</p>
           </div>
           <div className={styles.btnWrapper}>
-            <DiffBtn label="아주 쉬움" isClicked={clickedIndex === 0} onClick={() => handleButtonClick(0)}/>
-            <DiffBtn label="쉬움" isClicked={clickedIndex === 1} onClick={() => handleButtonClick(1)}/>
-            <DiffBtn label="보통" isClicked={clickedIndex === 2} onClick={() => handleButtonClick(2)}/>
-            <DiffBtn label="어려움" isClicked={clickedIndex === 3} onClick={() => handleButtonClick(3)}/>
-            <DiffBtn label="챌린지" isClicked={clickedIndex === 4} onClick={() => handleButtonClick(4)}/>
+            {btnArr.map((content) => (
+              <DiffBtn
+                key={content}
+                label={content}
+                isClicked={difficulty === content}
+                onClick={() => handleDiffButtonClick(content)}
+              />
+            ))}
           </div>
         </div>
         <div className={styles.section4}>

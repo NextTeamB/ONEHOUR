@@ -72,31 +72,31 @@ $green: #40E358;
         }
       }
       .btnWrapper {
+        button {
+          position: relative;
+          width: 70px;
+          height: 46px;
+          align-items: center;
+          justify-content: center;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: -1px;
+          color: black;
+          border: none;
+          text-decoration: none;
+          background-color: white;
+          border: 1px solid #E1E2E3;
+          border-radius: 10px;
+        }
+        .selected {
+          background-color: #0B4F9F;
+          color: white;
+        }
         button:not(:last-child) {
           margin-right: 6px;
         }
       }
     }    
-  }
-  button {
-    position: relative;
-    width: 70px;
-    height: 46px;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: -1px;
-    color: black;
-    border: none;
-    text-decoration: none;
-    background-color: white;
-    border: 1px solid #E1E2E3;
-    border-radius: 10px;
-    .selected {
-      background-color: #0B4F9F;
-      color: white;
-    }
   }
   .board2 {
     display: flex;
@@ -120,6 +120,7 @@ $green: #40E358;
       p {
         width: 100%;
         font-size: 18px;
+        text-align: center;
       }
     }
     .timerBox {

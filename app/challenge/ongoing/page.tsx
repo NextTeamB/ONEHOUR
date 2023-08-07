@@ -16,6 +16,10 @@ export default function Ongoing() {
   // DiffBtn 버튼 값 받아오기
   const difficulty = useAtomValue(difficultyAtom);
 
+  // difficulty 값 확인
+  // useEffect(() => {
+  //   console.log('Difficulty:', difficulty);
+  // }, [difficulty]);
 
   /*--- Timer ---*/
   const [seconds, setSeconds] = useState(0);
