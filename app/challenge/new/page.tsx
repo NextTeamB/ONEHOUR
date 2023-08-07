@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import styles from "./new.module.scss";
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
 import DiffBtn from './button'
 import TextBox from './textbox';
+import { textOneState, textTwoState } from "../../stateJotai";
+import { useAtom } from "jotai";
+import { difficultyAtom } from "../../stateJotai";
 
 export default function Newchallenge() {
 
@@ -21,18 +23,17 @@ export default function Newchallenge() {
   };
 
   // TextBox
-  const [text1, setText1] = useState('');
-  const [text2, setText2] = useState('');
+  const [text1, setText1] = useAtom(textOneState);
+  const [text2, setText2] = useAtom(textTwoState);
 
-  const [difficulty, setDifficulty] = useState(''); // 난이도 데이터를 저장할 상태(state)
+  const [difficulty, setDifficulty] = useAtom(difficultyAtom); // 난이도 데이터를 저장할 상태(state)
 
-  // // 버튼 클릭시 난이도를 업데이트하는 콜백 함수
-  // const handleDiffButtonClick = (label: string) => {
-  //   setDifficulty(label);
-  // };
+  // 버튼 클릭시 난이도를 업데이트하는 콜백 함수
+  const handleDiffButtonClick = (label: string) => {
+    setDifficulty(label); // jotai atom 업데이트
+  };
 
-
-  const pathname = usePathname();
+  
 
   return (
     <>
@@ -76,7 +77,7 @@ export default function Newchallenge() {
         </div>
         <div className={styles.section4}>
           <div className={styles.article}>
-            <span>추가 설명을 입력해주세요</span>
+            <span>나의 다짐을 입력해주세요</span>
             <span>선택</span>
           </div>
           <p></p>
@@ -86,17 +87,7 @@ export default function Newchallenge() {
           <Link href="../challenge">
             <button className={`${styles.btn} ${styles.exitBtn}`}>나가기</button>
           </Link>
-          <Link 
-            href={{
-              pathname: `${pathname}/123`,
-              query: {
-                text1: "${text1}",
-                text2: "${text2}"
-              },
-            }}
-            as="/challenge/ongoing"
-            onClick={() => console.log('pathname >>> ', pathname)}
-          >
+          <Link href="../challenge/ongoing">
             <button className={`${styles.btn} ${styles.startBtn}`}>시작하기</button>
           </Link>          
         </div>

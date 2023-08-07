@@ -1,27 +1,20 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
 import styles from "./ongoing.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import stop from "../../../public/icon-stop.png";
 import arrow from "../../../public/icon-arrow.png";
 import BlueFire from './animation';
-import DiffBtn from './button';
+import { useAtomValue } from 'jotai';
+import { textOneState, textTwoState } from "../../stateJotai";
+import { difficultyAtom } from "../../stateJotai";
 
 export default function Ongoing() {
 
-  // DiffBtn
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-
-  const handleButtonClick = (index: number) => {
-    if (clickedIndex === index) {
-      setClickedIndex(null);
-    } else {
-      setClickedIndex(index);
-    }
-  };
+  // DiffBtn 버튼 값 받아오기
+  const difficulty = useAtomValue(difficultyAtom);
 
 
   /*--- Timer ---*/
@@ -77,10 +70,16 @@ export default function Ongoing() {
   }, [isRunning]);
   /*--- Timer ---*/
 
-  // Routing
-  const pathname = usePathname();
-  const router = useRouter();
-  // const text1 = router.query.text1;
+  // Textbox 상태공유
+  const text1 = useAtomValue(textOneState);
+  const text2 = useAtomValue(textTwoState);
+
+  // 진행도를 계산하는 함수
+  const calculateProgress = () => {
+    return (seconds / 60) * 100; // 현재 시간을 분으로 나누고 100을 곱하여 퍼센트로 계산
+  };
+
+  const roundNum = Math.round(calculateProgress() * 100) / 100;
 
   return (
     <>
@@ -95,17 +94,20 @@ export default function Ongoing() {
           </div>
           <div className={styles.progress}>
             <div className={styles.curProgress}>
-              현재의 진행도는 <span>20%</span> 입니다.
+              현재의 진행도는 <span>{roundNum}%</span> 입니다.
             </div>
             <div className={styles.progressBar}>
-              
+              <div 
+                className={`${styles.progressState} ${isStopped ? styles.stopped : ''}`}
+                style={{ width: `${(seconds / 60) * 100}%` }} 
+              />
             </div>
             <div className={styles.btnWrapper}>
-              <DiffBtn label="아주 쉬움" isClicked={clickedIndex === 0} onClick={() => handleButtonClick(0)} />
-              <DiffBtn label="쉬움" isClicked={clickedIndex === 1} onClick={() => handleButtonClick(1)} />
-              <DiffBtn label="보통" isClicked={clickedIndex === 2} onClick={() => handleButtonClick(2)} />
-              <DiffBtn label="어려움" isClicked={clickedIndex === 3} onClick={() => handleButtonClick(3)} />
-              <DiffBtn label="챌린지" isClicked={clickedIndex === 4} onClick={() => handleButtonClick(4)} />
+              <button className={difficulty === '아주 쉬움' ? styles.selected : ''}>아주 쉬움</button>
+              <button className={difficulty === '쉬움' ? styles.selected : ''}>쉬움</button>
+              <button className={difficulty === '보통' ? styles.selected : ''}>보통</button>
+              <button className={difficulty === '어려움' ? styles.selected : ''}>어려움</button>
+              <button className={difficulty === '챌린지' ? styles.selected : ''}>챌린지</button>
             </div>
           </div>
         </div>
