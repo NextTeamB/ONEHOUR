@@ -11,9 +11,12 @@
   "dependencies": {
     "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.5",
+    "@types/ol": "^7.0.0",
     "@types/react-dom": "18.2.6",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "jotai": "^2.2.3",
+    "moment": "^2.29.4",
     "next": "13.4.7",
     "next-auth": "^4.22.3",
     "next-redux-wrapper": "^8.1.0",

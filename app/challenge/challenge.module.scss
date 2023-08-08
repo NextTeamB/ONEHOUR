@@ -1,0 +1,58 @@
+.root {
+  width: 170%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .trophy {
+    width: 30%;
+    height: auto;
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  .textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-family: "Arimo_MED";
+      font-weight: 700;
+      letter-spacing: -1px;
+      font-size: 26px;
+      color: #0B4F9F;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .article {
+      font-family: "Arimo_MED";
+      letter-spacing: -1px;
+      font-size: 15px;
+      line-height: 26px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .startBtn:hover {
+      cursor: pointer;
+    }
+    .startBtn {
+      position: relative;
+      width: 160px;
+      height: 54px;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      text-decoration: none;
+      background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+      box-shadow: 2px 3px 4px #00000029;
+      border-radius: 80px;
+    }
+  }  
+}
+
