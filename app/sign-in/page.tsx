@@ -76,10 +76,14 @@ export default function SignIn() {
           <h4 className={styles.signInTitle}>회원가입</h4>
         </span>
         <h5>이메일</h5>
-        <input
-          className={styles.emailInputBox}
-          placeholder="이메일을 입력해주세요"
-        ></input>
+        <span>
+          <input
+            className={styles.emailInputBox}
+            placeholder="이메일을 입력해주세요"
+          ></input>
+          <button className={styles.emailCheck}>중복확인</button>
+        </span>
+
         <h5>이름</h5>
         <input
           type="text"
