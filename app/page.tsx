@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers, increment } from "@/slices/userSlice";
+import { fetchReduxUser, increment } from "@/slices/userSlice";
 import styles from "./page.module.css";
 import { AppDispatch, RootState } from "@/store/store";
 import { LoginButton } from "@/components/loginButton";
 import axios from "axios";
-import { use } from "react";
 
 interface LayoutProps {
   Component: any;
@@ -17,16 +16,15 @@ interface LayoutProps {
 
 export default function Home({ Component, pageProps, store }: LayoutProps) {
   const userRef = useRef(false);
+  //**  Redux - Store Data Load
   const { entities, value } = useSelector((state: RootState) => state.user);
+  //**  Redux - dispatch function
   const dispatch = useDispatch<AppDispatch>();
-  // const userData = use(getData());
 
-  console.log(entities);
-
+  // console.log(entities);
   useEffect(() => {
     if (userRef.current === false) {
-      dispatch(fetchUsers());
-      console.log(getData2());
+      dispatch(fetchReduxUser());
     }
     return () => {
       userRef.current = true;
@@ -44,15 +42,13 @@ export default function Home({ Component, pageProps, store }: LayoutProps) {
       >
         증가버튼
       </button>
-      <button
-        onClick={() => {
-          postData();
-        }}
-      >
-        POST 요청
-      </button>
+      <button onClick={() => {}}>POST 요청</button>
+      <input type="text"></input>
       {value}
       <LoginButton />
+      <form action="/pages/api/dbConnection.ts" method="POST">
+        <button type="submit"></button>
+      </form>
     </div>
   );
 }
@@ -65,38 +61,40 @@ interface userData {
   agreement: boolean;
 }
 
-interface Props {
-  userGetData: userData[];
-}
+// interface Props {
+//   userGetData: userData[];
+// }
 
-export async function getData() {
-  const response = await axios.get<userData>(
-    "http://localhost:3000/api/getData"
-  );
-  const data = response.data;
-  return data;
-}
+// export async function getData() {
+//   const response = await axios.get<userData>(
+//     "http://localhost:3000/api/getData"
+//   );
+//   const data = response.data;
+//   return data;
+// }
 
-const getData2 = () => {
-  axios
-    .get<userData>(`http://localhost:3000/api/getData`)
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
-};
+// const getData2 = () => {
+//   axios
+//     .get<userData>(`http://localhost:3000/api/getData`)
+//     .then((response) => console.log(response.data))
+//     .catch((error) => console.log(error));
+// };
 
-const postingData = {
-  id: 5,
-  name: "정준하",
-  nickname: "도토아빠",
-  phonenumber: "01022990003",
-  agreement: true,
-};
+// const postingData = {
+//   id: 5,
+//   name: "정준하",
+//   nickname: "도토아빠",
+//   phonenumber: "01022990003",
+//   agreement: true,
+// };
 
-export async function postData() {
-  const response = await axios.post<userData>(
-    "http://localhost:3000/api/getData",
-    { ...postingData }
-  );
-  const data = response.data;
-  console.log(data);
-}
+// export async function postData() {
+//   const response = await axios.post<userData>(
+//     "http://localhost:3000/api/getData",
+//     { ...postingData }
+//   );
+//   const data = response.data;
+//   console.log(data);
+// }
+
+export async function deleteData() {}

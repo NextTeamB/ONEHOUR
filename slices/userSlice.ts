@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchUsers = createAsyncThunk(
+export const fetchReduxUser = createAsyncThunk(
   "users/getAllUsers",
   async (thunkApi) => {
     const response = await fetch(
@@ -25,7 +25,7 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+    builder.addCase(fetchReduxUser.fulfilled, (state, action) => {
       state.entities.push(action.payload);
     });
   },
