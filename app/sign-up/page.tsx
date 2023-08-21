@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./signIn.module.scss";
@@ -11,7 +12,37 @@ import styles from "./signIn.module.scss";
 
 type items = { id: number; checked: boolean };
 
-export default function SignIn() {
+export default function SignUp() {
+  const [userInfo, setUserInfo] = useState<object>({
+    email: "",
+    name: "",
+    nickname: "",
+    password: "",
+  });
+  const signUp = () => {
+    axios
+      .post("/api/users/sign-up", userInfo)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Input 필드의 값이 변경되면 실행될 onChange 함수
+    if (e.target.value.replace(/ /g, "") === "") e.target.value = "";
+    let value = e.target.value;
+    // if (e.target.name === "password") {
+    //   value = value + "password"; // 패스워드 암호화 로직 짤 것
+    // }
+    const newUserInfo = {
+      ...userInfo, // 기존값 복사 (spread operator)
+      [e.target.name]: value, // 값 덮어쓰기
+    };
+    setUserInfo(newUserInfo);
+  };
+  // 체크박스용 데이터
   const data = [
     { id: 0, title: "선택 1" },
     { id: 1, title: "선택 2" },
@@ -78,25 +109,32 @@ export default function SignIn() {
         <h5>이메일</h5>
         <span>
           <input
+            name="email"
+            onChange={onChange}
             className={styles.emailInputBox}
             placeholder="이메일을 입력해주세요"
           ></input>
           <button className={styles.emailCheck}>중복확인</button>
         </span>
-
         <h5>이름</h5>
         <input
+          name="name"
+          onChange={onChange}
           type="text"
           className={styles.nameInputBox}
           placeholder="이름을 입력해주세요"
         ></input>
         <h5>닉네임</h5>
         <input
+          name="nickname"
+          onChange={onChange}
           placeholder="닉네임을 입력해주세요"
           className={styles.nicknameInputBox}
         ></input>
         <h5>비밀번호</h5>
         <input
+          name="password"
+          onChange={onChange}
           type="password"
           className={styles.passwordInputBox1}
           placeholder="비밀번호를 입력해주세요"
@@ -175,6 +213,9 @@ export default function SignIn() {
           <h5>광고성 메세지(SNS), 이메일 뉴스레터 수신에 동의합니다 (선택)</h5>
         </div>
         <button
+          onClick={() => {
+            signUp();
+          }}
           className={allSelect ? styles.signInBtn1 : styles.signInBtn0}
           disabled={allSelect ? false : true}
         >

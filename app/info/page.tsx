@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import styles from "./info.module.css";
 import Image from "next/image";
@@ -29,9 +29,9 @@ export default function info() {
             계획을 습관으로, 하루 한 시간 목표를 실천해보세요
           </p>
           <p className={styles.article1_sub}>
-            원아워에서는 사용자가 아주 간단한 목표부터 꼭 실천해보고 싶던 루틴을 
-            목표로 설정할 수 있으며 성취도를 시각적으로 확인하며 <br /> 일상 루틴을 
-            더욱 체계적으로 관리할 수 있도록 보조하는 서비스입니다
+            원아워에서는 사용자가 아주 간단한 목표부터 꼭 실천해보고 싶던 루틴을
+            목표로 설정할 수 있으며 성취도를 시각적으로 확인하며 <br /> 일상
+            루틴을 더욱 체계적으로 관리할 수 있도록 보조하는 서비스입니다
           </p>
           <Image src={deco} alt="deco2" className={styles.deco2} />
         </div>
@@ -43,12 +43,12 @@ export default function info() {
               성실한 나를 위해 <br /> 발전할 우리를 위해
             </p>
             <p className={styles.article2_sub}>
-              어떤 목표라도 좋아요! 천천히 쉬운 것부터 시작해보는거죠, 
-              분야는 중요한 것이 아니에요. 원아워에서는 오직 자신만의 
-              목표를 기록하고 달성해가는 경험을 제공해드리려고 합니다. 
-              다만, 원아워가 드릴 수 있는 시간은 하루 최대 한 시간 뿐이에요! 
-              자투리 시간을 잘 계획해 하루를 알차게 보내보기로 해요. 
-              그럼 이제 원아워를 어떻게 사용할 지 알아볼까요?
+              어떤 목표라도 좋아요! 천천히 쉬운 것부터 시작해보는거죠, 분야는
+              중요한 것이 아니에요. 원아워에서는 오직 자신만의 목표를 기록하고
+              달성해가는 경험을 제공해드리려고 합니다. 다만, 원아워가 드릴 수
+              있는 시간은 하루 최대 한 시간 뿐이에요! 자투리 시간을 잘 계획해
+              하루를 알차게 보내보기로 해요. 그럼 이제 원아워를 어떻게 사용할 지
+              알아볼까요?
             </p>
             <Link href="../user-guidance">
               <div className={styles.Btnbox}>
@@ -62,7 +62,7 @@ export default function info() {
                 </button>
               </div>
             </Link>
-          </div>          
+          </div>
         </div>
         {/* section3 */}
         <div className={styles.section3}>
@@ -86,7 +86,7 @@ export default function info() {
                   목표를 달성하고 <br /> 트로피를 수집하세요!
                 </p>
                 <p className={styles.box2_sub1}>
-                  시간 달성률 90% 이상 <br /> 
+                  시간 달성률 90% 이상 <br />
                   목표 달성률 90% 이상
                 </p>
                 <p className={styles.box2_sub2}>
@@ -101,15 +101,18 @@ export default function info() {
                 이렇게 수집된 데이터는 <br /> 원아워에서 분석하여 요약해드립니다
               </p>
               <p className={styles.box3_sub}>
-                다음 목표계획을 위해 정리된 데이터를 다음과 같은 과정을 거쳐 제공하여 드리려고 해요
-                <br /> 
-                제공받은 데이터와 개인정보는 절대로! 목적 외의 방법으로 이용되거나 전달되지 않아요
-                <br /> 
-                시간과 목표를 잘 달성했는지, 총 집계량 대비 달성도를 정리해드릴게요
-                <br /> 
+                다음 목표계획을 위해 정리된 데이터를 다음과 같은 과정을 거쳐
+                제공하여 드리려고 해요
+                <br />
+                제공받은 데이터와 개인정보는 절대로! 목적 외의 방법으로
+                이용되거나 전달되지 않아요
+                <br />
+                시간과 목표를 잘 달성했는지, 총 집계량 대비 달성도를
+                정리해드릴게요
+                <br />
                 이를 바탕으로 본인의 계획을 한눈에 정리하고 확인하세요!
               </p>
-            </div>            
+            </div>
             <Image src={process} alt="process" className={styles.dataprocess} />
           </div>
         </div>
@@ -154,5 +157,5 @@ export default function info() {
         </div>
       </div>
     </>
-  )
+  );
 }
