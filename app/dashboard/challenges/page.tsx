@@ -1,11 +1,10 @@
 import styles from "./challenge.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import trophy from "../../public/trophy.png";
-
+import trophy from "../../../public/trophy.png";
 
 export default function challenge() {
-	return (
+  return (
     <>
       <div className={styles.root}>
         <Image src={trophy} alt="trophy" className={styles.trophy} />
@@ -15,9 +14,10 @@ export default function challenge() {
           </div>
           <div className={styles.article}>
             1시간 동안 효율적으로 집중할 수 있는 목표를 설정하는 것이 중요해요!
-            <br /> 기록중지 버튼을 누르거나 기록 페이지를 벗어나면 기록이 중지됩니다.
+            <br /> 기록중지 버튼을 누르거나 기록 페이지를 벗어나면 기록이
+            중지됩니다.
           </div>
-          <Link href="./challenge/new">
+          <Link href="/dashboard/challenges/new-challenge">
             <button className={styles.startBtn}>
               <span>시작합니다</span>
             </button>
@@ -25,6 +25,5 @@ export default function challenge() {
         </div>
       </div>
     </>
-  )
+  );
 }
-
