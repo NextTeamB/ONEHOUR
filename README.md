@@ -54,6 +54,15 @@ $ git clone https://github.com/NextTeamB/ONEHOUR
 $ cd ONEHOUR
 ```
 <br/>
+<h4>Environment Variable Setting</h4>
+
+```
+MAKE A ".env.local" FILE
+MONGODB_URL : YOUR MONGODB URL HERE
+SECRET_KEY : YOUR SECRET KEY HERE
+```
+
+<br/>
 <h4>Front end</h4>
 
 ```
