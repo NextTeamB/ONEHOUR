@@ -32,7 +32,6 @@
 <br/>
 <br/>
 <br/>
-<br/>
 
 
 ---
@@ -95,12 +94,32 @@ $ npm run dev
 <h2>화면 구성</h2>
 <br/>
 
-<table align="center">
+<table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/6a47d607-1f21-40dd-ac88-bfe0b7699eb9" width="380px;" alt=""/><br /><sub><b>FE 팀장 : 장수현</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d7d17baa-41ec-4057-afcb-601d98240084" width="380px;" alt=""/><br /><sub><b>FE 팀원 : 강해솔</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/1595e1b5-6dda-4864-a12b-a27dba14cf72" width="380px;" alt=""/><br /><sub><b>FE 팀원 : 김시훈</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/bd497a8a-688e-49cb-b641-209a971c0482" width="500px;" alt=""/><br /><br /><sub><b>"/" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/4fe9e5c7-8b4e-40e1-b3f6-37059f7c09e0" width="300px;" alt=""/><br /><br /><sub><b>"/info" 화면 1</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/9a4928de-ff0b-4b52-b5e0-87f91681cc67" width="380px;" alt=""/><br /><br /><sub><b>"/info" 화면 2</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/bcd63d76-37df-40a6-b6fd-d258e1556222" width="520px;" alt=""/><br /><br /><sub><b>"/user-guidance" 일부 화면</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/069da9a9-cc1d-4ae7-aa57-76e8196719c2" width="380px;" alt=""/><br /><br /><sub><b>"/records" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/012562de-4a17-4d01-a080-2728c6658fa4" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge" 화면</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/586a77e5-6f57-423f-97be-aca3085cd09b" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge/new-challenge" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/2e3425cd-37c5-40b5-92df-85c5594dfca5" width="470px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge/ongoing-challenge" 화면</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/592f5db5-4da6-4da1-84c4-76acf02fd1b1" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/cc825871-ddab-4c41-885d-a70bd54d6023" width="470px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers" 화면 2</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/e5026cf1-5800-4f0d-acaa-cfb3460d515f" width="480px;" alt=""/><br /><br /><sub><b>"/login" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/3ee64d40-269d-4fa1-bc54-5f3939f72d73" width="470px;" alt=""/><br /><br /><sub><b>"/sign-up" 화면</b></sub></a><br /><br /></td>
      <tr/>
   </tbody>
 </table>
+
