@@ -10,5 +10,20 @@
     <h5>또한 사용자의 목표 기록들을 정리하여 가시적으로 제공합니다</h5>
   <br/>
 <h3>개발 기간</h3>
-      <h5>2023년 07월 20일 ~</h5>
+<h5>2023년 07월 20일 ~</h5>
+    <br/>
+<h3>CREW MATES</h3>
+
 </div>
+<br/>
+
+<table align="center">
+  <tbody>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/6a47d607-1f21-40dd-ac88-bfe0b7699eb9" width="400px;" alt=""/><br /><sub><b>FE 팀장 : 장수현</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d7d17baa-41ec-4057-afcb-601d98240084" width="400px;" alt=""/><br /><sub><b>FE 팀원 : 강해솔</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/1595e1b5-6dda-4864-a12b-a27dba14cf72" width="400px;" alt=""/><br /><sub><b>FE 팀원 : 김시훈</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
+<br/>
