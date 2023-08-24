@@ -37,6 +37,7 @@ const storage =
 const persistConfig = {
 	key: 'root',
 	storage,
+	whiteList: ['user'],
 };
 
 const rootReducer = combineReducers({
