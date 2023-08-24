@@ -23,9 +23,9 @@
 <table align="center">
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/6a47d607-1f21-40dd-ac88-bfe0b7699eb9" width="380px;" alt=""/><br /><sub><b>FE 팀장 : 장수현</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d7d17baa-41ec-4057-afcb-601d98240084" width="380px;" alt=""/><br /><sub><b>FE 팀원 : 강해솔</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/1595e1b5-6dda-4864-a12b-a27dba14cf72" width="380px;" alt=""/><br /><sub><b>FE 팀원 : 김시훈</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/6a47d607-1f21-40dd-ac88-bfe0b7699eb9" width="300px;" alt=""/><br /><sub><b>FE 팀장 : 장수현</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d7d17baa-41ec-4057-afcb-601d98240084" width="300px;" alt=""/><br /><sub><b>FE 팀원 : 강해솔</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/1595e1b5-6dda-4864-a12b-a27dba14cf72" width="300px;" alt=""/><br /><sub><b>FE 팀원 : 김시훈</b></sub></a><br /></td>
      <tr/>
   </tbody>
 </table>
@@ -144,7 +144,38 @@ $ npm run dev
 - 전체 데이터 요약 그래프 제공
 <br/>
 <br/>
-<h2>아키텍처</h2>
+<h2>디렉토리 구조</h2>
 <br/>
-이따 작성할게욧!
+<img width="334" alt="스크린샷 2023-08-24 20 58 53" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/f323fe77-6f65-4072-999f-fcc2265406a3">
+
+<br/>
+<br/>
+<br/>
+<h2>진행상황 및 추가내용</h2>
+<br/>
+<h3>페이지 구현</h3>
+
+- "/" 페이지 작업 완료
+- "/info" 페이지 작업 완료
+- "/user-guidance" 페이지 작업 완료
+- "/login" 페이지 작업 완료
+- "/sign-up" 페이지 작업 완료
+- "/dashboard" 페이지 작업 예정
+- "/dashboard/challengers" 페이지 작업 중
+- "/dashboard/challenge" 페이지 작업 완료
+- "/dashboard/challenge/new-challenge" 페이지 작업 중
+- "/dashboard/challenge/ongoing-challenge" 페이지 작업 중
+- "/dashboard/records" 페이지 작업 예정
+- "/dashboard/settings" 페이지 작업 예정
+  
+<br/>
+
+<h3>API 구현</h3>
+
+- /login 페이지 API 구현 완료
+- /sign-up 페이지 API 구현 완료
+- 로그인 유지 /refresh API 구현 완료
+- 게시판 관련 API 구현 완료
+- 유저 목표 기록 관련 API 구현 예정
+- 회원 정보 수정 및 삭제 API 구현 예정
 
