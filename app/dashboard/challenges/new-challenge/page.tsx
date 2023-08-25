@@ -5,9 +5,9 @@ import styles from "./new.module.scss";
 import Link from "next/link";
 import DiffBtn from './button';
 import TextBox from './textbox';
-import { textOneState, textTwoState } from "../../stateJotai";
+import { textOneState, textTwoState } from "../../../stateJotai";
 import { useAtom } from "jotai";
-import { difficultyAtom } from "../../stateJotai";
+import { difficultyAtom } from "../../../stateJotai";
 
 export default function Newchallenge() {
 
@@ -78,10 +78,10 @@ export default function Newchallenge() {
           <TextBox value={text2} onChange={setText2} />
         </div>
         <div className={styles.section5}>
-          <Link href="../challenge">
+          <Link href="../challenges">
             <button className={`${styles.btn} ${styles.exitBtn}`}>나가기</button>
           </Link>
-          <Link href="../challenge/ongoing">
+          <Link href="../challenges/ongoing-challenge">
             <button className={`${styles.btn} ${styles.startBtn}`}>시작하기</button>
           </Link>          
         </div>

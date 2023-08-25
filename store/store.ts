@@ -14,6 +14,9 @@ import {
 	REGISTER,
 } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import { encryptTransform } from 'redux-persist-transform-encrypt';
+
+const privateKey = process.env.SECRET_KEY
 
 const createNoopStorage = () => {
 	return {
@@ -37,6 +40,12 @@ const storage =
 const persistConfig = {
 	key: 'root',
 	storage,
+	// persist 암호화 설정
+	transforms:[encryptTransform({
+		secretKey: `${privateKey}`,
+		onError: (err: Error) => console.log(err)
+	})],
+	whiteList: ['user'],
 };
 
 const rootReducer = combineReducers({

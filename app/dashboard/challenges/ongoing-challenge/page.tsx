@@ -1,18 +1,16 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import styles from "./ongoing.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import stop from "../../../public/icon-stop.png";
 import arrow from "../../../public/icon-arrow.png";
-import BlueFire from './animation';
-import { useAtomValue } from 'jotai';
-import { textOneState, textTwoState } from "../../stateJotai";
-import { difficultyAtom } from "../../stateJotai";
-
+import BlueFire from "./animation";
+import { useAtomValue } from "jotai";
+import { textOneState, textTwoState } from "../../../stateJotai";
+import { difficultyAtom } from "../../../stateJotai";
 export default function Ongoing() {
-
   // DiffBtn 버튼 값 받아오기
   const difficulty = useAtomValue(difficultyAtom);
 
@@ -49,7 +47,9 @@ export default function Ongoing() {
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${minutes.toString().padStart(2, '0')}분 ${seconds.toString().padStart(2, '0')}초`;
+    return `${minutes.toString().padStart(2, "0")}분 ${seconds
+      .toString()
+      .padStart(2, "0")}초`;
   };
 
   // 타이머가 변경될 때마다 1시간3600s(임의 1분)인지 체크
@@ -101,17 +101,32 @@ export default function Ongoing() {
               현재의 진행도는 <span>{roundNum}%</span> 입니다.
             </div>
             <div className={styles.progressBar}>
-              <div 
-                className={`${styles.progressState} ${isStopped ? styles.stopped : ''}`}
-                style={{ width: `${(seconds / 60) * 100}%` }} 
+              <div
+                className={`${styles.progressState} ${
+                  isStopped ? styles.stopped : ""
+                }`}
+                style={{ width: `${(seconds / 60) * 100}%` }}
               />
             </div>
             <div className={styles.btnWrapper}>
-              <button className={difficulty === '아주 쉬움' ? styles.selected : ''}>아주 쉬움</button>
-              <button className={difficulty === '쉬움' ? styles.selected : ''}>쉬움</button>
-              <button className={difficulty === '보통' ? styles.selected : ''}>보통</button>
-              <button className={difficulty === '어려움' ? styles.selected : ''}>어려움</button>
-              <button className={difficulty === '챌린지' ? styles.selected : ''}>챌린지</button>
+              <button
+                className={difficulty === "아주 쉬움" ? styles.selected : ""}>
+                아주 쉬움
+              </button>
+              <button className={difficulty === "쉬움" ? styles.selected : ""}>
+                쉬움
+              </button>
+              <button className={difficulty === "보통" ? styles.selected : ""}>
+                보통
+              </button>
+              <button
+                className={difficulty === "어려움" ? styles.selected : ""}>
+                어려움
+              </button>
+              <button
+                className={difficulty === "챌린지" ? styles.selected : ""}>
+                챌린지
+              </button>
             </div>
           </div>
         </div>
@@ -120,20 +135,34 @@ export default function Ongoing() {
             <span>나의 다짐</span>
             <p>{text2}</p>
           </div>
-          <div className={`${styles.timerBox} ${isStopped ? styles.stopped : ''}`}>
+          <div
+            className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}>
             <span>타이머</span>
             <div className={styles.timer}>
               <div className={styles.time}>
-                {seconds === 60 ? '01분 00초' : formatTime(seconds)}
+                {seconds === 60 ? "01분 00초" : formatTime(seconds)}
               </div>
             </div>
           </div>
-          <div className={`${styles.comBox} ${isStopped ? styles.stopped : ''}`}>
-            <button onClick={stopTimer} className={`${styles.stopButton} ${isStopped ? styles.stopped : ''}`}>
-              {isStopped ? '다음으로' : '기록중지'}
-              {!isStopped && <Image src={stop} alt="stopIcon" className={styles.stopIcon} />}
-              {isStopped && <Image src={arrow} alt="arrowIcon" className={styles.arrowIcon} />} 
-            </button>            
+          <div
+            className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}>
+            <button
+              onClick={stopTimer}
+              className={`${styles.stopButton} ${
+                isStopped ? styles.stopped : ""
+              }`}>
+              {isStopped ? "다음으로" : "기록중지"}
+              {!isStopped && (
+                <Image src={stop} alt="stopIcon" className={styles.stopIcon} />
+              )}
+              {isStopped && (
+                <Image
+                  src={arrow}
+                  alt="arrowIcon"
+                  className={styles.arrowIcon}
+                />
+              )}
+            </button>
           </div>
         </div>
       </div>
