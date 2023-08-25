@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import axios from "axios";
-import { onLogout } from "../../util/onLogout";
+import { useState } from "react";
 
-const Example = () => {
+const NewPost = () => {
   const [postInfo, setPostInfo] = useState<object>({
     postTitle: "",
     postContent: "",
@@ -27,15 +26,9 @@ const Example = () => {
         console.log(err);
       });
   };
+
   return (
-    <div style={{ height: "200vh" }}>
-      <button
-        onClick={() => {
-          onLogout();
-        }}
-      >
-        로그아웃
-      </button>
+    <div>
       <input
         onChange={onChange}
         name="postTitle"
@@ -60,4 +53,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default NewPost;
