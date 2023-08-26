@@ -137,17 +137,19 @@ function LoginForm() {
             <p className={styles.kakaotitle}>KaKao</p>
           </button>
         </div>
-        <button className={styles.findBtn}>
-          <p className={styles.forgotten}>회원이 아니시라면</p>
-          <span>
-            <Image
-              className={styles.chevron}
-              src={chevron}
-              width={16}
-              alt="chevron"
-            />
-          </span>
-        </button>
+        <Link className={styles.findBtnBox} href="/sign-up">
+          <button className={styles.findBtn}>
+            <p className={styles.forgotten}>회원이 아니시라면</p>
+            <span>
+              <Image
+                className={styles.chevron}
+                src={chevron}
+                width={16}
+                alt="chevron"
+              />
+            </span>
+          </button>
+        </Link>
         <hr className={styles.liner} />
         <div className={styles.partSection}>
           <Link className={styles.terms} href="/Terms">
