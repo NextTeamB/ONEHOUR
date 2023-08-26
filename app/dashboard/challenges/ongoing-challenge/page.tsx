@@ -9,7 +9,10 @@ import BlueFire from "./animation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function Ongoing() {
+
+  const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
   const { title, description, difficulty } = useSelector(
     (state: RootState) => state.challenge
@@ -94,7 +97,8 @@ export default function Ongoing() {
         challengeStatus: status,
         challengeTime: Math.round(calculateProgress())
       })
-      .then((res) => console.log(res))
+      .then((res) => {console.log(res);
+      router.push('/dashboard/records')})
       .catch((err) => console.log(err));
     // console.log({
     //   title: title,

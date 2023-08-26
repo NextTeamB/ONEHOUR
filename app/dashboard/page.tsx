@@ -3,17 +3,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { onLogout } from "../../util/onLogout";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 
 const Example = () => {
   const [postInfo, setPostInfo] = useState<object>({
     postTitle: "",
     postContent: "",
   });
-  // redux store에서 값 가져오는 코드
-  // const userNickname = useSelector((state: RootState) => state.user.nickname);
-  // const accessToken = useSelector((state: RootState) => state.user.accessToken);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Input 필드의 값이 변경되면 실행될 onChange 함수
     const newPostInfo = {
