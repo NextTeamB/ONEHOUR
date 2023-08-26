@@ -2,22 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "./ongoing.module.scss";
-import Link from "next/link";
 import Image from "next/image";
-import stop from "../../../public/icon-stop.png";
-import arrow from "../../../public/icon-arrow.png";
+import stop from "@/public/icon-stop.png";
+import arrow from "@/public/icon-arrow.png";
 import BlueFire from "./animation";
-import { useAtomValue } from "jotai";
-import { textOneState, textTwoState } from "../../../stateJotai";
-import { difficultyAtom } from "../../../stateJotai";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function Ongoing() {
-  // DiffBtn 버튼 값 받아오기
-  const difficulty = useAtomValue(difficultyAtom);
 
-  // difficulty 값 확인
-  // useEffect(() => {
-  //   console.log('Difficulty:', difficulty);
-  // }, [difficulty]);
+  const router = useRouter();
+  // 챌린지 제목, 다짐, 난이도 받아오기
+  const { title, description, difficulty } = useSelector(
+    (state: RootState) => state.challenge
+  );
 
   /*--- Timer ---*/
   const [seconds, setSeconds] = useState(0);
@@ -74,16 +73,41 @@ export default function Ongoing() {
   }, [isRunning]);
   /*--- Timer ---*/
 
-  // Textbox 상태공유
-  const text1 = useAtomValue(textOneState);
-  const text2 = useAtomValue(textTwoState);
-
   // 진행도를 계산하는 함수
   const calculateProgress = () => {
     return (seconds / 60) * 100; // 현재 시간을 분으로 나누고 100을 곱하여 퍼센트로 계산
   };
 
   const roundNum = Math.round(calculateProgress() * 100) / 100;
+  const postChallenge = () => {
+    let status = "";
+    if (calculateProgress() <= 30) {
+      status = "failed";
+      console.log(calculateProgress());
+    } else if (calculateProgress() <= 60) {
+      status = "perform";
+    } else {
+      status = "succeed";
+    }
+    axios
+      .post("/api/records", {
+        title: title,
+        description: description,
+        difficulty: difficulty,
+        challengeStatus: status,
+        challengeTime: Math.round(calculateProgress())
+      })
+      .then((res) => {console.log(res);
+      router.push('/dashboard/records')})
+      .catch((err) => console.log(err));
+    // console.log({
+    //   title: title,
+    //   description: description,
+    //   difficulty: difficulty,
+    //   challengeStatus: status,
+    //   challengeTime: Math.round(calculateProgress())
+    // });
+  };
 
   return (
     <>
@@ -94,7 +118,7 @@ export default function Ongoing() {
           </div>
           <BlueFire />
           <div className={styles.content}>
-            <p>{text1}</p>
+            <p>{title}</p>
           </div>
           <div className={styles.progress}>
             <div className={styles.curProgress}>
@@ -109,22 +133,19 @@ export default function Ongoing() {
               />
             </div>
             <div className={styles.btnWrapper}>
-              <button
-                className={difficulty === "아주 쉬움" ? styles.selected : ""}>
+              <button className={difficulty === 1 ? styles.selected : ""}>
                 아주 쉬움
               </button>
-              <button className={difficulty === "쉬움" ? styles.selected : ""}>
+              <button className={difficulty === 2 ? styles.selected : ""}>
                 쉬움
               </button>
-              <button className={difficulty === "보통" ? styles.selected : ""}>
+              <button className={difficulty === 3 ? styles.selected : ""}>
                 보통
               </button>
-              <button
-                className={difficulty === "어려움" ? styles.selected : ""}>
+              <button className={difficulty === 4 ? styles.selected : ""}>
                 어려움
               </button>
-              <button
-                className={difficulty === "챌린지" ? styles.selected : ""}>
+              <button className={difficulty === 5 ? styles.selected : ""}>
                 챌린지
               </button>
             </div>
@@ -133,7 +154,7 @@ export default function Ongoing() {
         <div className={styles.board2}>
           <div className={styles.mindBox}>
             <span>나의 다짐</span>
-            <p>{text2}</p>
+            <p>{description}</p>
           </div>
           <div
             className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}>
@@ -147,7 +168,10 @@ export default function Ongoing() {
           <div
             className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}>
             <button
-              onClick={stopTimer}
+              onClick={() => {
+                stopTimer();
+                postChallenge();
+              }}
               className={`${styles.stopButton} ${
                 isStopped ? styles.stopped : ""
               }`}>

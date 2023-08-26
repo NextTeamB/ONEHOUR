@@ -32,27 +32,23 @@ const Example = () => {
       <button
         onClick={() => {
           onLogout();
-        }}
-      >
+        }}>
         로그아웃
       </button>
       <input
         onChange={onChange}
         name="postTitle"
         type="text"
-        placeholder="제목을 입력"
-      ></input>
+        placeholder="제목을 입력"></input>
       <input
         onChange={onChange}
         type="text"
         name="postContent"
-        placeholder="본문을 입력"
-      ></input>
+        placeholder="본문을 입력"></input>
       <button
         onClick={() => {
           sendPost();
-        }}
-      >
+        }}>
         작성하기
       </button>
       <button>취소하기</button>

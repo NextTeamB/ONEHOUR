@@ -3,6 +3,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import userReducer from '../slices/userSlice';
+import challengeReducer from '../slices/challengeSlice';
 import {
 	persistReducer,
 	persistStore,
@@ -45,11 +46,12 @@ const persistConfig = {
 		secretKey: `${privateKey}`,
 		onError: (err: Error) => console.log(err)
 	})],
-	whiteList: ['user'],
+	whiteList: ['user','challenge'],
 };
 
 const rootReducer = combineReducers({
 	user: userReducer,
+	challenge: challengeReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
