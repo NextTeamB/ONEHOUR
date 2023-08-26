@@ -1,31 +1,48 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import styles from "./new.module.scss";
 import Link from "next/link";
-import DiffBtn from './button';
-import TextBox from './textbox';
-import { textOneState, textTwoState } from "../../../stateJotai";
-import { useAtom } from "jotai";
-import { difficultyAtom } from "../../../stateJotai";
-
+import DiffBtn from "./button";
+import TextBox from "./textbox";
+import { useDispatch } from "react-redux";
+import { challenge, challengeState } from "@/slices/challengeSlice";
+import { useRouter } from "next/navigation";
 export default function Newchallenge() {
+  // TextBox
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [difficulty, setDifficulty] = useState(0); // 난이도 데이터를 저장할 state
 
   // DiffBtn
-  const [difficulty, setDifficulty] = useAtom(difficultyAtom); // 난이도 데이터를 저장할 state
-
-  const handleDiffButtonClick = (label: string) => {
-    setDifficulty(prevDifficulty => prevDifficulty === label ? '' : label); // jotai atom 업데이트
+  const handleDiffButtonClick = (difficulty: number) => {
+    setDifficulty(difficulty); // difficulty 업데이트
   };
+  console.log();
+  const onSubmit = () => {
+    // 시작하기 버튼이 클릭되면 실행될 onSubmit 함수
+    dispatch(
+      challenge({
+        title: title,
+        description: description,
+        difficulty: difficulty,
+      })
+    );
+    router.push("/dashboard");
+  };
+  useEffect(() => {
+    console.log(difficulty);
+  }, [difficulty]);
 
-  const btnArr = ["아주 쉬움", "쉬움", "보통", "어려움", "챌린지"];
-
-  // TextBox
-  const [text1, setText1] = useAtom(textOneState);
-  const [text2, setText2] = useAtom(textTwoState);
-
-  
-
+  const btnArr = [
+    { label: "아주 쉬움", difficulty: 1 },
+    { label: "쉬움", difficulty: 2 },
+    { label: "보통", difficulty: 3 },
+    { label: "어려움", difficulty: 4 },
+    { label: "챌린지", difficulty: 5 },
+  ];
   return (
     <>
       <div className={styles.root}>
@@ -45,9 +62,9 @@ export default function Newchallenge() {
             <span>*필수</span>
           </div>
           <div className={styles.article_sub}>
-            <p>(  최대 60자 이내, 특수기호 및 공백문자 사용 가능  )</p>
+            <p>( 최대 60자 이내, 특수기호 및 공백문자 사용 가능 )</p>
           </div>
-          <TextBox value={text1} onChange={setText1} />
+          <TextBox value={title} onChange={setTitle} />
         </div>
         <div className={styles.section3}>
           <div className={styles.article}>
@@ -56,15 +73,15 @@ export default function Newchallenge() {
             <span>*필수</span>
           </div>
           <div className={styles.article_sub}>
-            <p>(  사용자께서 체감하시는 난이도를 설정해주시는 것이 좋습니다  )</p>
+            <p>( 사용자께서 체감하시는 난이도를 설정해주시는 것이 좋습니다 )</p>
           </div>
           <div className={styles.btnWrapper}>
-            {btnArr.map((content) => (
+            {btnArr.map((content, i) => (
               <DiffBtn
-                key={content}
-                label={content}
-                isClicked={difficulty === content}
-                onClick={() => handleDiffButtonClick(content)}
+                key={i}
+                label={content.label}
+                isClicked={difficulty === content.difficulty}
+                onClick={() => handleDiffButtonClick(i + 1)}
               />
             ))}
           </div>
@@ -75,17 +92,25 @@ export default function Newchallenge() {
             <span>선택</span>
           </div>
           <p></p>
-          <TextBox value={text2} onChange={setText2} />
+          <TextBox value={description} onChange={setDescription} />
         </div>
         <div className={styles.section5}>
-          <Link href="../challenges">
-            <button className={`${styles.btn} ${styles.exitBtn}`}>나가기</button>
+          <Link href="/dashboard/challenges">
+            <button className={`${styles.btn} ${styles.exitBtn}`}>
+              나가기
+            </button>
           </Link>
-          <Link href="../challenges/ongoing-challenge">
-            <button className={`${styles.btn} ${styles.startBtn}`}>시작하기</button>
-          </Link>          
+          <Link
+            onClick={() => {
+              onSubmit();
+            }}
+            href="/dashboard/challenges/ongoing-challenge">
+            <button className={`${styles.btn} ${styles.startBtn}`}>
+              시작하기
+            </button>
+          </Link>
         </div>
       </div>
     </>
-  )
+  );
 }
