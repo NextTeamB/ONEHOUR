@@ -209,6 +209,11 @@
   margin: 0 auto;
 }
 
+.findBtnBox {
+  display: flex;
+  justify-content: center;
+}
+
 .findBtn {
   background-color: transparent;
   border: none;
