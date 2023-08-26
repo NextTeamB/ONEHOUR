@@ -1,11 +1,49 @@
 .mainSection {
-  background-color: whitesmoke;
-  /* padding-top: 40px; */
+  background-color: #F8FCFF;
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.mainSection > h1 {
-  position: absolute;
-  top: 200px;
-  left: 800px;
-  font-size: 66px;
+.logoWrapper {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoTitle {
+  width: 100%;
+  height: auto;
+}
+.subTitle {
+  color: #6AB5FF;
+  font-size: 23px;
+  font-weight: 600;
+}
+.startBtn {
+  width: 154px;
+  height: 58px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  border: none;
+  background-color: #0B4F9F;
+  /* box-shadow: 2px 3px 4px #00000029; */
+  border-radius: 10px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #383838;
 }
