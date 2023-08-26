@@ -55,8 +55,9 @@ $blue: #6ab5ff;
 		align-items: center;
 		color: $blue;
 		height: 90px;
-		span {
+		img, span {
 			font-size: $base + 4;
+			cursor: pointer;
 		}
 	}
 

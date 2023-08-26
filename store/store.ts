@@ -3,6 +3,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import userReducer from '../slices/userSlice';
+import challengeReducer from '../slices/challengeSlice';
 import {
 	persistReducer,
 	persistStore,
@@ -14,6 +15,9 @@ import {
 	REGISTER,
 } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import { encryptTransform } from 'redux-persist-transform-encrypt';
+
+const privateKey = process.env.SECRET_KEY
 
 const createNoopStorage = () => {
 	return {
@@ -37,10 +41,17 @@ const storage =
 const persistConfig = {
 	key: 'root',
 	storage,
+	// persist 암호화 설정
+	transforms:[encryptTransform({
+		secretKey: `${privateKey}`,
+		onError: (err: Error) => console.log(err)
+	})],
+	whiteList: ['user','challenge'],
 };
 
 const rootReducer = combineReducers({
 	user: userReducer,
+	challenge: challengeReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

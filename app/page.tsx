@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers, increment } from "@/slices/userSlice";
+import { login } from "@/slices/userSlice";
 import styles from "./page.module.css";
-import { AppDispatch, RootState } from "@/store/store";
-import { LoginButton } from "@/components/loginButton";
-import axios from "axios";
-import { use } from "react";
+import { RootState, persistor } from "@/store/store";
+import { useRouter } from "next/navigation";
 
 interface LayoutProps {
   Component: any;
@@ -16,22 +14,14 @@ interface LayoutProps {
 }
 
 export default function Home({ Component, pageProps, store }: LayoutProps) {
-  const userRef = useRef(false);
-  const { entities, value } = useSelector((state: RootState) => state.user);
-  const dispatch = useDispatch<AppDispatch>();
-  // const userData = use(getData());
-
-  console.log(entities);
+  const nickname = useSelector((state: RootState) => state.user?.nickname);
+  const auth = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
-    if (userRef.current === false) {
-      dispatch(fetchUsers());
-      console.log(getData2());
-    }
-    return () => {
-      userRef.current = true;
-    };
-  }, []);
+    console.log(auth);
+  }, [auth]);
 
   return (
     <div className={styles.mainSection}>
@@ -39,64 +29,28 @@ export default function Home({ Component, pageProps, store }: LayoutProps) {
       <h3>처음 화면의 서브텍스트</h3>
       <button
         onClick={() => {
-          dispatch(increment());
-        }}
-      >
-        증가버튼
+          dispatch(
+            login({
+              name: "수현",
+              email: "suhyun@naver.com",
+              nickname: "밀키",
+            })
+          );
+        }}>
+        {nickname ? nickname : "로그인"}
       </button>
       <button
         onClick={() => {
-          postData();
-        }}
-      >
-        POST 요청
+          persistor.purge();
+        }}>
+        로그아웃
       </button>
-      {value}
-      <LoginButton />
+      <button
+        onClick={() => {
+          router.push("/login");
+        }}>
+        로그인 페이지
+      </button>
     </div>
   );
-}
-
-interface userData {
-  id: number;
-  name: string;
-  nickname: string;
-  phonenumber: string;
-  agreement: boolean;
-}
-
-interface Props {
-  userGetData: userData[];
-}
-
-export async function getData() {
-  const response = await axios.get<userData>(
-    "http://localhost:3000/api/getData"
-  );
-  const data = response.data;
-  return data;
-}
-
-const getData2 = () => {
-  axios
-    .get<userData>(`http://localhost:3000/api/getData`)
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
-};
-
-const postingData = {
-  id: 5,
-  name: "정준하",
-  nickname: "도토아빠",
-  phonenumber: "01022990003",
-  agreement: true,
-};
-
-export async function postData() {
-  const response = await axios.post<userData>(
-    "http://localhost:3000/api/getData",
-    { ...postingData }
-  );
-  const data = response.data;
-  console.log(data);
 }

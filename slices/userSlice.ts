@@ -1,35 +1,42 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { PURGE } from "redux-persist";
 
-export const fetchUsers = createAsyncThunk(
-  "users/getAllUsers",
-  async (thunkApi) => {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/6"
-    );
-    const data = await response.json();
-    return data;
-  }
-);
-
-const initialState = {
-  entities: [],
-  value: 10,
-} as any;
+export interface userState {
+  nickname: string | null;
+  email: string | null;
+  name: string | null;
+  accessToken: string | null;
+}
+// state 초기값 설정
+const initialState: userState = {
+  nickname: "",
+  email: "",
+  name: "",
+  accessToken: "",
+};
 
 const userSlice = createSlice({
-  name: "users",
+  name: "user",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value++;
+    // 로그인 리듀서 - payload 객체에서 이메일과 이름, 닉네임을 받아 저장
+    login: (state, action) => {
+      state.email = action.payload.email;
+      state.name = action.payload.name;
+      state.nickname = action.payload.nickname;
+    },
+    // 토큰 리듀서 - payload로 액세스 토큰을 넘겨받아 저장. silentRefresh를 위해 토큰 리듀서를 분리함 
+    getToken: (state, action) => {
+      state.accessToken = action.payload;
     },
   },
+  // 로그아웃 시 유저정보를 삭제하기 위해 store를 purge하는 작업. 공식문서에 따라 extraReducers를 사용해 적용함
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      state.entities.push(action.payload);
+    builder.addCase(PURGE, () => {
+      return initialState;
     });
   },
 });
 
-export const { increment } = userSlice.actions;
+export const { login, getToken } = userSlice.actions;
 export default userSlice.reducer;

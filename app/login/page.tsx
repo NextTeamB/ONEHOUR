@@ -8,12 +8,10 @@ import kakao from "../../public/kakaotalk_logo_icon_147272.png";
 import chevron from "../../public/icons8-셰브론-오른쪽-52.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { onLogin } from "../../util/onLogin";
+import { useDispatch } from "react-redux";
 
-export default function Login(defaultValue: string) {
-  const [value, setValue] = useState(defaultValue);
-
+export default function Login() {
   return (
     <>
       <LoginForm />
@@ -27,6 +25,7 @@ function LoginForm() {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isActivePw, setIsActivePw] = useState<boolean>(false);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const isPassedLogin = () => {
     return email.includes("@") && email.length > 5 && email.includes(".")
@@ -53,9 +52,9 @@ function LoginForm() {
       email: email,
       password: password,
     };
-    onLogin(requestBody);
-    router.push("/dashboard");
+    onLogin(requestBody, dispatch);
 
+    router.push("/dashboard");
   };
 
   return (
@@ -88,13 +87,11 @@ function LoginForm() {
           onKeyUp={isPassedLogin}
           type="email"
           required
-          placeholder="이메일을 입력해주세요"
-        ></input>
+          placeholder="이메일을 입력해주세요"></input>
         <p
           className={
             isActive || email === "" ? styles.nowarning : styles.warning
-          }
-        >
+          }>
           올바른 이메일을 입력해주세요
         </p>
         <p className={styles.formTitle}>비밀번호</p>
@@ -108,13 +105,11 @@ function LoginForm() {
           onKeyUp={isCorrectPassword}
           type="password"
           required
-          placeholder="비밀번호를 입력해주세요"
-        ></input>
+          placeholder="비밀번호를 입력해주세요"></input>
         <p
           className={
             isActivePw || password === "" ? styles.nowarning : styles.warning
-          }
-        >
+          }>
           올바른 비밀번호를 입력해주세요
         </p>
         <button
@@ -126,8 +121,7 @@ function LoginForm() {
               : styles.unactiveBtn
           }
           disabled={email === "" && password === "" ? true : false}
-          onClick={(e) => login(e)}
-        >
+          onClick={(e) => login(e)}>
           이메일로 계속하기
         </button>
         <p className={styles.subTitle2}>또는</p>
