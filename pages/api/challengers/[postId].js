@@ -15,9 +15,6 @@ export default async function handler(req, res) {
       // 1. 헤더에 있는 엑세스토큰을 디코드하여 현재 로그인 중인 유저 ID를 얻음
       let atHeader = req.headers["authorization"];
       let acToken = atHeader.substr(7);
-
-      //   let acToken =
-      //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTBkMmIwNGM5NGE2OWFjZjZkNmZjZiIsImlhdCI6MTY5MjcwMzUwMiwiZXhwIjoxNjkyNzA3MTAyfQ.3JpvObiA6N5gMudTmZ74MvtiAHUvJ-TsrUBwSmFRVTs";
       let decoding = JSON.stringify(jwt.decode(acToken).id);
       let decodeId = JSON.parse(decoding);
 

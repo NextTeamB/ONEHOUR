@@ -18,12 +18,14 @@ export default async function handler(req, res) {
     // DB 상에 요청한 이메일이 있는지 확인
     // DB상에 등록되어 있는 이메일이라면 jwt 토큰 생성
     // let user = await result.findOne({ email });
-    if (result.email === email) {
+
+    if (result.email === email && result.password === password) {
       // json web token 으로 변환할 데이터 정보
+      const SECRET_KEY = process.env.SECRET_KEY;
       const payload = { id: result._id };
+
       // json web token 생성하여 send 해주기
       // [1번] -> Access Token
-      const SECRET_KEY = process.env.SECRET_KEY;
       jwt.sign(
         payload, // 변환할 데이터
         SECRET_KEY, // secret key 값

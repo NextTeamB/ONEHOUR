@@ -58,6 +58,7 @@ export default async function handler(req, res) {
     let newChallenge = {
       email: userCheck.email,
       challengeStatus: challengeStatus,
+      challengeTime: Number,
       title: title,
       description: description,
       difficulty: difficulty,

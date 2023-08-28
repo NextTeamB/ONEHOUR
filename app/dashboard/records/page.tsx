@@ -6,6 +6,7 @@ import axios from "axios";
 
 export interface userRecord {
   title: string;
+  challengeTime: number;
   date: string;
   challengeStatus: string;
   description: string;
