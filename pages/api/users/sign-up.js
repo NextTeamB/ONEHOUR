@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         jwt.sign(
           payload, // 변환할 데이터
           SECRET_KEY, // secret key 값
-          { expiresIn: "14d" }, // token의 유효시간
+          { expiresIn: "60s" }, // token의 유효시간
           async (err, token) => {
             if (err) throw err;
             await db.collection("userAccount").updateOne(
