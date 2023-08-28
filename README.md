@@ -169,13 +169,13 @@ $ npm run dev
 - "/user-guidance" 페이지 작업 완료
 - "/login" 페이지 작업 완료
 - "/sign-up" 페이지 작업 완료
-- "/dashboard" 페이지 작업 예정
-- "/dashboard/challengers" 페이지 작업 중
-- "/dashboard/challenge" 페이지 작업 중
-- "/dashboard/challenge/new-challenge" 페이지 작업 중
-- "/dashboard/challenge/ongoing-challenge" 페이지 작업 중
+- "/dashboard" 페이지 작업 완료 (디렉토리 수정 예정)
+- "/dashboard/challengers" 페이지 작업중
+- "/dashboard/challenge" 페이지 작업 완료
+- "/dashboard/challenge/new-challenge" 페이지 작업 완료
+- "/dashboard/challenge/ongoing-challenge" 페이지 작업 완료
 - "/dashboard/records" 페이지 작업 중
-- "/dashboard/settings" 페이지 작업 예정
+- "/dashboard/settings" 페이지 작업 완료
   
 <br/>
 
