@@ -4,6 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import styles from "./signUp.module.scss";
+import { useRouter } from "next/navigation";
 
 // export interface checkItems {
 //   checked: any;
@@ -13,6 +14,7 @@ import styles from "./signUp.module.scss";
 type items = { id: number; checked: boolean };
 
 export default function SignUp() {
+  const router = useRouter();
   //이름, 이메일, 비밀번호, 비밀번호 확인
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>("");
@@ -34,17 +36,18 @@ export default function SignUp() {
   const [isPassword, setIsPassword] = useState<boolean>(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState<boolean>(false);
 
-  const [userInfo, setUserInfo] = useState<object>({
-    email: "",
-    name: "",
-    nickname: "",
-    password: "",
-  });
   const signUp = () => {
+    const userInfo = {
+      email: email,
+      nickname: nickname,
+      password: passwordConfirm,
+      name: name,
+    };
     axios
       .post("/api/users/sign-up", userInfo)
       .then((res) => {
         console.log(res);
+        router.push('/login')
       })
       .catch((err) => {
         console.log(err);
