@@ -40,7 +40,7 @@ function Example({ value, id }) {
         cutoutPercentage: 70,
       },
     });
-  }, []);
+  }, [value]);
 
   return (
     <>

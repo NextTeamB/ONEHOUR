@@ -16,6 +16,26 @@
   src: url("../../../public/Arimo-Medium.ttf");
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
 $base: 16px;
 $color: #383838;
 $blue: #6ab5ff;
@@ -176,6 +196,7 @@ $blue: #6ab5ff;
   display: none;
 }
 .editPassword1 {
+  animation: fadeIn ease-in-out 1s;
   position: absolute;
   box-shadow: 2px 4px 12px #cacaca;
   position: absolute;
@@ -235,6 +256,7 @@ $blue: #6ab5ff;
   display: none;
 }
 .editAlias1 {
+  animation: fadeIn ease-in-out 1s;
   box-shadow: 2px 4px 12px #cacaca;
   position: absolute;
   top: 26%;
@@ -294,6 +316,7 @@ $blue: #6ab5ff;
   display: none;
 }
 .withdrawal1 {
+  animation: fadeIn ease-in-out 1s;
   position: absolute;
   box-shadow: 2px 4px 12px #cacaca;
   position: absolute;
@@ -339,6 +362,7 @@ $blue: #6ab5ff;
 }
 
 .modalBG1 {
+  animation: fadeIn2 ease-in-out 1s;
   z-index: 1;
   width: 1616px;
   height: 1010px;

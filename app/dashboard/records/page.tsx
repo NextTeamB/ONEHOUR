@@ -46,7 +46,7 @@ export default function Records() {
   };
   let [userChallenges, setUserChallenges] = useState<userRecord[]>([]);
   let [curIndex, setCurIndex] = useState(0);
-  let [chartProps, setChartProps] = useState<chartState>(initialChartState);
+  let [chartProps, setChartProps] = useState(initialChartState);
   const userInfo = useSelector((state: RootState) => state.user);
   const chartInfo = useSelector((state: RootState) => state.chart);
   const dispatch = useDispatch();
@@ -130,6 +130,18 @@ export default function Records() {
     }
   };
 
+  const diffReturn = () => {
+    if (chartProps.diffAvrg >= 0 && chartProps.diffAvrg < 25) {
+      return <h3>유망주</h3>;
+    } else if (chartProps.diffAvrg > 25 && chartProps.diffAvrg < 50) {
+      return <h3>에이스</h3>;
+    } else if (chartProps.diffAvrg > 50 && chartProps.diffAvrg < 75) {
+      return <h3>챌린저</h3>;
+    } else if (chartProps.diffAvrg > 75 && chartProps.diffAvrg <= 100) {
+      return <h3>챔피언</h3>;
+    }
+  };
+
   return (
     <div className={styles.ground}>
       <div className={styles.titleSec}>
@@ -137,54 +149,86 @@ export default function Records() {
         <p>{userInfo.name}님의 최근 원아워 레코즈를 정리해드릴게요</p>
       </div>
       <div className={styles.listUpper}>
-        <button
-          onClick={() => {
-            setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
-            // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
-            if (curIndex <= 0) setCurIndex(0);
-          }}>
-          왼쪽버튼
-        </button>
-        {userChallenges
-          .slice(curIndex, curIndex + 3)
-          .map((challengeItem, i) => {
-            // a -> challengeItem으로 변경해 알아보기 쉽게 했어요
-            return (
-              <div key={i}>
-                <div className={styles.recordsBox} key={`records${i}`}>
-                  {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
-                  {cardImg(challengeItem)}
-                  <h4 className={styles.cardTitle}>{challengeItem.title}</h4>
-                  <p className={styles.cardDesc}>{challengeItem.description}</p>
-                  <p className={styles.cardDate}>{challengeItem.date}</p>
-                  <p>{challengeItem.challengeStatus}</p>
-                  <p>{challengeItem.challengeTime}</p>
-                </div>
-              </div>
-            );
-          })}
-        <button
-          onClick={() => {
-            setCurIndex((curIndex) => curIndex + 1); // 오른쪽 버튼 클릭 시 지금보다 인덱스가 커져야 함
-            if (curIndex >= userChallenges.length - 3) {
-              // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
-              setCurIndex(userChallenges.length - 3);
-            }
-          }}>
-          오른쪽버튼
-        </button>
+        {userChallenges ? (
+          <>
+            <Image
+              src={curIndex <= 0 ? gal : bal}
+              alt="arrow"
+              height={50}
+              onClick={() => {
+                setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
+                // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
+                if (curIndex <= 0) setCurIndex(0);
+              }}
+            />
+            {userChallenges
+              .slice(curIndex, curIndex + 3)
+              .map((challengeItem, i) => {
+                // a -> challengeItem으로 변경해 알아보기 쉽게 했어요
+                return (
+                  <div key={i}>
+                    <div className={styles.recordsBox} key={`records${i}`}>
+                      {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
+                      {cardImg(challengeItem)}
+                      <h4 className={styles.cardTitle}>
+                        {challengeItem.title}
+                      </h4>
+                      <p className={styles.cardDesc}>
+                        {challengeItem.description}
+                      </p>
+                      <p className={styles.cardDate}>{challengeItem.date}</p>
+                      <p>{challengeItem.challengeStatus}</p>
+                      <p>{challengeItem.challengeTime}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            <Image
+              src={curIndex >= userChallenges.length - 3 ? gar : bar}
+              alt="arrow"
+              height={50}
+              onClick={() => {
+                setCurIndex((curIndex) => curIndex + 1); // 오른쪽 버튼 클릭 시 지금보다 인덱스가 커져야 함
+                if (curIndex >= userChallenges.length - 3) {
+                  // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
+                  setCurIndex(userChallenges.length - 3);
+                }
+              }}
+            />
+          </>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className={styles.titleSec2}>
+        <h3>#불타는 열정</h3>
+        <p>홍당무님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
       </div>
       <div className={styles.chartUpper}>
         <div className={styles.donutSec}>
+          <h4>시간 계획</h4>
+          <h2 className={styles.timeAvrg}>
+            {Math.round(chartProps.timeAvrg)}%
+          </h2>
           <Doughnut value={chartInfo.challengeTimeAvg} id={"timeAvrgChart"} />
+          <p>전체 집계 대비 수행시간 정보</p>
         </div>
         <div className={styles.donutSec}>
+          <h4>도전 난이도</h4>
+          {diffReturn()}
           <Doughnut value={chartInfo.difficultAvg} id={"diffAvrgChart"} />
+          <p>평균 도전 난이도 정보</p>
         </div>
         <div className={styles.donutSec}>
+          <h4>목표 달성도</h4>
+          <h2 className={styles.succeedCnt}>
+            {Math.round(chartProps.succeedCount)}%
+          </h2>
           <Doughnut value={chartInfo.succeedCount} id={"succeedRatioChart"} />
+          <p>전체 집계 대비 90% 이상 달성 건</p>
         </div>
       </div>
+      <div className={styles.footer}></div>
     </div>
   );
 }
