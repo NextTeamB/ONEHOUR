@@ -161,6 +161,7 @@ export default function Records() {
                 // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
                 if (curIndex <= 0) setCurIndex(0);
               }}
+              style={{cursor: "pointer"}}
             />
             {userChallenges
               .slice(curIndex, curIndex + 3)
@@ -203,6 +204,7 @@ export default function Records() {
                   setCurIndex(userChallenges.length - 3);
                 }
               }}
+              style={{cursor: "pointer"}}
             />
           </>
         ) : (

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./ongoing.module.scss";
+import styles from "./ongoing-challenge.module.scss";
 import Image from "next/image";
 import stop from "@/public/icon-stop.png";
 import arrow from "@/public/icon-arrow.png";
