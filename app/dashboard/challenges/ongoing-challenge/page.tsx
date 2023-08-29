@@ -100,13 +100,6 @@ export default function Ongoing() {
       .then((res) => {console.log(res);
       router.push('/dashboard/records')})
       .catch((err) => console.log(err));
-    // console.log({
-    //   title: title,
-    //   description: description,
-    //   difficulty: difficulty,
-    //   challengeStatus: status,
-    //   challengeTime: Math.round(calculateProgress())
-    // });
   };
 
   return (

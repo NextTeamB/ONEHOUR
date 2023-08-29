@@ -11,7 +11,6 @@ export function onLogin(requestBody, dispatch) {
       .update(requestBody.password)
       .digest("hex"),
   };
-  console.log(newRequestBody.password);
   axios
     .post("/api/auth/login", newRequestBody)
     .then((res) => {
@@ -33,7 +32,6 @@ const onSilentRefresh = async () => {
       axios.defaults.headers.common["authorization"] =
         res.headers.authorization;
       setTimeout(onSilentRefresh, JWT_EXPIRE_TIME - 10000); // JWT가 만료되기 10초 전에 accessToken을 재발급
-      console.log(res);
     })
     .catch((err) => {
       console.log(err);

@@ -34,9 +34,6 @@ const Navigator = (props: { children: ReactNode }) => {
 	useEffect(() => {
 		reissueToken(accessToken); // 내비게이터에서 토큰 재발급 실행
 	}, []);
-	useEffect(() => {
-		console.log(router);
-	}, []);
 
 	interface menuProvider {
 		name: string;
