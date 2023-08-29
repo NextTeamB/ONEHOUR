@@ -127,7 +127,7 @@ export default function info() {
             프로세스에 맞추어 진행하시면 어렵지 않으실거에요
             <br /> 아래 버튼을 눌러 시작하세요!
           </p>
-          <Link href="../Login">
+          <Link href="../login">
             <div className={styles.Btnbox2}>
               <button className={styles.startBtn}>START</button>
             </div>
