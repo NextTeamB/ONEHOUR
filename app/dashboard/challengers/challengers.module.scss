@@ -1,46 +1,259 @@
-.postBox {
-  width: 300px;
-  height: 200px;
-  margin: 20px 40px;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 2px 4px 12px #cecece;
-}
+$blue: #6AB5FF;
+$navy: #0B4F9F;
+$grey1: #383838;
+$grey2: #989898;
+$grey3: #E1E2E3;
 
 .upper {
   width: 80%;
   min-height: 600px;
   margin: 80px auto;
-}
-
-.postTitle {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  display: block;
-  margin: 10px auto;
-  text-align: center;
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: $grey1;
+
+  .title {
+    color: $blue;
+    font-size: 35px;
+    font-weight: 600;
+  }
+
+  .title_sub {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: $grey1;
+    margin: 36px auto;
+  }
 }
 
-.postDate {
-  display: block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 10px auto;
-  text-align: center;
+.newpostBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 160px;
+  font-size: 74px;
+  font-weight: 700;
+  color: #EAEAEA;
+  border: none;
+  background-color: #EAEAEA;
+  border-radius: 20px;
+  cursor: pointer;
+
+  .plusWrap {
+    width: 66px;
+    height: 66px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+  }
+
+  .newpostText {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
 }
 
-.modal0 {
-  display: none;
+.postWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개의 열을 생성 */
+  grid-row-gap: 60px; /* 행 사이의 간격 설정 */
+  grid-column-gap: 40px; /* 열 사이의 간격 */
+  margin-top: 60px;
+
+  .postBox {
+    width: 300px;
+    height: 260px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 2px 4px 12px #cecece;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+
+    .postUser {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+
+      .userIcon {
+        width: 42px;
+        height: auto;
+        border-radius: 80px;
+        box-shadow: 2px 3px 6px #cecece;
+        margin-right: 12px;
+      }
+
+      .nickWrap {
+        color: $grey1;
+        font-weight: 600;
+        font-size: 18px;
+        :nth-child(2) {
+          margin-left: 4px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .postContainer {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+
+      .postTitle {
+        display: block;
+        margin: 0px;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .postDate {
+        display: block;
+        margin: 0px;
+        text-align: center;
+        color: $grey2;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .postContent {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+
+        span {
+          display: inline-block;
+          max-height: 3.6em;
+          line-height: 1.8em;
+          vertical-align: top;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+        }
+      }
+    }    
+  }
 }
 
-.modal1 {
-  display: inline-block;
-  width: 600px;
-  height: 300px;
-  background-color: #cecece;
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .modal0 {
+    display: none;
+  }
+
+  .modal1 {
+    width: 620px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    
+    h3 {
+      font-size: 22px;
+      margin-top: 60px;
+    }
+    p {
+      width: 90%;
+      font-size: 18px;
+      font-weight: 600;
+      color: $grey2;
+      line-height: 26px;
+    }
+
+    .postBottom {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .userWrap{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        .userIcon {
+          width: 48px;
+          height: auto;
+          border-radius: 80px;
+          box-shadow: 2px 3px 6px #cecece;
+        }
+        .nickWrap {
+          color: $grey1;
+          font-weight: 600;
+          font-size: 20px;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          :nth-child(2) {
+            margin-left: 4px;
+            margin-bottom: 1px;
+            font-size: 14px;
+          }
+        }
+        .postDate {
+          padding-top: 6px;
+          font-size: 14px;
+        }
+      }
+
+      .btnWrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        button {
+          width: 100px;
+          height: 46px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 600;
+          color: white;
+          border: none;
+          border-radius: 80px;
+          background-color: $blue;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+        :nth-child(2) {
+          background-color: #DE5F5F;
+        }
+      }
+    }
+  }
 }

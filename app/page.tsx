@@ -33,16 +33,25 @@ export default function Home({ Component, pageProps, store }: LayoutProps) {
           착실하게 하루에 한 시간! 원아워에서 생활루틴 실천하기
         </p>
       </div>
-      <button
-        onClick={() => {
-          router.push("/login");
-        }}
-        className={styles.startBtn}
-      >
-        시작하기
-      </button>
+      <div className={styles.buttonWrapper}>
+        <button
+          onClick={() => {
+            router.push("/info");
+          }}
+          className={styles.introBtn}
+        >
+          서비스 소개
+        </button>
+        <button
+          onClick={() => {
+            router.push("/login");
+          }}
+          className={styles.startBtn}
+        >
+          로그인
+        </button>
+      </div>
       <div className={styles.footer}>
-        <span>서비스 소개</span>
         <span>이용약관</span>
         <span>개인정보처리방침</span>
       </div>
