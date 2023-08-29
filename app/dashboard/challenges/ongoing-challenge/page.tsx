@@ -10,8 +10,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-export default function Ongoing() {
+import closeicon from "../../../../public/closeicon.png";
 
+export default function Ongoing() {
   const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
   const { title, description, difficulty } = useSelector(
@@ -23,6 +24,7 @@ export default function Ongoing() {
   const [isRunning, setIsRunning] = useState(true);
   const [stoppedTime, setStoppedTime] = useState(0);
   const [isStopped, setIsStopped] = useState(false); // 타이머가 멈췄는지 여부를 저장하는 state
+  const [modal, setModal] = useState(0);
 
   // 타이머를 시작하는 함수
   const startTimer = () => {
@@ -34,7 +36,6 @@ export default function Ongoing() {
   const stopTimer = () => {
     setIsRunning(false);
     setStoppedTime(seconds);
-    setIsStopped(true); // 타이머가 멈췄음을 저장
   };
 
   // 컴포넌트가 처음 렌더링 될 때 타이머를 시작
@@ -55,6 +56,7 @@ export default function Ongoing() {
   useEffect(() => {
     if (seconds === 60) {
       stopTimer(); // 1시간3600s(임의 1분)이 되면 타이머를 멈추기
+      setIsStopped(true); // 타이머가 시작되면 멈췄음을 초기화
     }
   }, [seconds]);
 
@@ -81,7 +83,7 @@ export default function Ongoing() {
   const roundNum = Math.round(calculateProgress() * 100) / 100;
   const postChallenge = () => {
     let status = "";
-    if (calculateProgress() >=90) {
+    if (calculateProgress() >= 90) {
       status = "succeed";
       console.log(calculateProgress());
     } else if (calculateProgress() >= 60) {
@@ -95,10 +97,12 @@ export default function Ongoing() {
         description: description,
         difficulty: difficulty,
         challengeStatus: status,
-        challengeTime: Math.round(calculateProgress())
+        challengeTime: Math.round(calculateProgress()),
       })
-      .then((res) => {console.log(res);
-      router.push('/dashboard/records')})
+      .then((res) => {
+        console.log(res);
+        router.push("/dashboard/records");
+      })
       .catch((err) => console.log(err));
   };
 
@@ -150,7 +154,8 @@ export default function Ongoing() {
             <p>{description}</p>
           </div>
           <div
-            className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}>
+            className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}
+          >
             <span>타이머</span>
             <div className={styles.timer}>
               <div className={styles.time}>
@@ -159,15 +164,17 @@ export default function Ongoing() {
             </div>
           </div>
           <div
-            className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}>
+            className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}
+          >
             <button
-              onClick={() => {
+              onClick={(e) => {
                 stopTimer();
-                postChallenge();
+                setModal(1);
               }}
               className={`${styles.stopButton} ${
                 isStopped ? styles.stopped : ""
-              }`}>
+              }`}
+            >
               {isStopped ? "다음으로" : "기록중지"}
               {!isStopped && (
                 <Image src={stop} alt="stopIcon" className={styles.stopIcon} />
@@ -182,6 +189,41 @@ export default function Ongoing() {
             </button>
           </div>
         </div>
+        <div className={styles[`modal${modal}`]}>
+          <p>
+            기록을 저장하시겠습니까?
+            <br />
+            기록 저장 시 저장사항을 변경할 수 없습니다
+          </p>
+          <button
+            className={styles.editBtn2}
+            onClick={() => {
+              postChallenge();
+            }}
+          >
+            기록저장
+          </button>
+          <button
+            className={styles.closeModal}
+            onClick={() => {
+              if (seconds >= 60) {
+                setIsRunning(false);
+                setModal(0);
+              } else {
+                setModal(0);
+                setIsRunning(true);
+              }
+            }}
+          >
+            <Image
+              className={styles.closeicon}
+              src={closeicon}
+              width={20}
+              alt="chevron"
+            />
+          </button>
+        </div>
+        <div className={styles[`modalBG${modal}`]}></div>
       </div>
     </>
   );

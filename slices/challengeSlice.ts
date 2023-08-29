@@ -5,6 +5,7 @@ export interface challengeState {
   title: string | null;
   description: string | null;
   difficulty: number | null;
+
 }
 // state 초기값 설정
 const initialState: challengeState = {
