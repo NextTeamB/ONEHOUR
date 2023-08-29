@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import styles from './Navigator.module.scss';
 import Image from 'next/image';
-import { FaUserNinja, FaHome, FaUser, FaChartLine } from 'react-icons/fa';
+import { FaUserNinja, FaChartLine } from 'react-icons/fa';
 import { FaGear } from 'react-icons/fa6';
 import { ImFire } from 'react-icons/im';
 import logo from '../../public/logo.png';

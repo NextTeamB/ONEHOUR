@@ -81,13 +81,13 @@ export default function Ongoing() {
   const roundNum = Math.round(calculateProgress() * 100) / 100;
   const postChallenge = () => {
     let status = "";
-    if (calculateProgress() <= 30) {
-      status = "failed";
+    if (calculateProgress() >=90) {
+      status = "succeed";
       console.log(calculateProgress());
-    } else if (calculateProgress() <= 60) {
+    } else if (calculateProgress() >= 60) {
       status = "perform";
     } else {
-      status = "succeed";
+      status = "failed";
     }
     axios
       .post("/api/records", {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import styles from "./signUp.module.scss";
 import { useRouter } from "next/navigation";
+import { onSignUp } from '@/util/onSignUp';
 
 // export interface checkItems {
 //   checked: any;
@@ -36,13 +37,7 @@ export default function SignUp() {
   const [isPassword, setIsPassword] = useState<boolean>(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState<boolean>(false);
 
-  const signUp = () => {
-    const userInfo = {
-      email: email,
-      nickname: nickname,
-      password: passwordConfirm,
-      name: name,
-    };
+  const signUp = (userInfo: any) => {
     axios
       .post("/api/users/sign-up", userInfo)
       .then((res) => {
@@ -305,7 +300,13 @@ export default function SignUp() {
         <button
           type="submit"
           onClick={() => {
-            signUp();
+            onSignUp({
+                email: email,
+                nickname: nickname,
+                password: passwordConfirm,
+                name: name,
+              },
+              router);
           }}
           className={
             isName &&

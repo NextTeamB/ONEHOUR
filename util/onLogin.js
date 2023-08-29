@@ -1,9 +1,19 @@
 import axios from "axios";
 import { login, getToken } from "@/slices/userSlice";
+import crypto from "crypto";
 const JWT_EXPIRE_TIME = 60 * 60 * 1000; // JWT 만료 시간을 1시간으로 설정
 export function onLogin(requestBody, dispatch) {
+  let newRequestBody = {
+    ...requestBody,
+    // 비밀번호 암호화 로직
+    password: crypto
+      .createHash("sha256")
+      .update(requestBody.password)
+      .digest("hex"),
+  };
+  console.log(newRequestBody.password);
   axios
-    .post("/api/auth/login", requestBody)
+    .post("/api/auth/login", newRequestBody)
     .then((res) => {
       console.log(res);
       dispatch(login(res.data)); // 로그인 시 userSlice의 login 리듀서로 res.data에서 이메일, 이름, 닉네임을 넘겨줌
