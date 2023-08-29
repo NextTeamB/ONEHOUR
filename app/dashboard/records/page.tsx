@@ -96,7 +96,7 @@ export default function Records() {
 
   useEffect(() => {
     dispatch(averageSave(chartProps));
-  }, [chartProps]);
+  }, [chartProps, dispatch]);
 
   // 시간 퍼센테이지 평균값 계산 및 Dispatch
   // const avgTimeFunc = () => {
