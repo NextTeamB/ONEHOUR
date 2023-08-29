@@ -32,6 +32,7 @@ export default async function handler(req, res) {
       title,
       description,
       difficulty,
+      challengeTime,
       ...challengeInfo
     } = req.body;
 
@@ -58,10 +59,10 @@ export default async function handler(req, res) {
     let newChallenge = {
       email: userCheck.email,
       challengeStatus: challengeStatus,
-      challengeTime: Number,
       title: title,
       description: description,
       difficulty: difficulty,
+      challengeTime: challengeTime,
       date: `${year}년 ${month}월 ${today}일`,
     };
 

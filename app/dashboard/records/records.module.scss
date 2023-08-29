@@ -1,0 +1,142 @@
+@import "/public/utils"; /*변수파일 import*/
+
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../../public/Arimo-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../../public/Arimo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../../public/Arimo-Medium.ttf");
+}
+
+$black: #383838;
+$blue: #6ab5ff;
+$skyblue: #B9DBFD;
+$blue: #6AB5FF;
+$navy: #0B4F9F;
+$grey2: #989898;
+$grey3: #E1E2E3;
+$green: #40E358;
+
+.recordsBox {
+  font-family: "Arimo_RGR";
+  letter-spacing: -1px;
+  width: 340px;
+  height: 520px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 6px 12px #cecece;
+  display: inline-block;
+  margin: 0 48px;
+  padding: 20px;
+  .cardTitle {
+    font-family: "Arimo_BLD";
+    font-size: 18px;
+  }
+  .cardDesc {
+    font-size: 16px;
+    margin-top: 2px;
+    margin-bottom: 44px;
+  }
+  .cardDate {
+    font-size: 14px;
+    color: $grey2;
+    margin-bottom: 2px;
+  }
+  .progressWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .progressTitle{
+      width: 88%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 10px;
+      span:nth-child(1) {
+        font-weight: 600;
+        font-size: 15px;
+      }
+      span:nth-child(2) {
+        font-weight: 600;
+        font-size: 13px;
+        color: $grey2;
+        margin-left: 10px;
+      }
+    }
+    .progressBar {
+      height: 40px;
+      width: 88%;
+      box-shadow: 2px 4px 6px #00000029;
+      border-radius: 70px;
+      background-color: white;
+      overflow: hidden;
+      .progressState {
+        height: 100%;
+        background-color: $blue;
+        transition: width 0.2s ease-in;
+      }
+    }
+  }
+}
+
+.ground {
+  width: 1620px;
+  height: 1010px;
+}
+
+.titleSec {
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+  h3 {
+    color: $blue;
+    font-size: 32px;
+    letter-spacing: -1px;
+    display: block;
+    position: absolute;
+    top: 98px;
+    left: 140px;
+  }
+  p {
+    display: block;
+    letter-spacing: -1px;
+    font-size: 18px;
+    position: absolute;
+    top: 195px;
+    left: 140px;
+  }
+}
+
+.listUpper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 86px;
+  text-align: center;
+  align-items: center;
+}
+
+.fail {
+  height: auto;
+  margin: 40px auto;
+}
+
+.slider {
+  border: none;
+  background-color: transparent;
+}
+
+.slider1 {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

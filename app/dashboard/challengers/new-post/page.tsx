@@ -6,7 +6,7 @@ import { onLogout } from "../../../../util/onLogout";
 import styles from "./new-post.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import close from "../../../../public/close-icon.png";
+import close from "../../../../public/closeicon.png";
 
 interface PostInfo {
   postTitle: string;

@@ -5,11 +5,13 @@ import styles from "./ongoing.module.scss";
 import Image from "next/image";
 import stop from "@/public/icon-stop.png";
 import arrow from "@/public/icon-arrow.png";
-import BlueFire from "./animation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Lottie from 'react-lottie-player'
+import BlueFire from '@/public/animation_bluefire.json';
+
 export default function Ongoing() {
 
   const router = useRouter();
@@ -116,7 +118,12 @@ export default function Ongoing() {
           <div className={styles.title}>
             <span>CHALLENGE BOARD</span>
           </div>
-          <BlueFire />
+          <Lottie
+            loop
+            animationData={BlueFire}
+            play
+            style={{width: '55%', height: 'auto'}}
+          />
           <div className={styles.content}>
             <p>{title}</p>
           </div>
