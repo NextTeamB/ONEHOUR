@@ -16,14 +16,8 @@ interface LayoutProps {
 }
 
 export default function Home({ Component, pageProps, store }: LayoutProps) {
-  const nickname = useSelector((state: RootState) => state.user?.nickname);
-  const auth = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const router = useRouter();
-
-  useEffect(() => {
-    console.log(auth);
-  }, [auth]);
 
   return (
     <div className={styles.mainSection}>

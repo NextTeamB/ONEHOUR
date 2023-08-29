@@ -29,6 +29,11 @@ const challengeSlice = createSlice({
     succeedSave: (state, action) => {
       state.succeedCount = action.payload;
     },
+    averageSave: (state, action) => {
+      state.challengeTimeAvg = action.payload.timeAvrg;
+      state.difficultAvg = action.payload.diffAvrg;
+      state.succeedCount = action.payload.succeedCount;
+    },
   },
   // 로그아웃 시 유저정보를 삭제하기 위해 store를 purge하는 작업. 공식문서에 따라 extraReducers를 사용해 적용함
   extraReducers: (builder) => {
@@ -38,5 +43,5 @@ const challengeSlice = createSlice({
   },
 });
 
-export const { timeSave, diffSave, succeedSave } = challengeSlice.actions;
+export const { timeSave, diffSave, succeedSave, averageSave } = challengeSlice.actions;
 export default challengeSlice.reducer;

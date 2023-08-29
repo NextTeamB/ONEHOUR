@@ -15,8 +15,7 @@ import gal from "../../../public/grayArrow_L.png";
 import gar from "../../../public/grayArrow_R.png";
 import Trophy from "./animation";
 import Doughnut from "./doughnut";
-import Doughnut1 from "./doughnut1";
-import { timeSave, diffSave, succeedSave } from "@/slices/chartInfo";
+import { averageSave } from "@/slices/chartInfo";
 
 export interface userRecord {
   title: string;
@@ -35,10 +34,21 @@ export interface userRecord {
 // 3. 그러며는 이 전달한 값으로 도넛의 data 를 바꿔주기만 하면 댐
 
 export default function Records() {
+  interface chartState {
+    timeAvrg: Number;
+    diffAvrg: Number;
+    succeedCount: Number;
+  }
+  const initialChartState = {
+    timeAvrg: 0,
+    diffAvrg: 0,
+    succeedCount: 0,
+  };
   let [userChallenges, setUserChallenges] = useState<userRecord[]>([]);
   let [curIndex, setCurIndex] = useState(0);
-  let [timeAvgr, setTimeAvgr] = useState(0);
+  let [chartProps, setChartProps] = useState<chartState>(initialChartState);
   const userInfo = useSelector((state: RootState) => state.user);
+  const chartInfo = useSelector((state: RootState) => state.chart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,19 +63,37 @@ export default function Records() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      let copy: any = [];
-      userChallenges.map((a, i) => {
-        copy.push(a.challengeTime);
-      });
-      const average = copy.reduce((p: any, c: any) => p + c, 0) / copy.length;
-      setTimeAvgr(average);
-      console.log(average);
-      dispatch(timeSave(timeAvgr));
-    }, 1500);
-
-    // dispatch(timeSave(average));
+    let copyTime: any = [];
+    userChallenges.map((a, i) => {
+      copyTime.push(a.challengeTime);
+    });
+    const timeAvrg =
+      copyTime.reduce((p: any, c: any) => p + c, 0) / copyTime.length;
+    let copyDiff: any = [];
+    userChallenges.map((a, i) => {
+      copyDiff.push(a.difficulty);
+    });
+    const diffAvrg =
+      copyDiff.reduce((p: any, c: any) => p + c, 0) / copyDiff.length;
+    let copySucceed: any = [];
+    userChallenges.map((a, i) => {
+      if (a.challengeStatus === "succeed") {
+        copySucceed.push(a.challengeStatus);
+      }
+    });
+    const succeedCount = (copySucceed.length / userChallenges.length) * 100;
+    let newChartProps = {
+      ...chartProps,
+      timeAvrg: timeAvrg,
+      diffAvrg: diffAvrg,
+      succeedCount: succeedCount,
+    };
+    setChartProps(newChartProps);
   }, [userChallenges]);
+
+  useEffect(() => {
+    dispatch(averageSave(chartProps));
+  }, [chartProps]);
 
   // 시간 퍼센테이지 평균값 계산 및 Dispatch
   // const avgTimeFunc = () => {
@@ -114,8 +142,7 @@ export default function Records() {
             setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
             // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
             if (curIndex <= 0) setCurIndex(0);
-          }}
-        >
+          }}>
           왼쪽버튼
         </button>
         {userChallenges
@@ -143,17 +170,19 @@ export default function Records() {
               // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
               setCurIndex(userChallenges.length - 3);
             }
-          }}
-        >
+          }}>
           오른쪽버튼
         </button>
       </div>
       <div className={styles.chartUpper}>
         <div className={styles.donutSec}>
-          <Doughnut />
+          <Doughnut value={chartInfo.challengeTimeAvg} id={"timeAvrgChart"} />
         </div>
         <div className={styles.donutSec}>
-          <Doughnut1 />
+          <Doughnut value={chartInfo.difficultAvg} id={"diffAvrgChart"} />
+        </div>
+        <div className={styles.donutSec}>
+          <Doughnut value={chartInfo.succeedCount} id={"succeedRatioChart"} />
         </div>
       </div>
     </div>

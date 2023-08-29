@@ -81,13 +81,13 @@ export default function Ongoing() {
   const roundNum = Math.round(calculateProgress() * 100) / 100;
   const postChallenge = () => {
     let status = "";
-    if (calculateProgress() <= 30) {
-      status = "failed";
+    if (calculateProgress() >=90) {
+      status = "succeed";
       console.log(calculateProgress());
-    } else if (calculateProgress() <= 60) {
+    } else if (calculateProgress() >= 60) {
       status = "perform";
     } else {
-      status = "succeed";
+      status = "failed";
     }
     axios
       .post("/api/records", {
@@ -100,13 +100,6 @@ export default function Ongoing() {
       .then((res) => {console.log(res);
       router.push('/dashboard/records')})
       .catch((err) => console.log(err));
-    // console.log({
-    //   title: title,
-    //   description: description,
-    //   difficulty: difficulty,
-    //   challengeStatus: status,
-    //   challengeTime: Math.round(calculateProgress())
-    // });
   };
 
   return (

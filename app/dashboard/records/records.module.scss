@@ -45,7 +45,7 @@ $blue: #6ab5ff;
 
 .ground {
   background-color: #f8fcff;
-  width: 1620px;
+  width: 100%;
   height: 1010px;
 }
 
@@ -97,10 +97,11 @@ $blue: #6ab5ff;
 }
 
 .donutSec {
-  width: 38%;
+  width: 450px;
 }
 
 .chartUpper {
   display: flex;
+  justify-content: center;
   flex-direction: row;
 }
