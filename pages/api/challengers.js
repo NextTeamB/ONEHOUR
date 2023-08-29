@@ -7,7 +7,11 @@ export default async function handler(req, res) {
     try {
       let db = (await connectDB).db("onehour");
       // userPosts 컬렉션의 모든 정보를 배열로 가져옴
-      let allPost = await db.collection("userPosts").find().toArray();
+      let allPost = await db
+        .collection("userPosts")
+        .find()
+        .sort({ postId: -1 })
+        .toArray();
       // 응답으로 오브젝트 배열 리턴해주어 클라이언트 단에서 res.data[i] 형식 또는 변수에 저장하여 사용
       return res.status(200).json(allPost);
     } catch {

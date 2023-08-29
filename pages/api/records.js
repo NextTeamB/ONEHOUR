@@ -23,6 +23,7 @@ export default async function handler(req, res) {
     let userChallenges = await db
       .collection("userChallenges")
       .find({ email: userEmail.email })
+      .sort({ _id: -1 })
       .toArray();
     // 4. 해당 데이터 리턴
     return res.status(200).json(userChallenges);
@@ -31,8 +32,8 @@ export default async function handler(req, res) {
       challengeStatus,
       title,
       description,
-      difficulty,
       challengeTime,
+      difficulty,
       ...challengeInfo
     } = req.body;
 
@@ -59,10 +60,10 @@ export default async function handler(req, res) {
     let newChallenge = {
       email: userCheck.email,
       challengeStatus: challengeStatus,
+      challengeTime: challengeTime,
       title: title,
       description: description,
       difficulty: difficulty,
-      challengeTime: challengeTime,
       date: `${year}년 ${month}월 ${today}일`,
     };
 

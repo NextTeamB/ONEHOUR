@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import chevron from "../../../public/icons8-셰브론-오른쪽-52.png";
 import closeicon from "../../../public/closeicon.png";
 import Image from "next/image";
+import { editPassword } from '@/util/onChangeUserInfo';
 
 export interface userAccount {
   email: string;
@@ -22,10 +23,16 @@ export default function Settings() {
   const userInfo = useSelector((state: RootState) => state.user);
   const router = useRouter();
 
-  const [editInfo, setEditInfo] = useState<object>({
+  const initialEditInfo = {
     nickname: "",
     password: "",
-  });
+  };
+  interface editInfoState {
+    nickname: string;
+    password: string;
+  }
+
+  const [editInfo, setEditInfo] = useState<editInfoState>(initialEditInfo);
 
   const [modalState, setModalState] = useState([0, 0, 0]);
 
@@ -50,6 +57,14 @@ export default function Settings() {
   };
 
   const editAlias = () => {
+    if (editInfo.nickname === "") {
+      alert("변경할 닉네임을 입력해주세요.");
+      return;
+    }
+    if (editInfo.nickname.length < 2 || editInfo.nickname.length > 8) {
+      alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
+      return;
+    }
     axios
       .patch("/api/users/edit-alias", editInfo)
       .then((res) => {
@@ -59,6 +74,8 @@ export default function Settings() {
             alert("닉네임 변경이 완료되었습니다");
             dispatch(login(res.data));
             setModalState([0, 0, 0]);
+            // 닉네임 변경 후 모달창 조회 시 변경된 닉네임이 유지되는 것 방지
+            setEditInfo(initialEditInfo);
           })
           .catch((err) => {
             console.log(err);
@@ -70,17 +87,6 @@ export default function Settings() {
       });
   };
 
-  const editPassword = () => {
-    axios
-      .patch("/api/users/edit-pw", editInfo)
-      .then((res) => {
-        alert("비밀번호 변경이 완료되었습니다");
-        setModalState([0, 0, 0]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   const withdrawal = () => {
     axios.delete("/api/users/withdrawal").then((res) => {
@@ -204,7 +210,7 @@ export default function Settings() {
         <button
           className={styles.editBtn}
           onClick={() => {
-            editPassword();
+            editPassword(editInfo, setModalState, setEditInfo);
           }}
         >
           비밀번호 변경하기

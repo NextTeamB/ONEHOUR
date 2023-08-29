@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         jwt.sign(
           payload, // 변환할 데이터
           SECRET_KEY, // secret key 값
-          { expiresIn: "60s" }, // token의 유효시간
+          { expiresIn: "14d" }, // token의 유효시간
           async (err, token) => {
             if (err) throw err;
             await db.collection("userAccount").updateOne(
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
               { $set: { refreshToken: `${token}` } }
             );
             // db.collection("userAccount").findOne({ email });
-            return res.status(200).json(token);
+            return res.status(200).json("회원가입이 완료되었습니다");
           }
         );
       } else {
