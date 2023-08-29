@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-
+import { useEffect, ReactNode } from 'react';
 import styles from './Navigator.module.scss';
 import Image from 'next/image';
 import { FaUserNinja, FaChartLine } from 'react-icons/fa';
@@ -11,10 +11,9 @@ import logo from '../../public/logo.png';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { reissueToken } from '@/util/onLogin';
-import { useEffect, ReactNode } from 'react';
-import { usePathname } from 'next/navigation';
+import { onLogout } from '@/util/onLogout';
 
 const Navigator = (props: { children: ReactNode }) => {
 	const router = useRouter();
@@ -120,7 +119,12 @@ const Navigator = (props: { children: ReactNode }) => {
 						</div>
 						<div className={styles.subMenuWrapper}>
 							{subMenus.map((menu, index) => (
-								<div className={styles.subMenuList} key={index}>
+								<div 
+								className={styles.subMenuList} 
+								key={index} 
+								onClick={() => {
+									if(menu === "로그아웃") onLogout();
+									}}>
 									<div>{menu}</div>
 								</div>
 							))}
