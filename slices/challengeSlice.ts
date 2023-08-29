@@ -5,6 +5,7 @@ export interface challengeState {
   title: string | null;
   description: string | null;
   difficulty: number | null;
+
 }
 // state 초기값 설정
 const initialState: challengeState = {
@@ -14,7 +15,7 @@ const initialState: challengeState = {
 };
 
 const challengeSlice = createSlice({
-  name: "user",
+  name: "challenge",
   initialState,
   reducers: {
     // 챌린지 리듀서 - payload 객체에서 챌린지 제목과 설명, 난이도를 받아 저장
