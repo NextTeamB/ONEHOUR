@@ -27,8 +27,24 @@ const Example = () => {
         console.log(err);
       });
   };
+  const verifyRfToken = () => {
+    axios
+      .get("/api/test")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div style={{ height: "200vh" }}>
+    <button
+      onClick={() => {
+        verifyRfToken();
+      }}>
+      토큰검증
+    </button>
       <button
         onClick={() => {
           onLogout();

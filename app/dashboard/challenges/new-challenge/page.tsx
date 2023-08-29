@@ -6,7 +6,7 @@ import Link from "next/link";
 import DiffBtn from "./button";
 import TextBox from "./textbox";
 import { useDispatch } from "react-redux";
-import { challenge, challengeState } from "@/slices/challengeSlice";
+import { challenge } from "@/slices/challengeSlice";
 import { useRouter } from "next/navigation";
 export default function Newchallenge() {
   // TextBox
@@ -23,6 +23,10 @@ export default function Newchallenge() {
   console.log();
   const onSubmit = () => {
     // 시작하기 버튼이 클릭되면 실행될 onSubmit 함수
+    if (title === "" || difficulty === 0 || description === "") {
+      alert("챌린지 제목과 설명, 난이도를 입력해주세요.");
+      return;
+    }
     dispatch(
       challenge({
         title: title,
@@ -30,7 +34,7 @@ export default function Newchallenge() {
         difficulty: difficulty,
       })
     );
-    router.push("/dashboard");
+    router.push("/dashboard/challenges/ongoing-challenge");
   };
   useEffect(() => {
     console.log(difficulty);
@@ -100,15 +104,13 @@ export default function Newchallenge() {
               나가기
             </button>
           </Link>
-          <Link
-            onClick={() => {
-              onSubmit();
-            }}
-            href="/dashboard/challenges/ongoing-challenge">
-            <button className={`${styles.btn} ${styles.startBtn}`}>
+            <button
+              onClick={() => {
+                onSubmit();
+              }}
+              className={`${styles.btn} ${styles.startBtn}`}>
               시작하기
             </button>
-          </Link>
         </div>
       </div>
     </>
