@@ -103,7 +103,7 @@ export default function Ongoing() {
       })
       .then((res) => {
         console.log(res);
-        router.push("/dashboard/records");
+        router.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };

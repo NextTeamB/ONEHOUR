@@ -4,7 +4,7 @@ import Lottie from "react-lottie-player";
 // Alternatively:
 // import Lottie from 'react-lottie-player/dist/LottiePlayerLight'
 
-import Animation from "../../../public/animation_trophy.json";
+import Animation from "../../public/animation_trophy.json";
 
 export default function Trophy() {
   return (
