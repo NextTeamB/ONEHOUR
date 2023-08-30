@@ -208,7 +208,7 @@ export default function SignUp() {
             className={styles.emailCheck} 
             onClick={()=>{
               axios
-              .post('api/user/idcheck', {email:email})
+              .post('api/users/idcheck', {email:email})
               .then(()=>{alert("사용할 수 있는 이메일입니다.")})
               .catch(()=>{alert("사용할 수 없는 이메일입니다.");
               setEmail("");
