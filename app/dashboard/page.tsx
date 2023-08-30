@@ -119,10 +119,12 @@ export default function Records() {
 
   // 성공횟수 카운트 및 퍼센테이지 가공 후 Dispatch
 
-  const cardImg = (i: number) => {
-    if (userChallenges[i].challengeStatus === "succeed") {
+  const cardImg = (challengeItem: any) => {
+    // cardImg의 파라미터로 challenge를 넘겨받으면 굳이 전체 게시글 중 인덱스로 탐색할 필요 없이
+    // challengeItem 안의 challengeStatus를 참조해 cardImg를 return해줄 수 있음!
+    if (challengeItem.challengeStatus === "succeed") {
       return <Trophy />;
-    } else if (userChallenges[i].challengeStatus === "failed") {
+    } else if (challengeItem.challengeStatus === "failed") {
       return <Failed />;
     } else {
       return <Check />;
@@ -171,7 +173,9 @@ export default function Records() {
                       {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
                       <h4 className={styles.cardTitle}>{challengeItem.title}</h4>
                       <p className={styles.cardDate}>{challengeItem.date}</p>
-                      <div className={styles.cardImg}>{cardImg(i)}</div>
+                      <div className={styles.cardImg}>
+                        {cardImg(challengeItem)}
+                      </div>
                       <p className={styles.cardDesc}>
                         &quot; {challengeItem.description} &quot;
                       </p>
@@ -245,7 +249,7 @@ export default function Records() {
 export function Trophy() {
   return (
     <Lottie
-      loop
+      loop={false}
       animationData={TrophyAnim}
       play
       style={{ margin: "0 auto", width: "70%", height: "auto" }}
@@ -256,7 +260,7 @@ export function Trophy() {
 export function Failed() {
   return (
     <Lottie
-      loop
+      loop={false}
       animationData={FailAnim}
       play
       style={{ margin: "0 auto", width: "70%", height: "auto" }}
@@ -267,7 +271,7 @@ export function Failed() {
 export function Check() {
   return (
     <Lottie
-      loop
+      loop={false}
       animationData={CheckAnim}
       play
       style={{ margin: "0 auto", width: "70%", height: "auto" }}
