@@ -22,7 +22,6 @@
 /******************* MEDIA 990 **********************/
 /******************* MEDIA 990 **********************/
 
-
 @media (min-width: 990px) and (max-width: 1200px) {
   .root {
     width: 100%;
@@ -55,7 +54,7 @@
     color: #6ab5ff;
     letter-spacing: -2.8px;
     text-align: left;
-    margin: 80px auto 0px 100px ;
+    margin: 80px auto 0px 100px;
     z-index: 1;
   }
   .article1 {
@@ -109,7 +108,7 @@
     justify-content: space-between;
     position: relative;
     float: right;
-    margin-right: 100px;
+    margin-right: 242px;
   }
   .article2 {
     font-family: "Arimo_MED";
@@ -145,7 +144,7 @@
     left: 0px;
     color: #383838;
     border: none;
-    background-color: #B9DBFD;
+    background-color: #b9dbfd;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -196,13 +195,13 @@
     width: 55%;
     padding: 40px 0;
     margin-right: 24px;
-    background-color: #E0F7FF;
+    background-color: #e0f7ff;
     border: none;
     border-radius: 20px;
   }
   .box1_textbox {
     width: 78%;
-    color: #6AB5FF;
+    color: #6ab5ff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -213,7 +212,7 @@
     margin-bottom: 0px;
   }
   .box1_sub {
-    font-size: 12px;    
+    font-size: 12px;
     margin-bottom: 0px;
   }
   .example5 {
@@ -233,11 +232,11 @@
     padding: 40px 0;
     border: none;
     border-radius: 20px;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
   }
   .box2_textbox {
     width: 78%;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -249,12 +248,12 @@
   }
   .box2_sub1 {
     color: #ededed;
-    font-size: 12px;    
+    font-size: 12px;
     margin-bottom: 0px;
     line-height: 18px;
   }
   .box2_sub2 {
-    font-size: 12px;    
+    font-size: 12px;
     margin: 0px;
     line-height: 18px;
   }
@@ -266,7 +265,7 @@
     width: 80%;
     margin-top: 24px;
     padding: 48px 0;
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     border: none;
     border-radius: 20px;
   }
@@ -296,7 +295,7 @@
     line-height: 24px;
   }
   .dataprocess {
-    width:45%;
+    width: 45%;
     height: auto;
     position: relative;
     display: flex;
@@ -370,7 +369,7 @@
     font-weight: 700;
     color: #ffffff;
     border: none;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -468,7 +467,6 @@
 /******************* MEDIA 1200 **********************/
 /******************* MEDIA 1200 **********************/
 
-
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
   .root {
     width: 100%;
@@ -502,7 +500,7 @@
     color: #6ab5ff;
     letter-spacing: -2.8px;
     text-align: left;
-    margin: 100px auto 0px 120px ;
+    margin: 100px auto 0px 120px;
     z-index: 1;
   }
   .article1 {
@@ -592,7 +590,7 @@
     left: 0px;
     color: #383838;
     border: none;
-    background-color: #B9DBFD;
+    background-color: #b9dbfd;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -643,13 +641,13 @@
     width: 55%;
     padding: 40px 0;
     margin-right: 24px;
-    background-color: #E0F7FF;
+    background-color: #e0f7ff;
     border: none;
     border-radius: 20px;
   }
   .box1_textbox {
     width: 78%;
-    color: #6AB5FF;
+    color: #6ab5ff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -660,7 +658,7 @@
     margin-bottom: 0px;
   }
   .box1_sub {
-    font-size: 12px;    
+    font-size: 12px;
     margin-bottom: 0px;
   }
   .example5 {
@@ -680,11 +678,11 @@
     padding: 40px 0;
     border: none;
     border-radius: 20px;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
   }
   .box2_textbox {
     width: 78%;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -696,12 +694,12 @@
   }
   .box2_sub1 {
     color: #ededed;
-    font-size: 12px;    
+    font-size: 12px;
     margin-bottom: 0px;
     line-height: 18px;
   }
   .box2_sub2 {
-    font-size: 12px;    
+    font-size: 12px;
     margin: 0px;
     line-height: 18px;
   }
@@ -713,7 +711,7 @@
     width: 80%;
     margin-top: 24px;
     padding: 48px 0;
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     border: none;
     border-radius: 20px;
   }
@@ -737,12 +735,12 @@
     margin-bottom: 10px;
   }
   .box3_sub {
-    font-size: 11px;    
+    font-size: 11px;
     margin-bottom: 0px;
     line-height: 24px;
   }
   .dataprocess {
-    width:34%;
+    width: 34%;
     height: auto;
     position: relative;
     display: flex;
@@ -816,7 +814,7 @@
     font-weight: 700;
     color: #ffffff;
     border: none;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -946,7 +944,7 @@
     color: #6ab5ff;
     letter-spacing: -2.8px;
     text-align: left;
-    margin: 100px auto 0px 140px ;
+    margin: 100px auto 0px 140px;
     z-index: 1;
   }
   .article1 {
@@ -986,12 +984,12 @@
     margin: 0 auto;
   }
   .dummy {
-    width: 36%;
+    width: 120%;
     height: auto;
     position: relative;
     display: flex;
     float: left;
-    margin: 100px 36px auto 140px;
+    margin: 100px 156px auto 160px;
   }
   .articlebox {
     display: flex;
@@ -999,7 +997,7 @@
     justify-content: space-between;
     position: relative;
     float: right;
-    margin-right: 140px;
+    margin-right: 242px;
   }
   .article2 {
     font-family: "Arimo_MED";
@@ -1035,7 +1033,7 @@
     left: 0px;
     color: #383838;
     border: none;
-    background-color: #B9DBFD;
+    background-color: #b9dbfd;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -1086,13 +1084,13 @@
     width: 55%;
     padding: 40px 0;
     margin-right: 24px;
-    background-color: #E0F7FF;
+    background-color: #e0f7ff;
     border: none;
     border-radius: 20px;
   }
   .box1_textbox {
     width: 78%;
-    color: #6AB5FF;
+    color: #6ab5ff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -1103,7 +1101,7 @@
     margin-bottom: 0px;
   }
   .box1_sub {
-    font-size: 16px;    
+    font-size: 16px;
     margin-bottom: 0px;
   }
   .example5 {
@@ -1123,11 +1121,11 @@
     padding: 40px 0;
     border: none;
     border-radius: 20px;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
   }
   .box2_textbox {
     width: 78%;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: "Arimo_MED";
     text-align: left;
     letter-spacing: -1px;
@@ -1139,12 +1137,12 @@
   }
   .box2_sub1 {
     color: #ededed;
-    font-size: 16px;    
+    font-size: 16px;
     margin-bottom: 0px;
     line-height: 24px;
   }
   .box2_sub2 {
-    font-size: 16px;    
+    font-size: 16px;
     margin: 0px;
     line-height: 24px;
   }
@@ -1156,7 +1154,7 @@
     width: 80%;
     margin-top: 24px;
     padding: 54px 0;
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     border: none;
     border-radius: 20px;
   }
@@ -1180,12 +1178,12 @@
     margin-bottom: 10px;
   }
   .box3_sub {
-    font-size: 13px;    
+    font-size: 13px;
     margin-bottom: 0px;
     line-height: 28px;
   }
   .dataprocess {
-    width:34%;
+    width: 34%;
     height: auto;
     position: relative;
     display: flex;
@@ -1197,7 +1195,7 @@
   .section4 {
     overflow: hidden;
     position: relative;
-    min-height: 620px;
+    min-height: 700px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -1209,7 +1207,7 @@
   .threearrows {
     width: 2.6%;
     height: auto;
-    margin: 24px auto;
+    margin: 60px auto;
   }
   .article4_01 {
     font-family: "Arimo_BLD";
@@ -1258,7 +1256,7 @@
     font-weight: 700;
     color: #ffffff;
     border: none;
-    background-color: #6AB5FF;
+    background-color: #6ab5ff;
     box-shadow: 2px 3px 4px #00000029;
     border-radius: 80px;
   }
@@ -1267,7 +1265,7 @@
     position: absolute;
     z-index: 0;
     transform: scale(0.5);
-    top: 160px;
+    top: 210px;
     left: -400px;
   }
   /*footer*/

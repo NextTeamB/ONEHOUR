@@ -76,7 +76,7 @@ const Challengers = () => {
           >
             <div className={styles.plusWrap}>+</div>
           </button>
-            <p className={styles.newpostText}>새로운 게시글을 작성해주세요.</p>
+          <p className={styles.newpostText}>새로운 게시글을 작성해주세요</p>
         </div>
         {postList.map((a, i) => {
           return (
@@ -90,7 +90,11 @@ const Challengers = () => {
                 key={i}
               >
                 <div className={styles.postUser}>
-                  <Image src={userIcon} alt="userIcon" className={styles.userIcon} />
+                  <Image
+                    src={userIcon}
+                    alt="userIcon"
+                    className={styles.userIcon}
+                  />
                   <p className={styles.nickWrap}>
                     <span>{postList[i].nickname}</span>
                     <span>님</span>
@@ -108,7 +112,7 @@ const Challengers = () => {
                   <p key={`content${i}`} className={styles.postContent}>
                     <span>{postList[i].content}</span>
                   </p>
-                </div>                
+                </div>
               </div>
             </>
           );
@@ -124,12 +128,20 @@ const Challengers = () => {
             <p>{postList[currnetIdx] ? postList[currnetIdx].content : ""}</p>
             <div className={styles.postBottom}>
               <div className={styles.userWrap}>
-                <Image src={userIcon} alt="userIcon" className={styles.userIcon} />
+                <Image
+                  src={userIcon}
+                  alt="userIcon"
+                  className={styles.userIcon}
+                />
                 <div className={styles.nickWrap}>
-                  <span>{postList[currnetIdx] ? postList[currnetIdx].nickname : ""}</span>
+                  <span>
+                    {postList[currnetIdx] ? postList[currnetIdx].nickname : ""}
+                  </span>
                   <span>님</span>
                 </div>
-                <p className={styles.postDate}>{postList[currnetIdx] ? postList[currnetIdx].date : ""}</p>
+                <p className={styles.postDate}>
+                  {postList[currnetIdx] ? postList[currnetIdx].date : ""}
+                </p>
               </div>
               <div className={styles.btnWrap}>
                 <button
