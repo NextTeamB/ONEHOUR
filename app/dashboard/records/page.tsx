@@ -16,7 +16,7 @@ import gar from "../../../public/grayArrow_R.png";
 import Lottie from "react-lottie-player";
 import TrophyAnim from "../../../public/animation_trophy.json";
 import FailAnim from "../../../public/animation_fail.json";
-import CheckAnim from "../../../public/animation_greencheck3.json";
+import CheckAnim from "../../../public/animation_greencheck2.json";
 import Doughnut from "./doughnut";
 import { averageSave } from "@/slices/chartInfo";
 

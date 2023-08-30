@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import closeicon from "../../../../public/closeicon.png";
 import Lottie from 'react-lottie-player'
 import BlueFire from '@/public/animation_bluefire.json';
+import GreenCheck from '@/public/animation_greencheck1.json';
 
 export default function Ongoing() {
   const router = useRouter();
@@ -114,12 +115,9 @@ export default function Ongoing() {
           <div className={styles.title}>
             <span>CHALLENGE BOARD</span>
           </div>
-          <Lottie
-            loop
-            animationData={BlueFire}
-            play
-            style={{width: '55%', height: 'auto'}}
-          />
+          {isStopped ?
+          <Success /> : <Fire />
+          }
           <div className={styles.content}>
             <p>{title}</p>
           </div>
@@ -232,5 +230,27 @@ export default function Ongoing() {
         <div className={styles[`modalBG${modal}`]}></div>
       </div>
     </>
+  );
+}
+
+export function Fire() {
+  return (
+    <Lottie
+      loop
+      animationData={BlueFire}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
+  );
+}
+
+export function Success() {
+  return (
+    <Lottie
+      loop
+      animationData={GreenCheck}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
   );
 }
