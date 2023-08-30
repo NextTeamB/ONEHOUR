@@ -1,22 +1,13 @@
 "use client";
 
-import React, { useEffect, } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "@/slices/userSlice";
-import styles from "./page.module.css";
-import { RootState, persistor } from "@/store/store";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import logo from "../public/logo.png";
+import React from 'react';
+import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import logo from '../public/logo.png';
+import styles from './page.module.css';
 
-interface LayoutProps {
-  Component: any;
-  pageProps: any;
-  store: any;
-}
-
-export default function Home({ Component, pageProps, store }: LayoutProps) {
-  const dispatch = useDispatch();
+const Home: NextPage = () => {
   const router = useRouter();
 
   return (
@@ -51,4 +42,6 @@ export default function Home({ Component, pageProps, store }: LayoutProps) {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
