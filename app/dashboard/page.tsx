@@ -246,7 +246,7 @@ export default function Records() {
   );
 }
 
-function Trophy() {
+export function Trophy() {
   return (
     <Lottie
       loop={false}
@@ -257,7 +257,7 @@ function Trophy() {
   );
 }
 
-function Failed() {
+export function Failed() {
   return (
     <Lottie
       loop={false}
@@ -268,7 +268,7 @@ function Failed() {
   );
 }
 
-function Check() {
+export function Check() {
   return (
     <Lottie
       loop={false}

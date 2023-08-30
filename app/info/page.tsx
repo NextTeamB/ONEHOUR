@@ -161,7 +161,7 @@ export default function info() {
   );
 }
 
-function Trophy() {
+export function Trophy() {
   return (
     <Lottie
       loop

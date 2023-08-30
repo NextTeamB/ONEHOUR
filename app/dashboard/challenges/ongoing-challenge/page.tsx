@@ -233,7 +233,7 @@ export default function Ongoing() {
   );
 }
 
-function Fire() {
+export function Fire() {
   return (
     <Lottie
       loop
@@ -244,10 +244,10 @@ function Fire() {
   );
 }
 
-function Success() {
+export function Success() {
   return (
     <Lottie
-      loop={false}
+      loop
       animationData={GreenCheck}
       play
       style={{width: '55%', height: 'auto'}}
