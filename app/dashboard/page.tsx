@@ -18,38 +18,6 @@ import CheckAnim from "@/public/animation_greencheck2.json";
 import Doughnut from "./doughnut";
 import { averageSave } from "@/slices/chartInfo";
 
-function Trophy() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={TrophyAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
-
-function Failed() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={FailAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
-
-function Check() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={CheckAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
 export interface userRecord {
   title: string;
   challengeTime: number;
@@ -278,3 +246,35 @@ export default function Records() {
   );
 }
 
+function Trophy() {
+  return (
+    <Lottie
+      loop={false}
+      animationData={TrophyAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
+}
+
+function Failed() {
+  return (
+    <Lottie
+      loop={false}
+      animationData={FailAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
+}
+
+function Check() {
+  return (
+    <Lottie
+      loop={false}
+      animationData={CheckAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
+}

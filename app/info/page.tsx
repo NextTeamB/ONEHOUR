@@ -14,17 +14,6 @@ import logo_b from "../../public/logo_b.png";
 import arrows from "../../public/three-arrows.png";
 import deco3 from "../../public/deco3.png";
 
-function Trophy() {
-  return (
-    <Lottie
-      loop
-      animationData={Animation}
-      play
-      style={{width: '50%', height: 'auto'}}
-    />
-  )
-}
-
 export default function info() {
   return (
     <>
@@ -170,4 +159,15 @@ export default function info() {
       </div>
     </>
   );
+}
+
+function Trophy() {
+  return (
+    <Lottie
+      loop
+      animationData={Animation}
+      play
+      style={{width: '50%', height: 'auto'}}
+    />
+  )
 }

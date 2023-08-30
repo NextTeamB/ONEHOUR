@@ -14,28 +14,6 @@ import Lottie from 'react-lottie-player'
 import BlueFire from '@/public/animation_bluefire.json';
 import GreenCheck from '@/public/animation_greencheck1.json';
 
-function Fire() {
-  return (
-    <Lottie
-      loop
-      animationData={BlueFire}
-      play
-      style={{width: '55%', height: 'auto'}}
-    />
-  );
-}
-
-function Success() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={GreenCheck}
-      play
-      style={{width: '55%', height: 'auto'}}
-    />
-  );
-}
-
 export default function Ongoing() {
   const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
@@ -252,5 +230,27 @@ export default function Ongoing() {
         <div className={styles[`modalBG${modal}`]}></div>
       </div>
     </>
+  );
+}
+
+function Fire() {
+  return (
+    <Lottie
+      loop
+      animationData={BlueFire}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
+  );
+}
+
+function Success() {
+  return (
+    <Lottie
+      loop={false}
+      animationData={GreenCheck}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
   );
 }
