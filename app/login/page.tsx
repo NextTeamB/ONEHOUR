@@ -124,13 +124,6 @@ function LoginForm() {
           onClick={(e) => login(e)}>
           이메일로 계속하기
         </button>
-        <p className={styles.subTitle2}>또는</p>
-        <div className={styles.platforms}>
-          <button className={styles.kakaoLogin}>
-            <Image src={kakao} alt="kakao" width={56} height={56} />
-            <p className={styles.kakaotitle}>KaKao</p>
-          </button>
-        </div>
         <Link className={styles.findBtnBox} href="/sign-up">
           <button className={styles.findBtn}>
             <p className={styles.forgotten}>회원이 아니시라면</p>
