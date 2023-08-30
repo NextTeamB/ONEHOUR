@@ -8,7 +8,8 @@ import process from "../../public/dataprocess.png";
 import dummy from "../../public/dummy.png";
 import arrowforward from "../../public/arrow-forward.png";
 import Link from "next/link";
-import Trophy from "./animation";
+import Lottie from "react-lottie-player";
+import Animation from "@/public/animation_trophy.json";
 import logo_b from "../../public/logo_b.png";
 import arrows from "../../public/three-arrows.png";
 import deco3 from "../../public/deco3.png";
@@ -158,4 +159,15 @@ export default function info() {
       </div>
     </>
   );
+}
+
+export function Trophy() {
+  return (
+    <Lottie
+      loop
+      animationData={Animation}
+      play
+      style={{width: '50%', height: 'auto'}}
+    />
+  )
 }
