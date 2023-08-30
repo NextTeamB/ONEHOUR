@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./ongoing.module.scss";
+import styles from "./ongoing-challenge.module.scss";
 import Image from "next/image";
 import stop from "@/public/icon-stop.png";
 import arrow from "@/public/icon-arrow.png";
-import BlueFire from "./animation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import closeicon from "../../../../public/closeicon.png";
+import Lottie from 'react-lottie-player'
+import BlueFire from '@/public/animation_bluefire.json';
+import GreenCheck from '@/public/animation_greencheck1.json';
 
 export default function Ongoing() {
   const router = useRouter();
@@ -113,7 +115,9 @@ export default function Ongoing() {
           <div className={styles.title}>
             <span>CHALLENGE BOARD</span>
           </div>
-          <BlueFire />
+          {isStopped ?
+          <Success /> : <Fire />
+          }
           <div className={styles.content}>
             <p>{title}</p>
           </div>
@@ -226,5 +230,27 @@ export default function Ongoing() {
         <div className={styles[`modalBG${modal}`]}></div>
       </div>
     </>
+  );
+}
+
+export function Fire() {
+  return (
+    <Lottie
+      loop
+      animationData={BlueFire}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
+  );
+}
+
+export function Success() {
+  return (
+    <Lottie
+      loop
+      animationData={GreenCheck}
+      play
+      style={{width: '55%', height: 'auto'}}
+    />
   );
 }

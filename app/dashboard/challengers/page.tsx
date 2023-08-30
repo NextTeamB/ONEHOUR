@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import userIcon from "../../../public/user-icon.png";
-import userCircle from "../../../public/user-icon-box.png";
+import userIcon from "../../../public/user-icon-box.png";
 
 export interface postInfo {
   email: string;
@@ -63,9 +62,9 @@ const Challengers = () => {
 
   return (
     <div className={styles.upper}>
-      <div className={styles.title}>챌린저스</div>
-      <div className={styles.title_sub}>
-        다른 유저들의 원아워 챌린지를 확인하며 소통해보세요
+      <div className={styles.titleSec}>
+        <h3>챌린저스</h3>
+        <p>다른 유저들의 원아워 챌린지를 확인하며 소통해보세요</p>
       </div>
       <div className={styles.postWrapper}>
         <div className={styles.postBox}>
@@ -91,7 +90,7 @@ const Challengers = () => {
                 key={i}
               >
                 <div className={styles.postUser}>
-                  <Image src={userCircle} alt="userIcon" className={styles.userIcon} />
+                  <Image src={userIcon} alt="userIcon" className={styles.userIcon} />
                   <p className={styles.nickWrap}>
                     <span>{postList[i].nickname}</span>
                     <span>님</span>
@@ -125,7 +124,7 @@ const Challengers = () => {
             <p>{postList[currnetIdx] ? postList[currnetIdx].content : ""}</p>
             <div className={styles.postBottom}>
               <div className={styles.userWrap}>
-                <Image src={userCircle} alt="userIcon" className={styles.userIcon} />
+                <Image src={userIcon} alt="userIcon" className={styles.userIcon} />
                 <div className={styles.nickWrap}>
                   <span>{postList[currnetIdx] ? postList[currnetIdx].nickname : ""}</span>
                   <span>님</span>

@@ -13,7 +13,10 @@ import bal from "../../../public/blueArrow_L.png";
 import bar from "../../../public/blueArrow_R.png";
 import gal from "../../../public/grayArrow_L.png";
 import gar from "../../../public/grayArrow_R.png";
-import Trophy from "./animation";
+import Lottie from "react-lottie-player";
+import TrophyAnim from "../../../public/animation_trophy.json";
+import FailAnim from "../../../public/animation_fail.json";
+import CheckAnim from "../../../public/animation_greencheck2.json";
 import Doughnut from "./doughnut";
 import { averageSave } from "@/slices/chartInfo";
 
@@ -93,7 +96,7 @@ export default function Records() {
 
   useEffect(() => {
     dispatch(averageSave(chartProps));
-  }, [chartProps]);
+  }, [chartProps, dispatch]);
 
   // 시간 퍼센테이지 평균값 계산 및 Dispatch
   // const avgTimeFunc = () => {
@@ -118,15 +121,13 @@ export default function Records() {
 
   // 성공횟수 카운트 및 퍼센테이지 가공 후 Dispatch
 
-  const cardImg = (challengeItem: any) => {
-    // cardImg의 파라미터로 challenge를 넘겨받으면 굳이 전체 게시글 중 인덱스로 탐색할 필요 없이
-    // challengeItem 안의 challengeStatus를 참조해 cardImg를 return해줄 수 있음!
-    if (challengeItem.challengeStatus === "succeed") {
+  const cardImg = (i: number) => {
+    if (userChallenges[i].challengeStatus === "succeed") {
       return <Trophy />;
-    } else if (challengeItem.challengeStatus === "failed") {
-      return <Image2 />;
+    } else if (userChallenges[i].challengeStatus === "failed") {
+      return <Failed />;
     } else {
-      return <Image3 />;
+      return <Check />;
     }
   };
 
@@ -160,6 +161,7 @@ export default function Records() {
                 // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
                 if (curIndex <= 0) setCurIndex(0);
               }}
+              style={{cursor: "pointer"}}
             />
             {userChallenges
               .slice(curIndex, curIndex + 3)
@@ -169,16 +171,24 @@ export default function Records() {
                   <div key={i}>
                     <div className={styles.recordsBox} key={`records${i}`}>
                       {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
-                      {cardImg(challengeItem)}
-                      <h4 className={styles.cardTitle}>
-                        {challengeItem.title}
-                      </h4>
-                      <p className={styles.cardDesc}>
-                        {challengeItem.description}
-                      </p>
+                      <h4 className={styles.cardTitle}>{challengeItem.title}</h4>
                       <p className={styles.cardDate}>{challengeItem.date}</p>
-                      <p>{challengeItem.challengeStatus}</p>
-                      <p>{challengeItem.challengeTime}</p>
+                      <div className={styles.cardImg}>{cardImg(i)}</div>
+                      <p className={styles.cardDesc}>
+                        &quot; {challengeItem.description} &quot;
+                      </p>
+                      <div className={styles.progressWrap}>
+                        <div className={styles.progressTitle}>
+                          <span>투자한 시간</span>
+                          <span>( 60분 기준 )</span>
+                        </div>
+                        <div className={styles.progressBar}>
+                          <div
+                            className={styles.progressState}
+                            style={{ width: `${challengeItem.challengeTime}%` }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -194,6 +204,7 @@ export default function Records() {
                   setCurIndex(userChallenges.length - 3);
                 }
               }}
+              style={{cursor: "pointer"}}
             />
           </>
         ) : (
@@ -233,10 +244,35 @@ export default function Records() {
   );
 }
 
-export function Image2() {
-  return <Image className={styles.fail} src={fail} width={160} alt="fail" />;
+export function Trophy() {
+  return (
+    <Lottie
+      loop
+      animationData={TrophyAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
 }
 
-export function Image3() {
-  return <Image src={check} alt="check" width={160} />;
+export function Failed() {
+  return (
+    <Lottie
+      loop
+      animationData={FailAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
+}
+
+export function Check() {
+  return (
+    <Lottie
+      loop
+      animationData={CheckAnim}
+      play
+      style={{ margin: "0 auto", width: "70%", height: "auto" }}
+    />
+  );
 }

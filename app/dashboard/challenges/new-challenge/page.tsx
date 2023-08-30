@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./new.module.scss";
+import styles from "./new-challenge.module.scss";
 import Link from "next/link";
 import DiffBtn from "./button";
 import TextBox from "./textbox";
@@ -63,7 +63,7 @@ export default function Newchallenge() {
           <div className={styles.article}>
             <span>한 시간 동안의 목표</span>
             <span>를 입력해주세요</span>
-            <span>*필수</span>
+            <span>* 필수</span>
           </div>
           <div className={styles.article_sub}>
             <p>( 최대 60자 이내, 특수기호 및 공백문자 사용 가능 )</p>
@@ -74,7 +74,7 @@ export default function Newchallenge() {
           <div className={styles.article}>
             <span>목표의 난이도</span>
             <span>를 설정해주세요</span>
-            <span>*필수</span>
+            <span>* 필수</span>
           </div>
           <div className={styles.article_sub}>
             <p>( 사용자께서 체감하시는 난이도를 설정해주시는 것이 좋습니다 )</p>

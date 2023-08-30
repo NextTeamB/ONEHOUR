@@ -22,7 +22,7 @@
 }
 .subTitle {
   color: #6AB5FF;
-  font-size: 23px;
+  font-size: 28px;
   font-weight: 600;
 }
 .buttonWrapper {
@@ -32,29 +32,23 @@
   justify-content: space-between;
   gap: 80px;
 }
-.introBtn {
-  width: 160px;
-  height: 58px;
-  font-size: 18px;
+.buttonWrapper > button {
+  width: 200px;
+  height: 76px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff;
   border: none;
-  background-color: #6AB5FF;
   /* box-shadow: 2px 3px 4px #00000029; */
-  border-radius: 80px;
+  border-radius: 100px;
   cursor: pointer;
 }
+.introBtn {
+  background-color: #6AB5FF;
+  padding-right: 10px;
+}
 .startBtn {
-  width: 160px;
-  height: 58px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-  border: none;
   background-color: #0B4F9F;
-  /* box-shadow: 2px 3px 4px #00000029; */
-  border-radius: 80px;
-  cursor: pointer;
 }
 .footer {
   display: flex;
@@ -64,6 +58,6 @@
   gap: 40px;
   margin-top: 20px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
   color: #383838;
 }

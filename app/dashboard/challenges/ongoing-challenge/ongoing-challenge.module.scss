@@ -27,16 +27,15 @@ $green: #40e358;
 }
 
 .root {
-  width: 110%;
-  height: 670px;
-  /* background-color: #B9DBFD; */
+  width: 1360px;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 70px;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 130px;
+  padding-right: 130px;
   font-family: "Arimo_BLD";
   font-weight: 600;
   letter-spacing: -1px;
@@ -49,7 +48,7 @@ $green: #40e358;
   }
   .board1 {
     width: 45%;
-    height: 480px;
+    height: 710px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -57,29 +56,34 @@ $green: #40e358;
     align-items: center;
     background-color: white;
     .title {
+      width: 100%;
       font-family: "Kicker_Trial";
       color: $blue;
-      font-size: 26px;
+      font-size: 34px;
+      text-align: center;
     }
     .content {
+      width: 100%;
       color: $navy;
-      font-size: 24px;
+      font-size: 28px;
+      text-align: center;
     }
     .progress {
+      width: 82%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 20px;
       align-items: flex-start;
       .curProgress {
-        font-size: 14px;
+        font-size: 18px;
         span {
-          font-size: 22px;
+          font-size: 28px;
           color: $blue;
         }
       }
       .progressBar {
-        height: 40px;
+        height: 48px;
         width: 100%;
         box-shadow: 2px 4px 6px #00000029;
         border-radius: 70px;
@@ -95,13 +99,18 @@ $green: #40e358;
         }
       }
       .btnWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
         button {
           position: relative;
-          width: 70px;
-          height: 46px;
+          width: 150px;
+          height: 66px;
           align-items: center;
           justify-content: center;
-          font-size: 9px;
+          font-size: 14px;
           font-weight: 600;
           letter-spacing: -1px;
           color: black;
@@ -115,9 +124,6 @@ $green: #40e358;
           background-color: #0b4f9f;
           color: white;
         }
-        button:not(:last-child) {
-          margin-right: 6px;
-        }
       }
     }
   }
@@ -126,14 +132,14 @@ $green: #40e358;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
+    gap: 50px;
     width: 45%;
-    font-size: 14px;
+    font-size: 18px;
     .mindBox,
     .timerBox,
     .comBox {
       width: 100%;
-      height: 120px;
+      height: 184px;
       padding: 30px;
     }
 
@@ -144,8 +150,9 @@ $green: #40e358;
       align-items: flex-start;
       p {
         width: 100%;
-        font-size: 18px;
+        font-size: 24px;
         text-align: center;
+        margin-top: 50px;
       }
     }
     .timerBox {
@@ -168,7 +175,7 @@ $green: #40e358;
         gap: 4%;
         background-color: #f7cecd;
         color: #cc1a1a;
-        font-size: 24px;
+        font-size: 38px;
         font-weight: 600;
         cursor: pointer;
         &.stopped {
@@ -182,10 +189,14 @@ $green: #40e358;
       .stopIcon {
         width: 7%;
         height: auto;
+        margin-left: 10px;
+        margin-top: 4px;
       }
       .arrowIcon {
-        width: 4%;
+        width: 3.3%;
         height: auto;
+        margin-left: 14px;
+        margin-top: 5px;
       }
     }
   }
@@ -196,8 +207,9 @@ $green: #40e358;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
+  font-size: 40px;
   color: white;
+  margin-top: 22px;
   .circularProgress {
     position: relative;
     width: 120px;
