@@ -17,7 +17,8 @@ export default function NotFound() {
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
-      }}>
+      }}
+    >
       <Image src={notfound} alt="notfound" height={404} />
     </div>
   );

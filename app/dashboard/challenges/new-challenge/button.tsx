@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "./button.module.scss";
 
 interface DiffBtnProps {
@@ -10,7 +10,9 @@ interface DiffBtnProps {
 }
 
 const DiffBtn: React.FC<DiffBtnProps> = ({ label, isClicked, onClick }) => {
-  const btnClasses = `${styles.difficultyBtn} ${isClicked ? styles.clicked : ''}`;
+  const btnClasses = `${styles.difficultyBtn} ${
+    isClicked ? styles.clicked : ""
+  }`;
 
   return (
     <button className={btnClasses} onClick={onClick}>

@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import chevron from "../../../public/icons8-셰브론-오른쪽-52.png";
 import closeicon from "../../../public/closeicon.png";
 import Image from "next/image";
-import { editPassword } from '@/util/onChangeUserInfo';
+import { editPassword } from "@/util/onChangeUserInfo";
 
 export interface userAccount {
   email: string;
@@ -86,7 +86,6 @@ export default function Settings() {
         console.log(err);
       });
   };
-
 
   const withdrawal = () => {
     axios.delete("/api/users/withdrawal").then((res) => {

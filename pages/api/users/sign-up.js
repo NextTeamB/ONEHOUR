@@ -35,11 +35,11 @@ export default async function handler(req, res) {
               {
                 email: email,
               },
-              { $set: { refreshToken: `${token}` } }
+              { $set: { refreshToken: `${token}` } },
             );
             // db.collection("userAccount").findOne({ email });
             return res.status(200).json("회원가입이 완료되었습니다");
-          }
+          },
         );
       } else {
         return res.status(409).json("이미 등록된 회원입니다");

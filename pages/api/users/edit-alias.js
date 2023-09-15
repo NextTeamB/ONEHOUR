@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       .collection("userAccount")
       .updateOne(
         { _id: new ObjectId(decodeId) },
-        { $set: { nickname: nickname } }
+        { $set: { nickname: nickname } },
       );
 
     let userInfo = await db

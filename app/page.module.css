@@ -1,5 +1,5 @@
 .mainSection {
-  background-color: #F8FCFF;
+  background-color: #f8fcff;
   width: 100%;
   padding-top: 120px;
   padding-bottom: 50px;
@@ -21,7 +21,7 @@
   height: auto;
 }
 .subTitle {
-  color: #6AB5FF;
+  color: #6ab5ff;
   font-size: 28px;
   font-weight: 600;
 }
@@ -44,11 +44,11 @@
   cursor: pointer;
 }
 .introBtn {
-  background-color: #6AB5FF;
+  background-color: #6ab5ff;
   padding-right: 10px;
 }
 .startBtn {
-  background-color: #0B4F9F;
+  background-color: #0b4f9f;
 }
 .footer {
   display: flex;

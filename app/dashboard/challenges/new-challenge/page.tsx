@@ -32,7 +32,7 @@ export default function Newchallenge() {
         title: title,
         description: description,
         difficulty: difficulty,
-      })
+      }),
     );
     router.push("/dashboard/challenges/ongoing-challenge");
   };
@@ -104,13 +104,14 @@ export default function Newchallenge() {
               나가기
             </button>
           </Link>
-            <button
-              onClick={() => {
-                onSubmit();
-              }}
-              className={`${styles.btn} ${styles.startBtn}`}>
-              시작하기
-            </button>
+          <button
+            onClick={() => {
+              onSubmit();
+            }}
+            className={`${styles.btn} ${styles.startBtn}`}
+          >
+            시작하기
+          </button>
         </div>
       </div>
     </>
