@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       .collection("userAccount")
       .updateOne(
         { _id: new ObjectId(decodeId) },
-        { $set: { password: password } }
+        { $set: { password: password } },
       );
     return res.status(200).json("패스워드 변경이 완료되었습니다");
   } else {

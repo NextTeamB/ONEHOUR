@@ -33,8 +33,8 @@
 <br/>
 <br/>
 
-
 ---
+
   <br/>
   <br/>
 <h2>시작 가이드</h2>
@@ -43,6 +43,7 @@
 <br/>
 
 For building and running the application you need:
+
 - Node.js 20.1.0
 - Npm 9.6.4
 
@@ -53,6 +54,7 @@ For building and running the application you need:
 $ git clone https://github.com/NextTeamB/ONEHOUR
 $ cd ONEHOUR
 ```
+
 <br/>
 <h4>Environment Variable Setting</h4>
 
@@ -176,7 +178,7 @@ $ npm run dev
 - "/dashboard/challenge/ongoing-challenge" 페이지 작업 완료
 - "/dashboard/records" 페이지 작업 완료
 - "/dashboard/settings" 페이지 작업 완료
-  
+
 <br/>
 
 <h3>API 구현</h3>
@@ -187,4 +189,3 @@ $ npm run dev
 - 게시판 관련 API 구현 완료
 - 유저 목표 기록 관련 API 구현 완료
 - 회원 정보 수정 및 삭제 API 구현 완료
-

@@ -10,9 +10,9 @@ import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import closeicon from "../../../../public/closeicon.png";
-import Lottie from 'react-lottie-player'
-import BlueFire from '@/public/animation_bluefire.json';
-import GreenCheck from '@/public/animation_greencheck1.json';
+import Lottie from "react-lottie-player";
+import BlueFire from "@/public/animation_bluefire.json";
+import GreenCheck from "@/public/animation_greencheck1.json";
 
 function Fire() {
   return (
@@ -20,7 +20,7 @@ function Fire() {
       loop
       animationData={BlueFire}
       play
-      style={{width: '55%', height: 'auto'}}
+      style={{ width: "55%", height: "auto" }}
     />
   );
 }
@@ -31,7 +31,7 @@ function Success() {
       loop={false}
       animationData={GreenCheck}
       play
-      style={{width: '55%', height: 'auto'}}
+      style={{ width: "55%", height: "auto" }}
     />
   );
 }
@@ -40,7 +40,7 @@ export default function Ongoing() {
   const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
   const { title, description, difficulty } = useSelector(
-    (state: RootState) => state.challenge
+    (state: RootState) => state.challenge,
   );
 
   /*--- Timer ---*/
@@ -137,9 +137,7 @@ export default function Ongoing() {
           <div className={styles.title}>
             <span>CHALLENGE BOARD</span>
           </div>
-          {isStopped ?
-          <Success /> : <Fire />
-          }
+          {isStopped ? <Success /> : <Fire />}
           <div className={styles.content}>
             <p>{title}</p>
           </div>

@@ -25,7 +25,7 @@ const userSlice = createSlice({
       state.name = action.payload.name;
       state.nickname = action.payload.nickname;
     },
-    // 토큰 리듀서 - payload로 액세스 토큰을 넘겨받아 저장. silentRefresh를 위해 토큰 리듀서를 분리함 
+    // 토큰 리듀서 - payload로 액세스 토큰을 넘겨받아 저장. silentRefresh를 위해 토큰 리듀서를 분리함
     getToken: (state, action) => {
       state.accessToken = action.payload;
     },

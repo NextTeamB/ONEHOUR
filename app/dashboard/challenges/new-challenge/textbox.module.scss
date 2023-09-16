@@ -10,14 +10,14 @@
   border: none;
   text-decoration: none;
   background-color: white;
-  border: 1px solid #E1E2E3;
+  border: 1px solid #e1e2e3;
   border-radius: 10px;
   padding-left: 30px;
 
   &:focus {
     outline: none;
-    border-color: #6AB5FF;
+    border-color: #6ab5ff;
     border-width: 2px;
     box-shadow: 0 0 5px #b7dbff;
-  }  
+  }
 }

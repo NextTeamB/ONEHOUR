@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
-import { NextPage } from 'next';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import logo from '../public/logo.png';
-import styles from './page.module.css';
+import React from "react";
+import { NextPage } from "next";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logo from "../public/logo.png";
+import styles from "./page.module.css";
 
 const Home: NextPage = () => {
   const router = useRouter();

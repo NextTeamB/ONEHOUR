@@ -1,15 +1,15 @@
-$blue: #6AB5FF;
-$navy: #0B4F9F;
+$blue: #6ab5ff;
+$navy: #0b4f9f;
 $grey1: #383838;
 $grey2: #989898;
-$grey3: #E1E2E3;
+$grey3: #e1e2e3;
 
 .upper {
   width: 1500px;
   min-height: 600px;
   margin: 80px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: $grey1;
   letter-spacing: -1px;
 
@@ -43,7 +43,7 @@ $grey3: #E1E2E3;
       width: 88%;
       height: 60px;
       border-radius: 10px;
-      border: 1.5px solid #C9C9C9;
+      border: 1.5px solid #c9c9c9;
       padding-left: 20px;
       padding-right: 20px;
       font-size: 18px;
@@ -52,20 +52,21 @@ $grey3: #E1E2E3;
 
     textarea {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       width: 88%;
       height: 360px;
       border-radius: 10px;
-      border: 1.5px solid #C9C9C9;
+      border: 1.5px solid #c9c9c9;
       padding: 20px;
       font-size: 18px;
       letter-spacing: -1px;
       display: flex;
     }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
       outline: none;
-      border-color: #6AB5FF;
+      border-color: #6ab5ff;
       border-width: 2px;
       box-shadow: 0 0 5px #b7dbff;
     }
@@ -92,7 +93,7 @@ $grey3: #E1E2E3;
         cursor: pointer;
       }
 
-      :nth-child(1){
+      :nth-child(1) {
         background-color: $grey2;
       }
 
@@ -127,7 +128,7 @@ $grey3: #E1E2E3;
     padding: 40px 20px;
     border-radius: 20px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
-    
+
     .modalTop {
       width: 90%;
       display: flex;
@@ -164,10 +165,9 @@ $grey3: #E1E2E3;
       color: white;
       border: none;
       border-radius: 10px;
-      background-color: #B9DBFD;
+      background-color: #b9dbfd;
       margin-top: 10px;
       cursor: pointer;
     }
   }
 }
-
