@@ -6,6 +6,7 @@ import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import userIcon from "../../../public/user-icon-box.png";
+import { fetchData, deletePostData } from "../../../util/onChallengers";
 
 export interface postInfo {
   email: string;
@@ -22,38 +23,11 @@ const Challengers = () => {
   const [currnetIdx, setCurrentIdx] = useState(0);
   const router = useRouter();
   useEffect(() => {
-    axios
-      .get("/api/challengers")
-      .then((res) => {
-        setPostList([...res.data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchData(setPostList, setModalUp);
   }, []);
 
   const deletePost = (postId: number) => {
-    axios
-      .delete(`/api/challengers/${postId}`)
-      .then((res) => {
-        console.log(res);
-        setTimeout(() => {
-          axios
-            .get("/api/challengers")
-            .then((res) => {
-              setPostList([...res.data]);
-              alert("게시글이 정상적으로 삭제되었습니다");
-            })
-            .catch((err) => {
-              console.log("연결이 원활하지 않습니다");
-            });
-        }, 500);
-        setModalUp(0);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("삭제 권한이 없습니다");
-      });
+    deletePostData(postId, setPostList, setModalUp);
   };
 
   // useEffect(() => {

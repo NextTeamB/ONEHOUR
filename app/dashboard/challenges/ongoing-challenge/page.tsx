@@ -7,12 +7,12 @@ import stop from "@/public/icon-stop.png";
 import arrow from "@/public/icon-arrow.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import closeicon from "../../../../public/closeicon.png";
 import Lottie from 'react-lottie-player'
 import BlueFire from '@/public/animation_bluefire.json';
 import GreenCheck from '@/public/animation_greencheck1.json';
+import { postChallengeData } from "../../../../util/postChallengeData";
 
 function Fire() {
   return (
@@ -115,17 +115,11 @@ export default function Ongoing() {
     } else {
       status = "failed";
     }
-    axios
-      .post("/api/records", {
-        title: title,
-        description: description,
-        difficulty: difficulty,
-        challengeStatus: status,
-        challengeTime: Math.round(calculateProgress()),
-      })
+    
+    postChallengeData(title, description, difficulty, status, calculateProgress())
       .then((res) => {
         console.log(res);
-        router.push("/dashboard");
+        router.push('/dashboard');
       })
       .catch((err) => console.log(err));
   };
