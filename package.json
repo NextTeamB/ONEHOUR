@@ -19,7 +19,6 @@
     "chart.js": "^2.9.4",
     "cookie": "^0.5.0",
     "dotenv": "^16.3.1",
-    "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "jotai": "^2.2.3",
     "jsonwebtoken": "^9.0.1",
@@ -40,6 +39,11 @@
   "devDependencies": {
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.15",
+    "eslint": "^8.49.0",
+    "eslint-config-naver": "^2.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
     "sass": "^1.64.1"
   }
 }

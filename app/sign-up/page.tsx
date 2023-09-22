@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import styles from "./signUp.module.scss";
 import { useRouter } from "next/navigation";
-import { onSignUp } from '@/util/onSignUp';
+import { onSignUp } from "@/util/onSignUp";
 
 // export interface checkItems {
 //   checked: any;
@@ -46,11 +46,11 @@ export default function SignUp() {
   const router = useRouter();
   
   const initialState: FormData = {
-    email: '',
-    name: '',
-    nickname: '',
-    password: '',
-    passwordConfirm: '',
+    email: "''",
+    name: "''",
+    nickname: "''",
+    password: "''",
+    passwordConfirm: "''",
   };
 
   // 가입 작성 폼 초기화
@@ -58,11 +58,11 @@ export default function SignUp() {
 
   // 에러 메시지 통합
   const [errorMessages, setErrorMessages] = useState<ErrorMessages>({
-    email: '',
-    name: '',
-    nickname: '',
-    password: '',
-    passwordConfirm: '',
+    email: "''",
+    name: "''",
+    nickname: "''",
+    password: "''",
+    passwordConfirm: "''",
   });
 
   // 유효성 검사 통합
@@ -91,14 +91,14 @@ export default function SignUp() {
     checkState4: '광고성 SNS, 이메일 뉴스레터 수신에 동의합니다 (선택)',
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     validateInput(name, value);
   };
 
   // 각각의 유효성 검사를 하나의 함수로 묶음
-  const validateInput = (name: string, value: string) => {
+  const validateInput = ( name: string, value: string ) => {
     switch (name) {
       case 'email':
         const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -144,7 +144,7 @@ export default function SignUp() {
     });
   };
 
-  const toggleCheck = (name: string) => {
+  const toggleCheck = ( name: string ) => {
     setCheckStates({ ...checkStates, [name]: !checkStates[name] });
   };
 
@@ -178,15 +178,15 @@ export default function SignUp() {
             className={styles.emailInputBox}
             placeholder="이메일을 입력해주세요"
           ></input>
-          <button 
-            className={styles.emailCheck} 
-            onClick={()=>{
+          <button
+            className={styles.emailCheck}
+            onClick={() => {
               axios
-              .post('api/users/idcheck', {email: formData.email})
-              .then(()=>{
+              .post('api/users/idcheck', { email: formData.email })
+              .then(() => {
                 alert("사용할 수 있는 이메일입니다.")
               })
-              .catch(()=>{
+              .catch(() => {
                 alert("사용할 수 없는 이메일입니다.");
                 setFormData({ ...formData, email: '' });
               })

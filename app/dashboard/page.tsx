@@ -193,7 +193,7 @@ export default function Records() {
                 // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
                 if (curIndex <= 0) setCurIndex(0);
               }}
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             />
             {userChallenges
               .slice(curIndex, curIndex + 3)
@@ -203,7 +203,9 @@ export default function Records() {
                   <div key={i}>
                     <div className={styles.recordsBox} key={`records${i}`}>
                       {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
-                      <h4 className={styles.cardTitle}>{challengeItem.title}</h4>
+                      <h4 className={styles.cardTitle}>
+                        {challengeItem.title}
+                      </h4>
                       <p className={styles.cardDate}>{challengeItem.date}</p>
                       <div className={styles.cardImg}>
                         {cardImg(challengeItem)}
@@ -238,7 +240,7 @@ export default function Records() {
                   setCurIndex(userChallenges.length - 3);
                 }
               }}
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             />
           </>
         ) : (
@@ -277,4 +279,3 @@ export default function Records() {
     </div>
   );
 }
-

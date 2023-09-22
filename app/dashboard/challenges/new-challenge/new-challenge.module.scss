@@ -1,8 +1,8 @@
-$blue: #6AB5FF;
-$navy: #0B4F9F;
+$blue: #6ab5ff;
+$navy: #0b4f9f;
 $grey1: #383838;
 $grey2: #989898;
-$grey3: #E1E2E3;
+$grey3: #e1e2e3;
 
 .root {
   width: 1480px;
@@ -13,11 +13,11 @@ $grey3: #E1E2E3;
   gap: 40px;
   padding-top: 130px;
   padding-left: 140px;
-  font-family: 'Arimo_BLD';
+  font-family: "Arimo_BLD";
   letter-spacing: -1px;
   .section1 {
     .title {
-      font-family: 'Kicker_Trial';
+      font-family: "Kicker_Trial";
       color: $blue;
       font-size: 36px;
     }
@@ -28,15 +28,13 @@ $grey3: #E1E2E3;
     }
   }
   .section3 {
-    
     .btnWrapper {
-      
       button:not(:last-child) {
         margin-right: 24px;
       }
     }
   }
-  
+
   .section4 {
     .article {
       color: black;

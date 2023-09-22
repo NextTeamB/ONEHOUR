@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from './textbox.module.scss';
+import React, { useState } from "react";
+import styles from "./textbox.module.scss";
 
 interface TextBoxProps {
   value: string;
@@ -13,7 +13,12 @@ const TextBox: React.FC<TextBoxProps> = ({ value, onChange }) => {
 
   return (
     <div>
-      <input type="text" value={value} onChange={handleInputChange} className={styles.textbox} />
+      <input
+        type="text"
+        value={value}
+        onChange={handleInputChange}
+        className={styles.textbox}
+      />
     </div>
   );
 };

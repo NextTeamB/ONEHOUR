@@ -43,5 +43,6 @@ const challengeSlice = createSlice({
   },
 });
 
-export const { timeSave, diffSave, succeedSave, averageSave } = challengeSlice.actions;
+export const { timeSave, diffSave, succeedSave, averageSave } =
+  challengeSlice.actions;
 export default challengeSlice.reducer;

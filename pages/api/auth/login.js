@@ -24,15 +24,16 @@ export default async function handler(req, res) {
       const SECRET_KEY = process.env.SECRET_KEY;
       const payload = { id: result._id };
       let rfToken = result.refreshToken; // DB에 저장된 refreshToken 받아옴
-      jwt.verify(rfToken, SECRET_KEY, async function (err, decoded) { // refreshToken이 만료되었는지 검증
+      jwt.verify(rfToken, SECRET_KEY, async function (err, decoded) {
+        // refreshToken이 만료되었는지 검증
         // 토큰이 만료되었다는 에러가 발생하면 refreshToken을 재생성해 DB에 저장하고 다시 result를 받아오는 로직
-        if (err && err.name === "TokenExpiredError") { 
+        if (err && err.name === "TokenExpiredError") {
           const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "14d" });
           await db
             .collection("userAccount")
             .updateOne(
               { email: email },
-              { $set: { refreshToken: `${token}` } }
+              { $set: { refreshToken: `${token}` } },
             );
           result = await db.collection("userAccount").findOne({ email });
         }
@@ -55,12 +56,12 @@ export default async function handler(req, res) {
           await res.setHeader("Set-Cookie", cookie);
           await res.setHeader("authorization", `Bearer ${token}`);
           let responseBody = {
-            name : result.name,
-            nickname : result.nickname,
-            email : result.email
-          }
+            name: result.name,
+            nickname: result.nickname,
+            email: result.email,
+          };
           return res.status(200).json(responseBody); // token 값 response 해주기
-        }
+        },
       );
     } else {
       return res.status(400).json("등록되지 않은 이메일입니다");

@@ -20,9 +20,9 @@ function Trophy() {
       loop
       animationData={Animation}
       play
-      style={{width: '50%', height: 'auto'}}
+      style={{ width: "50%", height: "auto" }}
     />
-  )
+  );
 }
 
 export default function info() {
