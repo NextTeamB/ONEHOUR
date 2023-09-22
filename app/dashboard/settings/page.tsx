@@ -5,13 +5,14 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { login } from "@/slices/userSlice";
+// import { login } from "@/slices/userSlice";
 import styles from "./settings.module.scss";
 import { useRouter } from "next/navigation";
 import chevron from "../../../public/icons8-셰브론-오른쪽-52.png";
 import closeicon from "../../../public/closeicon.png";
 import Image from "next/image";
 import { editPassword } from "@/util/onChangeUserInfo";
+import { fetchUserAccount, updateAlias } from "@/util/onSettings";
 
 export interface userAccount {
   email: string;
@@ -37,14 +38,18 @@ export default function Settings() {
   const [modalState, setModalState] = useState([0, 0, 0]);
 
   useEffect(() => {
-    axios
-      .get("/api/users/account")
-      .then((res) => {
-        dispatch(login(res.data));
-      })
+    fetchUserAccount(dispatch)
       .catch((err) => {
         console.log(err);
       });
+    // axios
+    //   .get("/api/users/account")
+    //   .then((res) => {
+    //     dispatch(login(res.data));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }, []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,26 +70,27 @@ export default function Settings() {
       alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
       return;
     }
-    axios
-      .patch("/api/users/edit-alias", editInfo)
-      .then((res) => {
-        axios
-          .get("/api/users/account")
-          .then((res) => {
-            alert("닉네임 변경이 완료되었습니다");
-            dispatch(login(res.data));
-            setModalState([0, 0, 0]);
-            // 닉네임 변경 후 모달창 조회 시 변경된 닉네임이 유지되는 것 방지
-            setEditInfo(initialEditInfo);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    updateAlias(editInfo, dispatch, setModalState, setEditInfo, initialEditInfo);
+    // axios
+    //   .patch("/api/users/edit-alias", editInfo)
+    //   .then((res) => {
+    //     axios
+    //       .get("/api/users/account")
+    //       .then((res) => {
+    //         alert("닉네임 변경이 완료되었습니다");
+    //         dispatch(login(res.data));
+    //         setModalState([0, 0, 0]);
+    //         // 닉네임 변경 후 모달창 조회 시 변경된 닉네임이 유지되는 것 방지
+    //         setEditInfo(initialEditInfo);
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   const withdrawal = () => {

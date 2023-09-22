@@ -17,6 +17,7 @@ import FailAnim from "@/public/animation_fail.json";
 import CheckAnim from "@/public/animation_greencheck2.json";
 import Doughnut from "./doughnut";
 import { averageSave } from "@/slices/chartInfo";
+import { onDashboard } from "@/util/onDashboard";
 
 function Trophy() {
   return (
@@ -85,10 +86,9 @@ export default function Records() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get("/api/records")
-      .then((res) => {
-        setUserChallenges([...res.data]);
+    onDashboard()
+      .then((data) => {
+        setUserChallenges([...data]);
       })
       .catch((err) => {
         console.log(err);

@@ -2,11 +2,11 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { onLogout } from "../../../../util/onLogout";
 import styles from "./new-post.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import close from "../../../../public/closeicon.png";
+import { sendPostData } from "../../../../util/onNewPost"
 
 interface PostInfo {
   postTitle: string;
@@ -49,15 +49,7 @@ const NewPost = () => {
     if (!postInfo.postTitle || !postInfo.postContent) {
       alert("제목과 내용을 모두 입력해주세요.");
     } else {
-      axios
-        .post("/api/challengers", postInfo)
-        .then((res) => {
-          console.log(res);
-          router.push("/dashboard/challengers");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      sendPostData(postInfo, router);
     }
   };
 

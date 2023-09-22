@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./login.module.css";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import kakao from "../../public/kakaotalk_logo_icon_147272.png";
+// import kakao from "../../public/kakaotalk_logo_icon_147272.png";
 import chevron from "../../public/icons8-셰브론-오른쪽-52.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
