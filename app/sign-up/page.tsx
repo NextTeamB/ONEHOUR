@@ -53,8 +53,10 @@ export default function SignUp() {
     passwordConfirm: '',
   };
 
+  // 가입 작성 폼 초기화
   const [formData, setFormData] = useState<FormData>(initialState);
 
+  // 에러 메시지 통합
   const [errorMessages, setErrorMessages] = useState<ErrorMessages>({
     email: '',
     name: '',
@@ -63,6 +65,7 @@ export default function SignUp() {
     passwordConfirm: '',
   });
 
+  // 유효성 검사 통합
   const [isValid, setIsValid] = useState<IsValid>({
     email: false,
     name: false,
@@ -73,6 +76,7 @@ export default function SignUp() {
 
   const [allCheck, setAllCheck] = useState<boolean>(false);
 
+  // 체크박스 로직 통합
   const [checkStates, setCheckStates] = useState<CheckStates>({
     checkState1: false,
     checkState2: false,
@@ -93,6 +97,7 @@ export default function SignUp() {
     validateInput(name, value);
   };
 
+  // 각각의 유효성 검사를 하나의 함수로 묶음
   const validateInput = (name: string, value: string) => {
     switch (name) {
       case 'email':
@@ -127,6 +132,7 @@ export default function SignUp() {
     }
   };
 
+  // 체크박스 로직 중 전체선택
   const toggleAllCheck = () => {
     const newAllCheck = !allCheck;
     setAllCheck(newAllCheck);
@@ -142,6 +148,7 @@ export default function SignUp() {
     setCheckStates({ ...checkStates, [name]: !checkStates[name] });
   };
 
+  // 회원가입 버튼 비활성화 조건
   const isSubmitDisabled = !(
     isValid.email &&
     isValid.name &&
@@ -237,6 +244,7 @@ export default function SignUp() {
           <hr />
         </div>
 
+        {/* 체크박스 로직 map함수로 뿌려줌 */}
         {Object.keys(checkStates).map((checkStateName) => (
           <div className={styles.agreeForm2} key={checkStateName}>
             <input

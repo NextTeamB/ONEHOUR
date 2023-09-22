@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// 전체 게시물 가져오는 api
 export const fetchData = (setPostList, setModalUp) => {
   axios
     .get("/api/challengers")
@@ -12,6 +13,7 @@ export const fetchData = (setPostList, setModalUp) => {
   setModalUp(0);
 };
 
+// 게시물 삭제 api
 export const deletePostData = (postId, setPostList, setModalUp) => {
   axios
     .delete(`/api/challengers/${postId}`)
