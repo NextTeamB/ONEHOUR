@@ -35,11 +35,11 @@ export default async function handler(req, res) {
               {
                 email: email,
               },
-              { $set: { refreshToken: `${token}` } },
+              { $set: { refreshToken: `${token}` } }
             );
             // db.collection("userAccount").findOne({ email });
             return res.status(200).json("회원가입이 완료되었습니다");
-          },
+          }
         );
       } else {
         return res.status(409).json("이미 등록된 회원입니다");
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
       // 이미 이메일이 디비상에 있으면 에러처리 후
       // 리다이렉션으로 로그인 페이지 (client)
     } catch (err) {
-      return res.status(500).json("요청이 정상적으로 처리되지 않았습니다");
+      return res.status(500).json("서버에러가 발생하였습니다");
     }
   }
 }
