@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Kicker_Trial";
+  src: url("../../public/KickerTrial-BlackItalic.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../public/Arimo-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../public//Arimo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../public/Arimo-Medium.ttf");
+}
+
+.content {
+  width: 72%;
+  min-height: 800px;
+  margin: 10px auto;
+  .tableBox {
+    width: 100%;
+    margin: 120px auto;
+    height: 400px;
+    border: 1px solid #383838;
+    .tRow1 {
+      float: left;
+      width: 690px;
+      height: 100px;
+      border-right: 1px solid #383838;
+      border-bottom: 1px solid #383838;
+      p {
+        font-family: "Arimo_BLD";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 700;
+        margin: 36px auto;
+      }
+    }
+    .tRow2 {
+      float: left;
+      width: 690px;
+      height: 100px;
+      border-bottom: 1px solid #383838;
+      p {
+        font-family: "Arimo_BLD";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 700;
+        margin: 36px auto;
+      }
+    }
+    .tCol1 {
+      float: left;
+      width: 690px;
+      height: 150px;
+      border-right: 1px solid #383838;
+      border-bottom: 1px solid #383838;
+      p {
+        font-family: "Arimo_RGR";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        margin: 62px auto;
+      }
+    }
+    .tCol2 {
+      float: left;
+      width: 690px;
+      height: 150px;
+      border-bottom: 1px solid #383838;
+      p {
+        font-family: "Arimo_RGR";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        margin: 62px auto;
+      }
+    }
+    .tCol3 {
+      float: left;
+      width: 690px;
+      height: 150px;
+      border-right: 1px solid #383838;
+      p {
+        font-family: "Arimo_RGR";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        margin: 62px auto;
+      }
+    }
+    .tCol4 {
+      float: left;
+      width: 690px;
+      height: 150px;
+      border: none;
+      p {
+        font-family: "Arimo_RGR";
+        font-size: 22px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        margin: 62px auto;
+      }
+    }
+  }
+  h3 {
+    font-size: 36px;
+    font-family: "Arimo_BLD";
+    font-weight: 700;
+    margin: 180px 0px 120px 0px;
+    letter-spacing: -1px;
+  }
+  h5 {
+    font-size: 20px;
+    font-family: "Arimo_BLD";
+    font-weight: 700;
+    margin: 80px 0px 20px 0px;
+    letter-spacing: -1px;
+  }
+  p {
+    font-family: "Arimo_RGR";
+    font-weight: 400;
+    font-size: 20px;
+    margin: 30px 0px;
+    letter-spacing: -1px;
+    color: #383838;
+  }
+  .endText {
+    margin: 40px 0px 180px 0px;
+  }
+}
