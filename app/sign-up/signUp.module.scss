@@ -38,7 +38,7 @@ $blue: #6ab5ff;
 }
 
 .signUpBox {
-  max-width: 400px;
+  max-width: 1200px;
   width: 100%;
   margin: auto auto;
   display: flex;
@@ -52,7 +52,9 @@ $blue: #6ab5ff;
   border: 1px solid #e1e2e3;
   border-radius: 5px;
   padding: 20px;
-
+  span {
+    margin: 10px auto;
+  }
   h4 {
     font-size: 20px;
     letter-spacing: -0.023em;
@@ -60,11 +62,11 @@ $blue: #6ab5ff;
     font-family: "pretendard-sb";
     font-weight: 700;
     line-height: 32px;
-    display: inline-block;
-    margin-left: 120px;
+    display: block;
+    margin: 20px auto;
   }
   h5 {
-    margin: 20px 0px 7px 0px;
+    margin: 20px auto 7px 384px;
     font-weight: 600;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -92,7 +94,7 @@ $blue: #6ab5ff;
     display: inline-block;
     min-height: 50px;
     padding: 0px 12px;
-    width: 294px;
+    width: 330px;
     outline: none;
     border: 1px solid #e1e2e3;
     border-radius: 5px;
@@ -103,16 +105,19 @@ $blue: #6ab5ff;
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   .emailCheck + span {
+    align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: #fe415c;
-    text-align: left;
+    margin-left: 384px;
+    display: block;
+    // text-align: left;
     font-size: 12px;
     line-height: 16px;
-    margin-bottom: 8px;
-    margin-top: 0px;
+    margin: 8px auto;
   }
   .nameInputBox {
+    width: 408px;
     height: 50px;
     min-height: 50px;
     padding: 0px 12px;
@@ -120,7 +125,7 @@ $blue: #6ab5ff;
     background-color: transparent;
     border: 1px solid #e1e2e3;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
     font-size: 16px;
     color: #333;
   }
@@ -128,6 +133,8 @@ $blue: #6ab5ff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: #fe415c;
+    margin-left: 384px;
+    display: block;
     text-align: left;
     font-size: 12px;
     line-height: 16px;
@@ -135,6 +142,7 @@ $blue: #6ab5ff;
     margin-top: 0px;
   }
   .nicknameInputBox {
+    width: 408px;
     height: 50px;
     min-height: 50px;
     padding: 0px 12px;
@@ -142,12 +150,12 @@ $blue: #6ab5ff;
     background-color: transparent;
     border: 1px solid #e1e2e3;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
     font-size: 16px;
     color: #333;
   }
   .nicknameInputBox1 {
-    /* width: 100%; */
+    width: 408px;
     height: 50px;
     min-height: 50px;
     padding: 0px 12px;
@@ -155,7 +163,7 @@ $blue: #6ab5ff;
     background-color: transparent;
     border: 1px solid #fe415c;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
     font-size: 16px;
     color: #333;
   }
@@ -163,6 +171,8 @@ $blue: #6ab5ff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: #fe415c;
+    margin-left: 384px;
+    display: block;
     text-align: left;
     font-size: 12px;
     line-height: 16px;
@@ -170,6 +180,7 @@ $blue: #6ab5ff;
     margin-top: 0px;
   }
   .passwordInputBox1 {
+    width: 408px;
     height: 50px;
     min-height: 50px;
     padding: 0px 12px;
@@ -177,11 +188,13 @@ $blue: #6ab5ff;
     background-color: transparent;
     border: 1px solid #e1e2e3;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
     font-size: 16px;
     color: #333;
   }
   .passwordInputBox1 + span {
+    margin-left: 384px;
+    display: block;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: #fe415c;
@@ -192,6 +205,7 @@ $blue: #6ab5ff;
     margin-top: 0px;
   }
   .passwordInputBox2 {
+    width: 408px;
     height: 50px;
     min-height: 50px;
     padding: 0px 12px;
@@ -199,7 +213,7 @@ $blue: #6ab5ff;
     background-color: transparent;
     border: 1px solid #e1e2e3;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
     font-size: 16px;
     color: #333;
   }
@@ -208,6 +222,8 @@ $blue: #6ab5ff;
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: #fe415c;
     text-align: left;
+    margin-left: 384px;
+    display: block;
     font-size: 12px;
     line-height: 16px;
     margin-bottom: 8px;
@@ -224,6 +240,8 @@ $blue: #6ab5ff;
 }
 
 .agreeForm1 {
+  margin: 4px auto;
+  width: 430px;
   h5 {
     margin: 20px 0px 7px 0px;
     font-weight: 600;
@@ -245,6 +263,8 @@ $blue: #6ab5ff;
   }
 }
 .agreeForm2 {
+  margin: 4px auto;
+  width: 430px;
   h5 {
     margin: 20px 0px 7px 0px;
     font-weight: 400;
@@ -261,6 +281,8 @@ $blue: #6ab5ff;
   }
 }
 .agreeForm3 {
+  margin: 4px auto;
+  width: 430px;
   h5 {
     margin: 20px 0px 7px 0px;
     font-weight: 400;
@@ -277,6 +299,8 @@ $blue: #6ab5ff;
   }
 }
 .agreeForm4 {
+  margin: 4px auto;
+  width: 430px;
   h5 {
     margin: 20px 0px 7px 0px;
     font-weight: 400;
@@ -293,6 +317,8 @@ $blue: #6ab5ff;
   }
 }
 .agreeForm5 {
+  margin: 4px auto;
+  width: 430px;
   h5 {
     margin: 20px 0px 7px 0px;
     font-weight: 400;
@@ -309,6 +335,9 @@ $blue: #6ab5ff;
   }
 }
 .closeBtn {
+  position: absolute;
+  left: 60px;
+  top: 54px;
   background-color: transparent;
   border: none;
   font-size: 18px;
@@ -318,31 +347,31 @@ $blue: #6ab5ff;
 .signUpBtn1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 436px;
   font-weight: 600;
   font-size: 16px;
-  height: 50px;
+  height: 54px;
   min-height: 50px;
   border-radius: 26px;
   border: none;
   font-size: 16px;
   color: white;
   cursor: pointer;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px auto;
   background-color: #6ab5ff;
 }
 .signUpBtn0 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
+  width: 436px;
   font-size: 16px;
-  height: 50px;
+  height: 54px;
   min-height: 50px;
   border-radius: 26px;
   border: none;
   font-size: 16px;
   color: white;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px auto;
   background-color: #eaeaea;
 }
