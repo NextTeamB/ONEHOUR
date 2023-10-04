@@ -63,13 +63,11 @@ function LoginForm() {
         <Image
           className={styles.LOGO}
           src={logo}
-          width={120}
+          width={160}
           alt="logo_login"
         />
         <h4 className={styles.LoginTitle}>
-          하나의 계정으로
-          <br />
-          더욱 편리하게
+          원아워서비스 이용을 위해 로그인해주세요
         </h4>
         <p className={styles.subtitle}>
           원아워가 제공하는 서비스를
