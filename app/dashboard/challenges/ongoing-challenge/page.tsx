@@ -40,7 +40,7 @@ export default function Ongoing() {
   const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
   const { title, description, difficulty } = useSelector(
-    (state: RootState) => state.challenge,
+    (state: RootState) => state.challenge
   );
 
   /*--- Timer ---*/
@@ -99,27 +99,11 @@ export default function Ongoing() {
   }, [isRunning]);
   /*--- Timer ---*/
 
-  // 진행도를 계산하는 함수
-  const calculateProgress = () => {
-    return (seconds / 60) * 100; // 현재 시간을 분으로 나누고 100을 곱하여 퍼센트로 계산
-  };
-
-  const roundNum = Math.round(calculateProgress() * 100) / 100;
   const postChallenge = () => {
-    let status = "";
-    if (calculateProgress() >= 90) {
-      status = "succeed";
-      console.log(calculateProgress());
-    } else if (calculateProgress() >= 60) {
-      status = "perform";
-    } else {
-      status = "failed";
-    }
-    
-    postChallengeData(title, description, difficulty, status, calculateProgress())
+    postChallengeData(title, description, difficulty, seconds)
       .then((res) => {
         console.log(res);
-        router.push('/dashboard');
+        router.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -137,7 +121,8 @@ export default function Ongoing() {
           </div>
           <div className={styles.progress}>
             <div className={styles.curProgress}>
-              현재의 진행도는 <span>{roundNum}%</span> 입니다.
+              현재의 진행도는{" "}
+              <span>{Math.round((seconds / 60) * 10000) / 100}%</span> 입니다.
             </div>
             <div className={styles.progressBar}>
               <div
@@ -172,8 +157,7 @@ export default function Ongoing() {
             <p>{description}</p>
           </div>
           <div
-            className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}
-          >
+            className={`${styles.timerBox} ${isStopped ? styles.stopped : ""}`}>
             <span>타이머</span>
             <div className={styles.timer}>
               <div className={styles.time}>
@@ -182,8 +166,7 @@ export default function Ongoing() {
             </div>
           </div>
           <div
-            className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}
-          >
+            className={`${styles.comBox} ${isStopped ? styles.stopped : ""}`}>
             <button
               onClick={(e) => {
                 stopTimer();
@@ -191,8 +174,7 @@ export default function Ongoing() {
               }}
               className={`${styles.stopButton} ${
                 isStopped ? styles.stopped : ""
-              }`}
-            >
+              }`}>
               {isStopped ? "다음으로" : "기록중지"}
               {!isStopped && (
                 <Image src={stop} alt="stopIcon" className={styles.stopIcon} />
@@ -217,8 +199,7 @@ export default function Ongoing() {
             className={styles.editBtn2}
             onClick={() => {
               postChallenge();
-            }}
-          >
+            }}>
             기록저장
           </button>
           <button
@@ -231,8 +212,7 @@ export default function Ongoing() {
                 setModal(0);
                 setIsRunning(true);
               }
-            }}
-          >
+            }}>
             <Image
               className={styles.closeicon}
               src={closeicon}

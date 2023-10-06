@@ -34,14 +34,13 @@ export default async function handler(req, res) {
   } else if (req.method === "POST") {
     try {
       const {
-        challengeStatus,
         title,
         description,
-        challengeTime,
         difficulty,
-        ...challengeInfo
+        challengeStatus,
+        challengeTime,
+        challengeProgress,
       } = req.body;
-
       // 1. authorization Header Decode
       let atHeader = req.headers["authorization"];
       let acToken = atHeader.substr(7);
@@ -66,6 +65,7 @@ export default async function handler(req, res) {
         email: userCheck.email,
         challengeStatus: challengeStatus,
         challengeTime: challengeTime,
+        challengeProgress: challengeProgress,
         title: title,
         description: description,
         difficulty: difficulty,
