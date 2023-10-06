@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         else return res.status(200).json("refreshToken is Valid");
       });
     } catch {
-      return res.status(500).json("서버 에러");
+      return res.status(500).json("서버 에러가 발생하였습니다");
     }
   } else {
     return res.status(405).json("허용되지 않는 요청 메소드입니다");

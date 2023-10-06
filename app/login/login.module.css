@@ -33,7 +33,7 @@
 }
 
 .LoginBox {
-  max-width: 400px;
+  max-width: 1200px;
   width: 100%;
   margin: auto auto;
   display: flex;
@@ -54,6 +54,7 @@
   font-family: "pretendard-sb";
   font-weight: 700;
   line-height: 32px;
+  margin: 50px auto;
 }
 
 .subtitle {
@@ -63,11 +64,12 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   text-align: center;
+  margin: 0px auto 40px auto;
   font-size: 14px;
 }
 
 .formTitle {
-  margin: 17px 0px 7px 0px;
+  margin: 17px 0px 14px 410px;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -76,7 +78,9 @@
 }
 
 .emailInputBox {
-  /* width: 100%; */
+  align-items: center;
+  justify-content: center;
+  width: 30%;
   height: 50px;
   min-height: 50px;
   padding: 0px 12px;
@@ -84,12 +88,14 @@
   background-color: transparent;
   border: 1px solid #e1e2e3;
   border-radius: 5px;
-  margin-bottom: 8px;
+  margin: 0px auto 8px auto;
   font-size: 16px;
   color: #333;
 }
 .emailInputBox1 {
   /* width: 100%; */
+  width: 30%;
+  margin: 0px auto 8px auto;
   height: 50px;
   min-height: 50px;
   padding: 0px 12px;
@@ -119,7 +125,8 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  height: 50px;
+  width: 380px;
+  height: 54px;
   min-height: 50px;
   border-radius: 26px;
   border: none;
@@ -127,7 +134,7 @@
   color: white;
   cursor: pointer;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin: 50px auto 20px auto;
   background-color: #6ab5ff;
 }
 
@@ -136,7 +143,8 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  height: 50px;
+  width: 380px;
+  height: 54px;
   min-height: 50px;
   background-color: #f2f4f7;
   border-radius: 26px;
@@ -145,7 +153,7 @@
   color: #ccc;
   cursor: default;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin: 50px auto 20px auto;
 }
 
 .LOGO {
@@ -164,7 +172,7 @@
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 8px;
-  margin-top: 0px;
+  margin-left: 410px;
 }
 
 .nowarning {
@@ -218,6 +226,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin: 30px auto 30px auto;
 }
 
 .findBtn > p {
@@ -238,7 +247,6 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 20px;
-  margin-top: 30px;
 }
 
 .chevron {
@@ -248,7 +256,7 @@
 }
 
 .liner {
-  width: 100%;
+  width: 380px;
   border: none;
   border-bottom: 1px solid #e1e2e3;
   margin-top: 30px;
@@ -264,7 +272,7 @@
 
 .terms {
   margin-right: 12px;
-  color: #767676;
+  color: #383838;
   text-decoration: none;
   font-size: 13px;
   letter-spacing: 0.0192em;
@@ -274,7 +282,7 @@
 }
 
 .policy {
-  color: #767676;
+  color: #383838;
   text-decoration: none;
   font-size: 13px;
   letter-spacing: 0.0192em;

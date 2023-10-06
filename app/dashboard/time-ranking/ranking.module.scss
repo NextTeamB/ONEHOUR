@@ -1,0 +1,243 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../../public/Arimo-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../../public/Arimo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../../public/Arimo-Medium.ttf");
+}
+
+.top3Box0 {
+  position: relative;
+  width: 380px;
+  height: 360px;
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 20px 30px;
+  box-shadow: 2px 4px 12px #cecece;
+  .nickname {
+    display: block;
+    margin: 20px auto -20px auto;
+    h3 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+  .totalChallenge {
+    display: block;
+    h4 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+.top3Box1 {
+  position: relative;
+  padding-top: 20px;
+  width: 440px;
+  height: 400px;
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 20px 30px;
+  box-shadow: 2px 4px 12px #cecece;
+  .nickname {
+    display: block;
+    margin: 40px auto -20px auto;
+    h3 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+  .totalChallenge {
+    display: block;
+    h4 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+.top3Box2 {
+  position: relative;
+  width: 380px;
+  height: 360px;
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 20px 30px;
+  box-shadow: 2px 4px 12px #cecece;
+  .nickname {
+    display: block;
+    margin: 20px auto -20px auto;
+    h3 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+  .totalChallenge {
+    display: block;
+    h4 {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+.profile {
+  width: 160px;
+  height: 160px;
+  border-radius: 200px;
+  background-color: whitesmoke;
+  //   box-shadow: 2px 4px 2px #cecece;
+  display: block;
+  margin: 50px auto 20px auto;
+  z-index: 10;
+  position: relative;
+}
+
+.honorSection {
+  animation: fadeIn 2s ease-in;
+  display: flex;
+  min-height: 400px;
+  width: 1620px;
+  margin: 40px auto 100px auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.titleArea {
+  text-align: center;
+  .title {
+    font-family: "Arimo_MED";
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #0b4f9f;
+  }
+
+  .crown {
+    width: 360px;
+    margin: 40px auto -10px auto;
+    height: auto;
+    text-align: center;
+    align-items: center;
+  }
+  p {
+    font-family: "Arimo_RGR";
+    letter-spacing: -1px;
+    margin: 30px auto 20px auto;
+    font-size: 18px;
+  }
+}
+
+.listArea {
+  min-height: 400px;
+  .lists {
+    display: flex;
+    margin: 8px auto;
+    width: 81%;
+    height: 120px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 12px #cecece;
+    p {
+      display: inline-block;
+      font-family: "Arimo_RGR";
+      letter-spacing: -1px;
+      font-size: 20px;
+      text-align: center;
+      margin: auto auto;
+      vertical-align: middle;
+    }
+    .rankNum {
+      color: #0b4f9f;
+      font-weight: 700;
+      font-family: "Arimo_BLD";
+    }
+    .profile2 {
+      width: 90px;
+      height: 90px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px #cecece;
+      margin: auto 20px;
+    }
+    .nickname2 {
+      display: inline-block;
+      font-family: "Arimo_RGR";
+      font-weight: 700;
+      letter-spacing: -1px;
+      font-size: 20px;
+      text-align: center;
+      margin: auto auto;
+      vertical-align: middle;
+    }
+  }
+}
+
+.lauren2 {
+  position: absolute;
+  z-index: 0;
+  top: 32px;
+  left: 70px;
+  width: 240px;
+  height: auto;
+  opacity: 0.6;
+}
+
+.lauren1 {
+  position: absolute;
+  z-index: 0;
+  top: 38px;
+  left: 74px;
+  width: 230px;
+  height: auto;
+  opacity: 0.6;
+}
+
+.lauren0 {
+  position: absolute;
+  z-index: 0;
+  top: 40px;
+  left: 90px;
+  width: 260px;
+  height: auto;
+  opacity: 0.6;
+}
