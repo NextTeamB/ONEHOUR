@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Arimo";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+}
+
+.adsSection {
+  position: relative;
+  width: 1620px;
+  height: 300px;
+  background-color: aquamarine;
+  .ads_banner1 {
+    height: auto;
+  }
+  button {
+    position: absolute;
+    bottom: 20px;
+    left: 114px;
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    background-color: white;
+    color: #393939;
+    font-family: "Arimo";
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+.people_news {
+  margin: 160px auto 140px auto;
+  h2 {
+    letter-spacing: -1px;
+    font-family: "Arimo";
+    font-weight: 600;
+    display: inline-block;
+    margin: 0px 0px 0px 112px;
+    color: #40e358;
+  }
+  .newsIcon {
+    position: relative;
+    margin-left: 20px;
+    top: 1.8px;
+    display: inline-block;
+    width: 32px;
+    height: auto;
+  }
+  .newsBox {
+    position: relative;
+    width: 86%;
+    background-color: white;
+    box-shadow: 2px 4px 10px #cecece;
+    border-radius: 16px;
+    height: 300px;
+    margin: 40px 0px 0px 112px;
+    .newsImage {
+      position: relative;
+      font-family: "Arimo";
+      display: inline-block;
+      width: 220px;
+      height: 220px;
+      background-color: transparent;
+      margin: 40px 40px;
+      border-radius: 14px;
+      vertical-align: middle;
+      overflow: hidden;
+      letter-spacing: -1px;
+      .news_pic {
+        width: 248px;
+        height: 248px;
+        position: relative;
+        top: -10px;
+        left: -10px;
+      }
+    }
+    .newsText {
+      vertical-align: middle;
+      margin: 20px 40px;
+      letter-spacing: -1px;
+      font-weight: 400;
+      font-size: 20px;
+      font-family: "Arimo";
+      display: inline-block;
+      h3 {
+        font-weight: 700;
+      }
+      button {
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        background-color: #d0efff;
+        color: #393939;
+        font-weight: 700;
+        font-family: "Arimo";
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.weekly_challenge {
+  position: relative;
+  .subText {
+    color: #0b4f9f;
+    margin-bottom: -10px;
+  }
+  h2 {
+    letter-spacing: -1px;
+    font-family: "Arimo";
+    font-weight: 600;
+    display: inline-block;
+    margin: 0px 0px 0px 112px;
+    color: #0b4f9f;
+  }
+  h4 {
+    letter-spacing: -1px;
+    font-family: "Arimo";
+    font-weight: 600;
+    font-size: 20px;
+    margin: 40px 0px 20px 112px;
+  }
+  p {
+    margin: 10px 10px 0px 112px;
+    line-height: 40px;
+    font-size: 20px;
+    font-family: "Arimo";
+    font-weight: 400;
+    letter-spacing: -1px;
+  }
+  .boxMargin {
+    margin: 40px 0px 80px 0px;
+  }
+  .student1 {
+    position: absolute;
+    width: 700px;
+    height: auto;
+    right: 160px;
+    top: 86px;
+  }
+  .student_info {
+    font-size: 20px;
+    font-family: "Arimo";
+    font-weight: 400;
+    color: #0b4f9f;
+    text-align: left;
+    line-height: 26px;
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+  }
+}
