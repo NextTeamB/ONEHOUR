@@ -3,7 +3,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 import userReducer from "../slices/userSlice";
-import chartReducer from "../slices/chartInfo";
 import challengeReducer from "../slices/challengeSlice";
 import {
   persistReducer,
@@ -55,7 +54,6 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   challenge: challengeReducer,
-  chart: chartReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

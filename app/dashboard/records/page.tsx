@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
 import styles from "./records.module.scss";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +15,6 @@ import TrophyAnim from "@/public/animation_trophy.json";
 import FailAnim from "@/public/animation_fail.json";
 import CheckAnim from "@/public/animation_greencheck2.json";
 import Doughnut from "./doughnut";
-import { averageSave } from "@/slices/chartInfo";
 import { onDashboard } from "@/util/onDashboard";
 
 function Trophy() {
@@ -59,13 +57,6 @@ export interface userRecord {
   description: string;
   difficulty: number;
 }
-
-// 1. 먼저 userChallenges 에서 challengeTime 을 가져와 challengeTimeAvg(평균을)를 낸다
-// state 를 하나 새로 파서 map 함수로 index를 순회할 때마다 이 State에 챌린지 타임 퍼센테이지 값을 계속 더해줌
-// 그렇게 다 더해진 값을 userChallenges 의 길이로 나누면 평균이 나옴 -> 소숫점 반올림
-// 그러면 이 값을 가지고 다음 과정으로 진행
-// 2. 이 평균 값을 도넛차트 컴포넌트에 props 로 전달함?
-// 3. 그러며는 이 전달한 값으로 도넛의 data 를 바꿔주기만 하면 댐
 
 export default function Records() {
   interface chartState {
@@ -123,33 +114,6 @@ export default function Records() {
     };
     setChartProps(newChartProps);
   }, [userChallenges]);
-
-  useEffect(() => {
-    dispatch(averageSave(chartProps));
-  }, [chartProps, dispatch]);
-
-  // 시간 퍼센테이지 평균값 계산 및 Dispatch
-  // const avgTimeFunc = () => {
-  //   let copy: any = [];
-  //   userChallenges.map((a, i) => {
-  //     copy.push(a.challengeTime);
-  //   });
-  //   const average = copy.reduce((p: any, c: any) => p + c, 0) / copy.length;
-  //   console.log(average);
-  //   dispatch(timeSave(average));
-  // };
-
-  // // 난이도 평균값 계산 및 가공 후 Dispatch
-  // const diffValueFunc = () => {
-  //   let copy: any = [];
-  //   userChallenges.map((a, i) => {
-  //     copy.push(a.difficulty);
-  //   });
-  //   const diffAvg = copy.reduce((p: any, c: any) => p + c, 0) / copy.length;
-  //   dispatch(diffSave(diffAvg));
-  // };
-
-  // 성공횟수 카운트 및 퍼센테이지 가공 후 Dispatch
 
   const cardImg = (challengeItem: any) => {
     // cardImg의 파라미터로 challenge를 넘겨받으면 굳이 전체 게시글 중 인덱스로 탐색할 필요 없이
@@ -257,13 +221,13 @@ export default function Records() {
           <h2 className={styles.timeAvrg}>
             {Math.round(chartProps.timeAvrg)}%
           </h2>
-          <Doughnut value={chartInfo.challengeTimeAvg} id={"timeAvrgChart"} />
+          <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
           <p>전체 집계 대비 수행시간 정보</p>
         </div>
         <div className={styles.donutSec}>
           <h4>도전 난이도</h4>
           {diffReturn()}
-          <Doughnut value={chartInfo.difficultAvg} id={"diffAvrgChart"} />
+          <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
           <p>평균 도전 난이도 정보</p>
         </div>
         <div className={styles.donutSec}>
@@ -271,7 +235,7 @@ export default function Records() {
           <h2 className={styles.succeedCnt}>
             {Math.round(chartProps.succeedCount)}%
           </h2>
-          <Doughnut value={chartInfo.succeedCount} id={"succeedRatioChart"} />
+          <Doughnut value={chartProps.succeedCount} id={"succeedRatioChart"} />
           <p>전체 집계 대비 90% 이상 달성 건</p>
         </div>
       </div>
