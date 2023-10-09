@@ -142,10 +142,10 @@ function LoginForm() {
         </Link>
         <hr className={styles.liner} />
         <div className={styles.partSection}>
-          <Link className={styles.terms} href="/Terms">
+          <Link className={styles.terms} href="/term">
             이용약관
           </Link>
-          <Link className={styles.policy} href="/Policy">
+          <Link className={styles.policy} href="/privacy-policy">
             개인정보처리방침
           </Link>
         </div>
