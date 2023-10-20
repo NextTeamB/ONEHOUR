@@ -3,11 +3,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "./new-challenge.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 import DiffBtn from "./button";
 import TextBox from "./textbox";
 import { useDispatch } from "react-redux";
 import { challenge } from "@/slices/challengeSlice";
 import { useRouter } from "next/navigation";
+import arrow from "@/public/icon-chevron-circle-right.png";
+
 export default function Newchallenge() {
   // TextBox
   const dispatch = useDispatch();
@@ -48,16 +51,10 @@ export default function Newchallenge() {
     { label: "챌린지", difficulty: 5 },
   ];
   return (
-    <>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.section1}>
-          <div className={styles.title}>
-            <span>CHALLENGE</span>
-            {/* <span>*필수</span> */}
-          </div>
-          <div className={styles.title_sub}>
-            <p>오늘의 챌린지! 어떤 목표로 시작하시겠어요?</p>
-          </div>
+            <span>START CHALLENGE !</span>
         </div>
         <div className={styles.section2}>
           <div className={styles.article}>
@@ -110,10 +107,11 @@ export default function Newchallenge() {
             }}
             className={`${styles.btn} ${styles.startBtn}`}
           >
-            시작하기
+            <span>시작하기</span>
+            <Image src={arrow} alt="arrow" className={styles.arrowIcon} />
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

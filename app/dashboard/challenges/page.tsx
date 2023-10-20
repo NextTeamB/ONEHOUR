@@ -19,7 +19,7 @@ export default function challenge() {
           </p>
           <Link href="/dashboard/challenges/new-challenge">
             <button className={styles.startBtn}>
-              <span>시작합니다</span>
+              <span>다음으로</span>
             </button>
           </Link>
         </div>
