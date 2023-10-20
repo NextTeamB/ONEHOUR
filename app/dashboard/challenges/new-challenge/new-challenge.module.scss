@@ -58,6 +58,20 @@ $grey3: #e1e2e3;
   }
 
   .section3 {
+    .article {
+      color: black;
+      span:nth-child(1) {
+        color: black;
+      }
+      span:nth-child(2) {
+        font-size: 13px;
+        margin-left: 20px;
+        color: $navy;
+      }
+    }
+  }
+
+  .section4 {
     .btnWrapper {
       width: 36vw;
       display: flex;
@@ -66,20 +80,6 @@ $grey3: #e1e2e3;
       // button:not(:last-child) {
       //   margin-right: 35px;
       // }
-    }
-  }
-
-  .section4 {
-    .article {
-      color: black;
-      span:nth-child(1) {
-        color: black;
-      }
-      span:nth-child(2) {
-        font-size: 12px;
-        margin-left: 20px;
-        color: $navy;
-      }
     }
   }
 
@@ -129,7 +129,7 @@ $grey3: #e1e2e3;
       color: $blue;
     }
     span:nth-child(3) {
-      font-size: 12px;
+      font-size: 13px;
       margin-left: 20px;
       color: $navy;
     }

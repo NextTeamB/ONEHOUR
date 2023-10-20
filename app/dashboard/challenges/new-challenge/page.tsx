@@ -69,6 +69,14 @@ export default function Newchallenge() {
         </div>
         <div className={styles.section3}>
           <div className={styles.article}>
+            <span>나의 다짐을 입력해주세요</span>
+            <span>( 선택 )</span>
+          </div>
+          <p></p>
+          <TextBox value={description} onChange={setDescription} />
+        </div>
+        <div className={styles.section4}>
+          <div className={styles.article}>
             <span>목표의 난이도</span>
             <span>를 설정해주세요</span>
             <span>* 필수</span>
@@ -86,14 +94,6 @@ export default function Newchallenge() {
               />
             ))}
           </div>
-        </div>
-        <div className={styles.section4}>
-          <div className={styles.article}>
-            <span>나의 다짐을 입력해주세요</span>
-            <span>선택</span>
-          </div>
-          <p></p>
-          <TextBox value={description} onChange={setDescription} />
         </div>
         <div className={styles.section5}>
           <Link href="/dashboard/challenges">

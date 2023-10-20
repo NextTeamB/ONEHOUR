@@ -11,32 +11,7 @@ import { useRouter } from "next/navigation";
 import closeicon from "@/public/closeicon.png";
 import arrows from "@/public/ongoing-challenge.png";
 import trophy from "@/public/trophy.png";
-import Lottie from "react-lottie-player";
-import BlueFire from "@/public/animation_bluefire.json";
-import GreenCheck from "@/public/animation_greencheck1.json";
 import { postChallengeData } from "@/util/postChallengeData";
-
-function Fire() {
-  return (
-    <Lottie
-      loop
-      animationData={BlueFire}
-      play
-      style={{ width: "55%", height: "auto" }}
-    />
-  );
-}
-
-function Success() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={GreenCheck}
-      play
-      style={{ width: "55%", height: "auto" }}
-    />
-  );
-}
 
 export default function Ongoing() {
   const router = useRouter();
