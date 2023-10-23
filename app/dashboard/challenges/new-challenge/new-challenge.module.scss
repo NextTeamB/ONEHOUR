@@ -1,3 +1,26 @@
+@import "/public/utils"; /*변수파일 import*/
+
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("../../../../public/Arimo-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("../../../../public/Arimo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("../../../../public/Arimo-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Debussy";
+  src: url("../../../../public/debussy.ttf");
+}
+
 $blue: #6ab5ff;
 $navy: #0b4f9f;
 $grey1: #383838;
@@ -5,53 +28,65 @@ $grey2: #989898;
 $grey3: #e1e2e3;
 
 .root {
-  width: 1480px;
+  width: 84.3vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 36vw;
+  height: 74vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 40px;
-  padding-top: 130px;
-  padding-left: 140px;
+  gap: 0px;
   font-family: "Arimo_BLD";
   letter-spacing: -1px;
+  
   .section1 {
-    .title {
-      font-family: "Kicker_Trial";
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    span {
+      font-size: 42px;
+      font-family: "Debussy";
       color: $blue;
-      font-size: 36px;
-    }
-    .title_sub {
-      font-size: 18px;
-      font-weight: 600;
-      color: $grey1;
-    }
-  }
-  .section3 {
-    .btnWrapper {
-      button:not(:last-child) {
-        margin-right: 24px;
-      }
     }
   }
 
-  .section4 {
+  .section3 {
     .article {
       color: black;
       span:nth-child(1) {
         color: black;
       }
       span:nth-child(2) {
-        font-size: 12px;
+        font-size: 13px;
         margin-left: 20px;
         color: $navy;
       }
     }
   }
+
+  .section4 {
+    .btnWrapper {
+      width: 36vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // button:not(:last-child) {
+      //   margin-right: 35px;
+      // }
+    }
+  }
+
   .section5 {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     .btn {
       position: relative;
       width: 150px;
@@ -74,10 +109,19 @@ $grey3: #e1e2e3;
       margin-right: 15px;
     }
     .startBtn {
-      background-color: $blue;
-      margin-right: 100px;
+      width: 174px;
+      background-color: #64DAB5;
+      display: flex;
+      align-items: center;
+      .arrowIcon {
+        width: 20px;
+        height: auto;
+        margin-top: 2px;
+        margin-left: 10px;
+      }
     }
   }
+
   .article {
     font-size: 25px;
     font-weight: 600;
@@ -85,7 +129,7 @@ $grey3: #e1e2e3;
       color: $blue;
     }
     span:nth-child(3) {
-      font-size: 12px;
+      font-size: 13px;
       margin-left: 20px;
       color: $navy;
     }

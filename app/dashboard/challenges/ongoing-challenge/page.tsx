@@ -8,33 +8,10 @@ import arrow from "@/public/icon-arrow.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
-import closeicon from "../../../../public/closeicon.png";
-import Lottie from "react-lottie-player";
-import BlueFire from "@/public/animation_bluefire.json";
-import GreenCheck from "@/public/animation_greencheck1.json";
-import { postChallengeData } from "../../../../util/postChallengeData";
-
-function Fire() {
-  return (
-    <Lottie
-      loop
-      animationData={BlueFire}
-      play
-      style={{ width: "55%", height: "auto" }}
-    />
-  );
-}
-
-function Success() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={GreenCheck}
-      play
-      style={{ width: "55%", height: "auto" }}
-    />
-  );
-}
+import closeicon from "@/public/closeicon.png";
+import arrows from "@/public/ongoing-challenge.png";
+import trophy from "@/public/trophy.png";
+import { postChallengeData } from "@/util/postChallengeData";
 
 export default function Ongoing() {
   const router = useRouter();
@@ -71,9 +48,9 @@ export default function Ongoing() {
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${minutes.toString().padStart(2, "0")}분 ${seconds
+    return `${minutes.toString().padStart(2, "0")} : ${seconds
       .toString()
-      .padStart(2, "0")}초`;
+      .padStart(2, "0")}`;
   };
 
   // 타이머가 변경될 때마다 1시간3600s(임의 1분)인지 체크
@@ -125,19 +102,26 @@ export default function Ongoing() {
   };
 
   return (
-    <>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.board1}>
-          <div className={styles.title}>
+          <div className={`${styles.title} ${isStopped ? styles.stopped : ""}`}>
             <span>CHALLENGE BOARD</span>
           </div>
-          {isStopped ? <Success /> : <Fire />}
+          {isStopped ? 
+            <Image src={trophy} alt="trophy" className={styles.trophy} />
+            : <Image src={arrows} alt="arrows" className={styles.arrows} />
+          }
           <div className={styles.content}>
             <p>{title}</p>
           </div>
           <div className={styles.progress}>
             <div className={styles.curProgress}>
-              현재의 진행도는 <span>{roundNum}%</span> 입니다.
+              현재의 진행도는 
+              <span className={isStopped ? styles.stopped : ""}>
+                {roundNum}%
+              </span>
+              입니다.
             </div>
             <div className={styles.progressBar}>
               <div
@@ -148,21 +132,29 @@ export default function Ongoing() {
               />
             </div>
             <div className={styles.btnWrapper}>
-              <button className={difficulty === 1 ? styles.selected : ""}>
-                아주 쉬움
-              </button>
-              <button className={difficulty === 2 ? styles.selected : ""}>
-                쉬움
-              </button>
-              <button className={difficulty === 3 ? styles.selected : ""}>
-                보통
-              </button>
-              <button className={difficulty === 4 ? styles.selected : ""}>
-                어려움
-              </button>
-              <button className={difficulty === 5 ? styles.selected : ""}>
-                챌린지
-              </button>
+              {[1, 2, 3, 4, 5].map((level) => (
+                <button
+                  key={level}
+                  className={difficulty === level ? styles.selected : ""}
+                >
+                  {(() => {
+                    switch (level) {
+                      case 1:
+                        return "아주 쉬움";
+                      case 2:
+                        return "쉬움";
+                      case 3:
+                        return "보통";
+                      case 4:
+                        return "어려움";
+                      case 5:
+                        return "챌린지";
+                      default:
+                        return "";
+                    }
+                  })()}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -177,7 +169,7 @@ export default function Ongoing() {
             <span>타이머</span>
             <div className={styles.timer}>
               <div className={styles.time}>
-                {seconds === 60 ? "01분 00초" : formatTime(seconds)}
+                {seconds === 60 ? "DONE" : formatTime(seconds)}
               </div>
             </div>
           </div>
@@ -243,6 +235,6 @@ export default function Ongoing() {
         </div>
         <div className={styles[`modalBG${modal}`]}></div>
       </div>
-    </>
+    </div>
   );
 }

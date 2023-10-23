@@ -26,8 +26,8 @@ $grey3: #e1e2e3;
 $green: #40e358;
 
 .root {
-  width: 1620px;
-  height: 980px;
+  width: 84.3vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,17 +67,17 @@ $green: #40e358;
     }
     .startBtn {
       position: relative;
-      width: 190px;
-      height: 64px;
+      width: 160px;
+      height: 62px;
       align-items: center;
       justify-content: center;
       font-size: 19px;
       font-weight: bold;
-      color: white;
+      color: #0B4F9F;
       border: none;
       text-decoration: none;
-      background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-      box-shadow: 2px 3px 4px #00000029;
+      background-color:#D0EFFF;
+      // box-shadow: 2px 3px 4px #00000029;
       border-radius: 80px;
       margin-bottom: 60px;
     }
