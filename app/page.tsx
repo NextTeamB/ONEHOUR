@@ -43,12 +43,16 @@ const Home: NextPage = () => {
             onClick={() => {
               router.push("/term");
             }}
-          >이용약관</span>
+          >
+            이용약관
+          </span>
           <span
             onClick={() => {
               router.push("/privacy-policy");
             }}
-          >개인정보처리방침</span>
+          >
+            개인정보처리방침
+          </span>
         </div>
       </div>
       <div className={styles.section2}>

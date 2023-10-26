@@ -13,6 +13,7 @@ import closeicon from "../../../public/closeicon.png";
 import Image from "next/image";
 import { editPassword } from "@/util/onChangeUserInfo";
 import { fetchUserAccount, updateAlias } from "@/util/onSettings";
+import imageUpload from "../../../public/imageUpload.png";
 
 export interface userAccount {
   email: string;
@@ -27,21 +28,21 @@ export default function Settings() {
   const initialEditInfo = {
     nickname: "",
     password: "",
+    passwordCheck: "",
   };
   interface editInfoState {
     nickname: string;
     password: string;
+    passwordCheck: string;
   }
 
   const [editInfo, setEditInfo] = useState<editInfoState>(initialEditInfo);
-
-  const [modalState, setModalState] = useState([0, 0, 0]);
+  const [modalState, setModalState] = useState([0, 0, 0, 0]);
 
   useEffect(() => {
-    fetchUserAccount(dispatch)
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchUserAccount(dispatch).catch((err) => {
+      console.log(err);
+    });
     // axios
     //   .get("/api/users/account")
     //   .then((res) => {
@@ -70,7 +71,13 @@ export default function Settings() {
       alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
       return;
     }
-    updateAlias(editInfo, dispatch, setModalState, setEditInfo, initialEditInfo);
+    updateAlias(
+      editInfo,
+      dispatch,
+      setModalState,
+      setEditInfo,
+      initialEditInfo
+    );
     // axios
     //   .patch("/api/users/edit-alias", editInfo)
     //   .then((res) => {
@@ -112,18 +119,33 @@ export default function Settings() {
           <p>{userInfo.email}</p>
         </div>
         <div className={styles.nickname}>
-          <h3>이름</h3>
-          <p>{userInfo.name}</p>
-        </div>
-        <div className={styles.nickname}>
           <h3>닉네임</h3>
           <p>{userInfo.nickname}</p>
           <button
             className={styles.chevrons}
             onClick={() => {
               modalState[0]
-                ? setModalState([0, 0, 0])
-                : setModalState([1, 0, 0]);
+                ? setModalState([0, 0, 0, 0])
+                : setModalState([1, 0, 0, 0]);
+            }}
+          >
+            <Image
+              className={styles.chevron}
+              src={chevron}
+              width={30}
+              alt="chevron"
+            />
+          </button>
+        </div>
+        <div className={styles.nickname}>
+          <h3>프로필 이미지 변경</h3>
+          <p></p>
+          <button
+            className={styles.chevrons}
+            onClick={() => {
+              modalState[1]
+                ? setModalState([0, 0, 0, 0])
+                : setModalState([0, 1, 0, 0]);
             }}
           >
             <Image
@@ -139,9 +161,9 @@ export default function Settings() {
           <button
             className={styles.chevrons}
             onClick={() => {
-              modalState[1]
-                ? setModalState([0, 0, 0])
-                : setModalState([0, 1, 0]);
+              modalState[2]
+                ? setModalState([0, 0, 0, 0])
+                : setModalState([0, 0, 1, 0]);
             }}
           >
             <Image
@@ -159,9 +181,9 @@ export default function Settings() {
           <button
             className={styles.chevrons}
             onClick={() => {
-              modalState[2]
-                ? setModalState([0, 0, 0])
-                : setModalState([0, 0, 1]);
+              modalState[3]
+                ? setModalState([0, 0, 0, 0])
+                : setModalState([0, 0, 0, 1]);
             }}
           >
             <Image
@@ -173,6 +195,8 @@ export default function Settings() {
           </button>
         </div>
       </div>
+
+      {/* 닉네임 변경 컴포넌트 */}
       <div className={styles[`editAlias${modalState[0]}`]}>
         <p>닉네임을 변경합니다</p>
         <input
@@ -192,7 +216,7 @@ export default function Settings() {
         <button
           className={styles.closeModal}
           onClick={() => {
-            setModalState([0, 0, 0]);
+            setModalState([0, 0, 0, 0]);
           }}
         >
           <Image
@@ -203,8 +227,51 @@ export default function Settings() {
           />
         </button>
       </div>
-      <div className={styles[`modalBG${modalState[0]}`]}></div>
-      <div className={styles[`editPassword${modalState[1]}`]}>
+
+      {/* 프로필 이미지 변경 모달 컴포넌트 */}
+      <div className={styles[`editProfile${modalState[1]}`]}>
+        <h3>프로필 이미지를 변경합니다</h3>
+        <p>
+          이미지를 선택하여 업로드해주세요
+          <br />
+          커뮤니티 수칙을 위반하는 이미지 업로드 시 계정 이용에 불이익이 있을 수
+          있습니다
+        </p>
+        <div className={styles.imageUpload}>
+          <button>
+            <Image
+              className={styles.imgUpload}
+              src={imageUpload}
+              alt="imageUpload"
+            ></Image>
+          </button>
+          <p>파일이름입니다</p>
+        </div>
+        <div className={styles.alignProfileBtn}>
+          <button className={styles.editProfileBtn2} onClick={() => {}}>
+            기본 이미지 설정
+          </button>
+          <button className={styles.editProfileBtn} onClick={() => {}}>
+            프로필 이미지 업로드
+          </button>
+        </div>
+        <button
+          className={styles.closeModal}
+          onClick={() => {
+            setModalState([0, 0, 0, 0]);
+          }}
+        >
+          <Image
+            className={styles.closeicon}
+            src={closeicon}
+            width={20}
+            alt="chevron"
+          />
+        </button>
+      </div>
+
+      <div className={styles[`modalBG${modalState[2]}`]}></div>
+      <div className={styles[`editPassword${modalState[2]}`]}>
         <p>비밀번호를 변경합니다</p>
         <input
           onChange={onChange}
@@ -212,10 +279,20 @@ export default function Settings() {
           type="password"
           placeholder="변경할 비밀번호를 입력해주세요"
         ></input>
+        <input
+          onChange={onChange}
+          name="passwordCheck"
+          type="password"
+          placeholder="비밀번호를 다시 한번 입력해주세요"
+        ></input>
         <button
           className={styles.editBtn}
           onClick={() => {
-            editPassword(editInfo, setModalState, setEditInfo);
+            if (editInfo.password === editInfo.passwordCheck) {
+              editPassword(editInfo, setModalState, setEditInfo);
+            } else {
+              alert("비밀번호 다르잖슴!");
+            }
           }}
         >
           비밀번호 변경하기
@@ -223,7 +300,7 @@ export default function Settings() {
         <button
           className={styles.closeModal}
           onClick={() => {
-            setModalState([0, 0, 0]);
+            setModalState([0, 0, 0, 0]);
           }}
         >
           <Image
@@ -235,7 +312,7 @@ export default function Settings() {
         </button>
       </div>
       <div className={styles[`modalBG${modalState[1]}`]}></div>
-      <div className={styles[`withdrawal${modalState[2]}`]}>
+      <div className={styles[`withdrawal${modalState[3]}`]}>
         <p>정말 탈퇴하시겠습니까?</p>
         <button
           className={styles.editBtn2}
@@ -248,7 +325,7 @@ export default function Settings() {
         <button
           className={styles.closeModal}
           onClick={() => {
-            setModalState([0, 0, 0]);
+            setModalState([0, 0, 0, 0]);
           }}
         >
           <Image
@@ -259,7 +336,7 @@ export default function Settings() {
           />
         </button>
       </div>
-      <div className={styles[`modalBG${modalState[2]}`]}></div>
+      <div className={styles[`modalBG${modalState[3]}`]}></div>
     </div>
   );
 }

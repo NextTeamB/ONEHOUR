@@ -8,6 +8,7 @@ export const editPassword = (editInfo, setModalState, setEditInfo) => {
     alert("변경할 비밀번호를 입력해주세요.");
     return;
   }
+
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   if (!passwordRegex.test(editInfo.password)) {
     // 비밀번호 유효성 검사 - 변경할 비밀번호가 규칙에 맞지 않을 때 return
