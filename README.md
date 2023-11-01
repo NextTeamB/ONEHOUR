@@ -136,8 +136,8 @@ $ npm run dev
       <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/c44885e7-fce9-407c-9508-14110b838151" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/settings"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d383818a-7a91-4ab3-8f4d-70ccacdae7a3" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/ranking"</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/ca05d9ba-b5f6-4afb-9b22-1818663d2d13" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/ranking"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d383818a-7a91-4ab3-8f4d-70ccacdae7a3" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/time-ranking"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/ca05d9ba-b5f6-4afb-9b22-1818663d2d13" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/time-ranking"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
       <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/184c62c5-05b6-4024-93d8-c9131cf3d50f" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers"</b></sub></a><br /><br /></td>
@@ -208,7 +208,7 @@ $ npm run dev
 - "/dashboard/challenge/ongoing-challenge" 페이지 작업 중
 - "/dashboard/records" 페이지 작업 중
 - "/dashboard/settings" 페이지 작업 중 (이미지 함수 마운트)
-- "/dashboard/ranking" 페이지 작업 중
+- "/dashboard/time-ranking" 페이지 작업 중
 
 <br/>
 
