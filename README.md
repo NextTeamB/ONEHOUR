@@ -1,7 +1,7 @@
 <div align="center">
   <br/>
   <br/>
-  <img width="300px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/b8b6dea2-041f-45c1-bfe8-9de10b264494"></img>
+  <img width="300px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/83c3f5bc-7bd1-486b-a7ab-a4ab1af7ad79"></img>
 <br/>
   <br/>
 <h6>이 저장소는 숭실대학교 글로벌미디어학부 Next.js SKILL UP 프로젝트를 위해 제작되었습니다</h6>
@@ -108,28 +108,36 @@ $ npm run dev
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/bd497a8a-688e-49cb-b641-209a971c0482" width="500px;" alt=""/><br /><br /><sub><b>"/" 화면</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/4fe9e5c7-8b4e-40e1-b3f6-37059f7c09e0" width="300px;" alt=""/><br /><br /><sub><b>"/info" 화면 1</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/b6fedd24-7380-42ab-b808-2de944045a09" width="520px;" alt=""/><br /><br /><sub><b>"/"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/aa91e5bc-78c8-462f-a4e3-883089fc42d2" width="520px;" alt=""/><br /><br /><sub><b>"/info"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/9a4928de-ff0b-4b52-b5e0-87f91681cc67" width="380px;" alt=""/><br /><br /><sub><b>"/info" 화면 2</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/bcd63d76-37df-40a6-b6fd-d258e1556222" width="520px;" alt=""/><br /><br /><sub><b>"/user-guidance" 일부 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/c1550a40-a0ca-4860-aa26-e2b515e209bc" width="520px;" alt=""/><br /><br /><sub><b>"/info"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/381e8ca0-49e2-4587-922b-26e952cf494a" width="520px;" alt=""/><br /><br /><sub><b>"/info"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/069da9a9-cc1d-4ae7-aa57-76e8196719c2" width="380px;" alt=""/><br /><br /><sub><b>"/records" 화면</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/012562de-4a17-4d01-a080-2728c6658fa4" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/bbd8905a-6d9c-4c7b-b3e4-1e95042cda25" width="520px;" alt=""/><br /><br /><sub><b>"/info"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/921767d2-f7b4-4030-80dd-18e0c54bc657" width="520px;" alt=""/><br /><br /><sub><b>"/info"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/586a77e5-6f57-423f-97be-aca3085cd09b" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge/new-challenge" 화면</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/2e3425cd-37c5-40b5-92df-85c5594dfca5" width="470px;" alt=""/><br /><br /><sub><b>"/dashboard/challenge/ongoing-challenge" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/4385e4ab-9de0-4e63-b19e-bf8bd1f3495c" width="520px;" alt=""/><br /><br /><sub><b>"/login"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/99b74ca4-2a25-4cd7-933c-940223eb8534" width="520px;" alt=""/><br /><br /><sub><b>"/sign-up"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/592f5db5-4da6-4da1-84c4-76acf02fd1b1" width="480px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers" 화면</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/cc825871-ddab-4c41-885d-a70bd54d6023" width="470px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers" 화면 2</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/910152d4-6571-4d43-97ec-d6dd0215fffb" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/97c2c5c3-57a7-4806-963c-092e7ec23ee5" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard"</b></sub></a><br /><br /></td>
+    <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/2ff81fbb-9ee1-44d1-8725-0ac2064fdec7" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/records"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/80e34117-d69e-436c-84dc-0ff3bc82540b" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/records"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/e5026cf1-5800-4f0d-acaa-cfb3460d515f" width="480px;" alt=""/><br /><br /><sub><b>"/login" 화면</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/3ee64d40-269d-4fa1-bc54-5f3939f72d73" width="470px;" alt=""/><br /><br /><sub><b>"/sign-up" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/aae8ddba-2fd9-41b6-8012-28c599f81ca7" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/records"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/c44885e7-fce9-407c-9508-14110b838151" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/settings"</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/e5026cf1-5800-4f0d-acaa-cfb3460d515f" width="480px;" alt=""/><br /><br /><sub><b>"dashboard/ranking"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/3ee64d40-269d-4fa1-bc54-5f3939f72d73" width="470px;" alt=""/><br /><br /><sub><b>"dashboard/ranking" 화면</b></sub></a><br /><br /></td>
      <tr/>
   </tbody>
 </table>
