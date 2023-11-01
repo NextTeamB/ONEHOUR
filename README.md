@@ -1,7 +1,7 @@
 <div align="center">
   <br/>
   <br/>
-  <img width="300px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/83c3f5bc-7bd1-486b-a7ab-a4ab1af7ad79"></img>
+  <img width="800px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/0835474c-e55e-47b4-b1ca-6991a1b461df"></img>
 <br/>
   <br/>
 <h6>이 저장소는 숭실대학교 글로벌미디어학부 Next.js SKILL UP 프로젝트를 위해 제작되었습니다</h6>
@@ -136,9 +136,30 @@ $ npm run dev
       <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/c44885e7-fce9-407c-9508-14110b838151" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/settings"</b></sub></a><br /><br /></td>
      <tr/>
     <tr>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/e5026cf1-5800-4f0d-acaa-cfb3460d515f" width="480px;" alt=""/><br /><br /><sub><b>"dashboard/ranking"</b></sub></a><br /><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/3ee64d40-269d-4fa1-bc54-5f3939f72d73" width="470px;" alt=""/><br /><br /><sub><b>"dashboard/ranking" 화면</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/d383818a-7a91-4ab3-8f4d-70ccacdae7a3" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/ranking"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/ca05d9ba-b5f6-4afb-9b22-1818663d2d13" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/ranking"</b></sub></a><br /><br /></td>
      <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/184c62c5-05b6-4024-93d8-c9131cf3d50f" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/dd6711ad-b321-4510-a424-3399f381cf1e" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers/new-post"</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/5922ff85-c54b-426a-bb66-9a768180178a" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challengers/[postId]"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/55e801b8-4bdd-47a5-b49c-705036861762" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challenges"</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/31bb33b2-1037-470e-aab1-2653e09f20c4" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challenges/new-challenge"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/175b1f1a-0bb1-46a9-b515-33061684d081" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challenges/ongoing-challenge"</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/5f5edbf4-5d30-4075-b82b-03853982035f" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challenges/ongoing-challenge"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/1e6300e2-077f-49fb-bb88-6fffbe96af69" width="520px;" alt=""/><br /><br /><sub><b>"/dashboard/challenges/ongoing-challenge"</b></sub></a><br /><br /></td>
+     <tr/>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/a5285af1-976d-46d5-ab40-cdc120b6e2b4" width="520px;" alt=""/><br /><br /><sub><b>"/term"</b></sub></a><br /><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/c0db8547-2c2b-4393-8ad1-445a7de2ba19" width="520px;" alt=""/><br /><br /><sub><b>"/privacy-policy"</b></sub></a><br /><br /></td>
+     <tr/>
+
   </tbody>
 </table>
 
@@ -155,15 +176,17 @@ $ npm run dev
 <h3>✅ 유저 소통 게시판 제공</h3>
 
 - 커뮤니티 기능 제공
+- 커뮤니티 기능에 필요한 제반사항 제공
 
 <h3>✅ 유저 목표 데이터 요약</h3>
 
 - 유저의 모든 목표 기록을 카드 형식으로 제공
 - 달성도 (실패 / 수행 / 성공) 상태에 따라 다른 UI 제공
-- 전체 데이터 요약 그래프 제공
+- 전체 데이터 요약 그래프 및 인차트 레포트 제공
+- 수행 기록 기반 요약 제표 제공
 <br/>
 <br/>
-<h2>디렉토리 구조</h2>
+<h2>디렉토리 구조(수정됨)</h2>
 <br/>
 <img width="334" alt="스크린샷 2023-08-24 20 58 53" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/f323fe77-6f65-4072-999f-fcc2265406a3">
 
@@ -176,16 +199,16 @@ $ npm run dev
 
 - "/" 페이지 작업 완료
 - "/info" 페이지 작업 완료
-- "/user-guidance" 페이지 작업 완료
 - "/login" 페이지 작업 완료
 - "/sign-up" 페이지 작업 완료
 - "/dashboard" 페이지 작업 완료
-- "/dashboard/challengers" 페이지 작업 완료
-- "/dashboard/challenge" 페이지 작업 완료
-- "/dashboard/challenge/new-challenge" 페이지 작업 완료
-- "/dashboard/challenge/ongoing-challenge" 페이지 작업 완료
-- "/dashboard/records" 페이지 작업 완료
-- "/dashboard/settings" 페이지 작업 완료
+- "/dashboard/challengers" 페이지 작업 중
+- "/dashboard/challenge" 페이지 작업 중
+- "/dashboard/challenge/new-challenge" 페이지 작업 중
+- "/dashboard/challenge/ongoing-challenge" 페이지 작업 중
+- "/dashboard/records" 페이지 작업 중
+- "/dashboard/settings" 페이지 작업 중 (이미지 함수 마운트)
+- "/dashboard/ranking" 페이지 작업 중
 
 <br/>
 
@@ -197,3 +220,13 @@ $ npm run dev
 - 게시판 관련 API 구현 완료
 - 유저 목표 기록 관련 API 구현 완료
 - 회원 정보 수정 및 삭제 API 구현 완료
+- 유저 랭킹 관련 API 구현 완료
+- 유저 랭킹 데이터 페이징 처리 구현 중
+- 이미지 버킷 연동 및 이미지 웹 마운트 구현 중
+- 요약 제표 API 구현 예정
+<br/>
+<br/>
+
+<h2>마지막 수정일자</h2>
+<h5>2023년 11월 1일 (수) : 담당자 김시훈</h5>
+<br/>
