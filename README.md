@@ -1,7 +1,7 @@
 <div align="center">
   <br/>
   <br/>
-  <img width="800px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/0835474c-e55e-47b4-b1ca-6991a1b461df"></img>
+  <img width="500px" src="https://github.com/NextTeamB/ONEHOUR/assets/109796814/0835474c-e55e-47b4-b1ca-6991a1b461df"></img>
 <br/>
   <br/>
 <h6>이 저장소는 숭실대학교 글로벌미디어학부 Next.js SKILL UP 프로젝트를 위해 제작되었습니다</h6>
