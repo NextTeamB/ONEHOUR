@@ -5,15 +5,22 @@ const jwt = require("jsonwebtoken");
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
+      const limit = Number(req.query.limit);
+      const page = Number(req.query.page);
       let db = (await connectDB).db("onehour");
-      // userPosts 컬렉션의 모든 정보를 배열로 가져옴
-      let allPost = await db
+      // userPosts 컬렉션의 정보를 offset만큼 skip한 후 limit 길이만큼 배열로 가져옴
+      let posts = await db
         .collection("userPosts")
         .find()
         .sort({ postId: -1 })
+        .limit(limit)
+        .skip((page - 1) * limit)
         .toArray();
-      // 응답으로 오브젝트 배열 리턴해주어 클라이언트 단에서 res.data[i] 형식 또는 변수에 저장하여 사용
-      return res.status(200).json(allPost);
+
+      return res.status(200).json({
+        posts: posts,
+        nextPage: posts.length < limit ? null : page + 1, // 받아온 배열의 길이가 limit보다 짧으면 다음 페이지가 존재하지 않는 것이므로 null 값 전송
+      });
     } catch {
       return res.status(500).json("서버에러가 발생하였습니다");
     }
