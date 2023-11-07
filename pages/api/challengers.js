@@ -5,8 +5,8 @@ const jwt = require("jsonwebtoken");
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const limit = Number(req.query.limit);
-      const page = Number(req.query.page);
+      const offset = Number(req.query.offset);
+      const limit = offset === 0 ? 11 : Number(req.query.limit);
       let db = (await connectDB).db("onehour");
       // userPosts 컬렉션의 정보를 offset만큼 skip한 후 limit 길이만큼 배열로 가져옴
       let posts = await db
@@ -14,12 +14,13 @@ export default async function handler(req, res) {
         .find()
         .sort({ postId: -1 })
         .limit(limit)
-        .skip((page - 1) * limit)
+        .skip(offset)
         .toArray();
 
       return res.status(200).json({
         posts: posts,
-        nextPage: posts.length < limit ? null : page + 1, // 받아온 배열의 길이가 limit보다 짧으면 다음 페이지가 존재하지 않는 것이므로 null 값 전송
+        offset: offset + posts.length,
+        hasNextPage: posts.length < limit ? false : true, // 받아온 배열의 길이가 limit보다 짧으면 다음 페이지가 존재하지 않는 것이므로 null 값 전송
       });
     } catch {
       return res.status(500).json("서버에러가 발생하였습니다");

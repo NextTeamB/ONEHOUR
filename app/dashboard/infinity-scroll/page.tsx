@@ -4,18 +4,18 @@ import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import { useObserver } from "./useObserver";
 
-const LIMIT = 8; // 변경 용이하게 offset을 상수로 설정
+const LIMIT = 4; // 변경 용이하게 offset을 상수로 설정
 
 const InfinityScroll = () => {
   let isLastPage = false;
   const getChallengersList = async (
-    { pageParam = 1 } // getPokemonList의 인자인 pageParam의 초깃값 설정
+    { pageParam = 0 } // getPokemonList의 인자인 pageParam의 초깃값 설정
   ) => {
     if (isLastPage) return;
     const res = await axios.get("/api/challengers", {
-      params: { limit: LIMIT, page: pageParam },
+      params: { limit: 4, offset: pageParam },
     });
-    if (res.data.nextPage == null) isLastPage = true;
+    if (res.data.hasNextPage == false) isLastPage = true;
     return res.data;
   };
 
@@ -34,8 +34,8 @@ const InfinityScroll = () => {
       getNextPageParam: (lastPage) => {
         // 무한 스크롤의 핵심. 여기서 nextPage 값이 존재하지 않으면 리턴 값 없음. nextPage 값 존재 시 Number 리턴, getChallengersList의 인자로 pageParam(=Number) 전달
 
-        if (lastPage.nextPage) {
-          return Number(lastPage.nextPage);
+        if (lastPage.hasNextPage) {
+          return Number(lastPage.offset);
         }
       },
     }
@@ -62,13 +62,40 @@ const InfinityScroll = () => {
               gridTemplateColumns: "repeat(4, 1fr)",
             }}>
             {group.posts.map((post) => (
-              <div
-                key={post.postId}
-                style={{
-                  height: "500px",
-                }}>
-                {post.title}
-              </div>
+              <>
+                <div
+                  // onClick={() => {
+                  //   setModalUp(1);
+                  //   setCurrentIdx(postList.indexOf(a));
+                  // }}
+                  key={post.postId}
+                  style={{
+                    height: "500px",
+                  }}>
+                  <div>
+                    <p>
+                      <span>{post.nickname}</span>
+                      <span>님</span>
+                    </p>
+                  </div>
+                  <div>
+                    <h4>{post.title}</h4>
+                    <br />
+                    <p>{post.date}</p>
+                    <br />
+                    <p>
+                      <span>{post.content}</span>
+                    </p>
+                  </div>
+                </div>
+                {/* <div
+                    key={post.postId}
+                    style={{
+                      height: "500px",
+                    }}>
+                    {post.title}
+                  </div> */}
+              </>
             ))}
           </div>
         ))}
