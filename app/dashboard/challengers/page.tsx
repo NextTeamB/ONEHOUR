@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import userIcon from "../../../public/user-icon-box.png";
-import { fetchData, deletePostData } from "../../../util/onChallengers";
 import {} from "react";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
@@ -99,7 +98,7 @@ const Challengers = () => {
             // pages들이 페이지 숫자에 맞춰서 들어있기 때문에
             // group을 map으로 한번 더 돌리는 이중 배열 구조이다.
             <React.Fragment key={index}>
-              {group.posts.map((post) => (
+              {group.posts.map((post: postInfo) => (
                 <>
                   <div
                     // onClick={() => {
