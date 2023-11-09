@@ -228,3 +228,50 @@ $grey3: #e1e2e3;
   height: 180px;
   width: 100%;
 }
+
+.LoadingComp {
+  animation: fadeIn ease-in-out 1s;
+  text-align: center;
+  margin: 120px auto;
+  height: 900px;
+  h1 {
+    color: #383838;
+    font-size: 28px;
+    letter-spacing: -1px;
+    display: block;
+    text-align: center;
+    font-family: "Arimo_BLD";
+    font-weight: 700;
+    margin: 40px 0px;
+  }
+  h2 {
+    color: #383838;
+    font-size: 22px;
+    letter-spacing: -1px;
+    display: block;
+    text-align: center;
+    font-family: "Arimo_RGR";
+    font-weight: 600;
+    margin: 40px 0px;
+  }
+  button {
+    width: 180px;
+    height: 58px;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-family: "Arimo_RGR";
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #0b4f9f;
+    background-color: white;
+    box-shadow: 1px 2px 12px #e1e2e3;
+    margin: 40px 0px;
+    cursor: pointer;
+  }
+  .loadImg {
+    width: 520px;
+    height: auto;
+    margin: 0px 0 60px 0;
+  }
+}

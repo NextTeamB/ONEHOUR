@@ -8,6 +8,7 @@ import L0 from "../../../public/111.png";
 import L1 from "../../../public/112.png";
 import L2 from "../../../public/113.png";
 import user_icon from "../../../public/user_icon.png";
+import stars from "../../../public/starts.png";
 
 export interface userRank {
   name: string;
@@ -62,6 +63,7 @@ export default function Time_Ranking() {
             </div>
             <div className={styles.top3Box1}>
               <div className={styles.profile}></div>
+              <Image src={stars} alt="stars" className={styles.stars} />
               <Image src={L0} alt="lauren" className={styles.lauren0} />
               {/* <Image src={`L${i}`} alt="crown" width={100} height={100} /> */}
               <div className={styles.nickname}>

@@ -39,20 +39,20 @@ const Home: NextPage = () => {
           </button>
         </div>
         <div className={styles.footer}>
-          <span
+          <button
             onClick={() => {
               router.push("/term");
             }}
           >
             이용약관
-          </span>
-          <span
+          </button>
+          <button
             onClick={() => {
               router.push("/privacy-policy");
             }}
           >
             개인정보처리방침
-          </span>
+          </button>
         </div>
       </div>
       <div className={styles.section2}>
