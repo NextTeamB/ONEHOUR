@@ -64,8 +64,9 @@ export default async function handler(req, res) {
               name: result.name,
               nickname: result.nickname,
               email: result.email,
-              profileImgUrl:
-                result.profileImgUrl || process.env.DEFAULT_PROFILE_IMG_URL, // 프로필 이미지 url이 지정되어 있지 않으면 기본 프로필 이미지 url 반환
+              profileImgUrl: result.profileImgUrl
+                ? result.profileImgUrl
+                : process.env.DEFAULT_PROFILE_IMG_URL, // 프로필 이미지 url이 지정되어 있지 않으면 기본 프로필 이미지 url 반환
             };
             return res.status(200).json(responseBody); // token 값 response 해주기
           }
