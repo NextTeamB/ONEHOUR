@@ -5,6 +5,7 @@ export interface userState {
   nickname: string | null;
   email: string | null;
   name: string | null;
+  profileImgUrl: string | null;
   accessToken: string | null;
 }
 // state 초기값 설정
@@ -12,6 +13,7 @@ const initialState: userState = {
   nickname: "",
   email: "",
   name: "",
+  profileImgUrl: "",
   accessToken: "",
 };
 
@@ -24,6 +26,7 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.nickname = action.payload.nickname;
+      state.profileImgUrl = action.payload.profileImgUrl;
     },
     // 토큰 리듀서 - payload로 액세스 토큰을 넘겨받아 저장. silentRefresh를 위해 토큰 리듀서를 분리함
     getToken: (state, action) => {

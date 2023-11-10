@@ -2,7 +2,7 @@ import axios from "axios";
 import { login, getToken } from "@/slices/userSlice";
 import crypto from "crypto";
 const JWT_EXPIRE_TIME = 60 * 60 * 1000; // JWT 만료 시간을 1시간으로 설정
-export function onLogin(requestBody, dispatch) {
+export function onLogin(requestBody, dispatch, router) {
   let newRequestBody = {
     ...requestBody,
     // 비밀번호 암호화 로직
@@ -19,9 +19,10 @@ export function onLogin(requestBody, dispatch) {
       dispatch(getToken(res.headers.authorization)); // accessToken은 이후 silentRefresh를 위해 리듀서를 분리함
       // 로그인 후 대시보드에서 새로고침 시 onLogin 함수는 이미 실행 완료된 상황이므로 onLoginSuccess 함수 또한 실행되지 않음
       // onLoginSuccess 삭제 -> 내비게이터에서 reissueToken으로 silent Refresh 수행하도록 변경
+      router.push("/dashboard");
     })
     .catch((err) => {
-      console.log(err);
+      alert(err.response.data);
     });
 }
 
