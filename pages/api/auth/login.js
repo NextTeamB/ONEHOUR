@@ -64,15 +64,17 @@ export default async function handler(req, res) {
               name: result.name,
               nickname: result.nickname,
               email: result.email,
+              profileImgUrl:
+                result.profileImgUrl || process.env.DEFAULT_PROFILE_IMG_URL, // 프로필 이미지 url이 지정되어 있지 않으면 기본 프로필 이미지 url 반환
             };
             return res.status(200).json(responseBody); // token 값 response 해주기
           }
         );
       } else {
-        return res.status(400).json("등록되지 않은 이메일입니다");
+        return res.status(401).json("패스워드가 잘못되었습니다.");
       }
     } catch {
-      return res.status(500).json("서버에러가 발생하였습니다");
+      return res.status(401).json("등록되지 않은 이메일입니다.");
     }
   }
 }

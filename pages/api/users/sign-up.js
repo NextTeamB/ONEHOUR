@@ -6,7 +6,7 @@ import { serialize } from "cookie";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      let { email, password, nickname, name, ...userData } = req.body;
+      let { email, password, nickname, name } = req.body;
       let db = (await connectDB).db("onehour");
       let result = await db.collection("userAccount").findOne({ email });
 
@@ -17,6 +17,7 @@ export default async function handler(req, res) {
           name: name,
           password: password,
           refreshToken: ``,
+          profileImgUrl: process.env.DEFAULT_PROFILE_IMG_URL,
         };
         await db.collection("userAccount").insertOne(signUpUser);
         let result2 = await db.collection("userAccount").findOne({ email });

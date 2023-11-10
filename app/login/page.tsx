@@ -52,8 +52,7 @@ function LoginForm() {
       email: email,
       password: password,
     };
-    onLogin(requestBody, dispatch);
-    router.push("/dashboard");
+    onLogin(requestBody, dispatch, router);
   };
 
   return (
