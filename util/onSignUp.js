@@ -13,7 +13,6 @@ export const onSignUp = (userInfo, router) => {
   axios
     .post("/api/users/sign-up", newUserInfo)
     .then((res) => {
-      console.log(res);
       router.push("/login");
     })
     .catch((err) => {
