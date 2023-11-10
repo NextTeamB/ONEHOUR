@@ -17,6 +17,7 @@ export interface userRank {
   totalChallenge: number;
   refreshToken: string;
   nickname: string;
+  profileImgUrl: string;
 }
 
 export default function Time_Ranking() {
@@ -31,6 +32,7 @@ export default function Time_Ranking() {
       .get("/api/rank")
       .then((res) => {
         setUserRanking([...res.data]);
+        console.log(userRanking);
       })
       .catch((err) => {
         console.log("데이터 로드에 실패하였습니다");
@@ -50,7 +52,12 @@ export default function Time_Ranking() {
         <>
           <div className={styles.honorSection}>
             <div className={styles.top3Box0}>
-              <div className={styles.profile}></div>
+              <div className={styles.profile}>
+                <img
+                  className={styles.userProfile}
+                  src={userRanking[0][2].profileImgUrl}
+                />
+              </div>
               <Image src={L2} alt="lauren" className={styles.lauren2} />
               <div className={styles.nickname}>
                 <h3>{userRanking[1][1].nickname}</h3>
@@ -62,7 +69,12 @@ export default function Time_Ranking() {
               </div>
             </div>
             <div className={styles.top3Box1}>
-              <div className={styles.profile}></div>
+              <div className={styles.profile}>
+                <img
+                  className={styles.userProfile}
+                  src={userRanking[0][2].profileImgUrl}
+                />
+              </div>
               <Image src={stars} alt="stars" className={styles.stars} />
               <Image src={L0} alt="lauren" className={styles.lauren0} />
               {/* <Image src={`L${i}`} alt="crown" width={100} height={100} /> */}
@@ -77,7 +89,12 @@ export default function Time_Ranking() {
             </div>
 
             <div className={styles.top3Box2}>
-              <div className={styles.profile}></div>
+              <div className={styles.profile}>
+                <img
+                  className={styles.userProfile}
+                  src={userRanking[0][2].profileImgUrl}
+                />
+              </div>
               <Image src={L1} alt="lauren" className={styles.lauren1} />
               {/* <Image src={`L${i}`} alt="crown" width={100} height={100} /> */}
               <div className={styles.nickname}>
@@ -92,21 +109,26 @@ export default function Time_Ranking() {
           </div>
         </>
       ) : (
-        "정보를 불러오고 있습니다"
+        <div className={styles.honorSection}></div>
       )}
       <div className={styles.listArea}>
         {userRanking[0] &&
           userRanking[0].map((a, i) => {
             return (
               <div className={styles.lists}>
-                <div className={styles.profile2}></div>
+                <div className={styles.profile2}>
+                  <img
+                    className={styles.userProfile}
+                    src={userRanking[0][2].profileImgUrl}
+                  />
+                </div>
                 <p className={styles.rankNum}>{i + 4}위</p>
                 <p className={styles.nickname2}>{userRanking[0][i].nickname}</p>
                 <p>총 도전시간</p>
                 <p>
                   {userRanking[0][i].totalChallenge
                     ? userRanking[0][i].totalChallenge
-                    : "NaN"}
+                    : "-"}
                   시간
                 </p>
               </div>

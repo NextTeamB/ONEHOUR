@@ -18,7 +18,9 @@ import { onLogout } from "@/util/onLogout";
 const Navigator = (props: { children: ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
-
+  const userProfileImg = useSelector(
+    (state: RootState) => state.user?.profileImgUrl
+  );
   const userNickname = useSelector((state: RootState) => state.user?.nickname);
   const accessToken = useSelector((state: RootState) => state.user.accessToken);
   axios.defaults.headers.common["authorization"] = accessToken;
@@ -81,6 +83,7 @@ const Navigator = (props: { children: ReactNode }) => {
             <hr className={styles.breakline}></hr>
             <div className={styles.profileWrapper}>
               <div className={styles.profile}>
+                <img src={userProfileImg} />
                 <FaUserNinja className={styles.profileIcon} />
               </div>
               <p>

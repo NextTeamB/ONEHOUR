@@ -64,6 +64,7 @@ export default async function handler(req, res) {
               name: result.name,
               nickname: result.nickname,
               email: result.email,
+              profileImgURl: result.profileImgURl,
             };
             return res.status(200).json(responseBody); // token 값 response 해주기
           }
