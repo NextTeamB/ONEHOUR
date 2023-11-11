@@ -51,7 +51,10 @@ export const onImageUpload = async (file, imgType, setImgUrl) => {
   }
 
   let fileName = file.name;
-  let presignedPost = await axios.post(`/api/image`, { fileName, imgType }); // Presigned URL을 받아오기 위한 api 요청
+  let presignedPost = await axios.post(`/api/image-upload`, {
+    fileName,
+    imgType,
+  }); // Presigned URL을 받아오기 위한 api 요청
 
   const formData = new FormData();
   // s3 버킷에 업로드하기 위해 response의 fields 및 값을 복사해 formData에 append
@@ -64,7 +67,7 @@ export const onImageUpload = async (file, imgType, setImgUrl) => {
   await axios
     .post(presignedPost.data.url, formData, {
       headers: {
-        "Authorization": undefined, // s3 버킷 업로드 시에는 Authorization 헤더를 제거해야 함
+        Authorization: undefined, // s3 버킷 업로드 시에는 Authorization 헤더를 제거해야 함
       },
     })
     .then((res) => {

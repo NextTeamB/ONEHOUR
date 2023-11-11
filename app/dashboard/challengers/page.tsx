@@ -88,7 +88,8 @@ const Challengers = () => {
             onClick={() => {
               router.push("/dashboard/challengers/new-post");
             }}
-            className={styles.newpostBtn}>
+            className={styles.newpostBtn}
+          >
             <div className={styles.plusWrap}>+</div>
           </button>
           <p className={styles.newpostText}>새로운 게시글을 작성해주세요</p>
@@ -106,7 +107,8 @@ const Challengers = () => {
                     //   setCurrentIdx(postList.indexOf(a));
                     // }}
                     className={styles.postBox}
-                    key={post.postId}>
+                    key={post.postId}
+                  >
                     <div className={styles.postUser}>
                       <Image
                         src={userIcon}

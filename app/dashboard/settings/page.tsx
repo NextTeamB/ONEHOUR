@@ -261,10 +261,36 @@ export default function Settings() {
           <p>{trimedFileName ? trimedFileName : "파일이름입니다"}</p>
         </div>
         <div className={styles.alignProfileBtn}>
-          <button className={styles.editProfileBtn2} onClick={() => {}}>
+          <button
+            className={styles.editProfileBtn2}
+            onClick={() => {
+              axios
+                .delete("/api/users/image")
+                .then(() => {
+                  // 모달처리해라
+                  router.push("/dashboard");
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}
+          >
             기본 이미지 설정
           </button>
-          <button className={styles.editProfileBtn} onClick={() => {}}>
+          <button
+            className={styles.editProfileBtn}
+            onClick={() => {
+              axios
+                .patch("/api/users/image")
+                .then(() => {
+                  // 모달처리해라
+                  router.push("/dashboard");
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}
+          >
             프로필 이미지 업로드
           </button>
         </div>
