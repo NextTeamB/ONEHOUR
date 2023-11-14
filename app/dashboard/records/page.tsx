@@ -10,47 +10,36 @@ import bal from "@/public/blueArrow_L.png";
 import bar from "@/public/blueArrow_R.png";
 import gal from "@/public/grayArrow_L.png";
 import gar from "@/public/grayArrow_R.png";
-import Lottie from "react-lottie-player";
-import TrophyAnim from "@/public/animation_trophy.json";
-import FailAnim from "@/public/animation_fail.json";
-import CheckAnim from "@/public/animation_greencheck2.json";
+import trophy from "@/public/trophy.png";
+import check from "@/public/checked-icon.png";
+import failed from "@/public/failed-icon.png";
 import Doughnut from "./doughnut";
 import { onDashboard } from "@/util/onDashboard";
 import { useRouter } from "next/navigation";
 import loadImg from "../../../public/loadImg.png";
 
-function Trophy() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={TrophyAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
+// 더미데이터 생성
+const generateChallengeData = (name: string) => {
+    // 최근 30일 동안의 일별 챌린지 갯수 생성
+  const dailyChallenges = Array.from({ length: 30 }, () => {
+    return Math.floor(Math.random() * 10); // 각 날짜에 대한 챌린지 갯수 (임의의 값)
+  });
 
-function Failed() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={FailAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
+  // 최근 30일간의 총 챌린지 갯수 (일별 챌린지 갯수의 합)
+  const totalChallenges = dailyChallenges.reduce((acc, challenges) => acc + challenges, 0);
 
-function Check() {
-  return (
-    <Lottie
-      loop={false}
-      animationData={CheckAnim}
-      play
-      style={{ margin: "0 auto", width: "70%", height: "auto" }}
-    />
-  );
-}
+  return {
+    name,
+    totalChallenges,
+    dailyChallenges,
+  };
+};
+
+// 특정 이름으로 더미 데이터 생성
+const dummyData = generateChallengeData("이름");
+console.log(dummyData);
+
+
 export interface userRecord {
   title: string;
   challengeTime: number;
@@ -117,16 +106,16 @@ export default function Records() {
     setChartProps(newChartProps);
   }, [userChallenges]);
 
-  // 로티 이미지 케이스 구분
+  // 이미지 케이스 구분
   const cardImg = (challengeItem: any) => {
     // cardImg의 파라미터로 challenge를 넘겨받으면 굳이 전체 게시글 중 인덱스로 탐색할 필요 없이
     // challengeItem 안의 challengeStatus를 참조해 cardImg를 return해줄 수 있음!
     if (challengeItem.challengeStatus === "succeed") {
-      return <Trophy />;
+      return <Image src={trophy} alt="trophy" width={200} style={{margin: "10px auto"}} />;
     } else if (challengeItem.challengeStatus === "failed") {
-      return <Failed />;
+      return <Image src={failed} alt="failed" width={150} style={{margin: "35px auto"}} />;
     } else {
-      return <Check />;
+      return <Image src={check} alt="check" width={170} style={{margin: "27px auto"}} />;
     }
   };
 
@@ -142,6 +131,13 @@ export default function Records() {
       return <h3>챔피언</h3>;
     }
   };
+  
+  // 더미데이터
+  // const dummyData = {
+  //   name: userInfo.nickname,
+  //   total: 16,
+
+  // }
 
   return (
     <div className={styles.ground}>
@@ -153,7 +149,7 @@ export default function Records() {
         <>
           <div className={styles.titleSec}>
             <h3>원아워 레코즈</h3>
-            <p>{userInfo.name}님의 최근 원아워 레코즈를 정리해드릴게요</p>
+            <p>{userInfo.nickname}님의 최근 원아워 레코즈를 정리해드릴게요</p>
           </div>
           <div className={styles.listUpper}>
             {userChallenges ? (
@@ -227,7 +223,7 @@ export default function Records() {
           </div>
           <div className={styles.titleSec2}>
             <h3>#불타는 열정</h3>
-            <p>홍당무님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
+            <p>{userInfo.nickname}님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
           </div>
           <div className={styles.chartUpper}>
             <div className={styles.donutSec}>
@@ -254,6 +250,53 @@ export default function Records() {
                 id={"succeedRatioChart"}
               />
               <p>전체 집계 대비 90% 이상 달성 건</p>
+            </div>
+          </div>
+          <div className={styles.titleSec3}>
+            <h3>챌린지 컨티뉴어 보드</h3>
+            <p>{userInfo.nickname}님이 꾸준히 챌린지를 수행하고 있는지 최근 30일 간의 챌린지 기록을 보드로 정리해드릴게요</p>
+            <p>최근 30일 간 {userInfo.nickname}님의 달성 건수는 총 {dummyData.totalChallenges}회 입니다.</p>
+          </div>
+          <div className={styles.boardUpper}>
+            <div className={styles.challengeRecords}>
+              {dummyData.dailyChallenges.map((challengeCount, index) => {
+                let circleColorClass;
+
+                if (challengeCount === 0) {
+                  circleColorClass = styles.circleColor1; // 챌린지 미수행
+                } else if (challengeCount === 1) {
+                  circleColorClass = styles.circleColor2; // 챌린지 1회 수행
+                } else if (challengeCount === 2 || challengeCount ===3 ) {
+                  circleColorClass = styles.circleColor3; // 챌린지 2회 이상 수행
+                } else if (challengeCount >= 4) {
+                  circleColorClass = styles.circleColor4; // 챌린지 4회 이상 수행
+                }
+
+                return (
+                  <div className={styles.dailyRecords}>
+                    <div key={index} className={circleColorClass}></div>
+                    <p>{challengeCount === 0 ? "실패" : "달성"}</p>
+                  </div>
+                )
+              })}
+            </div>
+            <div className={styles.colorStandards}>
+              <div className={styles.standards}>
+                <div className={styles.circleColor1}></div>
+                <p>챌린지 미수행</p>
+              </div>
+              <div className={styles.standards}>
+                <div className={styles.circleColor2}></div>
+                <p>챌린지 1회 수행</p>
+              </div>
+              <div className={styles.standards}>
+                <div className={styles.circleColor3}></div>
+                <p>챌린지 2회 이상 수행</p>
+              </div>
+              <div className={styles.standards}>
+                <div className={styles.circleColor4}></div>
+                <p>챌린지 4회 이상 수행</p>
+              </div>
             </div>
           </div>
         </>
