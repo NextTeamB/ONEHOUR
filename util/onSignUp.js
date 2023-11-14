@@ -14,7 +14,7 @@ export const onSignUp = (userInfo, router) => {
     .post("/api/users/sign-up", newUserInfo)
     .then((res) => {
       console.log(res);
-      router.push("/login");
+      setSignupModalState(1); // 회원가입이 성공하면 상태를 1로 업데이트
     })
     .catch((err) => {
       console.log(err);

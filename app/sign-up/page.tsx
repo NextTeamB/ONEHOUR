@@ -4,6 +4,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import styles from "./signUp.module.scss";
+import Image from "next/image";
+import closeicon from "@/public/closeicon.png";
 import { useRouter } from "next/navigation";
 import { onSignUp } from "@/util/onSignUp";
 
@@ -43,6 +45,8 @@ interface CheckStates {
 }
 
 export default function SignUp() {
+  const [modalState, setModalState] = useState(0);  // 이메일 중복확인 모달 상태
+  const [signupModalState, setSignupModalState] = useState(0); // 회원가입 완료 여부 추가
   const router = useRouter();
 
   const initialState: FormData = {
@@ -171,8 +175,17 @@ export default function SignUp() {
     });
   };
 
+  // 개별 체크박스 선택
   const toggleCheck = (name: string) => {
-    setCheckStates({ ...checkStates, [name]: !checkStates[name] });
+    const newCheckStates = {
+      ...checkStates,
+      [name]: !checkStates[name],
+    };
+    setCheckStates(newCheckStates);
+  
+    // 전체 동의 체크 여부 확인
+    const allChecked = Object.values(newCheckStates).every((state) => state);
+    setAllCheck(allChecked);
   };
 
   // 회원가입 버튼 비활성화 조건
@@ -211,10 +224,10 @@ export default function SignUp() {
               axios
                 .post("api/users/idcheck", { email: formData.email })
                 .then(() => {
-                  alert("사용할 수 있는 이메일입니다.");
+                  setModalState(1); // 이메일 사용 가능한 경우 모달 열기
                 })
                 .catch(() => {
-                  alert("사용할 수 없는 이메일입니다.");
+                  setModalState(2); // 이메일 사용 불가능한 경우 모달 열기
                   setFormData({ ...formData, email: "" });
                 });
             }}
@@ -302,6 +315,7 @@ export default function SignUp() {
           type="submit"
           onClick={() => {
             onSignUp(formData, router);
+            setSignupModalState(1); // 회원가입 완료 시 상태 변경
           }}
           className={isSubmitDisabled ? styles.signUpBtn0 : styles.signUpBtn1}
           disabled={isSubmitDisabled}
@@ -309,6 +323,37 @@ export default function SignUp() {
           가입하기
         </button>
       </div>
+      {/* 이메일 중복 확인 모달 창 렌더링 */}
+      <div className={styles[`modal${modalState}`]}>
+        <p>
+          {modalState === 1
+            ? "사용할 수 있는 이메일입니다."
+            : "사용할 수 없는 이메일입니다."}
+        </p>
+        <button
+          className={styles.closeModal}
+          onClick={() => setModalState(0)}
+        >
+          확인
+        </button>
+      </div>
+      <div className={styles[`modalBG${modalState}`]}></div>
+      {/* 회원가입 완료 모달 */}
+      {signupModalState && (
+        <div className={styles[`modal${modalState}`]}>
+          <p>회원가입이 완료되었습니다.</p>
+          <button
+            className={styles.closeModal}
+            onClick={() => {
+              setSignupModalState(0);
+              router.push("/login"); // 확인 버튼 클릭 시 라우팅
+            }}
+          >
+            확인
+          </button>
+        </div>
+      )}
+      <div className={styles[`modalBG${signupModalState}`]}></div>
     </div>
   );
 }

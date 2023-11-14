@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, ReactNode } from "react";
+import { useEffect, ReactNode, useState } from "react";
 import styles from "./Navigator.module.scss";
 import Image from "next/image";
 import { FaUserNinja, FaChartLine } from "react-icons/fa";
@@ -13,11 +13,13 @@ import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter, usePathname } from "next/navigation";
 import { reissueToken } from "@/util/onLogin";
-import { onLogout } from "@/util/onLogout";
+// import { onLogout } from "@/util/onLogout";
+import { useModal } from "@/context/modalContext";
 
 const Navigator = (props: { children: ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { openModal } = useModal();
 
   const userNickname = useSelector((state: RootState) => state.user?.nickname);
   const accessToken = useSelector((state: RootState) => state.user.accessToken);
@@ -123,7 +125,9 @@ const Navigator = (props: { children: ReactNode }) => {
                   className={styles.subMenuList}
                   key={index}
                   onClick={() => {
-                    if (menu === "로그아웃") onLogout();
+                    if (menu === "로그아웃") {
+                      openModal();
+                    }
                   }}
                 >
                   <div>{menu}</div>

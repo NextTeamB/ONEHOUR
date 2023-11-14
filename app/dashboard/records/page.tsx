@@ -212,8 +212,37 @@ export default function Records() {
         )}
       </div>
       <div className={styles.titleSec2}>
-        <h3>#불타는 열정</h3>
-        <p>홍당무님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
+        <h3>불타는 열정</h3>
+        <p>{userInfo.name}님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
+      </div>
+      <div className={styles.chartUpper}>
+        <div className={styles.donutSec}>
+          <h4>시간 계획</h4>
+          <h2 className={styles.timeAvrg}>
+            {Math.round(chartProps.timeAvrg)}%
+          </h2>
+          <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
+          <p>전체 집계 대비 수행시간 정보</p>
+        </div>
+        <div className={styles.donutSec}>
+          <h4>도전 난이도</h4>
+          {diffReturn()}
+          <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
+          <p>평균 도전 난이도 정보</p>
+        </div>
+        <div className={styles.donutSec}>
+          <h4>목표 달성도</h4>
+          <h2 className={styles.succeedCnt}>
+            {Math.round(chartProps.succeedCount)}%
+          </h2>
+          <Doughnut value={chartProps.succeedCount} id={"succeedRatioChart"} />
+          <p>전체 집계 대비 90% 이상 달성 건</p>
+        </div>
+      </div>
+      <div className={styles.titleSec2}>
+        <h3>챌린지 컨티뉴어 보드</h3>
+        <p>{userInfo.name}님이 꾸준히 챌린지를 수행하고 있는지 최근 30일 간의 챌린지 기록을 보드로 정리해드릴게요</p>        <p>홍당무님이 꾸준히 챌린지를 수행하고 있는지 최근 30일 간의 챌린지 기록을 보드로 정리해드릴게요</p>
+        <p>최근 30일 간 {userInfo.name}님의 달성 건수는 총 16회 입니다</p>
       </div>
       <div className={styles.chartUpper}>
         <div className={styles.donutSec}>
