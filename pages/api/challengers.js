@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "POST") {
     try {
-      const { postTitle, postContent, ...posts } = req.body;
+      let { postTitle, postContent, postImgUrl, ...posts } = req.body;
       // 1. 헤더에 있는 엑세스토큰을 디코드하여 현재 로그인 중인 유저 ID를 얻음
       let atHeader = req.headers["authorization"];
       let acToken = atHeader.substr(7);
@@ -53,12 +53,20 @@ export default async function handler(req, res) {
       let month = date.getMonth() + 1;
       let today = date.getDate();
       // 4. 그 유저 필드의 이메일과 닉네임 + 게시글 제목과 본문 내용 + 날짜 정보를 newPost 변수에 객체로 저장
+
+      // default post img 로 변경해야함
+      let defaultImgUrl = `https://${process.env.aws_bucket_name}.s3.ap-northeast-2.amazonaws.com/default-profile.jpg`;
+
+      if (postImgUrl === "") {
+        postImgUrl = defaultImgUrl;
+      }
       let newPost = {
         postId: countPost.totalPost,
         email: userCheck.email,
         nickname: userCheck.nickname,
         title: postTitle,
         content: postContent,
+        postImgUrl: postImgUrl,
         date: `${year}년 ${month}월 ${today}일`,
       };
       // 5. newPost 객체 DB로 새로 insertOne 처리

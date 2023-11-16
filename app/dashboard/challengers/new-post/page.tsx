@@ -1,16 +1,20 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./new-post.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import close from "../../../../public/closeicon.png";
-import { sendPostData } from "../../../../util/onNewPost"
+import { sendPostData } from "../../../../util/onNewPost";
+import imageUpload from "../../../../public/imageUpload.png";
+import circleRight from "../../../../public/circleRight.png";
+import { onImageUpload } from "../../../../util/onImageUpload";
 
 interface PostInfo {
   postTitle: string;
   postContent: string;
+  postImgUrl: string;
 }
 
 const NewPost = () => {
@@ -19,10 +23,32 @@ const NewPost = () => {
   const [postInfo, setPostInfo] = useState<PostInfo>({
     postTitle: "",
     postContent: "",
+    postImgUrl: "",
   });
 
+  const postImgInputRef = useRef<HTMLInputElement | null>(null);
+  const [trimedFileName, setTrimedFileName] = useState("");
+  const [postImg, setPostImgUrl] = useState("");
+
+  const onUploadImg = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) {
+      return;
+    }
+    let file = e.target.files[0];
+    if (e.target.name == "postImgInput") {
+      onImageUpload(file, "post", setPostImgUrl);
+    }
+  };
+
+  useEffect(() => {
+    console.log({ postImg });
+    let trimFilename = postImg.split("/");
+    setTrimedFileName(trimFilename[trimFilename.length - 1]);
+    console.log(trimedFileName);
+  }, [postImg]);
+
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     // Input 필드의 값이 변경되면 실행될 onChange 함수
     const newPostInfo: PostInfo = {
@@ -53,13 +79,29 @@ const NewPost = () => {
     }
   };
 
+  const onUploadImgButtonClick = (ref: React.RefObject<HTMLInputElement>) => {
+    if (!ref.current) {
+      return;
+    }
+    ref.current.click();
+  };
+
   return (
     <div className={styles.upper}>
-      <div className={styles.title}>게시글 작성하기</div>
+      <input
+        type="file"
+        name="postImgInput"
+        accept="image/*"
+        ref={postImgInputRef} // inputRef로 접근할 수 있도록 ref 지정
+        onChange={onUploadImg}
+        style={{ display: "none" }} // input 요소는 원하는대로 스타일링을 하는 것이 제한적이므로 이를 숨기고 따로 생성한 이미지 업로드 버튼 클릭 이벤트를 통해 이미지 업로드 구현
+      />
+      <div className={styles.title}>새로운 게시글을 작성합니다</div>
       <div className={styles.title_sub}>
-        커뮤니티 수칙에 위반되는 부적절한 언어사용 및 내용 작성은 자제해주시기
-        바라며 위반 시 정책에 따라 조치됩니다.
+        커뮤니티 수칙을 위반한 내용의 게시물은 고지 없이 삭제될 수 있으며, 위반
+        시 법적 책임의 소지가 있음을 알립니다
       </div>
+      <hr className={styles.underline1} />
       <div className={styles.postBox}>
         <input
           onChange={onChange}
@@ -72,13 +114,29 @@ const NewPost = () => {
           name="postContent"
           placeholder="본문을 입력하세요"
         ></textarea>
+        <div className={styles.imgWrapper}>
+          <p>파일 크기는 10MB를 초과할 수 없습니다</p>
+          <h4 className={styles.fileName}>{trimedFileName}</h4>
+
+          <button
+            onClick={() => {
+              onUploadImgButtonClick(postImgInputRef);
+            }}
+          >
+            <Image
+              src={imageUpload}
+              alt="imageupload"
+              className={styles.imageUp}
+            />
+          </button>
+        </div>
         <div className={styles.buttonWrapper}>
           <button
             onClick={() => {
               cancelPost();
             }}
           >
-            취소하기
+            나가기
           </button>
           <button
             onClick={() => {
@@ -86,6 +144,11 @@ const NewPost = () => {
             }}
           >
             작성하기
+            <Image
+              src={circleRight}
+              alt="circleRight"
+              className={styles.circleRight}
+            />
           </button>
         </div>
         {showModal && (

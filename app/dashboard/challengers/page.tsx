@@ -20,16 +20,11 @@ export interface postInfo {
   date: string;
   content: string;
   nickname: string;
+  postImgUrl: string;
 }
 
 const Challengers = () => {
-  // const [postList, setPostList] = useState<postInfo[]>([]);
-  // const [modalUp, setModalUp] = useState(0);
-  // const [currnetIdx, setCurrentIdx] = useState(0);
   const router = useRouter();
-  // useEffect(() => {
-  //   fetchData(setPostList, setModalUp);
-  // }, []);
 
   let isLastPage = false;
   const getChallengersList = async (
@@ -80,7 +75,7 @@ const Challengers = () => {
     <div className={styles.upper}>
       <div className={styles.titleSec}>
         <h3>챌린저스</h3>
-        <p>다른 유저들의 원아워 챌린지를 확인하며 소통해보세요</p>
+        <p>다른 사용자들의 원아워 챌린지를 확인하며 소통해보세요</p>
       </div>
       <div className={styles.postWrapper}>
         <div className={styles.postBox}>
@@ -99,17 +94,27 @@ const Challengers = () => {
             // pages들이 페이지 숫자에 맞춰서 들어있기 때문에
             // group을 map으로 한번 더 돌리는 이중 배열 구조이다.
             <React.Fragment key={index}>
-              {group.posts.map((post: postInfo) => (
+              {group.posts.map((post: postInfo, postID: number) => (
                 <>
                   <div
-                    // onClick={() => {
-                    //   setModalUp(1);
-                    //   setCurrentIdx(postList.indexOf(a));
-                    // }}
+                    onClick={() => {
+                      router.push(`/dashboard/challengers/${post.postId}`);
+                    }}
                     className={styles.postBox}
                     key={post.postId}
                   >
+                    <div className={styles.postContainer}>
+                      <div className={styles.imgBox}>
+                        <img
+                          src={post.postImgUrl}
+                          alt="postImg"
+                          className={styles.postImg}
+                        />
+                      </div>
+                    </div>
                     <div className={styles.postUser}>
+                      <h4 className={styles.postTitle}>{post.title}</h4>
+                      <hr className={styles.postHr} />
                       <Image
                         src={userIcon}
                         alt="userIcon"
@@ -117,26 +122,9 @@ const Challengers = () => {
                       />
                       <p className={styles.nickWrap}>
                         <span>{post.nickname}</span>
-                        <span>님</span>
-                      </p>
-                    </div>
-                    <div className={styles.postContainer}>
-                      <h4 className={styles.postTitle}>{post.title}</h4>
-                      <br />
-                      <p className={styles.postDate}>{post.date}</p>
-                      <br />
-                      <p className={styles.postContent}>
-                        <span>{post.content}</span>
                       </p>
                     </div>
                   </div>
-                  {/* <div
-                    key={post.postId}
-                    style={{
-                      height: "500px",
-                    }}>
-                    {post.title}
-                  </div> */}
                 </>
               ))}
             </React.Fragment>
@@ -144,48 +132,6 @@ const Challengers = () => {
         <div ref={target} />
         {isFetchingNextPage && <p>계속 불러오는 중</p>}
       </div>
-      {/* {modalUp === 1 && (
-        <div className={styles.modalBackdrop}>
-          <div
-            key={"modal" + `${currnetIdx}`}
-            className={styles[`modal${modalUp}`]}>
-            <h3>{postList[currnetIdx] ? postList[currnetIdx].title : ""}</h3>
-            <p>{postList[currnetIdx] ? postList[currnetIdx].content : ""}</p>
-            <div className={styles.postBottom}>
-              <div className={styles.userWrap}>
-                <Image
-                  src={userIcon}
-                  alt="userIcon"
-                  className={styles.userIcon}
-                />
-                <div className={styles.nickWrap}>
-                  <span>
-                    {postList[currnetIdx] ? postList[currnetIdx].nickname : ""}
-                  </span>
-                  <span>님</span>
-                </div>
-                <p className={styles.postDate}>
-                  {postList[currnetIdx] ? postList[currnetIdx].date : ""}
-                </p>
-              </div>
-              <div className={styles.btnWrap}>
-                <button
-                  onClick={() => {
-                    setModalUp(0);
-                  }}>
-                  뒤로가기
-                </button>
-                <button
-                  onClick={() => {
-                    deletePost(postList[currnetIdx].postId);
-                  }}>
-                  삭제하기
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };
