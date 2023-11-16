@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       // 4. 그 유저 필드의 이메일과 닉네임 + 게시글 제목과 본문 내용 + 날짜 정보를 newPost 변수에 객체로 저장
 
       // default post img 로 변경해야함
-      let defaultImgUrl = `https://${process.env.aws_bucket_name}.s3.ap-northeast-2.amazonaws.com/default-profile.jpg`;
+      let defaultImgUrl = `https://${process.env.MY_AWS_BUCKET_NAME}.s3.ap-northeast-2.amazonaws.com/default-profile.jpg`;
 
       if (postImgUrl === "") {
         postImgUrl = defaultImgUrl;
