@@ -9,6 +9,10 @@
   font-family: "Arimo_BLD";
   src: url("../../public/Arimo-Bold.ttf");
 }
+@font-face {
+  font-family: "Debussy";
+  src: url("../../public/debussy.ttf");
+}
 
 $base: 16px;
 $color: #383838;
@@ -30,9 +34,9 @@ $blue: #6ab5ff;
 }
 .navWrapper {
   position: fixed;
-  width: 360px;
+  width: 400px;
   background: #fff;
-  padding: 20px 24px 20px;
+  padding: 30px 50px 20px;
   box-sizing: border-box;
   font-family: "Arimo_BLD";
   letter-spacing: -0.6px;
@@ -54,7 +58,6 @@ $blue: #6ab5ff;
     display: flex;
     align-items: center;
     color: $blue;
-    height: 90px;
     img,
     span {
       font-size: $base + 4;
@@ -85,11 +88,10 @@ $blue: #6ab5ff;
       display: flex;
       justify-content: center;
       align-items: center;
-      // background: url('/userIcon_login.png') no-repeat center/contain;
       .profileIcon {
-        width: 25px;
-        height: auto;
-        color: $blue;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -101,35 +103,39 @@ $blue: #6ab5ff;
     justify-content: center;
     align-items: center;
   }
-
+  .challengeButtonSelected {
+    background-color: #64dab5 !important;
+    font-size: $base + 3 !important;
+  }
   .challengeButton {
+    letter-spacing: 0;
     display: flex;
+    margin-bottom: 25px;
     background-color: $blue;
-    background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-    border-radius: $base;
-    height: 70px;
+    // background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+    border-radius: 50px;
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: "Kicker_Trial";
+    font-family: "Debussy";
     font-size: $base + 5;
+    box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.16);
     cursor: pointer;
     .challengeIcon {
-      width: 24px;
+      position: absolute;
+      width: 35px;
+      right: 60px;
       height: auto;
     }
     p {
       position: relative;
-      margin-left: 10px;
       margin-right: 15px;
-      top: 3px;
     }
   }
 
   .menuWrapper {
-    margin-top: 70px;
+    margin: 45px 0;
     .menuList {
-      margin: 30px 10px;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -193,9 +199,6 @@ $blue: #6ab5ff;
         width: 40px;
         height: 40px;
         margin-right: 20px;
-        .profileIcon {
-          width: 18px;
-        }
       }
     }
     .commentWrapper {
@@ -204,7 +207,6 @@ $blue: #6ab5ff;
     }
 
     .challengeButton {
-      border-radius: $base - 3;
       height: 50px;
       font-size: $base;
       .challengeIcon {
@@ -213,7 +215,7 @@ $blue: #6ab5ff;
     }
 
     .menuWrapper {
-      margin-top: 60px;
+      // margin-top: 60px;
       .menuList {
         margin: 25px 8px;
         .menuIcon {
@@ -237,10 +239,10 @@ $blue: #6ab5ff;
   /******************* MEDIA 1200 **********************/
 
   @include tablet {
-    width: 300px;
+    width: 360px;
     font-size: $base - 4;
     .logoWrapper {
-      height: 60px;
+      height: 88px;
       span {
         font-size: $base - 2;
       }
@@ -255,9 +257,6 @@ $blue: #6ab5ff;
         width: 45px;
         height: 45px;
         margin-right: 20px;
-        .profileIcon {
-          width: 20px;
-        }
       }
     }
     .commentWrapper {
@@ -266,16 +265,15 @@ $blue: #6ab5ff;
     }
 
     .challengeButton {
-      border-radius: $base - 2;
       height: 55px;
       font-size: $base;
       .challengeIcon {
-        width: 22px;
+        width: 35px;
       }
     }
 
     .menuWrapper {
-      margin-top: 60px;
+      // margin-top: 60px;
       .menuList {
         margin: 25px 8px;
         .menuIcon {

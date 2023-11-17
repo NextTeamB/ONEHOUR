@@ -25,7 +25,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  
+
   .logoWrapper {
     width: 100%;
     display: flex;
@@ -60,7 +60,7 @@
       font-size: 22px;
       font-weight: 700;
       letter-spacing: -1px;
-      color: #0B4F9F;
+      color: #0b4f9f;
       background-color: white;
       border: none;
       box-shadow: 2px 4px 10px #00000029;
@@ -79,6 +79,16 @@
     font-weight: 600;
     font-size: 20px;
     color: white;
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 20px;
+      color: white;
+      font-family: "Arimo_BLD";
+      font-weight: 600;
+      letter-spacing: -1px;
+      cursor: pointer;
+    }
   }
 }
 
@@ -106,7 +116,8 @@
     transform-origin: top left;
     transform: rotate(22deg);
     margin-left: 234px;
-    .card2, .card3 {
+    .card2,
+    .card3 {
       width: 720px;
       height: auto;
       border-radius: 30px;
@@ -118,10 +129,9 @@
   }
 }
 
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
+/******************* MEDIA 990 **********************/
 
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-
-  @include mobile
+@include mobile;

@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useEffect, ReactNode, useState } from "react";
 import styles from "./Navigator.module.scss";
 import Image from "next/image";
-import { FaUserNinja, FaChartLine } from "react-icons/fa";
+import { FaUserNinja, FaChartLine, FaHome } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import { ImFire } from "react-icons/im";
+import { IoIosCheckmarkCircle, IoMdTrophy } from "react-icons/io";
 import logo from "../../public/logo.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -19,9 +20,14 @@ import { useModal } from "@/context/modalContext";
 const Navigator = (props: { children: ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
+  // const userProfileImgUrl = useSelector(
+  //   (state: RootState) => state.user?.profileImgUrl
+  // );
   const { openModal } = useModal();
-
   const userNickname = useSelector((state: RootState) => state.user?.nickname);
+  const userProfileImg = useSelector(
+    (state: RootState) => state.user?.profileImgUrl
+  );
   const accessToken = useSelector((state: RootState) => state.user.accessToken);
   axios.defaults.headers.common["authorization"] = accessToken;
 
@@ -44,15 +50,20 @@ const Navigator = (props: { children: ReactNode }) => {
   }
   const menuData: menuProvider[] = [
     {
-      name: "원아워 대시보드",
+      name: "홈",
       path: "/dashboard",
+      icon: <FaHome className={styles.menuIcon} />,
+    },
+    {
+      name: "원아워 레코즈",
+      path: "/dashboard/records",
       icon: <FaChartLine className={styles.menuIcon} />,
     },
-    // {
-    // 	name: '마이페이지',
-    // 	path: '/dashboard/mypage',
-    // 	icon: <FaUser className={styles.menuIcon} />,
-    // },
+    {
+      name: "타임 랭킹",
+      path: "/dashboard/time-ranking",
+      icon: <IoMdTrophy className={styles.menuIcon} />,
+    },
     {
       name: "챌린저스",
       path: "/dashboard/challengers",
@@ -77,13 +88,17 @@ const Navigator = (props: { children: ReactNode }) => {
               }}
               className={styles.logoWrapper}
             >
-              <Image src={logo} width={108} alt="logoImage"></Image>
-              <span>원아워</span>
+              <Image src={logo} height={35} alt="logoImage"></Image>
             </div>
             <hr className={styles.breakline}></hr>
             <div className={styles.profileWrapper}>
               <div className={styles.profile}>
-                <FaUserNinja className={styles.profileIcon} />
+                {/* <FaUserNinja className={styles.profileIcon} /> */}
+                <img
+                  src={userProfileImg}
+                  className={styles.profileIcon}
+                  alt="user profile image"
+                />
               </div>
               <p>
                 <span>{userNickname}</span> 님
@@ -97,11 +112,21 @@ const Navigator = (props: { children: ReactNode }) => {
               onClick={() => {
                 router.push("/dashboard/challenges");
               }}
-              className={styles.challengeButton}
+              className={`${
+                pathname?.includes("challenges") &&
+                styles.challengeButtonSelected
+              } ${styles.challengeButton}`}
             >
-              <ImFire className={styles.challengeIcon}></ImFire>
-              <p>CHALLENGE</p>
+              <p>
+                {pathname?.includes("challenges")
+                  ? "LET’S GO !"
+                  : "START CHALLENGE"}
+              </p>
+              <IoIosCheckmarkCircle
+                className={styles.challengeIcon}
+              ></IoIosCheckmarkCircle>
             </div>
+            <hr className={styles.breakline}></hr>
             <div className={styles.menuWrapper}>
               {menuData.map((menu, index) => {
                 return (
@@ -119,6 +144,7 @@ const Navigator = (props: { children: ReactNode }) => {
                 );
               })}
             </div>
+            <hr className={styles.breakline}></hr>
             <div className={styles.subMenuWrapper}>
               {subMenus.map((menu, index) => (
                 <div

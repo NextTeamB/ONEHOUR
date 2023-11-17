@@ -13,6 +13,7 @@ export const onSignUp = (userInfo, router) => {
   axios
     .post("/api/users/sign-up", newUserInfo)
     .then((res) => {
+      router.push("/login");
       console.log(res);
       setSignupModalState(1); // 회원가입이 성공하면 상태를 1로 업데이트
     })
