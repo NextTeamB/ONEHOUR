@@ -1,0 +1,72 @@
+name: Continuous Deploy with GitHub Actions + S3 & CloudFront
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #     - feature/*
+  pull_request:
+    branches:
+      - main
+      - feature/*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current commit (${{github.sha}})
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          # node_modules 폴더 검사
+          path: node_modules
+          # 아래 키값으로 cache가 되있는지 확인
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }}\
+
+      - name: Generate Environment Variables File
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          MONGODB_URL: ${{ secrets.MONGODB_URL }}
+          MY_AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          MY_AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_IMAGE_BUCKET: ${{ secrets.AWS_IMAGE_BUCKET }}
+          DEFAULT_PROFILE_IMG_URL: ${{ secrets.DEFAULT_PROFILE_IMG_URL }}
+        run: |
+          echo "SECRET_KEY: $SECRET_KEY" >> .env
+          echo "MONGODB_URL=$MONGODB_URL" >> .env
+          echo "MY_AWS_ACCESS_KEY=$MY_AWS_ACCESS_KEY" >> .env
+          echo "MY_AWS_SECRET_KEY=$MY_AWS_SECRET_KEY" >> .env
+          echo "DEFAULT_PROFILE_IMG_URL=$DEFAULT_PROFILE_IMG_URL" >> .env
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: npm deploy
+        run: |
+          npm deploy
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to S3
+        run: |
+          aws s3 rm s3://${{ secrets.S3_BUCKET }} --recursive
+          aws s3 cp --recursive --region ap-northeast-2 ./out s3://${{ secrets.S3_BUCKET }}
+
+      - name: Invalidate CloudFront Cache
+        env:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

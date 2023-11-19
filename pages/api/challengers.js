@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "POST") {
     try {
-      let { postTitle, postContent, postImgUrl, ...posts } = req.body;
+      let { postTitle, postContent, postImgUrl } = req.body;
       // 1. 헤더에 있는 엑세스토큰을 디코드하여 현재 로그인 중인 유저 ID를 얻음
       let atHeader = req.headers["authorization"];
       let acToken = atHeader.substr(7);
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       // 4. 그 유저 필드의 이메일과 닉네임 + 게시글 제목과 본문 내용 + 날짜 정보를 newPost 변수에 객체로 저장
 
       // default post img 로 변경해야함
-      let defaultImgUrl = `https://${process.env.MY_AWS_BUCKET_NAME}.s3.ap-northeast-2.amazonaws.com/default-profile.jpg`;
+      let defaultImgUrl = process.env.DEFAULT_PROFILE_IMG_URL;
 
       if (postImgUrl === "") {
         postImgUrl = defaultImgUrl;
