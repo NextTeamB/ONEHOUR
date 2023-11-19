@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "pm2 start ecosystem.config.js --env production"
   },
   "dependencies": {
     "@redux-devtools/extension": "^3.2.5",

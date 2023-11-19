@@ -1,0 +1,76 @@
+name: Continuous Deploy with GitHub Actions + S3 & EC2
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches:
+      - main
+      - feature/*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current commit (${{github.sha}})
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          # node_modules 폴더 검사
+          path: node_modules
+          # 아래 키값으로 cache가 되있는지 확인
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }}\
+
+      - name: Generate Environment Variables File
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          MONGODB_URL: ${{ secrets.MONGODB_URL }}
+          MY_AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          MY_AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_IMAGE_BUCKET: ${{ secrets.AWS_IMAGE_BUCKET }}
+          DEFAULT_PROFILE_IMG_URL: ${{ secrets.DEFAULT_PROFILE_IMG_URL }}
+        run: |
+          echo "SECRET_KEY: $SECRET_KEY" >> .env
+          echo "MONGODB_URL=$MONGODB_URL" >> .env
+          echo "MY_AWS_ACCESS_KEY=$MY_AWS_ACCESS_KEY" >> .env
+          echo "MY_AWS_SECRET_KEY=$MY_AWS_SECRET_KEY" >> .env
+          echo "DEFAULT_PROFILE_IMG_URL=$DEFAULT_PROFILE_IMG_URL" >> .env
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Build Next App
+        run: |
+          npm run build
+
+      - name: Zip Build File
+        run: zip -qq -r ./$GITHUB_SHA.zip . -x "node_modules/*"
+        shell: bash
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://${{ secrets.AWS_S3_BUCKET }}/$GITHUB_SHA.zip
+
+      - name: Code Deploy # S3에 올라간 zip 파일을 CodeDeploy로 가져옴
+        run: aws deploy create-deployment
+          --application-name ${{ secrets.CodeDeploy_APPLICATION }}
+          --deployment-config-name CodeDeployDefault.AllAtOnce # CodeDeploy에서 설정한 배포 설정
+          --deployment-group-name ONEHOUR
+          --s3-location bucket=${{ secrets.AWS_S3_BUCKET }},bundleType=zip,key=$GITHUB_SHA.zip # Code Deploy가 S3에서 프로젝트를 찾을 수 있도록 경로 지정.
