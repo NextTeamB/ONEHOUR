@@ -1,8 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const postChallengeData = async (title, description, difficulty, status, challengeTime) => {
+export const postChallengeData = async (
+  title,
+  description,
+  difficulty,
+  status,
+  challengeTime
+) => {
   try {
-    const response = await axios.post('/api/records', {
+    const response = await axios.post("/api/records", {
       title,
       description,
       difficulty,
