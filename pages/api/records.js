@@ -1,5 +1,6 @@
 import { connectDB } from "../../util/databaseConnect";
 import { ObjectId } from "mongodb";
+import moment from "moment";
 const jwt = require("jsonwebtoken");
 
 export default async function handler(req, res) {
@@ -57,10 +58,15 @@ export default async function handler(req, res) {
       }
 
       // post 요청 시 연월일 계산
-      let date = new Date();
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let today = date.getDate();
+      let curr = new Date();
+      const utc = curr.getTime() + curr.getTimezoneOffset() * 60 * 1000;
+      const KR_TIME_DIFF = 18 * 60 * 60 * 1000;
+      const kr_curr = new Date(utc + KR_TIME_DIFF);
+      // let year = date.getFullYear();
+      // let month = date.getMonth() + 1;
+      // let today = date.getDate();
+      // let time = date.getTime
+      // let date1 = moment().tz("Asia/Seoul").format("YYYY.MM.DD HH:mm:ss");
 
       let newChallenge = {
         email: userCheck.email,
@@ -69,7 +75,7 @@ export default async function handler(req, res) {
         title: title,
         description: description,
         difficulty: difficulty,
-        date: `${year}년 ${month}월 ${today}일`,
+        date: kr_curr,
       };
 
       await db.collection("userChallenges").insertOne(newChallenge);

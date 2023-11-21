@@ -11,7 +11,7 @@ $navy: #0b4f9f;
 $grey1: #383838;
 $grey2: #989898;
 $grey3: #e1e2e3;
-$green: #64DAB5;
+$green: #64dab5;
 
 @keyframes fadeIn {
   0% {
@@ -304,7 +304,7 @@ $green: #64DAB5;
   border-radius: 12px;
   border: 1px solid #e1e2e3;
   background-color: white;
-  .editBtn2 {
+  .editBtn0 {
     letter-spacing: -1px;
     font-family: "Arimo_BLD";
     width: 84%;
@@ -318,6 +318,17 @@ $green: #64DAB5;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+  }
+  .editBtn1 {
+    display: none;
+  }
+  h4 {
+    text-align: center;
+    letter-spacing: -1px;
+    font-family: "Arimo_RGR";
+    font-weight: 500;
+    color: $green;
+    font-size: 22px;
   }
   .closeModal {
     position: absolute;

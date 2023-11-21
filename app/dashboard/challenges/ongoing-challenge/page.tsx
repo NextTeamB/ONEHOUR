@@ -17,7 +17,7 @@ export default function Ongoing() {
   const router = useRouter();
   // 챌린지 제목, 다짐, 난이도 받아오기
   const { title, description, difficulty } = useSelector(
-    (state: RootState) => state.challenge,
+    (state: RootState) => state.challenge
   );
 
   /*--- Timer ---*/
@@ -26,6 +26,7 @@ export default function Ongoing() {
   const [stoppedTime, setStoppedTime] = useState(0);
   const [isStopped, setIsStopped] = useState(false); // 타이머가 멈췄는지 여부를 저장하는 state
   const [modal, setModal] = useState(0);
+  const [postChecking, setPostChecking] = useState(0);
 
   // 타이머를 시작하는 함수
   const startTimer = () => {
@@ -92,11 +93,17 @@ export default function Ongoing() {
     } else {
       status = "failed";
     }
-    
-    postChallengeData(title, description, difficulty, status, calculateProgress())
+
+    postChallengeData(
+      title,
+      description,
+      difficulty,
+      status,
+      calculateProgress()
+    )
       .then((res) => {
         console.log(res);
-        router.push('/dashboard');
+        router.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -108,16 +115,17 @@ export default function Ongoing() {
           <div className={`${styles.title} ${isStopped ? styles.stopped : ""}`}>
             <span>CHALLENGE BOARD</span>
           </div>
-          {isStopped ? 
+          {isStopped ? (
             <Image src={trophy} alt="trophy" className={styles.trophy} />
-            : <Image src={arrows} alt="arrows" className={styles.arrows} />
-          }
+          ) : (
+            <Image src={arrows} alt="arrows" className={styles.arrows} />
+          )}
           <div className={styles.content}>
             <p>{title}</p>
           </div>
           <div className={styles.progress}>
             <div className={styles.curProgress}>
-              현재의 진행도는 
+              현재의 진행도는
               <span className={isStopped ? styles.stopped : ""}>
                 {roundNum}%
               </span>
@@ -180,6 +188,7 @@ export default function Ongoing() {
               onClick={(e) => {
                 stopTimer();
                 setModal(1);
+                setPostChecking(0);
               }}
               className={`${styles.stopButton} ${
                 isStopped ? styles.stopped : ""
@@ -206,13 +215,19 @@ export default function Ongoing() {
             기록 저장 시 저장사항을 변경할 수 없습니다
           </p>
           <button
-            className={styles.editBtn2}
+            className={styles[`editBtn${postChecking}`]}
             onClick={() => {
+              setPostChecking(1);
               postChallenge();
             }}
           >
             기록저장
           </button>
+          {postChecking ? (
+            <h4 className={styles.postProcessing}>요청을 처리중입니다</h4>
+          ) : (
+            ""
+          )}
           <button
             className={styles.closeModal}
             onClick={() => {
