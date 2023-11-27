@@ -55,7 +55,7 @@ export default function Time_Ranking() {
               <div className={styles.profile}>
                 <img
                   className={styles.userProfile}
-                  src={userRanking[0][2].profileImgUrl}
+                  src={userRanking[0][1].profileImgUrl}
                 />
               </div>
               <Image src={L2} alt="lauren" className={styles.lauren2} />
@@ -72,7 +72,7 @@ export default function Time_Ranking() {
               <div className={styles.profile}>
                 <img
                   className={styles.userProfile}
-                  src={userRanking[0][2].profileImgUrl}
+                  src={userRanking[0][0].profileImgUrl}
                 />
               </div>
               <Image src={stars} alt="stars" className={styles.stars} />
@@ -119,7 +119,7 @@ export default function Time_Ranking() {
                 <div className={styles.profile2}>
                   <img
                     className={styles.userProfile}
-                    src={userRanking[0][2].profileImgUrl}
+                    src={userRanking[0][i].profileImgUrl}
                   />
                 </div>
                 <p className={styles.rankNum}>{i + 4}위</p>

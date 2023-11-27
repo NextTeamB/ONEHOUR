@@ -45,6 +45,8 @@ const NewPost = () => {
     let trimFilename = postImg.split("/");
     setTrimedFileName(trimFilename[trimFilename.length - 1]);
     console.log(trimedFileName);
+    setPostInfo({ ...postInfo, postImgUrl: postImg });
+    console.log(postImg);
   }, [postImg]);
 
   const onChange = (
