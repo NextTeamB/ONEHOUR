@@ -84,8 +84,7 @@ const Navigator = (props: { children: ReactNode }) => {
               onClick={() => {
                 router.push("/dashboard");
               }}
-              className={styles.logoWrapper}
-            >
+              className={styles.logoWrapper}>
               <Image src={logo} height={35} alt="logoImage"></Image>
             </div>
             <hr className={styles.breakline}></hr>
@@ -111,18 +110,15 @@ const Navigator = (props: { children: ReactNode }) => {
                 router.push("/dashboard/challenges");
               }}
               className={`${
-                pathname?.includes("challenges") &&
-                styles.challengeButtonSelected
-              } ${styles.challengeButton}`}
-            >
+                pathname?.includes("ongoing") && styles.challengeButtonSelected
+              } ${styles.challengeButton}`}>
               <p>
                 {pathname?.includes("challenges")
                   ? "LET’S GO !"
                   : "START CHALLENGE"}
               </p>
               <IoIosCheckmarkCircle
-                className={styles.challengeIcon}
-              ></IoIosCheckmarkCircle>
+                className={styles.challengeIcon}></IoIosCheckmarkCircle>
             </div>
             <hr className={styles.breakline}></hr>
             <div className={styles.menuWrapper}>
@@ -133,8 +129,7 @@ const Navigator = (props: { children: ReactNode }) => {
                       href={menu.path}
                       className={`${styles.menuList} ${
                         menu.path === pathname && styles.selected
-                      }`}
-                    >
+                      }`}>
                       {menu.icon}
                       <div className={styles.menuText}>{menu.name}</div>
                     </Link>
@@ -150,8 +145,7 @@ const Navigator = (props: { children: ReactNode }) => {
                   key={index}
                   onClick={() => {
                     if (menu === "로그아웃") onLogout();
-                  }}
-                >
+                  }}>
                   <div>{menu}</div>
                 </div>
               ))}

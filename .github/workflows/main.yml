@@ -68,9 +68,5 @@ jobs:
         run: |
           aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://${{ secrets.AWS_S3_BUCKET }}/$GITHUB_SHA.zip
 
-      - name: Code Deploy # S3에 올라간 zip 파일을 CodeDeploy로 가져옴
-        run: aws deploy create-deployment
-          --application-name ${{ secrets.CodeDeploy_APPLICATION }}
-          --deployment-config-name CodeDeployDefault.AllAtOnce # CodeDeploy에서 설정한 배포 설정
-          --deployment-group-name ONEHOUR
-          --s3-location bucket=${{ secrets.AWS_S3_BUCKET }},bundleType=zip,key=$GITHUB_SHA.zip # Code Deploy가 S3에서 프로젝트를 찾을 수 있도록 경로 지정.
+      - name: Code Deploy
+        run: aws deploy create-deployment --application-name ${{ secrets.CODEDEPLOY_APPLICATION }} --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name ONEHOUR --s3-location bucket=${{ secrets.AWS_S3_BUCKET }},bundleType=zip,key=$GITHUB_SHA.zip
