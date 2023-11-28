@@ -39,7 +39,7 @@ export default async function hanlder(req, res) {
       let decoding = JSON.stringify(jwt.decode(acToken).id);
       let decodeId = JSON.parse(decoding);
 
-      const defaultImgUrl = `https://${process.env.aws_bucket_name}.s3.ap-northeast-2.amazonaws.com/default-profile.jpg`;
+      const defaultImgUrl = `https://${process.env.aws_bucket_name}.s3.ap-northeast-2.amazonaws.com/default-profile.png`;
 
       let db = (await connectDB).db("onehour");
       let userCheck = await db

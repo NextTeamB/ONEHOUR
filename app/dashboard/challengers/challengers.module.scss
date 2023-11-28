@@ -173,11 +173,12 @@ $grey3: #e1e2e3;
         height: 162px;
         color: #383838;
         top: -20px;
-        border: #0b4f9f 1px solid;
+        padding-top: -20px;
+        border: none;
         .postImg {
           width: 100%;
           height: auto;
-          margin: auto 0;
+          margin: -14px 0;
         }
       }
       .postDate {

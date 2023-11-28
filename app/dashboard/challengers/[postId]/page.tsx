@@ -6,6 +6,9 @@ import styles from "./postId.module.scss";
 import Image from "next/image";
 import backArrow from "../../../../public/backArrow.png";
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export interface postInfo {
   title: string;
@@ -19,6 +22,7 @@ type Union = string | null;
 
 export default function PostId({ params }: { params: { postId: number } }) {
   const router = useRouter();
+  const BASE_POST_IMG_URL = `${process.env.DEFAULT_POST_IMG_URL}`;
   let [postList, setPostList] = useState<postInfo[]>([]);
 
   useEffect(() => {
@@ -83,7 +87,18 @@ export default function PostId({ params }: { params: { postId: number } }) {
           </div>
           <hr />
           <div className={styles.articleSection}>
-            <div className={styles.imgBox}>이미지 들어갈 박스</div>
+            {postList[0].postImgUrl ===
+            String(process.env.NEXT_PUBLIC_DEFAULT_POST_IMG_URL) ? (
+              <></>
+            ) : (
+              <div className={styles.imgBox}>
+                <img
+                  src={postList[0].postImgUrl}
+                  alt="postImg"
+                  className={styles.postImg}
+                />
+              </div>
+            )}
             <div className={styles.articleBox}>
               <p>{postList[0].content}</p>
             </div>
