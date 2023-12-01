@@ -36,6 +36,7 @@ jobs:
           MY_AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_IMAGE_BUCKET: ${{ secrets.AWS_IMAGE_BUCKET }}
           DEFAULT_PROFILE_IMG_URL: ${{ secrets.DEFAULT_PROFILE_IMG_URL }}
+
         run: |
           echo "SECRET_KEY: $SECRET_KEY" >> .env
           echo "MONGODB_URL=$MONGODB_URL" >> .env
@@ -50,9 +51,11 @@ jobs:
       - name: Build Next App
         run: |
           npm run build
+        env:
+          CI: false
 
       - name: Zip Build File
-        run: zip -qq -r ./$GITHUB_SHA.zip . -x "node_modules/*"
+        run: zip -qq -r ./ONEHOUR.zip . -x "node_modules/*"
         shell: bash
 
       - name: Configure AWS Credentials
@@ -64,7 +67,7 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://${{ secrets.AWS_S3_BUCKET }}/$GITHUB_SHA.zip
+          aws s3 cp --region ap-northeast-2 ./ONEHOUR.zip s3://${{ secrets.AWS_S3_BUCKET }}/ONEHOUR.zip
 
       - name: Code Deploy
-        run: aws deploy create-deployment --application-name ${{ secrets.CODEDEPLOY_APPLICATION }} --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name ONEHOUR --s3-location bucket=${{ secrets.AWS_S3_BUCKET }},bundleType=zip,key=$GITHUB_SHA.zip
+        run: aws deploy create-deployment --application-name ${{ secrets.CODEDEPLOY_APPLICATION }} --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name ONEHOUR --s3-location bucket=${{ secrets.AWS_S3_BUCKET }},bundleType=zip,key=ONEHOUR.zip
