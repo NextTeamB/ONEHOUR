@@ -19,30 +19,6 @@ import { useRouter } from "next/navigation";
 import { onContinuerBoard } from "@/util/onContinuerBoard.js";
 import loadImg from "../../../public/loadImg.png";
 
-// 더미데이터 생성
-const generateChallengeData = (name: string) => {
-  // 최근 30일 동안의 일별 챌린지 갯수 생성
-  const dailyChallenges = Array.from({ length: 30 }, () => {
-    return Math.floor(Math.random() * 10); // 각 날짜에 대한 챌린지 갯수 (임의의 값)
-  });
-
-  // 최근 30일간의 총 챌린지 갯수 (일별 챌린지 갯수의 합)
-  const totalChallenges = dailyChallenges.reduce(
-    (acc, challenges) => acc + challenges,
-    0
-  );
-
-  return {
-    name,
-    totalChallenges,
-    dailyChallenges,
-  };
-};
-
-// 특정 이름으로 더미 데이터 생성
-const dummyData = generateChallengeData("이름");
-console.log(dummyData);
-
 export interface userRecord {
   title: string;
   challengeTime: number;
@@ -66,6 +42,7 @@ export default function Records() {
   let [userChallenges, setUserChallenges] = useState<userRecord[]>([]);
   let [curIndex, setCurIndex] = useState(0);
   let [chartProps, setChartProps] = useState(initialChartState);
+  let [dailyChallenges, setDailyChallenges] = useState<number[]>([]);
   const userInfo = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
@@ -73,12 +50,16 @@ export default function Records() {
       .then((data) => {
         setUserChallenges([...data]);
         let countArr = onContinuerBoard(data);
-        console.log(countArr);
+        setDailyChallenges(countArr);
+        console.log("챌린지:", countArr);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  // 챌린지 총 횟수
+  let sum = dailyChallenges.reduce((acc, value) => acc + value, 0);
 
   useEffect(() => {
     let copyTime: any = [];
@@ -211,8 +192,7 @@ export default function Records() {
                           </p>
                           <div className={styles.progressWrap}>
                             <div className={styles.progressTitle}>
-                              <span>투자한 시간</span>
-                              <span>( 60분 기준 )</span>
+                              <span>진행도</span>
                             </div>
                             <div className={styles.progressBar}>
                               <div
@@ -286,12 +266,12 @@ export default function Records() {
             </p>
             <p>
               최근 30일 간 {userInfo.nickname}님의 달성 건수는 총{" "}
-              {dummyData.totalChallenges}회 입니다.
+              {sum}회 입니다.
             </p>
           </div>
           <div className={styles.boardUpper}>
             <div className={styles.challengeRecords}>
-              {dummyData.dailyChallenges.map((challengeCount, index) => {
+              {dailyChallenges.map((challengeCount, index) => {
                 let circleColorClass;
 
                 if (challengeCount === 0) {
