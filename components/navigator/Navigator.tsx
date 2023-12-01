@@ -14,8 +14,7 @@ import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter, usePathname } from "next/navigation";
 import { reissueToken } from "@/util/onLogin";
-// import { onLogout } from "@/util/onLogout";
-import { useModal } from "@/context/modalContext";
+import { onLogout } from "@/util/onLogout";
 
 const Navigator = (props: { children: ReactNode }) => {
   const router = useRouter();
@@ -23,7 +22,6 @@ const Navigator = (props: { children: ReactNode }) => {
   // const userProfileImgUrl = useSelector(
   //   (state: RootState) => state.user?.profileImgUrl
   // );
-  const { openModal } = useModal();
   const userNickname = useSelector((state: RootState) => state.user?.nickname);
   const userProfileImg = useSelector(
     (state: RootState) => state.user?.profileImgUrl
@@ -152,7 +150,7 @@ const Navigator = (props: { children: ReactNode }) => {
                   key={index}
                   onClick={() => {
                     if (menu === "로그아웃") {
-                      openModal();
+                      onLogout();
                     }
                   }}
                 >

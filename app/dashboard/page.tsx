@@ -7,11 +7,9 @@ import ads_banner1 from "../../public/ads_banner1.png";
 import newsIcon from "../../public/Icon_newspaper.png";
 import newsImg from "../../public/news_img.png";
 import student1 from "../../public/student1.png";
-import { useModal } from "@/context/modalContext";
 import { onLogout } from "@/util/onLogout";
 
 const Dashboard = () => {
-  const { modalState, closeModal } = useModal();
   
   return (
     <>
@@ -111,30 +109,6 @@ const Dashboard = () => {
         </p>
         <div className={styles.boxMargin}></div>
       </div>
-      {/* 로그아웃 모달 창 렌더링 */}
-      {modalState === 1 && (
-        <div className={modalState === 1 ? styles.modal1 : styles.modal0}>
-          <p>로그아웃 하시겠습니까?</p>
-          <div className={styles.buttonWrapper}>
-            <button
-              className={styles.closeModal}
-              onClick={() => {
-                closeModal(); // 모달창 닫기
-                onLogout(); // 로그아웃 함수 호출
-              }}
-            >
-              확인
-            </button>
-            <button
-              className={styles.closeModal}
-              onClick={closeModal}
-            >
-              취소
-            </button>
-          </div>
-        </div>
-      )}
-      <div className={modalState === 1 ? styles.modalBG1 : styles.modalBG0}></div>
     </>
   );
 };

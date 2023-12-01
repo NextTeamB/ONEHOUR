@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import styles from './YourStyles.module.scss'; // 모달 스타일을 담은 파일을 import
+import styles from './commonModal.module.scss';
+import { useModal } from './useModal';
 
 // 모달 내용
 const modalContents = {
@@ -15,29 +16,32 @@ const modalContents = {
   // 다른 모달에 대한 내용 추가
 };
 
+const { closeModal } = useModal();
+const { modalState } = useContext(ModalContext);
+
 const EmailCheckModal = ({ isOpen, onClose, positive }) => {
-  const { modalState } = useContext(ModalContext);
   const content = modalContents.email;
 
   return (
     <>
-      <div className={isOpen ? styles.modal1 : styles.modal0}>
+      <div className={modalState.isOpen ? styles.modal1 : styles.modal0}>
         <p>{positive ? content.positiveMessage : content.negativeMessage}</p>
         <button className={styles.closeModal} onClick={onClose}>
           확인
         </button>
       </div>
-      <div className={styles[`modalBG${modalState}`]}></div>
+      <div className={styles[`modalBG${modalState.isOpen ? 1 : 0}`]}></div>
     </>
   );
 };
 
-const SignupModal = ({ content, onClose, router }) => {
+// SignupModal.js
+const SignupModal = ({ isOpen, onClose, router }) => {
   const content = modalContents.signup;
 
   return (
     <>
-      <div className={isOpen ? styles.modal1 : styles.modal0}>
+      <div className={modalState.isOpen ? styles.modal1 : styles.modal0}>
         <p>{content.message}</p>
         <button
           className={styles.closeModal}
@@ -49,12 +53,13 @@ const SignupModal = ({ content, onClose, router }) => {
           확인
         </button>
       </div>
-      <div className={styles[`modalBG${modalState}`]}></div>
+      <div className={styles[`modalBG${modalState.isOpen ? 1 : 0}`]}></div>
     </>
   );
 };
 
 const LogoutModal = ({ onClose, onLogout }) => {
+  
   return (
     <>
       <div className={styles.modal1}>
@@ -71,7 +76,7 @@ const LogoutModal = ({ onClose, onLogout }) => {
           </button>
         </div>
       </div>
-      <div className={styles[`modalBG${modalState}`]}></div>
+      <div className={styles[`modalBG${modalState.isOpen ? 1 : 0}`]}></div>
     </>
   )
 };
@@ -100,7 +105,7 @@ const SaveRecordModal = ({ postChallenge, onClose, setIsRunning, seconds, setIsR
           <Image className={styles.closeicon} src={closeicon} width={20} alt="chevron" />
         </button>
       </div>
-      <div className={styles[`modalBG${modalState}`]}></div>
+      <div className={styles[`modalBG${modalState.isOpen ? 1 : 0}`]}></div>
     </>
   )
 };

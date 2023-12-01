@@ -5,7 +5,7 @@ import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { store, persistor } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
-import { ModalProvider } from "@/context/modalContext";
+import { ModalProvider } from "@/contextModal/modalContext";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient();

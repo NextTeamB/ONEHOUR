@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "./provider";
-import { ModalProvider } from "@/context/modalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +20,7 @@ export default function RootLayout({
         <title>페이지 이름</title>
       </head>
       <body className="Upper">
-        <ModalProvider>
-          <Providers>{children}</Providers>
-        </ModalProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

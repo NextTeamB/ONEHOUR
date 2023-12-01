@@ -1,18 +1,19 @@
-"use client";
-
 import React, { createContext, useContext, useState } from 'react';
 
 const ModalContext = createContext();
 
-export const ModalProvider = ({ children }) => {
-  const [modalState, setModalState] = useState({ isOpen: false, content: '' });
+const ModalProvider = ({ children }) => {
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    type: null, // 추가적인 모달 타입이 필요할 경우 사용
+  });
 
-  const openModal = (content) => {
-    setModalState({ isOpen: true, content });
+  const openModal = (type) => {
+    setModalState({ isOpen: true, type });
   };
 
   const closeModal = () => {
-    setModalState({ isOpen: false, content: '' });
+    setModalState({ isOpen: false, type: null });
   };
 
   return (
@@ -22,10 +23,12 @@ export const ModalProvider = ({ children }) => {
   );
 };
 
-export const useModal = () => {
+const useModal = () => {
   const context = useContext(ModalContext);
   if (!context) {
     throw new Error('useModal must be used within a ModalProvider');
   }
   return context;
 };
+
+export { ModalProvider, useModal };
