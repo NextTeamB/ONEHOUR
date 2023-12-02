@@ -1,16 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 import React from "react";
 import styles from "./postId.module.scss";
 import Image from "next/image";
 import backArrow from "../../../../public/backArrow.png";
+import { RootState } from "@/store/store";
 import axios from "axios";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 export interface postInfo {
+  email: string;
   title: string;
   content: string;
   nickname: string;
@@ -22,6 +25,7 @@ type Union = string | null;
 
 export default function PostId({ params }: { params: { postId: number } }) {
   const router = useRouter();
+  const userInfo = useSelector((state: RootState) => state.user);
   const BASE_POST_IMG_URL = `${process.env.DEFAULT_POST_IMG_URL}`;
   let [postList, setPostList] = useState<postInfo[]>([]);
 
@@ -50,25 +54,29 @@ export default function PostId({ params }: { params: { postId: number } }) {
             ) : (
               "게시글 정보 없음"
             )}
+            {postList[0].email === userInfo.email ? (
+              <button
+                className={styles.deleteBtn}
+                onClick={() => {
+                  axios
+                    .delete("/api/challengers/postId", {
+                      params: { postId: params.postId },
+                    })
+                    .then((res) => {
+                      alert("게시글이 삭제되었습니다");
+                      router.push("/dashboard/challengers");
+                    })
+                    .catch((err) => {
+                      alert("작성자 본인만 게시글을 삭제할 수 있습니다");
+                    });
+                }}
+              >
+                삭제하기
+              </button>
+            ) : (
+              <></>
+            )}
 
-            <button
-              className={styles.deleteBtn}
-              onClick={() => {
-                axios
-                  .delete("/api/challengers/postId", {
-                    params: { postId: params.postId },
-                  })
-                  .then((res) => {
-                    console.log("삭제완료");
-                    router.push("/dashboard/challengers");
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
-              }}
-            >
-              삭제하기
-            </button>
             <div className={styles.backBtnArea}>
               <button
                 className={styles.backBtn}
@@ -105,7 +113,7 @@ export default function PostId({ params }: { params: { postId: number } }) {
           </div>
         </div>
       ) : (
-        "로딩중입니다"
+        <></>
       )}
     </>
   );
