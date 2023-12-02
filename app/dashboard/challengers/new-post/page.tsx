@@ -20,6 +20,7 @@ interface PostInfo {
 const NewPost = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(true);
   const [postInfo, setPostInfo] = useState<PostInfo>({
     postTitle: "",
     postContent: "",
@@ -47,6 +48,7 @@ const NewPost = () => {
     console.log(trimedFileName);
     setPostInfo({ ...postInfo, postImgUrl: postImg });
     console.log(postImg);
+    setButtonClicked(true);
   }, [postImg]);
 
   const onChange = (
@@ -132,27 +134,33 @@ const NewPost = () => {
             />
           </button>
         </div>
-        <div className={styles.buttonWrapper}>
-          <button
-            onClick={() => {
-              cancelPost();
-            }}
-          >
-            나가기
-          </button>
-          <button
-            onClick={() => {
-              sendPost();
-            }}
-          >
-            작성하기
-            <Image
-              src={circleRight}
-              alt="circleRight"
-              className={styles.circleRight}
-            />
-          </button>
-        </div>
+        {buttonClicked ? (
+          <div className={styles.buttonWrapper}>
+            <button
+              onClick={() => {
+                cancelPost();
+              }}
+            >
+              나가기
+            </button>
+            <button
+              onClick={() => {
+                setButtonClicked(false);
+                sendPost();
+              }}
+            >
+              작성하기
+              <Image
+                src={circleRight}
+                alt="circleRight"
+                className={styles.circleRight}
+              />
+            </button>
+          </div>
+        ) : (
+          <p className={styles.empty}>작성중입니다</p>
+        )}
+
         {showModal && (
           <div className={styles.modalBackdrop}>
             <div className={styles.modal}>

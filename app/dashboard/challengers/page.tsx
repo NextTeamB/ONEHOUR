@@ -5,7 +5,6 @@ import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import userIcon from "../../../public/user-icon-box.png";
-import {} from "react";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import { useObserver } from "@/components/IntersectionObserver";
