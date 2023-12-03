@@ -234,27 +234,33 @@ export default function Records() {
           <div className={styles.chartUpper}>
             <div className={styles.donutSec}>
               <h4>시간 계획</h4>
-              <h2 className={styles.timeAvrg}>
-                {Math.round(chartProps.timeAvrg)}%
-              </h2>
-              <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
+              <div className={styles.valueWrap}>
+                <h2 className={styles.timeAvrg}>
+                  {Math.round(chartProps.timeAvrg)}%
+                </h2>
+                <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
+              </div>
               <p>전체 집계 대비 수행시간 정보</p>
             </div>
             <div className={styles.donutSec}>
               <h4>도전 난이도</h4>
-              {diffReturn()}
-              <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
+              <div className={styles.valueWrap}>
+                {diffReturn()}
+                <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
+              </div>
               <p>평균 도전 난이도 정보</p>
             </div>
             <div className={styles.donutSec}>
               <h4>목표 달성도</h4>
-              <h2 className={styles.succeedCnt}>
-                {Math.round(chartProps.succeedCount)}%
-              </h2>
-              <Doughnut
-                value={chartProps.succeedCount}
-                id={"succeedRatioChart"}
-              />
+              <div className={styles.valueWrap}>
+                <h2 className={styles.succeedCnt}>
+                  {Math.round(chartProps.succeedCount)}%
+                </h2>
+                <Doughnut
+                  value={chartProps.succeedCount}
+                  id={"succeedRatioChart"}
+                />
+              </div>
               <p>전체 집계 대비 90% 이상 달성 건</p>
             </div>
           </div>
@@ -269,45 +275,47 @@ export default function Records() {
               {sum}회 입니다.
             </p>
           </div>
-          <div className={styles.boardUpper}>
-            <div className={styles.challengeRecords}>
-              {dailyChallenges.map((challengeCount, index) => {
-                let circleColorClass;
+          <div className={styles.boardWrapper}>
+            <div className={styles.boardUpper}>
+              <div className={styles.challengeRecords}>
+                {dailyChallenges.map((challengeCount, index) => {
+                  let circleColorClass;
 
-                if (challengeCount === 0) {
-                  circleColorClass = styles.circleColor1; // 챌린지 미수행
-                } else if (challengeCount === 1) {
-                  circleColorClass = styles.circleColor2; // 챌린지 1회 수행
-                } else if (challengeCount === 2 || challengeCount === 3) {
-                  circleColorClass = styles.circleColor3; // 챌린지 2회 이상 수행
-                } else if (challengeCount >= 4) {
-                  circleColorClass = styles.circleColor4; // 챌린지 4회 이상 수행
-                }
+                  if (challengeCount === 0) {
+                    circleColorClass = styles.circleColor1; // 챌린지 미수행
+                  } else if (challengeCount === 1) {
+                    circleColorClass = styles.circleColor2; // 챌린지 1회 수행
+                  } else if (challengeCount === 2 || challengeCount === 3) {
+                    circleColorClass = styles.circleColor3; // 챌린지 2회 이상 수행
+                  } else if (challengeCount >= 4) {
+                    circleColorClass = styles.circleColor4; // 챌린지 4회 이상 수행
+                  }
 
-                return (
-                  <div className={styles.dailyRecords}>
-                    <div key={index} className={circleColorClass}></div>
-                    <p>{challengeCount === 0 ? "실패" : "달성"}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <div className={styles.colorStandards}>
-              <div className={styles.standards}>
-                <div className={styles.circleColor1}></div>
-                <p>챌린지 미수행</p>
+                  return (
+                    <div className={styles.dailyRecords}>
+                      <div key={index} className={circleColorClass}></div>
+                      <p>{challengeCount === 0 ? "실패" : "달성"}</p>
+                    </div>
+                  );
+                })}
               </div>
-              <div className={styles.standards}>
-                <div className={styles.circleColor2}></div>
-                <p>챌린지 1회 수행</p>
-              </div>
-              <div className={styles.standards}>
-                <div className={styles.circleColor3}></div>
-                <p>챌린지 2회 이상 수행</p>
-              </div>
-              <div className={styles.standards}>
-                <div className={styles.circleColor4}></div>
-                <p>챌린지 4회 이상 수행</p>
+              <div className={styles.colorStandards}>
+                <div className={styles.standards}>
+                  <div className={styles.circleColor1}></div>
+                  <p>챌린지 미수행</p>
+                </div>
+                <div className={styles.standards}>
+                  <div className={styles.circleColor2}></div>
+                  <p>챌린지 1회 수행</p>
+                </div>
+                <div className={styles.standards}>
+                  <div className={styles.circleColor3}></div>
+                  <p>챌린지 2회 이상 수행</p>
+                </div>
+                <div className={styles.standards}>
+                  <div className={styles.circleColor4}></div>
+                  <p>챌린지 4회 이상 수행</p>
+                </div>
               </div>
             </div>
           </div>

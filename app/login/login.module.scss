@@ -301,3 +301,60 @@
   color: #888;
   font-weight: 400;
 }
+
+
+.modal0 {
+  display: none;
+}
+.modal1, .modal2 {
+  animation: fadeIn ease-in-out 1s;
+  position: absolute;
+  box-shadow: 2px 4px 12px #cacaca;
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  z-index: 2;
+  width: 460px;
+  height: 420px;
+  border-radius: 12px;
+  border: 1px solid #e1e2e3;
+  background-color: white;
+  .closeModal {
+    letter-spacing: -1px;
+    font-family: "Arimo_BLD";
+    width: 84%;
+    height: 60px;
+    font-size: 18px;
+    margin: 30px auto;
+    align-items: center;
+    display: block;
+    color: white;
+    background-color: #6ab5ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  p {
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-family: "Arimo_BLD";
+    font-weight: 600;
+    text-align: center;
+    margin: 140px auto 100px auto;
+  }
+}
+
+.modalBG1, .modalBG2 {
+  animation: fadeIn2 ease-in-out 1s;
+  z-index: 1;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  background-color: #7c7c7c;
+  opacity: 40%;
+  top: 0px;
+  left: 0px;
+}
+.modalBG0 {
+  display: none;
+}

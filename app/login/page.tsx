@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./login.module.css";
+import styles from "./login.module.scss";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 // import kakao from "../../public/kakaotalk_logo_icon_147272.png";
@@ -24,6 +24,10 @@ function LoginForm() {
   const [password, setPassword] = useState<string>("");
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isActivePw, setIsActivePw] = useState<boolean>(false);
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    errorData: null,
+  });  // 로그인 에러 모달 상태
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -52,7 +56,17 @@ function LoginForm() {
       email: email,
       password: password,
     };
-    onLogin(requestBody, dispatch, router);
+
+    // 에러 콜백 함수 정의
+    const onError = (errorData: any) => {
+      setModalState({ isOpen: true, errorData }); // modalState 업데이트
+    };
+    
+    onLogin(requestBody, dispatch, router, onError);
+  };
+
+  const closeModal = () => {
+    setModalState({ isOpen: false, errorData: null }); // 모달 닫기
   };
 
   return (
@@ -144,6 +158,18 @@ function LoginForm() {
         </div>
         <p className={styles.footer}>Ⓒ NEXT PROJECT B TEAM</p>
       </div>
+      {/* 로그인 에러 모달 */}
+      {modalState.isOpen && (
+        <div className={styles.modal1}>
+          <p>{modalState.errorData}</p>
+          <button className={styles.closeModal} onClick={closeModal}>
+            확인
+          </button>
+        </div>
+      )}
+      {modalState.isOpen && (
+        <div className={styles.modalBG1} onClick={closeModal}></div>
+      )}
     </div>
   );
 }
