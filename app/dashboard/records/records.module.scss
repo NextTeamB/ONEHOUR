@@ -95,7 +95,7 @@ $grey3: #e1e2e3;
 }
 
 .ground {
-  width: 1620px;
+  width: 1600px;
   height: 1010px;
 }
 
@@ -175,7 +175,7 @@ $grey3: #e1e2e3;
   }
   .succeedCnt {
     position: absolute;
-    left: 178px;
+    left: 184px;
     top: 222px;
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
@@ -184,7 +184,7 @@ $grey3: #e1e2e3;
   }
   h3 {
     position: absolute;
-    left: 176px;
+    left: 177px;
     top: 236px;
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
@@ -269,7 +269,6 @@ $grey3: #e1e2e3;
   left: 220px;
   color: white;
 
-
   .challengeRecords {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -325,21 +324,21 @@ $grey3: #e1e2e3;
     height: 45px;
     border-radius: 40px;
     border: none;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
   }
   .circleColor3 {
     width: 45px;
     height: 45px;
     border-radius: 40px;
     border: none;
-    background-color: #64DAB5;
+    background-color: #64dab5;
   }
   .circleColor4 {
     width: 45px;
     height: 45px;
     border-radius: 40px;
     border: none;
-    background-color: #40E358;
+    background-color: #40e358;
   }
 }
 
