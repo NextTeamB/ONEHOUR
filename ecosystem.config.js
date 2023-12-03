@@ -9,7 +9,7 @@ module.exports = {
       interpreter: "bash",
       autorestart: true, // 프로세스 자동 재시작 활성화
       watch: true, // 파일 변경 감지 활성화 (개발 중에만 활용)
-      max_memory_restart: "1G", // 1GB 이상 메모리 사용 시 재시작
+      max_memory_restart: "2G", // 2GB 이상 메모리 사용 시 재시작
       env_prodection: {
         NODE_ENV: "production", // Node.js 환경 설정
       },

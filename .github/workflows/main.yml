@@ -36,6 +36,7 @@ jobs:
           MY_AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_IMAGE_BUCKET: ${{ secrets.AWS_IMAGE_BUCKET }}
           DEFAULT_PROFILE_IMG_URL: ${{ secrets.DEFAULT_PROFILE_IMG_URL }}
+          DEFAULT_POST_IMG_URL: ${{ secrets.DEFAULT_POST_IMG_URL }}
 
         run: |
           echo "SECRET_KEY: $SECRET_KEY" >> .env
@@ -43,6 +44,7 @@ jobs:
           echo "MY_AWS_ACCESS_KEY=$MY_AWS_ACCESS_KEY" >> .env
           echo "MY_AWS_SECRET_KEY=$MY_AWS_SECRET_KEY" >> .env
           echo "DEFAULT_PROFILE_IMG_URL=$DEFAULT_PROFILE_IMG_URL" >> .env
+          echo "NEXT_PUBLIC_DEFAULT_POST_IMG=$DEFAULT_POST_IMG_URL" >> .env
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
