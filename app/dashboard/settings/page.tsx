@@ -258,7 +258,7 @@ export default function Settings() {
               alt="imageUpload"
             ></Image>
           </button>
-          <p>{trimedFileName ? trimedFileName : "파일이름입니다"}</p>
+          <p>{trimedFileName ? trimedFileName : ""}</p>
         </div>
         <div className={styles.alignProfileBtn}>
           <button
@@ -281,7 +281,7 @@ export default function Settings() {
             className={styles.editProfileBtn}
             onClick={() => {
               axios
-                .patch("/api/users/image")
+                .patch("/api/users/image", { profileImgUrl: profileImg })
                 .then(() => {
                   // 모달처리해라
                   router.push("/dashboard");

@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const s3 = new aws.S3();
     const urlResponse = await s3.createPresignedPost({
       // S3 버킷의 presigned Url 생성
-      Bucket: process.env.MY_AWS_BUCKET_NAME,
+      Bucket: process.env.AWS_IMAGE_BUCKET,
       Fields: { key: imgType + "/" + fileName }, // 파일 저장 경로 - aws의 presigned Url을 설정할 때 사용됨
       Expires: 60, // seconds
       Conditions: [

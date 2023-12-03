@@ -16,29 +16,8 @@ import failed from "@/public/failed-icon.png";
 import Doughnut from "./doughnut";
 import { onDashboard } from "@/util/onDashboard";
 import { useRouter } from "next/navigation";
+import { onContinuerBoard } from "@/util/onContinuerBoard.js";
 import loadImg from "../../../public/loadImg.png";
-
-// 더미데이터 생성
-const generateChallengeData = (name: string) => {
-    // 최근 30일 동안의 일별 챌린지 갯수 생성
-  const dailyChallenges = Array.from({ length: 30 }, () => {
-    return Math.floor(Math.random() * 10); // 각 날짜에 대한 챌린지 갯수 (임의의 값)
-  });
-
-  // 최근 30일간의 총 챌린지 갯수 (일별 챌린지 갯수의 합)
-  const totalChallenges = dailyChallenges.reduce((acc, challenges) => acc + challenges, 0);
-
-  return {
-    name,
-    totalChallenges,
-    dailyChallenges,
-  };
-};
-
-// 특정 이름으로 더미 데이터 생성
-const dummyData = generateChallengeData("이름");
-console.log(dummyData);
-
 
 export interface userRecord {
   title: string;
@@ -63,19 +42,24 @@ export default function Records() {
   let [userChallenges, setUserChallenges] = useState<userRecord[]>([]);
   let [curIndex, setCurIndex] = useState(0);
   let [chartProps, setChartProps] = useState(initialChartState);
+  let [dailyChallenges, setDailyChallenges] = useState<number[]>([]);
   const userInfo = useSelector((state: RootState) => state.user);
-  const chartInfo = useSelector((state: RootState) => state.chart);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     onDashboard()
       .then((data) => {
         setUserChallenges([...data]);
+        let countArr = onContinuerBoard(data);
+        setDailyChallenges(countArr);
+        console.log("챌린지:", countArr);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  // 챌린지 총 횟수
+  let sum = dailyChallenges.reduce((acc, value) => acc + value, 0);
 
   useEffect(() => {
     let copyTime: any = [];
@@ -111,11 +95,32 @@ export default function Records() {
     // cardImg의 파라미터로 challenge를 넘겨받으면 굳이 전체 게시글 중 인덱스로 탐색할 필요 없이
     // challengeItem 안의 challengeStatus를 참조해 cardImg를 return해줄 수 있음!
     if (challengeItem.challengeStatus === "succeed") {
-      return <Image src={trophy} alt="trophy" width={200} style={{margin: "10px auto"}} />;
+      return (
+        <Image
+          src={trophy}
+          alt="trophy"
+          width={200}
+          style={{ margin: "10px auto" }}
+        />
+      );
     } else if (challengeItem.challengeStatus === "failed") {
-      return <Image src={failed} alt="failed" width={150} style={{margin: "35px auto"}} />;
+      return (
+        <Image
+          src={failed}
+          alt="failed"
+          width={150}
+          style={{ margin: "35px auto" }}
+        />
+      );
     } else {
-      return <Image src={check} alt="check" width={170} style={{margin: "27px auto"}} />;
+      return (
+        <Image
+          src={check}
+          alt="check"
+          width={170}
+          style={{ margin: "27px auto" }}
+        />
+      );
     }
   };
 
@@ -131,7 +136,7 @@ export default function Records() {
       return <h3>챔피언</h3>;
     }
   };
-  
+
   // 더미데이터
   // const dummyData = {
   //   name: userInfo.nickname,
@@ -187,8 +192,7 @@ export default function Records() {
                           </p>
                           <div className={styles.progressWrap}>
                             <div className={styles.progressTitle}>
-                              <span>투자한 시간</span>
-                              <span>( 60분 기준 )</span>
+                              <span>진행도</span>
                             </div>
                             <div className={styles.progressBar}>
                               <div
@@ -223,7 +227,9 @@ export default function Records() {
           </div>
           <div className={styles.titleSec2}>
             <h3>#불타는 열정</h3>
-            <p>{userInfo.nickname}님의 기록을 기반으로 목표 실천율을 분석해봤어요</p>
+            <p>
+              {userInfo.nickname}님의 기록을 기반으로 목표 실천율을 분석해봤어요
+            </p>
           </div>
           <div className={styles.chartUpper}>
             <div className={styles.donutSec}>
@@ -254,19 +260,25 @@ export default function Records() {
           </div>
           <div className={styles.titleSec3}>
             <h3>챌린지 컨티뉴어 보드</h3>
-            <p>{userInfo.nickname}님이 꾸준히 챌린지를 수행하고 있는지 최근 30일 간의 챌린지 기록을 보드로 정리해드릴게요</p>
-            <p>최근 30일 간 {userInfo.nickname}님의 달성 건수는 총 {dummyData.totalChallenges}회 입니다.</p>
+            <p>
+              {userInfo.nickname}님이 꾸준히 챌린지를 수행하고 있는지 최근 30일
+              간의 챌린지 기록을 보드로 정리해드릴게요
+            </p>
+            <p>
+              최근 30일 간 {userInfo.nickname}님의 달성 건수는 총{" "}
+              {sum}회 입니다.
+            </p>
           </div>
           <div className={styles.boardUpper}>
             <div className={styles.challengeRecords}>
-              {dummyData.dailyChallenges.map((challengeCount, index) => {
+              {dailyChallenges.map((challengeCount, index) => {
                 let circleColorClass;
 
                 if (challengeCount === 0) {
                   circleColorClass = styles.circleColor1; // 챌린지 미수행
                 } else if (challengeCount === 1) {
                   circleColorClass = styles.circleColor2; // 챌린지 1회 수행
-                } else if (challengeCount === 2 || challengeCount ===3 ) {
+                } else if (challengeCount === 2 || challengeCount === 3) {
                   circleColorClass = styles.circleColor3; // 챌린지 2회 이상 수행
                 } else if (challengeCount >= 4) {
                   circleColorClass = styles.circleColor4; // 챌린지 4회 이상 수행
@@ -277,7 +289,7 @@ export default function Records() {
                     <div key={index} className={circleColorClass}></div>
                     <p>{challengeCount === 0 ? "실패" : "달성"}</p>
                   </div>
-                )
+                );
               })}
             </div>
             <div className={styles.colorStandards}>
@@ -301,7 +313,7 @@ export default function Records() {
           </div>
         </>
       )}
-      {/* <div className={styles.footer}></div> */}
+      <div className={styles.footer}></div>
     </div>
   );
 }
