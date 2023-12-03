@@ -39,7 +39,7 @@ $grey3: #e1e2e3;
   border-radius: 20px;
   box-shadow: 2px 6px 12px #cecece;
   display: inline-block;
-  margin: 0 48px;
+  margin: 0;
   padding: 20px;
   .cardTitle {
     font-family: "Arimo_BLD";
@@ -95,8 +95,8 @@ $grey3: #e1e2e3;
 }
 
 .ground {
-  width: 1620px;
-  height: 1010px;
+  min-width: 1580px;
+  min-height: 1080px;
 }
 
 .titleSec {
@@ -130,6 +130,7 @@ $grey3: #e1e2e3;
   margin: 0 86px;
   text-align: center;
   align-items: center;
+  justify-content: space-between;
 }
 
 .fail {
@@ -151,6 +152,11 @@ $grey3: #e1e2e3;
 .donutSec {
   position: relative;
   width: 450px;
+  .valueWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   h4 {
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
@@ -166,8 +172,6 @@ $grey3: #e1e2e3;
   }
   .timeAvrg {
     position: absolute;
-    left: 178px;
-    top: 222px;
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
     font-size: 52px;
@@ -175,8 +179,6 @@ $grey3: #e1e2e3;
   }
   .succeedCnt {
     position: absolute;
-    left: 178px;
-    top: 222px;
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
     font-size: 52px;
@@ -184,8 +186,6 @@ $grey3: #e1e2e3;
   }
   h3 {
     position: absolute;
-    left: 176px;
-    top: 236px;
     font-family: "Arimo_BLD";
     letter-spacing: -1px;
     font-size: 38px;
@@ -256,6 +256,12 @@ $grey3: #e1e2e3;
   }
 }
 
+.boardWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .boardUpper {
   animation: fadeIn ease-in-out 1s;
   width: 1200px;
@@ -265,8 +271,6 @@ $grey3: #e1e2e3;
   align-items: center;
   justify-content: space-around;
   background-color: black;
-  position: relative;
-  left: 220px;
   color: white;
 
 

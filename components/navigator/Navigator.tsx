@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, ReactNode } from "react";
+import { useEffect, ReactNode, useState } from "react";
 import styles from "./Navigator.module.scss";
 import Image from "next/image";
 import { FaUserNinja, FaChartLine, FaHome } from "react-icons/fa";
@@ -149,7 +149,9 @@ const Navigator = (props: { children: ReactNode }) => {
                   className={styles.subMenuList}
                   key={index}
                   onClick={() => {
-                    if (menu === "로그아웃") onLogout();
+                    if (menu === "로그아웃") {
+                      onLogout();
+                    }
                   }}
                 >
                   <div>{menu}</div>

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import styles from "./dashboard.module.scss";
@@ -5,8 +7,10 @@ import ads_banner1 from "../../public/ads_banner1.png";
 import newsIcon from "../../public/Icon_newspaper.png";
 import newsImg from "../../public/news_img.png";
 import student1 from "../../public/student1.png";
+import { onLogout } from "@/util/onLogout";
 
 const Dashboard = () => {
+  
   return (
     <>
       <div className={styles.adsSection}>

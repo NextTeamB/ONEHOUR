@@ -2,7 +2,7 @@ import axios from "axios";
 import { login, getToken } from "@/slices/userSlice";
 import crypto from "crypto";
 const JWT_EXPIRE_TIME = 60 * 60 * 1000; // JWT 만료 시간을 1시간으로 설정
-export function onLogin(requestBody, dispatch, router) {
+export function onLogin(requestBody, dispatch, router, onError) {
   let newRequestBody = {
     ...requestBody,
     // 비밀번호 암호화 로직
@@ -22,7 +22,7 @@ export function onLogin(requestBody, dispatch, router) {
       router.push("/dashboard");
     })
     .catch((err) => {
-      alert(err.response.data);
+      onError(err.response.data);
     });
 }
 

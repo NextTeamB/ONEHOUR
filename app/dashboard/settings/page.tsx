@@ -81,7 +81,7 @@ export default function Settings() {
       return;
     }
     if (editInfo.nickname.length < 2 || editInfo.nickname.length > 8) {
-      alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
+      //alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
       return;
     }
     updateAlias(
@@ -96,7 +96,7 @@ export default function Settings() {
   // 회원 탈퇴 API 호출
   const withdrawal = () => {
     axios.delete("/api/users/withdrawal").then((res) => {
-      alert("회원 탈퇴가 완료되었습니다");
+      // alert("회원 탈퇴가 완료되었습니다");
       router.push("/");
     });
   };
