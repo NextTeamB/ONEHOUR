@@ -81,7 +81,7 @@ export default function Settings() {
       return;
     }
     if (editInfo.nickname.length < 2 || editInfo.nickname.length > 8) {
-      //alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
+      alert("닉네임은 2글자 이상 8글자 이하로 입력해주세요.");
       return;
     }
     updateAlias(
@@ -267,7 +267,7 @@ export default function Settings() {
               axios
                 .delete("/api/users/image")
                 .then(() => {
-                  // 모달처리해라
+                  // 모달처리
                   router.push("/dashboard");
                 })
                 .catch((err) => {
