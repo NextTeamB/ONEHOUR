@@ -14,7 +14,7 @@ import { RootState } from "@/store/store";
 import axios from "axios";
 import { useRouter, usePathname } from "next/navigation";
 import { reissueToken } from "@/util/onLogin";
-// import { onLogout } from "@/util/onLogout";
+import { onLogout } from "@/util/onLogout";
 import { ModalProvider } from "@/contextModal/modalContext";
 
 const Navigator = (props: { children: ReactNode }) => {
