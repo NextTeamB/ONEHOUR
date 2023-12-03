@@ -22,6 +22,26 @@
   src: url("../../public/Arimo-Medium.ttf");
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
 $base: 16px;
 $color: #383838;
 $blue: #6ab5ff;

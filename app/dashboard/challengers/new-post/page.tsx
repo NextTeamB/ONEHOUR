@@ -100,10 +100,12 @@ const NewPost = () => {
         onChange={onUploadImg}
         style={{ display: "none" }} // input 요소는 원하는대로 스타일링을 하는 것이 제한적이므로 이를 숨기고 따로 생성한 이미지 업로드 버튼 클릭 이벤트를 통해 이미지 업로드 구현
       />
-      <div className={styles.title}>새로운 게시글을 작성합니다</div>
-      <div className={styles.title_sub}>
-        커뮤니티 수칙을 위반한 내용의 게시물은 고지 없이 삭제될 수 있으며, 위반
-        시 법적 책임의 소지가 있음을 알립니다
+      <div className={styles.titleWrap}>
+        <div className={styles.title}>새로운 게시글을 작성합니다</div>
+        <div className={styles.title_sub}>
+          커뮤니티 수칙을 위반한 내용의 게시물은 고지 없이 삭제될 수 있으며, 위반
+          시 법적 책임의 소지가 있음을 알립니다
+        </div>
       </div>
       <hr className={styles.underline1} />
       <div className={styles.postBox}>

@@ -25,21 +25,27 @@ $grey3: #e1e2e3;
   // color: $grey1;
   letter-spacing: -1px;
 
-  .title {
-    color: $grey1;
-    font-size: 28px;
-    margin: 30px 0px 20px 56px;
-    font-weight: 600;
-    display: inline-block;
-  }
-
-  .title_sub {
-    width: 100%;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -1px;
-    margin: 36px 0px 36px 320px;
-    display: inline;
+  .titleWrap {
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      color: $grey1;
+      font-size: 28px;
+      margin-left: 56px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .title_sub {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -1px;
+      margin-top: 10px;
+      margin-right: 62px;
+      text-align: right;
+    }
   }
   .underline1 {
     width: 1256px;

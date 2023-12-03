@@ -21,6 +21,26 @@
   src: url("../../public/Pretendard-SemiBold.woff");
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
 .LoginForm {
   /* background-color: #f7f7f7; */
   width: 100%;

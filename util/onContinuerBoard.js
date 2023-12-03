@@ -13,7 +13,7 @@ export function onContinuerBoard(userChallenges) {
     let dateFull = userChallenges[i].date;
     let dateCut = dateFull.substr(0, 10);
     dateArr.push(dateCut);
-    console.log(dateArr);
+    // console.log(dateArr);
   }
 
   for (let i = 0; i < dateArr.length; i++) {

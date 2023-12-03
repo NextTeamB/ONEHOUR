@@ -51,7 +51,7 @@ export default function Records() {
         setUserChallenges([...data]);
         let countArr = onContinuerBoard(data);
         setDailyChallenges(countArr);
-        console.log("챌린지:", countArr);
+        // console.log("챌린지:", countArr);
       })
       .catch((err) => {
         console.log(err);
