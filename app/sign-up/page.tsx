@@ -314,7 +314,6 @@ export default function SignUp() {
         <button
           type="submit"
           onClick={() => {
-            onSignUp(formData, router);
             setSignupModalState(1); // 회원가입 완료 시 상태 변경
           }}
           className={isSubmitDisabled ? styles.signUpBtn0 : styles.signUpBtn1}
@@ -323,6 +322,7 @@ export default function SignUp() {
           가입하기
         </button>
       </div>
+
       {/* 이메일 중복 확인 모달 창 렌더링 */}
       <div className={styles[`modal${modalState}`]}>
         <p>
@@ -340,13 +340,12 @@ export default function SignUp() {
       <div className={styles[`modalBG${modalState}`]}></div>
       {/* 회원가입 완료 모달 */}
       {signupModalState && (
-        <div className={styles[`modal${modalState}`]}>
+        <div className={styles.modal1}>
           <p>회원가입이 완료되었습니다.</p>
           <button
             className={styles.closeModal}
             onClick={() => {
-              setSignupModalState(0);
-              router.push("/login"); // 확인 버튼 클릭 시 라우팅
+              onSignUp(formData, router); // 확인 버튼 회원가입
             }}
           >
             확인
