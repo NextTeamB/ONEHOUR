@@ -37,10 +37,8 @@ export default function Settings() {
   };
 
   useEffect(() => {
-    console.log({ profileImg });
     let trimFilename = profileImg.split("/");
     setTrimedFileName(trimFilename[trimFilename.length - 1]);
-    console.log(trimedFileName);
   }, [profileImg]);
 
   const initialEditInfo = {

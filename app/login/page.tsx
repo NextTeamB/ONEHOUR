@@ -27,7 +27,7 @@ function LoginForm() {
   const [modalState, setModalState] = useState({
     isOpen: false,
     errorData: null,
-  });  // 로그인 에러 모달 상태
+  }); // 로그인 에러 모달 상태
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ function LoginForm() {
     const onError = (errorData: any) => {
       setModalState({ isOpen: true, errorData }); // modalState 업데이트
     };
-    
+
     onLogin(requestBody, dispatch, router, onError);
   };
 
@@ -97,11 +97,13 @@ function LoginForm() {
           onKeyUp={isPassedLogin}
           type="email"
           required
-          placeholder="이메일을 입력해주세요"></input>
+          placeholder="이메일을 입력해주세요"
+        ></input>
         <p
           className={
             isActive || email === "" ? styles.nowarning : styles.warning
-          }>
+          }
+        >
           올바른 이메일을 입력해주세요
         </p>
         <p className={styles.formTitle}>비밀번호</p>
@@ -115,11 +117,13 @@ function LoginForm() {
           onKeyUp={isCorrectPassword}
           type="password"
           required
-          placeholder="비밀번호를 입력해주세요"></input>
+          placeholder="비밀번호를 입력해주세요"
+        ></input>
         <p
           className={
             isActivePw || password === "" ? styles.nowarning : styles.warning
-          }>
+          }
+        >
           올바른 비밀번호를 입력해주세요
         </p>
         <button
@@ -131,7 +135,8 @@ function LoginForm() {
               : styles.unactiveBtn
           }
           disabled={email === "" && password === "" ? true : false}
-          onClick={(e) => login(e)}>
+          onClick={(e) => login(e)}
+        >
           이메일로 계속하기
         </button>
         <Link className={styles.findBtnBox} href="/sign-up">
