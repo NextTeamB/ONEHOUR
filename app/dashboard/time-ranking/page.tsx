@@ -48,7 +48,7 @@ export default function Time_Ranking() {
         </h2>
         <p>2023년 9월 2주차 누적 순위 집계</p>
       </div>
-      {userRanking[1] ? (
+      {userRanking[1].length >= 3 ? (
         <>
           <div className={styles.honorSection}>
             <div className={styles.top3Box0}>
