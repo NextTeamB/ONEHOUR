@@ -20,7 +20,9 @@
 
 @font-face {
   font-family: "Debussy";
-  src: url('https://fonts.cdnfonts.com/css/debussy');
+  font-style: normal;
+  font-weight: 500;
+  src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
 }
 
 
