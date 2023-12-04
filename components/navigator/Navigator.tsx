@@ -15,10 +15,12 @@ import axios from "axios";
 import { useRouter, usePathname } from "next/navigation";
 import { reissueToken } from "@/util/onLogin";
 import { onLogout } from "@/util/onLogout";
+import { ModalProvider } from "@/contextModal/modalContext";
 
 const Navigator = (props: { children: ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   // const userProfileImgUrl = useSelector(
   //   (state: RootState) => state.user?.profileImgUrl
   // );
@@ -78,7 +80,7 @@ const Navigator = (props: { children: ReactNode }) => {
   return (
     <>
       {accessToken && (
-        <>
+        <ModalProvider>
           <div className={styles.navWrapper}>
             <div
               onClick={() => {
@@ -160,7 +162,7 @@ const Navigator = (props: { children: ReactNode }) => {
             </div>
           </div>
           <>{props.children}</>
-        </>
+        </ModalProvider>
       )}
     </>
   );

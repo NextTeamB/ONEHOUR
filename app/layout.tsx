@@ -14,13 +14,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <head>
         <title>원아워</title>
       </head>
       <body className="Upper">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

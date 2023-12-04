@@ -3,24 +3,6 @@
   src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
 }
 
-@font-face {
-  font-family: "segoeui";
-  src: url("./segoeui.ttf");
-}
-
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "pretendard-sb";
-  src: url("../../public/Pretendard-SemiBold.woff");
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -71,7 +53,7 @@
   font-size: 26px;
   letter-spacing: -0.023em;
   text-align: center;
-  font-family: "pretendard-sb";
+  font-family: "Arimo";
   font-weight: 700;
   line-height: 32px;
   margin: 50px auto;

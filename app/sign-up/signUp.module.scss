@@ -1,46 +1,42 @@
 @import "/public/utils"; /*변수파일 import*/
 
 @font-face {
-  font-family: "Kicker_Trial";
-  src: url("../../public/KickerTrial-BlackItalic.ttf");
-  font-weight: 400;
-}
-
-@font-face {
   font-family: "Arimo_BLD";
-  src: url("../../public/Arimo-Bold.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Arimo_RGR";
-  src: url("../../public//Arimo-Regular.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 300;
 }
 
 @font-face {
   font-family: "Arimo_MED";
-  src: url("../../public/Arimo-Medium.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 500;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
 
-  100% {
-    opacity: 1;
-  }
-}
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
-@keyframes fadeIn2 {
-  0% {
-    opacity: 0;
-  }
+// @keyframes fadeIn2 {
+//   0% {
+//     opacity: 0;
+//   }
 
-  100% {
-    opacity: 0.4;
-  }
-}
+//   100% {
+//     opacity: 0.4;
+//   }
+// }
 
 $base: 16px;
 $color: #383838;

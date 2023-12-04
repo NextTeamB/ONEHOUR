@@ -2,19 +2,27 @@
 
 @font-face {
   font-family: "Arimo_BLD";
-  src: url("../../../public/Arimo-Bold.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Arimo_RGR";
-  src: url("../../../public/Arimo-Regular.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 300;
 }
 
 @font-face {
   font-family: "Arimo_MED";
-  src: url("../../../public/Arimo-Medium.ttf");
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 500;
 }
+
+@font-face {
+  font-family: "Debussy";
+  src: url('https://fonts.cdnfonts.com/css/debussy');
+}
+
 
 $black: #383838;
 $blue: #6ab5ff;
