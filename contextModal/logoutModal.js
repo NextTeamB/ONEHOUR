@@ -1,14 +1,9 @@
 import React from "react";
-import { useModal } from "./modalContext";
+import styles from "./logoutModal.module.scss";
 import { onLogout } from "@/util/onLogout";
 
 
-const LogoutModal = () => {
-  const { showModal, setShowModal } = useModal();
-
-  const closeModal = () => {
-    setShowModal(false);
-  }
+const LogoutModal = ({ onClose }) => {
 
   return (
     <>
@@ -16,13 +11,20 @@ const LogoutModal = () => {
         // 모달 컨텐츠 및 스타일을 추가하여 모달을 표시
         <div className={styles.modal1}>
           <p>로그아웃 하시겠습니까?</p>
-          <button
-            className={styles.closeModal}
-            onClick={() => onLogout()}
-          >
-            로그아웃
-          </button>
-          <button onClick={closeModal}>취소</button>
+          <div className={styles.btnWrap}>
+            <button
+              className={styles.logoutModal}
+              onClick={() => onLogout()}
+            >
+              로그아웃
+            </button>
+            <button
+              className={styles.closeModal}
+              onClick={onClose}
+            >
+              취소
+            </button>
+          </div>
         </div>
       )}
       {showModal && (
