@@ -45,7 +45,7 @@ export default function Time_Ranking() {
         <h2 className={styles.title}>
           무구의 노력을 견뎌낸 타임 랭커들을 소개합니다
         </h2>
-        <p>2023년 9월 2주차 누적 순위 집계</p>
+        <p>2023년 12월 1주차 누적 순위 집계</p>
       </div>
       {userRanking[1].length >= 3 ? (
         <>
@@ -138,7 +138,7 @@ export default function Time_Ranking() {
             })}
         </div>
       ) : (
-        <></>
+        <div className={styles.listArea}></div>
       )}
 
       {/* {userRanking.map((a, i) => {
