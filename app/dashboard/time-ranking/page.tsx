@@ -112,7 +112,7 @@ export default function Time_Ranking() {
       )}
       {userRanking[0].length !== 0 ? (
         <div className={styles.listArea}>
-          {userRanking[0] &&
+          {userRanking[0].length !== 0 &&
             userRanking[0].map((a, i) => {
               return (
                 <div className={styles.lists}>
