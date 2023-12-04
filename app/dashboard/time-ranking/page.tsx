@@ -111,7 +111,7 @@ export default function Time_Ranking() {
       ) : (
         <div className={styles.honorSection}></div>
       )}
-      {userRanking[0] ? (
+      {userRanking[0].length === 0 ? (
         <div className={styles.listArea}>
           {userRanking[0] &&
             userRanking[0].map((a, i) => {
