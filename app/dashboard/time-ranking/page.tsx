@@ -32,7 +32,6 @@ export default function Time_Ranking() {
       .get("/api/rank")
       .then((res) => {
         setUserRanking([...res.data]);
-        console.log(userRanking);
       })
       .catch((err) => {
         console.log("데이터 로드에 실패하였습니다");
@@ -111,7 +110,7 @@ export default function Time_Ranking() {
       ) : (
         <div className={styles.honorSection}></div>
       )}
-      {userRanking[0].length === 0 ? (
+      {userRanking[0].length !== 0 ? (
         <div className={styles.listArea}>
           {userRanking[0] &&
             userRanking[0].map((a, i) => {
