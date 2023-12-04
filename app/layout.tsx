@@ -1,8 +1,6 @@
 import "./globals.css";
-import { useState } from "react";
 import { Inter } from "next/font/google";
 import { Providers } from "./provider";
-import LogoutModal from "@/contextModal/logoutModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +15,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
-
   return (
     <html lang="en">
       <head>
@@ -27,9 +23,6 @@ export default function RootLayout({
       <body className="Upper">
         <Providers>
           {children}
-          {logoutModalOpen &&(
-            <LogoutModal onClose={() => setLogoutModalOpen(false)} />
-          )}
         </Providers>
       </body>
     </html>
