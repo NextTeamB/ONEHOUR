@@ -32,7 +32,6 @@ export default function Time_Ranking() {
       .get("/api/rank")
       .then((res) => {
         setUserRanking([...res.data]);
-        console.log(userRanking);
       })
       .catch((err) => {
         console.log("데이터 로드에 실패하였습니다");
@@ -46,9 +45,9 @@ export default function Time_Ranking() {
         <h2 className={styles.title}>
           무구의 노력을 견뎌낸 타임 랭커들을 소개합니다
         </h2>
-        <p>2023년 9월 2주차 누적 순위 집계</p>
+        <p>2023년 12월 1주차 누적 순위 집계</p>
       </div>
-      {userRanking[1] ? (
+      {userRanking[1].length >= 3 ? (
         <>
           <div className={styles.honorSection}>
             <div className={styles.top3Box0}>
@@ -111,30 +110,37 @@ export default function Time_Ranking() {
       ) : (
         <div className={styles.honorSection}></div>
       )}
-      <div className={styles.listArea}>
-        {userRanking[0] &&
-          userRanking[0].map((a, i) => {
-            return (
-              <div className={styles.lists}>
-                <div className={styles.profile2}>
-                  <img
-                    className={styles.userProfile}
-                    src={userRanking[0][i].profileImgUrl}
-                  />
+      {userRanking[0].length !== 0 ? (
+        <div className={styles.listArea}>
+          {userRanking[0].length !== 0 &&
+            userRanking[0].map((a, i) => {
+              return (
+                <div className={styles.lists}>
+                  <div className={styles.profile2}>
+                    <img
+                      className={styles.userProfile}
+                      src={userRanking[0][i].profileImgUrl}
+                    />
+                  </div>
+                  <p className={styles.rankNum}>{i + 4}위</p>
+                  <p className={styles.nickname2}>
+                    {userRanking[0][i].nickname}
+                  </p>
+                  <p>총 도전시간</p>
+                  <p>
+                    {userRanking[0][i].totalChallenge
+                      ? userRanking[0][i].totalChallenge
+                      : "-"}
+                    시간
+                  </p>
                 </div>
-                <p className={styles.rankNum}>{i + 4}위</p>
-                <p className={styles.nickname2}>{userRanking[0][i].nickname}</p>
-                <p>총 도전시간</p>
-                <p>
-                  {userRanking[0][i].totalChallenge
-                    ? userRanking[0][i].totalChallenge
-                    : "-"}
-                  시간
-                </p>
-              </div>
-            );
-          })}
-      </div>
+              );
+            })}
+        </div>
+      ) : (
+        <div className={styles.listArea}></div>
+      )}
+
       {/* {userRanking.map((a, i) => {
         return <div key={i}>일단 보류</div>;
       })} */}
