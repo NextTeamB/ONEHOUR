@@ -111,30 +111,37 @@ export default function Time_Ranking() {
       ) : (
         <div className={styles.honorSection}></div>
       )}
-      <div className={styles.listArea}>
-        {userRanking[0] &&
-          userRanking[0].map((a, i) => {
-            return (
-              <div className={styles.lists}>
-                <div className={styles.profile2}>
-                  <img
-                    className={styles.userProfile}
-                    src={userRanking[0][i].profileImgUrl}
-                  />
+      {userRanking[0] ? (
+        <div className={styles.listArea}>
+          {userRanking[0] &&
+            userRanking[0].map((a, i) => {
+              return (
+                <div className={styles.lists}>
+                  <div className={styles.profile2}>
+                    <img
+                      className={styles.userProfile}
+                      src={userRanking[0][i].profileImgUrl}
+                    />
+                  </div>
+                  <p className={styles.rankNum}>{i + 4}위</p>
+                  <p className={styles.nickname2}>
+                    {userRanking[0][i].nickname}
+                  </p>
+                  <p>총 도전시간</p>
+                  <p>
+                    {userRanking[0][i].totalChallenge
+                      ? userRanking[0][i].totalChallenge
+                      : "-"}
+                    시간
+                  </p>
                 </div>
-                <p className={styles.rankNum}>{i + 4}위</p>
-                <p className={styles.nickname2}>{userRanking[0][i].nickname}</p>
-                <p>총 도전시간</p>
-                <p>
-                  {userRanking[0][i].totalChallenge
-                    ? userRanking[0][i].totalChallenge
-                    : "-"}
-                  시간
-                </p>
-              </div>
-            );
-          })}
-      </div>
+              );
+            })}
+        </div>
+      ) : (
+        <></>
+      )}
+
       {/* {userRanking.map((a, i) => {
         return <div key={i}>일단 보류</div>;
       })} */}
