@@ -47,7 +47,7 @@ export default function Time_Ranking() {
         </h2>
         <p>2023년 12월 1주차 누적 순위 집계</p>
       </div>
-      {userRanking[1].length >= 3 ? (
+      {userRanking[1] ? (
         <>
           <div className={styles.honorSection}>
             <div className={styles.top3Box0}>
@@ -110,9 +110,9 @@ export default function Time_Ranking() {
       ) : (
         <div className={styles.honorSection}></div>
       )}
-      {userRanking[0].length !== 0 ? (
+      {userRanking[0] ? (
         <div className={styles.listArea}>
-          {userRanking[0].length !== 0 &&
+          {userRanking[0] &&
             userRanking[0].map((a, i) => {
               return (
                 <div className={styles.lists}>
