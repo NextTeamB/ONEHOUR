@@ -14,7 +14,7 @@ export interface userRank {
   name: string;
   email: string;
   password: number;
-  totalChallenge: number;
+  challengeTime: number;
   refreshToken: string;
   nickname: string;
   profileImgUrl: string;
@@ -63,7 +63,7 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][1].totalChallenge}</h4>
+                <h4>{userRanking[1][1].challengeTime}</h4>
                 <p>시간</p>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][0].totalChallenge}</h4>
+                <h4>{userRanking[1][0].challengeTime}</h4>
                 <p>시간</p>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][2].totalChallenge}</h4>
+                <h4>{userRanking[1][2].challengeTime}</h4>
                 <p>시간</p>
               </div>
             </div>
@@ -128,8 +128,8 @@ export default function Time_Ranking() {
                   </p>
                   <p>총 도전시간</p>
                   <p>
-                    {userRanking[0][i].totalChallenge
-                      ? userRanking[0][i].totalChallenge
+                    {userRanking[0][i].challengeTime
+                      ? userRanking[0][i].challengeTime
                       : "-"}
                     시간
                   </p>
