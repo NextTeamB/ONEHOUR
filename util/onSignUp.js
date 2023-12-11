@@ -7,9 +7,10 @@ export const onSignUp = (userInfo, router) => {
     // 비밀번호 암호화 로직
     password: crypto
       .createHash("sha256")
-      .update(userInfo.password)
+      .update(userInfo.passwordConfirm)
       .digest("hex"),
   };
+  delete newUserInfo.passwordConfirm;
   axios
     .post("/api/users/sign-up", newUserInfo)
     .then((res) => {

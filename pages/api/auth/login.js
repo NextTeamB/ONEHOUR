@@ -2,20 +2,7 @@ import { connectDB } from "../../../util/databaseConnect";
 const jwt = require("jsonwebtoken");
 import { serialize } from "cookie";
 export default async function handler(req, res) {
-  // GET 요청 시에 DB 접근 -> try catch 혹은 if 분기로 예외처리 필요
-  if (req.method === "GET") {
-    try {
-      let db = (await connectDB).db("onehour");
-      // map 함수 처리를 위해 toArray 처리하여 userAccount 컬렉션의 모든 데이터 들고옴
-      let result = await db.collection("userAccount").find().toArray();
-      // status(200)으로 json 형식 응답을 res에 담음
-      return res.status(200).json(result[0]);
-    } catch {
-      return res.status(500).json("서버에러가 발생하였습니다");
-    }
-  }
-  // POST 요청 시에 DB 접근
-  else if (req.method === "POST") {
+  if (req.method === "POST") {
     try {
       let { email, password, ...userData } = req.body;
       let db = (await connectDB).db("onehour");
