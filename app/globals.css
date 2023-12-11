@@ -1,4 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/debussy');
+@import url('https://db.onlinewebfonts.com/c/91216119af97287db2788e2cf0cf4068?family=Helvetica+Rounded+LT+Black');
+@import url('https://db.onlinewebfonts.com/c/ac78111d5e1e6dc73eb1aaf06ec60963?family=Debussy');
 
 @font-face {
   font-family: "Arimo";
@@ -10,6 +12,26 @@
   font-style: normal;
   font-weight: 500;
   src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Debussy";
+  src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot");
+  src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")format("svg");
+}
+
+@font-face {
+  font-family: "Helvetica Rounded LT Black";
+  src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot");
+  src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.svg#Helvetica Rounded LT Black")format("svg");
 }
 
 .Upper {

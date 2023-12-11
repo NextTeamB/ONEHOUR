@@ -19,12 +19,9 @@
 }
 
 @font-face {
-  font-family: "Debussy";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
+  font-family: "Arimo";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
 }
-
 
 $black: #383838;
 $blue: #6ab5ff;
