@@ -42,7 +42,11 @@ const Navigator = (props: { children: ReactNode }) => {
   useEffect(() => {
     reissueToken(accessToken); // 내비게이터에서 토큰 재발급 실행
   }, []);
-
+  const highlightMenu = (path: string) => {
+    if (path === "/dashboard") {
+      if (pathname === path) return true;
+    } else if (pathname?.includes(path)) return true;
+  };
   interface menuProvider {
     name: string;
     path: string;
@@ -86,8 +90,7 @@ const Navigator = (props: { children: ReactNode }) => {
               onClick={() => {
                 router.push("/dashboard");
               }}
-              className={styles.logoWrapper}
-            >
+              className={styles.logoWrapper}>
               <Image src={logo} height={35} alt="logoImage"></Image>
             </div>
             <hr className={styles.breakline}></hr>
@@ -113,18 +116,16 @@ const Navigator = (props: { children: ReactNode }) => {
                 router.push("/dashboard/challenges");
               }}
               className={`${
-                pathname?.includes("challenges") &&
+                pathname?.includes("ongoing-challenge") &&
                 styles.challengeButtonSelected
-              } ${styles.challengeButton}`}
-            >
+              } ${styles.challengeButton}`}>
               <p>
                 {pathname?.includes("challenges")
                   ? "LET’S GO !"
                   : "START CHALLENGE"}
               </p>
               <IoIosCheckmarkCircle
-                className={styles.challengeIcon}
-              ></IoIosCheckmarkCircle>
+                className={styles.challengeIcon}></IoIosCheckmarkCircle>
             </div>
             <hr className={styles.breakline}></hr>
             <div className={styles.menuWrapper}>
@@ -134,9 +135,8 @@ const Navigator = (props: { children: ReactNode }) => {
                     <Link
                       href={menu.path}
                       className={`${styles.menuList} ${
-                        menu.path === pathname && styles.selected
-                      }`}
-                    >
+                        highlightMenu(menu.path) && styles.selected
+                      }`}>
                       {menu.icon}
                       <div className={styles.menuText}>{menu.name}</div>
                     </Link>
@@ -154,8 +154,7 @@ const Navigator = (props: { children: ReactNode }) => {
                     if (menu === "로그아웃") {
                       onLogout();
                     }
-                  }}
-                >
+                  }}>
                   <div>{menu}</div>
                 </div>
               ))}
