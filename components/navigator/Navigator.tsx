@@ -85,79 +85,81 @@ const Navigator = (props: { children: ReactNode }) => {
     <>
       {accessToken && (
         <ModalProvider>
-          <div className={styles.navWrapper}>
-            <div
-              onClick={() => {
-                router.push("/dashboard");
-              }}
-              className={styles.logoWrapper}>
-              <Image src={logo} height={35} alt="logoImage"></Image>
-            </div>
-            <hr className={styles.breakline}></hr>
-            <div className={styles.profileWrapper}>
-              <div className={styles.profile}>
-                {/* <FaUserNinja className={styles.profileIcon} /> */}
-                <img
-                  src={userProfileImg}
-                  className={styles.profileIcon}
-                  alt="user profile image"
-                />
+          <div className={styles.navUpper}>
+            <div className={styles.navWrapper}>
+              <div
+                onClick={() => {
+                  router.push("/dashboard");
+                }}
+                className={styles.logoWrapper}>
+                <Image src={logo} height={35} alt="logoImage"></Image>
               </div>
-              <p>
-                <span>{userNickname}</span> 님
-              </p>
-            </div>
-            <hr className={styles.breakline}></hr>
-            <div className={styles.commentWrapper}>
-              <div>착실하게 하루 한 시간! 원아워와 함께 해요</div>
-            </div>
-            <div
-              onClick={() => {
-                router.push("/dashboard/challenges");
-              }}
-              className={`${
-                pathname?.includes("ongoing-challenge") &&
-                styles.challengeButtonSelected
-              } ${styles.challengeButton}`}>
-              <p>
-                {pathname?.includes("challenges")
-                  ? "LET’S GO !"
-                  : "START CHALLENGE"}
-              </p>
-              <IoIosCheckmarkCircle
-                className={styles.challengeIcon}></IoIosCheckmarkCircle>
-            </div>
-            <hr className={styles.breakline}></hr>
-            <div className={styles.menuWrapper}>
-              {menuData.map((menu, index) => {
-                return (
-                  <div key={index}>
-                    <Link
-                      href={menu.path}
-                      className={`${styles.menuList} ${
-                        highlightMenu(menu.path) && styles.selected
-                      }`}>
-                      {menu.icon}
-                      <div className={styles.menuText}>{menu.name}</div>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-            <hr className={styles.breakline}></hr>
-            <div className={styles.subMenuWrapper}>
-              {subMenus.map((menu, index) => (
-                <div
-                  className={styles.subMenuList}
-                  key={index}
-                  onClick={() => {
-                    if (menu === "로그아웃") {
-                      onLogout();
-                    }
-                  }}>
-                  <div>{menu}</div>
+              <hr className={styles.breakline}></hr>
+              <div className={styles.profileWrapper}>
+                <div className={styles.profile}>
+                  {/* <FaUserNinja className={styles.profileIcon} /> */}
+                  <img
+                    src={userProfileImg}
+                    className={styles.profileIcon}
+                    alt="user profile image"
+                  />
                 </div>
-              ))}
+                <p>
+                  <span>{userNickname}</span> 님
+                </p>
+              </div>
+              <hr className={styles.breakline}></hr>
+              <div className={styles.commentWrapper}>
+                <div>착실하게 하루 한 시간! 원아워와 함께 해요</div>
+              </div>
+              <div
+                onClick={() => {
+                  router.push("/dashboard/challenges");
+                }}
+                className={`${
+                  pathname?.includes("ongoing-challenge") &&
+                  styles.challengeButtonSelected
+                } ${styles.challengeButton}`}>
+                <p>
+                  {pathname?.includes("challenges")
+                    ? "LET’S GO !"
+                    : "START CHALLENGE"}
+                </p>
+                <IoIosCheckmarkCircle
+                  className={styles.challengeIcon}></IoIosCheckmarkCircle>
+              </div>
+              <hr className={styles.breakline}></hr>
+              <div className={styles.menuWrapper}>
+                {menuData.map((menu, index) => {
+                  return (
+                    <div key={index}>
+                      <Link
+                        href={menu.path}
+                        className={`${styles.menuList} ${
+                          highlightMenu(menu.path) && styles.selected
+                        }`}>
+                        {menu.icon}
+                        <div className={styles.menuText}>{menu.name}</div>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+              <hr className={styles.breakline}></hr>
+              <div className={styles.subMenuWrapper}>
+                {subMenus.map((menu, index) => (
+                  <div
+                    className={styles.subMenuList}
+                    key={index}
+                    onClick={() => {
+                      if (menu === "로그아웃") {
+                        onLogout();
+                      }
+                    }}>
+                    <div>{menu}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <>{props.children}</>
