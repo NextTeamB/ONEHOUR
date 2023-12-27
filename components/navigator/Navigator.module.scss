@@ -13,38 +13,34 @@
   font-family: "Debussy";
   font-style: normal;
   font-weight: 500;
-  src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
+  src:
+    local("Debussy"),
+    url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format("woff");
 }
 
-$base: 16px;
 $color: #383838;
 $blue: #6ab5ff;
 .childrenWrapper {
-  margin-left: 360px;
-  @include displayNone {
-    display: none;
-  }
-  @include mobile {
-    margin-left: 280px;
-  }
-  @include tablet {
-    margin-left: 334px;
-  }
+  font-size: 12.8px;
+  margin-left: 21rem;
   // @include notebook {
   // 	margin-left: 330px;
   // }
 }
+.navUpper {
+  font-size: 12.8px;
+}
 .navWrapper {
   position: fixed;
-  width: 400px;
+  width: 21rem;
   background: #fff;
-  padding: 30px 50px 20px;
+  padding: 2rem 3rem;
   box-sizing: border-box;
   font-family: "Arimo_BLD";
   letter-spacing: -0.6px;
   z-index: 999;
   overflow: auto;
-  height: 100vh;
+  height: 100%;
 
   ::-webkit-scrollbar {
     display: none;
@@ -60,9 +56,9 @@ $blue: #6ab5ff;
     display: flex;
     align-items: center;
     color: $blue;
+    height: 5.5rem;
     img,
     span {
-      font-size: $base + 4;
       cursor: pointer;
     }
   }
@@ -70,20 +66,17 @@ $blue: #6ab5ff;
   .profileWrapper {
     display: flex;
     align-items: center;
-    height: 100px;
-    span {
-      font-size: $base + 4;
-    }
+    height: 5rem;
     a {
       text-decoration: none;
       color: $color;
       display: flex;
     }
     .profile {
-      width: 60px;
-      height: 60px;
-      border-radius: 50px;
-      margin-right: 30px;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 3rem;
+      margin-right: 1.25rem;
       box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.16);
       position: relative;
       overflow: hidden;
@@ -104,40 +97,44 @@ $blue: #6ab5ff;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0.6rem;
+    height: 4rem;
   }
+
   .challengeButtonSelected {
     background-color: #64dab5 !important;
-    font-size: $base + 3 !important;
   }
   .challengeButton {
     letter-spacing: 0;
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: 1.5rem;
     background-color: $blue;
     // background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-    border-radius: 50px;
+    border-radius: 5rem;
     color: white;
     align-items: center;
     justify-content: center;
     font-family: "Debussy";
-    font-size: $base + 5;
+    font-size: 1rem;
     box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.16);
+    height: 3.5rem;
     cursor: pointer;
     .challengeIcon {
       position: absolute;
-      width: 35px;
-      right: 60px;
+      width: 2rem;
+      right: 3.75rem;
       height: auto;
     }
     p {
       position: relative;
-      margin-right: 15px;
+      margin-right: 1rem;
     }
   }
 
   .menuWrapper {
-    margin: 45px 0;
+    margin: 2.8rem 0;
     .menuList {
+      margin: 1.5rem 0.5rem;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -145,10 +142,10 @@ $blue: #6ab5ff;
       text-decoration: none;
       color: $color;
       .menuText {
-        margin-left: 15px;
+        margin-left: 1rem;
       }
       .menuIcon {
-        width: 30px;
+        width: 1.5rem;
         height: auto;
         color: $color;
       }
@@ -162,187 +159,13 @@ $blue: #6ab5ff;
   }
 
   .subMenuWrapper {
-    margin-top: 50px;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
     .subMenuList {
-      margin: 30px 10px;
+      padding: 0.9rem 0.75rem;
       display: flex;
       align-items: center;
       cursor: pointer;
     }
   }
-
-  @include displayNone {
-    width: 360px;
-    display: none;
-  }
-
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-  /******************* MEDIA 990 **********************/
-
-  @include mobile {
-    width: 250px;
-    font-size: $base - 5;
-    overflow: auto;
-    .logoWrapper {
-      height: 60px;
-      span {
-        font-size: $base - 3;
-      }
-    }
-
-    .profileWrapper {
-      height: 80px;
-      span {
-        font-size: $base - 3;
-      }
-      .profile {
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
-      }
-    }
-    .commentWrapper {
-      margin-top: 10px;
-      height: 65px;
-    }
-
-    .challengeButton {
-      height: 50px;
-      font-size: $base;
-      .challengeIcon {
-        width: 18px;
-      }
-    }
-
-    .menuWrapper {
-      // margin-top: 60px;
-      .menuList {
-        margin: 25px 8px;
-        .menuIcon {
-          width: 20px;
-        }
-      }
-    }
-
-    .subMenuWrapper {
-      margin-top: 40px;
-      .subMenuList {
-        margin: 22px 10px;
-      }
-    }
-  }
-
-  /******************* MEDIA 1200 **********************/
-  /******************* MEDIA 1200 **********************/
-  /******************* MEDIA 1200 **********************/
-  /******************* MEDIA 1200 **********************/
-  /******************* MEDIA 1200 **********************/
-
-  @include tablet {
-    width: 340px;
-    font-size: $base - 4;
-    .logoWrapper {
-      height: 88px;
-      span {
-        font-size: $base - 2;
-      }
-    }
-
-    .profileWrapper {
-      height: 80px;
-      span {
-        font-size: $base - 2;
-      }
-      .profile {
-        width: 45px;
-        height: 45px;
-        margin-right: 20px;
-      }
-    }
-    .commentWrapper {
-      margin-top: 10px;
-      height: 65px;
-    }
-
-    .challengeButton {
-      height: 55px;
-      font-size: $base;
-      .challengeIcon {
-        width: 35px;
-      }
-    }
-
-    .menuWrapper {
-      // margin-top: 60px;
-      .menuList {
-        margin: 25px 8px;
-        .menuIcon {
-          width: 25px;
-        }
-      }
-    }
-
-    .subMenuWrapper {
-      margin-top: 40px;
-      .subMenuList {
-        margin: 22px 10px;
-      }
-    }
-  }
-
-  /******************* MEDIA 1440 **********************/
-  /******************* MEDIA 1440 **********************/
-  /******************* MEDIA 1440 **********************/
-  /******************* MEDIA 1440 **********************/
-
-  // @include notebook {
-  // 	width: 330px;
-  // 	font-size: $base - 2;
-  // 	.logoWrapper {
-  // 		height: 70px;
-  // 		span {
-  // 			font-size: $base;
-  // 		}
-  // 	}
-
-  // 	.profileWrapper {
-  // 		height: 80px;
-  // 		span {
-  // 			font-size: $base;
-  // 		}
-  // 		.profile {
-  // 			width: 50px;
-  // 			height: 50px;
-  // 			margin-right: 25px;
-  // 		}
-  // 	}
-  // 	.commentWrapper {
-  // 		margin-top: 10px;
-  // 		height: 80px;
-  // 	}
-
-  // 	.challengeButton {
-  // 		height: 65px;
-  // 		font-size: $base + 2;
-  // 	}
-
-  // 	.menuWrapper {
-  // 		margin-top: 70px;
-  // 		.menuList {
-  // 			margin: 30px 10px;
-  // 			.menuIcon {
-  // 				width: 30px;
-  // 			}
-  // 		}
-  // 	}
-
-  // 	.subMenuWrapper {
-  // 		margin-top: 48px;
-  // 		.subMenuList {
-  // 			margin: 28px 10px;
-  // 		}
-  // 	}
-  // }
 }

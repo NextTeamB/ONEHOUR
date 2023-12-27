@@ -1,7 +1,8 @@
 /*반응형 화면 크기*/
-$displaynone: 990px;
+$displaynone: 767px;
 $tablet: 1200px;
 $notebook: 1440px;
+$desktop:1920px;
 
 /*반응형, 브라우저 크기가 990px 이하일때*/
 @mixin displayNone {
