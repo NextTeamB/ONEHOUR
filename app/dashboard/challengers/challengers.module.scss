@@ -26,135 +26,90 @@ $grey3: #e1e2e3;
 
 .upper {
   animation: fadeIn 1s ease-in;
-  width: 84%;
-  min-height: 600px;
-  margin: 80px auto;
+  width: 77vw;
+  min-height: 100vh;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: $grey1;
-  letter-spacing: -1px;
-
-  h3 {
-    color: $blue;
-    font-size: 32px;
-    font-weight: 600;
-    margin-top: 130px;
-  }
-
-  p {
-    font-size: 16px;
-    color: $grey1;
-    top: 202px;
-  }
-  .newpostText {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 40px auto;
-  }
-}
-
-.newpostBtn {
+  letter-spacing: -0.05rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 180px;
-  position: relative;
-  top: -20px;
-  font-size: 74px;
-  font-weight: 700;
-  color: #eaeaea;
-  border: none;
-  background-color: #eaeaea;
-  border-radius: 10px 10px 0px 0px;
-  cursor: pointer;
-
-  .plusWrap {
-    width: 66px;
-    height: 66px;
-    background-color: white;
+  overflow-x: hidden;
+  .titleSec {
+    animation: fadeIn ease-in-out 1s;
+    width: 62vw;
+    height: 10vh;
+    padding: 15vh 0 8vh 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
-  }
-
-  .newpostText {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 40px auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    h3 {
+      color: $blue;
+      font-size: 1.4rem;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+    p {
+      letter-spacing: -1px;
+      font-size: 0.9rem;
+      margin: 0;
+    }
   }
 }
 
 .postWrapper {
+  width: 62vw;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 60px;
-  grid-column-gap: 46px; /* column 간격으로 전체 창에 맞게 너비 비율 조정! */
-  margin-top: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 2rem;
+  grid-column-gap: 3rem;
+  margin: 0;
 
   .postBox {
-    width: 310px;
-    height: 260px;
-    display: inline-flex;
+    height: 15rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: #ffffff;
     border: none;
-    border-radius: 10px;
-    box-shadow: 2px 4px 12px #cecece;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    border-radius: 0.4rem;
+    box-shadow: 0.1rem 0.2rem 0.6rem #cecece;
     cursor: pointer;
 
-    .postUser {
-      width: 80%;
-      display: block;
+    .newpostBtn {
+      display: flex;
       align-items: center;
-      margin-bottom: 24px;
-
-      .userIcon {
-        display: inline-block;
-        width: 32px;
-        height: auto;
-        position: relative;
-        top: -4px;
-        left: -12px;
-        border-radius: 80px;
-        box-shadow: 2px 3px 6px #cecece;
-        margin-right: 10px;
+      justify-content: center;
+      width: 100%;
+      height: 60%;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #eaeaea;
+      border: none;
+      background-color: #eaeaea;
+      border-radius: 0.4rem 0.4rem 0 0;
+      cursor: pointer;
+      .plusIcon {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10rem;
+        margin: 0;
       }
-
-      .postTitle {
-        display: block;
-        margin: 0px;
-        text-align: left;
-        margin: 10px 0px 10px -10px;
-        width: 100%;
-        font-size: 14px;
-        font-weight: 500;
-      }
-      .postHr {
-        display: block;
-        width: 110%;
-        position: relative;
-        left: -12px;
-        opacity: 30%;
-        margin: 20px 0;
-      }
-      .nickWrap {
-        display: inline;
-        position: relative;
-        top: -14px;
-        color: $grey1;
-        font-weight: 500;
-        font-size: 14px;
-        :nth-child(2) {
-          margin-left: 4px;
-          font-size: 14px;
-        }
-      }
+    }
+    .newpostText {
+      height: 40%;
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin: 0;
     }
 
     .postContainer {
@@ -165,52 +120,68 @@ $grey3: #e1e2e3;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      height: 60%;
       .imgBox {
         overflow: hidden;
         position: relative;
         width: 100%;
-        border-radius: 10px 10px 0px 0px;
-        height: 162px;
+        height: 100%;
+        border-radius: 0.4rem 0.4rem 0 0;
         color: #383838;
-        top: -20px;
-        padding-top: -20px;
         border: none;
         .postImg {
           width: 100%;
-          height: auto;
-          margin: -14px 0;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
         }
       }
-      .postDate {
-        display: block;
-        margin: 0px;
-        text-align: center;
-        color: $grey2;
-        font-weight: 600;
-        font-size: 14px;
-      }
+    }
 
-      .postContent {
-        display: block;
+    .postUser {
+      width: 80%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .postTitle {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        margin: 0;
         width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-align: center;
-
+        height: 45%;
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+      .postHr {
+        width: 100%;
+        opacity: 30%;
+        margin: 0;
+      }
+      .nickWrap {
+        display: flex;
+        align-items: center;
+        color: $grey1;
+        font-weight: 500;
+        font-size: 0.65rem;
+        height: 55%;
+        .userIcon {
+          width: 1.7rem;
+          height: auto;
+          border-radius: 10rem;
+          box-shadow: 0.1rem 0.2rem 0.4rem #cecece;
+          margin: 0 0.5rem 0 0;
+        }
         span {
-          display: inline-block;
-          max-height: 3.6em;
-          line-height: 1.8em;
-          vertical-align: top;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
+          margin: 0;
         }
       }
     }
   }
 }
 
+/*
 .modalBackdrop {
   animation: fadeIn ease-in-out 2s;
   position: fixed;
@@ -318,3 +289,4 @@ $grey3: #e1e2e3;
     }
   }
 }
+*/

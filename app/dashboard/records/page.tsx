@@ -18,6 +18,7 @@ import { onDashboard } from "@/util/onDashboard";
 import { useRouter } from "next/navigation";
 import { onContinuerBoard } from "@/util/onContinuerBoard.js";
 import loadImg from "../../../public/loadImg.png";
+import challenge from "../challenges/page";
 
 export interface userRecord {
   title: string;
@@ -99,8 +100,7 @@ export default function Records() {
         <Image
           src={trophy}
           alt="trophy"
-          width={200}
-          style={{ margin: "10px auto" }}
+          className={styles.trophy}
         />
       );
     } else if (challengeItem.challengeStatus === "failed") {
@@ -108,8 +108,7 @@ export default function Records() {
         <Image
           src={failed}
           alt="failed"
-          width={150}
-          style={{ margin: "35px auto" }}
+          className={styles.failed}
         />
       );
     } else {
@@ -117,8 +116,7 @@ export default function Records() {
         <Image
           src={check}
           alt="check"
-          width={170}
-          style={{ margin: "27px auto" }}
+          className={styles.check}
         />
       );
     }
@@ -137,12 +135,26 @@ export default function Records() {
     }
   };
 
-  // 더미데이터
-  // const dummyData = {
-  //   name: userInfo.nickname,
-  //   total: 16,
+  // 날짜를 특정 형식으로 변환하는 함수
+  const formatDateString = (dateData: string) => {
+    // 년, 월, 일, 시, 분 추출
+    const getDate = dateData.split("T")[0];
+    const getTime = dateData.split("T")[1];
+    const year = getDate.split("-")[0];
+    const month = getDate.split("-")[1];
+    const day = getDate.split("-")[2];
+    const hours = parseInt(getTime.split(":")[0], 10);
+    const minutes = getTime.split(":")[1];
+  
+    const ampm = hours >= 12 ? '오후' : '오전';
+    const formattedHours = () => {
+      if (hours <= 12) return hours;
+      else if (hours > 12) return hours - 12;
+    }
+    const formattedDate = [`${year}년 ${month}월 ${day}일`, `${ampm} ${formattedHours()}시 ${minutes}분`];
+    return formattedDate;
+  }
 
-  // }
 
   return (
     <div className={styles.ground}>
@@ -151,132 +163,141 @@ export default function Records() {
           <Loading />
         </>
       ) : (
-        <>
-          <div className={styles.titleSec}>
-            <h3>원아워 레코즈</h3>
-            <p>{userInfo.nickname}님의 최근 원아워 레코즈를 정리해드릴게요</p>
-          </div>
-          <div className={styles.listUpper}>
-            {userChallenges ? (
-              <>
-                <Image
-                  src={curIndex <= 0 ? gal : bal}
-                  alt="arrow"
-                  height={50}
-                  onClick={() => {
-                    setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
-                    // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
-                    if (curIndex <= 0) setCurIndex(0);
-                  }}
-                  style={{ cursor: "pointer" }}
-                />
-                {userChallenges
-                  .slice(curIndex, curIndex + 3)
-                  .map((challengeItem, i) => {
-                    // a -> challengeItem으로 변경해 알아보기 쉽게 했어요
-                    return (
-                      <div key={i}>
-                        <div className={styles.recordsBox} key={`records${i}`}>
-                          {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
-                          <h4 className={styles.cardTitle}>
-                            {challengeItem.title}
-                          </h4>
-                          <p className={styles.cardDate}>
-                            {challengeItem.date}
-                          </p>
-                          <div className={styles.cardImg}>
-                            {cardImg(challengeItem)}
-                          </div>
-                          <p className={styles.cardDesc}>
-                            &quot; {challengeItem.description} &quot;
-                          </p>
-                          <div className={styles.progressWrap}>
-                            <div className={styles.progressTitle}>
-                              <span>진행도</span>
+        <div className={styles.Upper}>
+          <div className={styles.section1}>
+            <div className={styles.titleSec}>
+              <h3>원아워 레코즈</h3>
+              <p>{userInfo.nickname}님의 최근 원아워 레코즈를 정리해드릴게요</p>
+            </div>
+            <div className={styles.listUpper}>
+              {userChallenges ? (
+                <>
+                  <Image
+                    src={curIndex <= 0 ? gal : bal}
+                    alt="arrow"
+                    height={50}
+                    onClick={() => {
+                      setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
+                      // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
+                      if (curIndex <= 0) setCurIndex(0);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className={styles.recordsBoxWrapper}>
+                    {userChallenges
+                      .slice(curIndex, curIndex + 3)
+                      .map((challengeItem, i) => {
+                        // a -> challengeItem으로 변경해 알아보기 쉽게 했어요
+                        return (
+                          <div key={i}>
+                            <div
+                              className={styles.recordsBox}
+                              key={`records${i}`}
+                            >
+                              {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
+                              <div className={styles.cardImg}>
+                                {cardImg(challengeItem)}
+                              </div>
+                              <h4 className={styles.cardTitle}>
+                                {challengeItem.title}
+                              </h4>
+                              <p className={styles.cardDesc}>
+                                &quot; {challengeItem.description} &quot;
+                              </p>
+                              <p className={styles.cardDate}>
+                                {formatDateString(challengeItem.date)[0]} <br />
+                                {formatDateString(challengeItem.date)[1]}
+                              </p>
+                              <div className={styles.progressWrap}>
+                                <span>진행도</span>
+                                <div className={styles.progressBar}>
+                                  <div
+                                    className={styles.progressState}
+                                    style={{
+                                      width: `${challengeItem.challengeTime}%`,
+                                    }}
+                                  />
+                                </div>
+                              </div>
                             </div>
-                            <div className={styles.progressBar}>
-                              <div
-                                className={styles.progressState}
-                                style={{
-                                  width: `${challengeItem.challengeTime}%`,
-                                }}
-                              />
-                            </div>
                           </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                <Image
-                  src={curIndex >= userChallenges.length - 3 ? gar : bar}
-                  alt="arrow"
-                  height={50}
-                  onClick={() => {
-                    setCurIndex((curIndex) => curIndex + 1); // 오른쪽 버튼 클릭 시 지금보다 인덱스가 커져야 함
-                    if (curIndex >= userChallenges.length - 3) {
-                      // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
-                      setCurIndex(userChallenges.length - 3);
-                    }
-                  }}
-                  style={{ cursor: "pointer" }}
-                />
-              </>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className={styles.titleSec2}>
-            <h3>#불타는 열정</h3>
-            <p>
-              {userInfo.nickname}님의 기록을 기반으로 목표 실천율을 분석해봤어요
-            </p>
-          </div>
-          <div className={styles.chartUpper}>
-            <div className={styles.donutSec}>
-              <h4>시간 계획</h4>
-              <div className={styles.valueWrap}>
-                <h2 className={styles.timeAvrg}>
-                  {Math.round(chartProps.timeAvrg)}%
-                </h2>
-                <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
-              </div>
-              <p>전체 집계 대비 수행시간 정보</p>
-            </div>
-            <div className={styles.donutSec}>
-              <h4>도전 난이도</h4>
-              <div className={styles.valueWrap}>
-                {diffReturn()}
-                <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
-              </div>
-              <p>평균 도전 난이도 정보</p>
-            </div>
-            <div className={styles.donutSec}>
-              <h4>목표 달성도</h4>
-              <div className={styles.valueWrap}>
-                <h2 className={styles.succeedCnt}>
-                  {Math.round(chartProps.succeedCount)}%
-                </h2>
-                <Doughnut
-                  value={chartProps.succeedCount}
-                  id={"succeedRatioChart"}
-                />
-              </div>
-              <p>전체 집계 대비 90% 이상 달성 건</p>
+                        );
+                      }
+                    )}
+                  </div>
+                  <Image
+                    src={curIndex >= userChallenges.length - 3 ? gar : bar}
+                    alt="arrow"
+                    height={50}
+                    onClick={() => {
+                      setCurIndex((curIndex) => curIndex + 1); // 오른쪽 버튼 클릭 시 지금보다 인덱스가 커져야 함
+                      if (curIndex >= userChallenges.length - 3) {
+                        // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
+                        setCurIndex(userChallenges.length - 3);
+                      }
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
-          <div className={styles.titleSec3}>
-            <h3>챌린지 컨티뉴어 보드</h3>
-            <p>
-              {userInfo.nickname}님이 꾸준히 챌린지를 수행하고 있는지 최근 30일
-              간의 챌린지 기록을 보드로 정리해드릴게요
-            </p>
-            <p>
-              최근 30일 간 {userInfo.nickname}님의 달성 건수는 총{" "}
-              {sum}회 입니다.
-            </p>
+          <div className={styles.section2}>
+            <div className={styles.titleSec}>
+              <h3>#불타는 열정</h3>
+              <p>
+                {userInfo.nickname}님의 기록을 기반으로 목표 실천율을
+                분석해봤어요
+              </p>
+            </div>
+            <div className={styles.chartUpper}>
+              <div className={styles.donutSec}>
+                <h4>시간 계획</h4>
+                <div className={styles.valueWrap}>
+                  <h2>
+                    {Math.round(chartProps.timeAvrg)}%
+                  </h2>
+                  <Doughnut value={chartProps.timeAvrg} id={"timeAvrgChart"} />
+                </div>
+                <p>전체 집계 대비 수행시간 정보</p>
+              </div>
+              <div className={styles.donutSec}>
+                <h4>도전 난이도</h4>
+                <div className={styles.valueWrap}>
+                  {diffReturn()}
+                  <Doughnut value={chartProps.diffAvrg} id={"diffAvrgChart"} />
+                </div>
+                <p>평균 도전 난이도 정보</p>
+              </div>
+              <div className={styles.donutSec}>
+                <h4>목표 달성도</h4>
+                <div className={styles.valueWrap}>
+                  <h2>
+                    {Math.round(chartProps.succeedCount)}%
+                  </h2>
+                  <Doughnut
+                    value={chartProps.succeedCount}
+                    id={"succeedRatioChart"}
+                  />
+                </div>
+                <p>전체 집계 대비 90% 이상 달성 건</p>
+              </div>
+            </div>
           </div>
-          <div className={styles.boardWrapper}>
-            <div className={styles.boardUpper}>
+          <div className={styles.section3}>
+            <div className={styles.titleSec3}>
+              <h3>챌린지 컨티뉴어 보드</h3>
+              <p>
+                {userInfo.nickname}님이 꾸준히 챌린지를 수행하고 있는지 최근
+                30일 간의 챌린지 기록을 보드로 정리해드릴게요
+                <br />
+                최근 30일 간 {userInfo.nickname}님의 달성 건수는 총 <span>{sum}회</span>
+                입니다.
+              </p>
+            </div>
+            <div className={styles.boardWrapper}>
               <div className={styles.challengeRecords}>
                 {dailyChallenges.map((challengeCount, index) => {
                   let circleColorClass;
@@ -319,7 +340,7 @@ export default function Records() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
       <div className={styles.footer}></div>
     </div>

@@ -116,262 +116,259 @@ export default function Settings() {
         onChange={onUploadImg}
         style={{ display: "none" }} // input 요소는 원하는대로 스타일링을 하는 것이 제한적이므로 이를 숨기고 따로 생성한 이미지 업로드 버튼 클릭 이벤트를 통해 이미지 업로드 구현
       />
-      <p className={styles.title}>설정</p>
-      <p className={styles.subtitle}>
-        서비스에서 사용하는 내 계정 정보를 관리할 수 있습니다
-      </p>
-      <div className={styles.settingsBox}>
-        <div className={styles.email}>
-          <h3>이메일</h3>
-          <p>{userInfo.email}</p>
-        </div>
-        <div className={styles.nickname}>
-          <h3>닉네임</h3>
-          <p>{userInfo.nickname}</p>
-          <button
-            className={styles.chevrons}
+      <div className={styles.titleSec}>
+        <p className={styles.title}>설정</p>
+        <p className={styles.subtitle}>
+          서비스에서 사용하는 내 계정 정보를 관리할 수 있습니다
+        </p>
+      </div>
+      <div className={styles.bodySec}>
+        <div className={styles.settingsBox}>
+          <div className={styles.form}>
+            <h3>이메일</h3>
+            <p>{userInfo.email}</p>
+            <div className={styles.chevrons}></div>
+          </div>
+          <button 
+            className={styles.form}
             onClick={() => {
               modalState[0]
                 ? setModalState([0, 0, 0, 0])
                 : setModalState([1, 0, 0, 0]);
             }}
           >
-            <Image
-              className={styles.chevron}
-              src={chevron}
-              width={30}
-              alt="chevron"
-            />
+            <h3>닉네임</h3>
+            <p>{userInfo.nickname}</p>
+            <div className={styles.chevrons}>
+              <Image
+                className={styles.chevron}
+                src={chevron}
+                alt="chevron"
+              />
+            </div>
           </button>
-        </div>
-        <div className={styles.nickname}>
-          <h3>프로필 이미지 변경</h3>
-          <p></p>
-          <button
-            className={styles.chevrons}
+          <button 
+            className={styles.form}
             onClick={() => {
               modalState[1]
                 ? setModalState([0, 0, 0, 0])
                 : setModalState([0, 1, 0, 0]);
             }}
           >
-            <Image
-              className={styles.chevron}
-              src={chevron}
-              width={30}
-              alt="chevron"
-            />
+            <h3>프로필 이미지 변경</h3>
+            <div className={styles.chevrons}>
+              <Image
+                className={styles.chevron}
+                src={chevron}
+                alt="chevron"
+              />
+            </div>
           </button>
-        </div>
-        <div className={styles.password}>
-          <h3>비밀번호 변경</h3>
-          <button
-            className={styles.chevrons}
+          <button 
+            className={styles.form}
             onClick={() => {
-              modalState[2]
+              modalState[3]
                 ? setModalState([0, 0, 0, 0])
                 : setModalState([0, 0, 1, 0]);
             }}
           >
-            <Image
-              className={styles.chevron}
-              src={chevron}
-              width={30}
-              alt="chevron"
-            />
+            <h3>비밀번호 변경</h3>
+            <div className={styles.chevrons}>
+              <Image
+                className={styles.chevron}
+                src={chevron}
+                alt="chevron"
+              />
+            </div>
           </button>
         </div>
-      </div>
-      <div className={styles.settingsBox2}>
-        <div className={styles.writedrawal}>
-          <h3>회원 탈퇴</h3>
+        <div className={styles.settingsBox2}>
           <button
-            className={styles.chevrons}
+            className={styles.withdrawal}
             onClick={() => {
               modalState[3]
                 ? setModalState([0, 0, 0, 0])
                 : setModalState([0, 0, 0, 1]);
             }}
           >
-            <Image
-              className={styles.chevron}
-              src={chevron}
-              width={30}
-              alt="chevron"
-            />
+            <h3>회원 탈퇴</h3>
+            <div className={styles.chevrons}>
+              <Image
+                className={styles.chevron}
+                src={chevron}
+                alt="chevron"
+              />
+            </div>
           </button>
         </div>
       </div>
 
       {/* 닉네임 변경 컴포넌트 */}
       <div className={styles[`editAlias${modalState[0]}`]}>
-        <p>닉네임을 변경합니다</p>
-        <input
-          onChange={onChange}
-          name="nickname"
-          type="text"
-          placeholder="변경할 닉네임을 입력해주세요"
-        ></input>
-        <button
-          className={styles.editBtn}
-          onClick={() => {
-            editAlias();
-          }}
-        >
-          닉네임 변경하기
-        </button>
-        <button
-          className={styles.closeModal}
-          onClick={() => {
-            setModalState([0, 0, 0, 0]);
-          }}
-        >
+        <div className={styles.modal}>
+          <h3>닉네임을 변경합니다</h3>
+          <input
+            onChange={onChange}
+            name="nickname"
+            type="text"
+            placeholder="변경할 닉네임을 입력해주세요"
+          ></input>
+          <button
+            className={styles.editBtn}
+            onClick={() => {
+              editAlias();
+            }}
+          >
+            닉네임 변경하기
+          </button>
           <Image
-            className={styles.closeicon}
+            className={styles.closeModal}
             src={closeicon}
             width={20}
             alt="chevron"
+            onClick={() => {
+              setModalState([0, 0, 0, 0]);
+            }}
           />
-        </button>
+        </div>
       </div>
+      <div className={styles[`modalBG${modalState[0]}`]}></div>
 
       {/* 프로필 이미지 변경 모달 컴포넌트 */}
       <div className={styles[`editProfile${modalState[1]}`]}>
-        <h3>프로필 이미지를 변경합니다</h3>
-        <p>
-          이미지를 선택하여 업로드해주세요
-          <br />
-          커뮤니티 수칙을 위반하는 이미지 업로드 시 계정 이용에 불이익이 있을 수
-          있습니다
-        </p>
-        <div className={styles.imageUpload}>
-          <button
-            onClick={() => {
-              onUploadImgButtonClick(profileImgInputRef);
-            }}
-          >
-            <Image
-              className={styles.imgUpload}
-              src={imageUpload}
-              alt="imageUpload"
-            ></Image>
-          </button>
-          <p>{trimedFileName ? trimedFileName : ""}</p>
-        </div>
-        <div className={styles.alignProfileBtn}>
-          <button
-            className={styles.editProfileBtn2}
-            onClick={() => {
-              axios
-                .delete("/api/users/image")
-                .then(() => {
-                  // 모달처리
-                  router.push("/dashboard");
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            }}
-          >
-            기본 이미지 설정
-          </button>
-          <button
-            className={styles.editProfileBtn}
-            onClick={() => {
-              axios
-                .patch("/api/users/image", { profileImgUrl: profileImg })
-                .then(() => {
-                  // 모달처리해라
-                  router.push("/dashboard");
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            }}
-          >
-            프로필 이미지 업로드
-          </button>
-        </div>
-        <button
-          className={styles.closeModal}
-          onClick={() => {
-            setModalState([0, 0, 0, 0]);
-          }}
-        >
+        <div className={styles.modal}>
+          <h3>프로필 이미지를 변경합니다</h3>
+          <p>
+            이미지를 선택하여 업로드해주세요.
+            <br />
+            커뮤니티 수칙을 위반하는 이미지 업로드 시, 
+            <br />
+            계정 이용에 불이익이 있을 수 있습니다.
+          </p>
+          <div className={styles.imageUpload}>
+            <button
+              onClick={() => {
+                onUploadImgButtonClick(profileImgInputRef);
+              }}
+            >
+              <Image
+                className={styles.imgUpload}
+                src={imageUpload}
+                alt="imageUpload"
+              ></Image>
+            </button>
+            <p>{trimedFileName ? trimedFileName : ""}</p>
+          </div>
+          <div className={styles.alignProfileBtn}>
+            <button
+              className={styles.editProfileBtn2}
+              onClick={() => {
+                axios
+                  .delete("/api/users/image")
+                  .then(() => {
+                    // 모달처리
+                    router.push("/dashboard");
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }}
+            >
+              기본 이미지 설정
+            </button>
+            <button
+              className={styles.editProfileBtn}
+              onClick={() => {
+                axios
+                  .patch("/api/users/image", { profileImgUrl: profileImg })
+                  .then(() => {
+                    // 모달처리해라
+                    router.push("/dashboard");
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }}
+            >
+              프로필 이미지 업로드
+            </button>
+          </div>
           <Image
-            className={styles.closeicon}
+            className={styles.closeModal}
             src={closeicon}
             width={20}
             alt="chevron"
+            onClick={() => {
+              setModalState([0, 0, 0, 0]);
+            }}
           />
-        </button>
+        </div>
       </div>
-
       <div className={styles[`modalBG${modalState[2]}`]}></div>
+
+      {/* 비밀번호 변경 모달 컴포넌트 */}
       <div className={styles[`editPassword${modalState[2]}`]}>
-        <p>비밀번호를 변경합니다</p>
-        <input
-          onChange={onChange}
-          name="password"
-          type="password"
-          placeholder="변경할 비밀번호를 입력해주세요"
-        ></input>
-        <input
-          onChange={onChange}
-          name="passwordCheck"
-          type="password"
-          placeholder="비밀번호를 다시 한번 입력해주세요"
-        ></input>
-        <button
-          className={styles.editBtn}
-          onClick={() => {
-            if (editInfo.password === editInfo.passwordCheck) {
-              editPassword(editInfo, setModalState, setEditInfo);
-            } else {
-              alert("비밀번호 다르잖슴!");
-            }
-          }}
-        >
-          비밀번호 변경하기
-        </button>
-        <button
-          className={styles.closeModal}
-          onClick={() => {
-            setModalState([0, 0, 0, 0]);
-          }}
-        >
+        <div className={styles.modal}>
+          <h3>비밀번호를 변경합니다</h3>
+          <input
+            onChange={onChange}
+            name="password"
+            type="password"
+            placeholder="변경할 비밀번호를 입력해주세요"
+          ></input>
+          <input
+            onChange={onChange}
+            name="passwordCheck"
+            type="password"
+            placeholder="비밀번호를 다시 한번 입력해주세요"
+          ></input>
+          <button
+            className={styles.editBtn}
+            onClick={() => {
+              if (editInfo.password === editInfo.passwordCheck) {
+                editPassword(editInfo, setModalState, setEditInfo);
+              } else {
+                alert("비밀번호 다르잖슴!");
+              }
+            }}
+          >
+            비밀번호 변경하기
+          </button>
           <Image
-            className={styles.closeicon}
+            className={styles.closeModal}
             src={closeicon}
             width={20}
             alt="chevron"
+            onClick={() => {
+              setModalState([0, 0, 0, 0]);
+            }}
           />
-        </button>
+        </div>
       </div>
       <div className={styles[`modalBG${modalState[1]}`]}></div>
+
+      {/* 탈퇴 모달 컴포넌트 */}
       <div className={styles[`withdrawal${modalState[3]}`]}>
-        <p>정말 탈퇴하시겠습니까?</p>
-        <button
-          className={styles.editBtn2}
-          onClick={() => {
-            withdrawal();
-          }}
-        >
-          회원탈퇴
-        </button>
-        <button
-          className={styles.closeModal}
-          onClick={() => {
-            setModalState([0, 0, 0, 0]);
-          }}
-        >
+        <div className={styles.modal}>
+          <h3>정말 탈퇴하시겠습니까?</h3>
+          <button
+            className={styles.editBtn}
+            onClick={() => {
+              withdrawal();
+            }}
+          >
+            회원탈퇴
+          </button>
           <Image
-            className={styles.closeicon}
+            className={styles.closeModal}
             src={closeicon}
             width={20}
             alt="chevron"
+            onClick={() => {
+              setModalState([0, 0, 0, 0]);
+            }}
           />
-        </button>
+        </div>
       </div>
       <div className={styles[`modalBG${modalState[3]}`]}></div>
     </div>

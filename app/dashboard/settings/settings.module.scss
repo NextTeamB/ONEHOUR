@@ -38,450 +38,291 @@
   }
 }
 
-$base: 16px;
 $color: #383838;
 $blue: #6ab5ff;
 
 .settingsForm {
   position: relative;
-  min-width: 1618px;
-  width: 100%;
+  min-width: 78vw;
+  height: 100vh;
   -webkit-box-pack: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  min-height: 1000px;
-  height: 100%;
-  display: inline-block;
 }
 
-.settingsBox {
-  width: 900px;
-  min-height: 400px;
-  //   width: 100%;
-  margin: 40px auto 24px auto;
+.titleSec {
+  animation: fadeIn ease-in-out 1s;
+  height: 10vh;
   display: flex;
-  /* align-items: flex-end; */
-  justify-items: center;
-  overflow: auto;
   flex-direction: column;
-  /* max-height: calc(100vh - 80px); */
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Arimo_MED";
+  letter-spacing: -0.05rem;
+  margin: 0 0 6vh 0;
+  .title {
+    color: $blue;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #7c7c7c;
+  }
+}
+
+.bodySec {
+  width: 48vw;
+  height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.settingsBox, .settingsBox2 {
+  width: 100%;
+  height: 42vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: white;
   border: 1px solid #e1e2e3;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 0.5rem;
+  padding: 3vh 0;
 }
 
 .settingsBox2 {
-  width: 900px;
-  min-height: 60px;
-  //   width: 100%;
-  margin: auto auto;
-  display: flex;
-  /* align-items: flex-end; */
-  justify-items: center;
-  overflow: auto;
-  flex-direction: column;
-  /* max-height: calc(100vh - 80px); */
-  background-color: white;
-  border: 1px solid #e1e2e3;
-  border-radius: 12px;
-  padding: 20px;
+  height: 11vh;
+  justify-content: center;
+  padding: 0;
 }
 
-.email {
+.form, .withdrawal{
+  width: 85%;
+  height: 20%;
+  display: flex;
   flex-direction: row;
-  display: flex;
-  vertical-align: middle;
-  margin: 30px 20px;
-  h3 {
-    width: 160px;
-    font-family: "Arimo_BLD";
-    letter-spacing: -1px;
-    display: inline-block;
-  }
-  p {
-    text-align: center;
-    width: 532px;
-    letter-spacing: -1px;
-    font-size: 18px;
-    font-family: "Arimo_RGR";
-    display: inline-block;
-  }
-}
-
-.nickname {
-  flex-direction: row;
-  display: flex;
-  margin: 30px 20px;
-  vertical-align: middle;
-  h3 {
-    width: 160px;
-    font-family: "Arimo_BLD";
-    letter-spacing: -1px;
-    display: inline-block;
-  }
-  p {
-    text-align: center;
-    width: 532px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-family: "Arimo_RGR";
-    display: inline-block;
-  }
-  button {
-    margin: 0px 62px;
-  }
-}
-
-.title {
-  text-align: center;
-  font-family: "Arimo_BLD";
-  letter-spacing: -1px;
-  color: $blue;
-  font-size: 32px;
-  font-weight: 600;
-  margin: 100px auto 0 auto;
-}
-
-.subtitle {
-  text-align: center;
-  margin: 40px auto 20px auto;
-  font-family: "Arimo_RGR";
-  letter-spacing: -1px;
-  color: #7c7c7c;
-}
-
-.writedrawal {
-  margin: 0 20px;
-  vertical-align: middle;
-  h3 {
-    width: 160px;
-    font-family: "Arimo_BLD";
-    letter-spacing: -1px;
-    display: inline-block;
-  }
-  p {
-    width: 160px;
-    letter-spacing: -1px;
-    font-family: "Arimo_RGR";
-
-    display: inline-block;
-  }
-  button {
-    margin-left: 594px;
-  }
-}
-
-.password {
-  margin: 30px 20px;
-  vertical-align: middle;
-  h3 {
-    width: 160px;
-    font-family: "Arimo_BLD";
-    letter-spacing: -1px;
-    display: inline-block;
-  }
-  p {
-    margin-left: 260px;
-    width: 160px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-family: "Arimo_RGR";
-    display: inline-block;
-  }
-  button {
-    margin-left: 594px;
-  }
-}
-
-.editPassword0 {
-  display: none;
-}
-.editPassword1 {
-  animation: fadeIn ease-in-out 1s;
-  position: absolute;
-  box-shadow: 2px 4px 12px #cacaca;
-  position: absolute;
-  top: 24%;
-  left: 33%;
-  z-index: 2;
-  width: 560px;
-  height: 520px;
-  border-radius: 12px;
-  border: 1px solid #e1e2e3;
+  align-items: center;
+  justify-content: space-between;
+  color: #383838;
   background-color: white;
-  input {
-    letter-spacing: -1px;
-    width: 80%;
-    font-size: 14px;
-    padding-left: 10px;
-    height: 50px;
-    margin: 30px auto 40px auto;
-    align-items: center;
-    display: block;
-    border-radius: 4px;
-    border: 1px solid #e1e2e3;
-  }
-  .editBtn {
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    width: 84%;
-    height: 60px;
-    font-size: 18px;
-    margin: 30px auto;
-    align-items: center;
-    display: block;
-    color: white;
-    background-color: $blue;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .closeModal {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  p {
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    font-weight: 600;
-    text-align: center;
-    margin: 100px auto 80px auto;
-  }
-}
-
-.editAlias0 {
-  display: none;
-}
-.editAlias1 {
-  animation: fadeIn ease-in-out 1s;
-  box-shadow: 2px 4px 12px #cacaca;
-  position: absolute;
-  top: 26%;
-  left: 36%;
-  z-index: 2;
-  width: 460px;
-  height: 420px;
-  border-radius: 12px;
-  border: 1px solid #e1e2e3;
-  background-color: white;
-
-  input {
-    letter-spacing: -1px;
-    width: 80%;
-    font-size: 14px;
-    padding-left: 10px;
-    height: 50px;
-    margin: 50px auto 30px auto;
-    align-items: center;
-    display: block;
-    border-radius: 4px;
-    border: 1px solid #e1e2e3;
-  }
-  .editBtn {
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    width: 84%;
-    height: 60px;
-    font-size: 18px;
-    margin: 30px auto;
-    align-items: center;
-    display: block;
-    color: white;
-    background-color: $blue;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .closeModal {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  p {
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    font-weight: 600;
-    text-align: center;
-    margin: 100px auto 80px auto;
-  }
-}
-
-.editProfile0 {
-  display: none;
-}
-.editProfile1 {
-  animation: fadeIn ease-in-out 1s;
-  box-shadow: 2px 4px 12px #cacaca;
-  position: absolute;
-  top: 22%;
-  left: 30%;
-  z-index: 2;
-  width: 660px;
-  height: 620px;
-  border-radius: 12px;
-  border: 1px solid #e1e2e3;
-  background-color: white;
-  .editProfileBtn {
-    display: inline-block;
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    width: 30%;
-    height: 54px;
-    font-size: 16px;
-    margin: 30px 20px;
-    align-items: center;
-    color: white;
-    background-color: $blue;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .alignProfileBtn {
-    text-align: center;
-  }
-  .editProfileBtn2 {
-    display: inline-block;
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    width: 30%;
-    height: 54px;
-    font-size: 16px;
-    margin: 30px 20px;
-    align-items: center;
-    color: white;
-    background-color: #898989;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .closeModal {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  p {
-    font-size: 16px;
-    letter-spacing: -1px;
-    font-family: "Arimo_RGR";
-    font-weight: 400;
-    text-align: center;
-    margin: 100px auto 60px auto;
-  }
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
   h3 {
-    font-size: 20px;
-    letter-spacing: -1px;
     font-family: "Arimo_BLD";
-    font-weight: 600;
+    letter-spacing: -0.05rem;
+    font-size: 0.9rem;
+  }
+  p {
     text-align: center;
-    margin: 140px auto -20px auto;
+    width: 50%;
+    letter-spacing: -0.05rem;
+    font-size: 0.9rem;
+    font-family: "Arimo_RGR";
+  }
+  .chevrons {
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .chevron {
+      width: 100%;
+      height: auto;
+    }
   }
 }
+.settingsBox:nth-child(0) {
+  cursor: none;
+}
+.withdrawal {
+  height: 100%;
+}
+
+/* 모달 공통 스타일 */
+.editPassword0,
+.editAlias0,
+.editProfile0,
 .withdrawal0 {
   display: none;
 }
+.editPassword1,
+.editAlias1,
+.editProfile1,
 .withdrawal1 {
   animation: fadeIn ease-in-out 1s;
   position: absolute;
-  box-shadow: 2px 4px 12px #cacaca;
-  position: absolute;
-  top: 26%;
-  left: 36%;
+  top: 0;
+  left: 0;
   z-index: 2;
-  width: 460px;
-  height: 420px;
-  border-radius: 12px;
-  border: 1px solid #e1e2e3;
-  background-color: white;
-  .editBtn2 {
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    width: 84%;
-    height: 60px;
-    font-size: 18px;
-    margin: 30px auto;
+  width: 78vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal {
+    position: relative;
+    border-radius: 0.55rem;
+    border: 1px solid #e1e2e3;
+    background-color: white;
+    box-shadow: 0.1rem 0.2rem 0.55rem #cacaca;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    display: block;
-    color: white;
-    background-color: #de5f5f;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    justify-content: center;
   }
   .closeModal {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    width: 0.9rem;
+    height: auto;
+    right: 1.3rem;
+    top: 1.3rem;
     border: none;
     background-color: transparent;
     cursor: pointer;
   }
+  h3,
   p {
-    font-size: 18px;
-    letter-spacing: -1px;
+    letter-spacing: -0.05rem;
+    text-align: center;
+    margin: 0;
+    font-size: 0.9rem;
     font-family: "Arimo_BLD";
     font-weight: 600;
-    text-align: center;
-    margin: 140px auto 100px auto;
+  }
+  p {
+    font-size: 0.75rem;
+    font-family: "Arimo_RGR";
+    font-weight: 400;
+    line-height: 1.2rem;
+    margin: 1rem 0 0 0;
+  }
+  input {
+    letter-spacing: -0.05rem;
+    width: 77%;
+    font-family: "Arimo_RGR";
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+    height: 2.7rem;
+    align-items: center;
+    display: block;
+    border-radius: 0.2rem;
+    border: 1px solid #e1e2e3;
+    margin: 0;
+  }
+  .editBtn {
+    letter-spacing: -0.05rem;
+    font-family: "Arimo_BLD";
+    width: 84%;
+    height: 3rem;
+    font-size: 0.8rem;
+    margin: 0;
+    align-items: center;
+    display: block;
+    color: white;
+    background-color: $blue;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
   }
 }
 
-.modalBG1 {
-  animation: fadeIn2 ease-in-out 1s;
-  z-index: 1;
-  width: 1616px;
-  height: 1080px;
-  position: absolute;
-  background-color: #7c7c7c;
-  opacity: 40%;
-  top: 0px;
-}
-.modalBG0 {
-  display: none;
-}
-
-.chevron {
-  height: auto;
-}
-
-.chevrons {
-  background-color: transparent;
-  border: none;
-  vertical-align: middle;
-  cursor: pointer;
-  margin-left: 12px;
+/* 비밀번호 변경 */
+.editPassword1 {
+  .modal {
+    width: 25rem;
+    height: 23rem;
+  }
+  h3 {
+    margin: 0 0 2rem 0;
+  }
+  input {
+    margin: 0.25rem 0;
+  }
+  .editBtn {
+    margin: 2rem 0 0 0;
+  }
 }
 
+/* 닉네임 변경 */
+.editAlias1 {
+  .modal {
+    width: 22rem;
+    height: 21rem;
+  }
+  input {
+    margin: 2.5rem 0;
+  }
+}
+
+/* 프로필이미지 변경 */
+.editProfile1 {
+  .modal {
+    width: 30rem;
+    height: 26rem;
+  }
+  .alignProfileBtn {
+    width: 68%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .editProfileBtn,
+  .editProfileBtn2 {
+    display: inline-block;
+    letter-spacing: -0.05rem;
+    font-family: "Arimo_BLD";
+    width: 46%;
+    height: 3rem;
+    font-size: 0.8rem;
+    margin: 0;
+    align-items: center;
+    color: white;
+    background-color: $blue;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .editProfileBtn2 {
+    background-color: #898989;
+  }
+}
 .imageUpload {
   width: 80%;
-  height: 66px;
+  height: 3rem;
   border: 1px solid #e1e2e3;
   border-radius: 8px;
-  margin: 40px auto;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
   button {
-    width: 160px;
+    width: 7.5rem;
     background-color: #6ab5ff;
-    height: 50px;
+    height: 2.5rem;
     color: white;
-    border-radius: 6px;
+    border-radius: 0.3rem;
     border: none;
-    position: relative;
-    bottom: 8px;
-    display: inline-block;
+    margin: 0 0 0 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    margin: 8px 8px;
+    .imgUpload {
+      width: 5rem;
+      height: auto;
+      margin: 0;
+    }
   }
   p {
     display: inline-block;
@@ -490,11 +331,32 @@ $blue: #6ab5ff;
     position: relative;
     top: -4px;
   }
-  .imgUpload {
-    position: relative;
-    top: 1px;
-    width: 100px;
-    height: auto;
-    margin: 0 auto;
+}
+
+/* 회원탈퇴 */
+.withdrawal1 {
+  .modal {
+    width: 20rem;
+    height: 20rem;
   }
+  h3 {
+    margin: 1.8rem 0 5rem 0;
+  }
+  .editBtn {
+    background-color: #de5f5f;
+  }
+}
+
+.modalBG1 {
+  animation: fadeIn2 ease-in-out 1s;
+  z-index: 1;
+  width: 78vw;
+  height: 100vh;
+  position: absolute;
+  background-color: #7c7c7c;
+  opacity: 40%;
+  top: 0;
+}
+.modalBG0 {
+  display: none;
 }

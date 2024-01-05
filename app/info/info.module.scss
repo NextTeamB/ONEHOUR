@@ -26,79 +26,78 @@
 
 .root {
   font-family: "Arimo";
-  letter-spacing: -1.5px;
-  width: 100%;
-  height: auto;
+  letter-spacing: -0.05rem;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 140px;
-  padding-bottom: 90px;
 
   .pageTitle {
-    width: 80%;
-    font-size: 33px;
+    width: 76vw;
+    font-size: 1.5rem;
     color: #383838;
     text-align: left;
-    margin-top: 0;
+    margin: 0;
   }
   .wrapper {
-    width: 80%;
-    height: 75%;
+    width: 76vw;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: 50px;
-    padding-top: 48px;
+    justify-content: center;
 
     .imgWrapper {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 80%;
+      height: 44vh;
+      width: 76vw;
       .card2,
       .card3 {
-        width: 42%;
+        width: 40%;
         height: auto;
-        box-shadow: 2px 6px 10px #00000029;
-        border-radius: 20px;
+        box-shadow: 0.125rem 0.425rem 0.625rem #00000029;
+        border-radius: 1rem;
       }
       .card2 {
-        margin-left: 34px;
+        margin-left: 5%;
       }
 
       .dummy {
-        width: 520px;
-        height: auto;
+        height: 86%;
+        width: auto;
+        margin: 0;
+        padding-top: 2.6rem;
       }
     }
     .article {
-      font-size: 18px;
-      line-height: 26px;
+      width: 100%;
+      font-size: 0.9rem;
+      line-height: 1.75rem;
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 0px;
+      margin: 5vh 0 0 0;
     }
     .articleTwo {
       width: 100%;
       text-align: left;
-      font-size: 18px;
-      line-height: 26px;
-      margin-top: -6px;
+      font-size: 0.9rem;
+      line-height: 1.75rem;
+      margin: 0 0 3vh 0;
     }
   }
   .nextBtn {
-    width: 150px;
-    height: 49px;
-    font-size: 15px;
+    width: 9rem;
+    height: 3.1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #0b4f9f;
     background-color: white;
-    box-shadow: 2px 4px 10px #00000029;
+    box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
     border: none;
-    border-radius: 70px;
+    border-radius: 10rem;
     cursor: pointer;
     &.endGuideBtn {
       background-color: #b9dbfd;
@@ -109,7 +108,7 @@
 /* info3 */
 .imgWrapper_info3 {
   width: 100%;
-  height: 80%;
+  height: 46vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,27 +119,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: #6ab5ff;
     background-color: #e0f7ff;
-    border-radius: 26px;
+    border-radius: 1rem;
     p {
       width: 80%;
       text-align: left;
-      font-size: 13px;
+      font-size: 0.625rem;
+      margin: 0.5rem 0 1rem 0;
     }
     :nth-child(1) {
-      font-size: 24px;
+      font-size: 1.125rem;
       font-weight: 600;
-      margin-top: 60px;
-      margin-bottom: -40px;
+      margin: 0;
+      padding: 0.5rem 0 0 0;
     }
     .card {
       width: 80%;
       height: auto;
-      margin-bottom: 40px;
-      box-shadow: 2px 6px 10px #00000029;
-      border-radius: 16px;
+      margin: 0;
+      box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
+      border-radius: 1rem;
     }
   }
 
@@ -150,29 +150,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: #ffffff;
     background-color: #6ab5ff;
-    border-radius: 26px;
+    border-radius: 1rem;
     .trophy {
-      width: 58%;
+      width: 56%;
       height: auto;
-      margin-top: 40px;
     }
     p {
       width: 80%;
       text-align: left;
-      font-size: 13px;
+      font-size: 0.625rem;
     }
     :nth-child(2) {
-      font-size: 21px;
+      font-size: 1.125rem;
       font-weight: 600;
-      margin-top: 40px;
+      margin-top: 1rem;
     }
     :nth-child(3) {
       margin-top: -6px;
-      margin-bottom: 40px;
-      line-height: 23px;
+      line-height: 1rem;
     }
   }
 
@@ -182,28 +180,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: #000000;
     background-color: #f4f4f4;
-    border-radius: 26px;
+    border-radius: 1rem;
     p {
       width: 80%;
       text-align: center;
     }
     :nth-child(1) {
-      font-size: 24px;
+      font-size: 1.125rem;
       font-weight: 600;
-      margin-top: 60px;
+      margin: 0;
     }
     :nth-child(2) {
-      font-size: 13px;
-      line-height: 30px;
-      margin-top: -20px;
+      width: 90%;
+      font-size: 0.54rem;
+      line-height: 1rem;
+      margin: 1rem 0;
     }
     .process {
       width: 60%;
       height: auto;
-      margin-bottom: 40px;
+      margin: 0;
     }
   }
 }
@@ -211,37 +210,36 @@
 /* info4 */
 .imgWrapper_info4 {
   width: 100%;
-  height: 80%;
+  height: 46vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .article1 {
-    width: 58%;
+    width: 56%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     color: #383838;
-    font-size: 13px;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-left: -40px;
-    margin-bottom: 20px;
+    margin: 0;
     .chart {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 1rem;
       :nth-child(1) {
-        font-size: 15px;
+        font-size: 0.6rem;
       }
       .ring {
         width: 70%;
         height: auto;
-        box-shadow: 2px 4px 10px #00000029;
-        border-radius: 300px;
+        box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
+        border-radius: 30rem;
       }
     }
   }
@@ -255,20 +253,20 @@
 /* info5 */
 .imgWrapper_info5 {
   width: 100%;
-  height: 500px;
+  height: 46vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   .card4 {
-    width: 40%;
+    width: 35%;
     height: auto;
-    margin-top: -30px;
+    margin: -0.625rem 0 0 0;
   }
   .card5 {
-    width: 50%;
-    height: auto;
-    margin-top: -16px;
-    box-shadow: 2px 6px 16px #00000029;
-    border-radius: 20px;
+    height: 100%;
+    width: auto;
+    margin: 0;
+    box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
+    border-radius: 1rem;
   }
 }

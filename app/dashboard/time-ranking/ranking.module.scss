@@ -25,173 +25,164 @@
   font-weight: 500;
 }
 
-.top3Box0 {
-  position: relative;
-  width: 380px;
-  height: 360px;
-  background-color: white;
-  border: none;
-  border-radius: 12px;
-  display: inline-block;
-  margin: 20px 30px;
-  box-shadow: 2px 4px 12px #cecece;
-  .nickname {
-    display: block;
-    margin: 20px auto -20px auto;
-    h3 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
-  }
-  .totalChallenge {
-    display: block;
-    h4 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
-  }
+.Upper {
+  width: 78vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.top3Box1 {
-  position: relative;
-  padding-top: 20px;
-  width: 440px;
-  height: 400px;
-  background-color: white;
-  border: none;
-  border-radius: 12px;
-  display: inline-block;
-  margin: 20px 30px;
-  box-shadow: 2px 4px 12px #cecece;
-  .nickname {
-    display: block;
-    margin: 40px auto -20px auto;
-    h3 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
+.titleArea {
+  width: 78vw;
+  text-align: center;
+  letter-spacing: -0.05rem;
+  .title {
+    font-family: "Arimo_MED";
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0b4f9f;
+    margin: -0.7rem 0 0 0;
   }
-  .totalChallenge {
-    display: block;
-    h4 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
+  .crown {
+    width: 17rem;
+    height: auto;
+    margin: 4vh auto 0 auto;
   }
-}
-
-.top3Box2 {
-  position: relative;
-  width: 380px;
-  height: 360px;
-  background-color: white;
-  border: none;
-  border-radius: 12px;
-  display: inline-block;
-  margin: 20px 30px;
-  box-shadow: 2px 4px 12px #cecece;
-  .nickname {
-    display: block;
-    margin: 20px auto -20px auto;
-    h3 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
-  }
-  .totalChallenge {
-    display: block;
-    h4 {
-      display: inline-block;
-    }
-    p {
-      display: inline-block;
-    }
-  }
-}
-
-.profile {
-  width: 160px;
-  height: 160px;
-  border-radius: 200px;
-  background-color: whitesmoke;
-  //   box-shadow: 2px 4px 2px #cecece;
-  display: block;
-  margin: 50px auto 20px auto;
-  z-index: 10;
-  position: relative;
-  .userProfile {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 100px;
+  p {
+    font-family: "Arimo_RGR";
+    letter-spacing: -0.05rem;
+    margin: 1.3rem auto 0 auto;
+    font-size: 0.9rem;
   }
 }
 
 .honorSection {
   animation: fadeIn 2s ease-in;
+  height: 38vh;
+  width: 66vw;
+  margin: 2rem auto 3.5rem auto;
   display: flex;
-  min-height: 400px;
-  width: 1620px;
-  margin: 40px auto 100px auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 }
 
-.titleArea {
-  width: 1620px;
-  text-align: center;
-  .title {
-    font-family: "Arimo_MED";
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: -1px;
-    color: #0b4f9f;
-  }
+.top3Box0, .top3Box2 {
+  position: relative;
+  width: 30%;
+  height: 80%;
+  background-color: white;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0.1rem 0.2rem 0.6rem #cecece;
+  margin: 0.5rem 0 0 0;
+}
 
-  .crown {
-    width: 360px;
-    margin: 40px auto -10px auto;
+.top3Box1 {
+  position: relative;
+  width: 33%;
+  height: 90%;
+  background-color: white;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0.1rem 0.2rem 0.6rem #cecece;
+  .profile {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.profile {
+  width: 5.5rem;
+  height: 5.5rem;
+  // background-color: whitesmoke;
+  margin: 1rem 0 0 0;
+  z-index: 10;
+  position: relative;
+  .userProfile {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 10rem;
+    box-shadow: 0.1rem 0.2rem 0.3rem rgba(206, 206, 206, 0.5) ;
+  }
+  .lauren2, .lauren1, .lauren0 {
+    position: absolute;
+    z-index: 0;
     height: auto;
-    text-align: center;
-    align-items: center;
+    opacity: 0.6;
+  }
+  .lauren2 {
+    width: 164%;
+    top: -1.2rem;
+    left: -1.75rem;
+  }
+  .lauren1 {
+    width: 150%;
+    top: -0.75rem;
+    left: -1.37rem;
+  }
+  .lauren0 {
+    width: 175%;
+    top: -2.05rem;
+    left: -2.2rem;
+  }
+}
+.nickname {
+  margin: 1.2rem 0 0 0;
+  h3 {
+    margin: 0;
+    display: inline-block;
   }
   p {
-    font-family: "Arimo_RGR";
-    letter-spacing: -1px;
-    margin: 30px auto 20px auto;
-    font-size: 18px;
+    margin: 0;
+    display: inline-block;
+  }
+}
+.totalChallenge {
+  margin: 0;
+  h4 {
+    margin: 0;
+    display: inline-block;
+  }
+  p {
+    margin: 0;
+    display: inline-block;
   }
 }
 
 .listArea {
-  min-height: 400px;
+  width: 66vw;
+  min-height: 20vh;
   .lists {
     display: flex;
-    margin: 8px auto;
-    width: 81%;
-    height: 120px;
+    margin: 0 auto 1rem auto;
+    width: 100%;
+    height: 6rem;
     background-color: white;
     border: none;
-    border-radius: 10px;
-    box-shadow: 1px 2px 12px #cecece;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.2rem 0.6rem #cecece;
+    letter-spacing: -0.05rem;
     p {
       display: inline-block;
       font-family: "Arimo_RGR";
-      letter-spacing: -1px;
-      font-size: 20px;
+      font-size: 1rem;
       text-align: center;
       margin: auto auto;
       vertical-align: middle;
@@ -202,70 +193,29 @@
       font-family: "Arimo_BLD";
     }
     .profile2 {
-      width: 90px;
-      height: 90px;
+      width: 4.5rem;
+      height: 4.5rem;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0px 2px 6px #cecece;
-      margin: auto 20px;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.2rem 0.6rem #cecece;
+      margin: auto 1rem;
       .userProfile {
         position: relative;
+        width: 100%;
         height: 100%;
         overflow: hidden;
-        width: 100%;
         border-radius: 10px;
       }
     }
     .nickname2 {
-      width: 160px;
+      width: 8rem;
       display: inline-block;
       font-family: "Arimo_RGR";
       font-weight: 700;
-      letter-spacing: -1px;
-      font-size: 20px;
+      font-size: 1rem;
       text-align: center;
       margin: auto auto;
       vertical-align: middle;
     }
   }
-}
-
-.lauren2 {
-  position: absolute;
-  z-index: 0;
-  top: 32px;
-  left: 70px;
-  width: 240px;
-  height: auto;
-  opacity: 0.6;
-}
-
-.lauren1 {
-  position: absolute;
-  z-index: 0;
-  top: 38px;
-  left: 74px;
-  width: 230px;
-  height: auto;
-  opacity: 0.6;
-}
-
-.lauren0 {
-  position: absolute;
-  z-index: 0;
-  top: 40px;
-  left: 90px;
-  width: 260px;
-  height: auto;
-  opacity: 0.6;
-}
-
-.stars {
-  position: absolute;
-  z-index: 0;
-  top: 16px;
-  left: 180px;
-  width: 80px;
-  height: auto;
-  opacity: 0.8;
 }

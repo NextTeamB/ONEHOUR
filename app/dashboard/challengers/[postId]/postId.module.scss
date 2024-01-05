@@ -42,55 +42,50 @@ $grey3: #e1e2e3;
   }
 }
 .root {
-  width: 100%;
+  width: 78vw;
   -webkit-box-pack: center;
   display: flex;
   justify-content: center;
-  min-height: 1080px;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
 }
 
 .upperSection {
   animation: fadeIn 1s ease-in;
-  width: 1380px;
-  max-height: 1000px;
-  margin: 60px 100px 60px 100px;
-  // background-color: white;
-  //   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  //     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 62vw;
+  min-height: 100vh;
   font-family: "Arimo_RGR";
-  // color: $grey1;
-  letter-spacing: -1px;
+  letter-spacing: -0.05rem;
   .titleSection {
     h2 {
-      margin-top: 120px;
+      margin: 7vw 0 0 0;
     }
     p {
+      font-size: 0.8rem;
       display: inline-block;
     }
     button {
       display: inline-block;
     }
     .deleteBtn {
-      margin: 0 40px;
-      width: 72px;
-      border-radius: 100px;
-      height: 32px;
-      font-size: 12px;
+      margin: 0 2rem;
+      width: 4rem;
+      height: 1.6rem;
+      border-radius: 10rem;
+      font-size: 0.7rem;
       color: white;
       border: none;
       background-color: #bb3027;
-      box-shadow: 1px 2px 6px #cecece;
+      box-shadow: 0.1rem 0.2rem 0.6rem #cecece;
       cursor: pointer;
     }
     .backBtnArea {
       float: right;
+      margin: 0.5rem 0 0 0;
       .backBtn {
-        padding-left: 36px;
-        width: 160px;
-        height: 46px;
-        font-size: 20px;
+        width: 7rem;
+        height: 2rem;
+        font-size: 0.9rem;
         background-color: transparent;
         border: none;
         font-weight: 400;
@@ -98,104 +93,118 @@ $grey3: #e1e2e3;
         cursor: pointer;
         color: #7c7c7c;
         .backArrow {
-          width: 10px;
-          margin-right: 14px;
+          width: 0.5rem;
+          margin: 0 0.6rem -0.05rem 0;
           height: auto;
         }
       }
     }
   }
   hr {
-    margin: 40px auto;
+    margin: 4vh auto;
     opacity: 40%;
   }
   .articleSection {
-    font-size: 18px;
+    font-size: 0.9rem;
     .imgBox {
       color: white;
       background-color: #383838;
-      border-radius: 6px;
+      border-radius: 0.3rem;
       width: 100%;
-      height: 400px;
+      height: 37vh;
       overflow: hidden;
+      position: relative;
       .postImg {
         width: 100%;
-        height: auto;
-        margin: -42% 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
       }
     }
     .articleBox {
-      margin: 40px auto;
+      margin: 2rem auto;
     }
   }
 }
 
 
-.modal0 {
+.modalBack0 {
   display: none;
 }
-.modal1 {
+.modalBack1 {
   animation: fadeIn ease-in-out 1s;
   position: absolute;
-  box-shadow: 2px 4px 12px #cacaca;
-  position: absolute;
-  top: 30%;
-  left: 47%;
   z-index: 2;
-  width: 460px;
-  height: 420px;
-  border-radius: 12px;
-  border: 1px solid #e1e2e3;
-  background-color: white;
+  width: 78vw;
+  height: 100vh;
+  top: 0;
+  left: 22vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  .btnWrap {
-    width: 84%;
+  justify-content: center;
+  background-color: transparent;
+  .modal1 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    .cancelBtn, .deleteBtn {
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    box-shadow: 0.1rem 0.2rem 0.6rem #cacaca;
+    border-radius: 0.6rem;
+    border: 1px solid #e1e2e3;
+    background-color: white;
+    .btnWrap {
+      width: 82%;
+      height: 20%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .cancelBtn, .deleteBtn {
+        letter-spacing: -1px;
+        font-family: "Arimo_BLD";
+        width: 47.5%;
+        height: 2.7rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        align-items: center;
+        display: block;
+        color: white;
+        background-color: #DE5F5F;
+        border: none;
+        border-radius: 0.4rem;
+        margin: 0;
+        cursor: pointer;
+      }
+      .cancelBtn {
+        background-color: #6ab5ff;
+      }
+    }
+    p {
+      height: 60%;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
       letter-spacing: -1px;
       font-family: "Arimo_BLD";
-      width: 50%;
-      height: 60px;
-      font-size: 18px;
-      margin: 30px auto;
-      align-items: center;
-      display: block;
-      color: white;
-      background-color: #DE5F5F;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
     }
-    .cancelBtn {
-      background-color: #6ab5ff;
-    }
-  }
-  p {
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-family: "Arimo_BLD";
-    font-weight: 600;
-    text-align: center;
-    margin: 140px auto 100px auto;
   }
 }
 
 .modalBG1 {
-  animation: fadeIn2 ease-in-out 1s;
   z-index: 1;
-  width: 1920px;
-  height: 1080px;
+  width: 78vw;
+  height: 100vh;
   position: absolute;
+  animation: fadeIn2 ease-in-out 1s;
   background-color: #7c7c7c;
   opacity: 40%;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 22vw;
 }
 .modalBG0 {
   display: none;

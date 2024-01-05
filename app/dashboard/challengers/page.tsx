@@ -5,6 +5,8 @@ import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import userIcon from "../../../public/user-icon-box.png";
+import plusIcon from "../../../public/icon-plus-circle.png";
+import basicImg from "../../../public/challlengers-basic-img.png";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import { useObserver } from "@/components/IntersectionObserver";
@@ -34,6 +36,8 @@ const Challengers = () => {
       params: { limit: LIMIT, offset: pageParam },
     });
     if (res.data.hasNextPage == false) isLastPage = true;
+    
+    console.log(res.data);
     return res.data;
   };
 
@@ -84,7 +88,7 @@ const Challengers = () => {
             }}
             className={styles.newpostBtn}
           >
-            <div className={styles.plusWrap}>+</div>
+            <Image src={plusIcon} alt="plusIcon" className={styles.plusIcon} />
           </button>
           <p className={styles.newpostText}>새로운 게시글을 작성해주세요</p>
         </div>
@@ -104,24 +108,32 @@ const Challengers = () => {
                   >
                     <div className={styles.postContainer}>
                       <div className={styles.imgBox}>
-                        <img
-                          src={post.postImgUrl}
-                          alt="postImg"
-                          className={styles.postImg}
-                        />
+                        {post.postImgUrl !== "undefined" ? (
+                          <img
+                            src={post.postImgUrl}
+                            alt="postImg"
+                            className={styles.postImg}
+                          />
+                        ) : (
+                          <Image
+                            src={basicImg}
+                            alt="basicImg"
+                            className={styles.postImg}
+                          />
+                        )}
                       </div>
                     </div>
                     <div className={styles.postUser}>
                       <h4 className={styles.postTitle}>{post.title}</h4>
                       <hr className={styles.postHr} />
-                      <Image
-                        src={userIcon}
-                        alt="userIcon"
-                        className={styles.userIcon}
-                      />
-                      <p className={styles.nickWrap}>
+                      <div className={styles.nickWrap}>
+                        <Image
+                          src={userIcon}
+                          alt="userIcon"
+                          className={styles.userIcon}
+                        />
                         <span>{post.nickname}</span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </>

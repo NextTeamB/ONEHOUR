@@ -25,12 +25,11 @@
 
 .LoginForm {
   /* background-color: #f7f7f7; */
-  width: 100%;
+  width: 100vw;
   -webkit-box-pack: center;
   display: flex;
   justify-content: center;
-  min-height: 1080px;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
 }
 
@@ -46,17 +45,17 @@
   /* max-height: calc(100vh - 80px); */
   background-color: white;
   border: 1px solid #e1e2e3;
-  border-radius: 5px;
-  padding: 20px;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 .LoginTitle {
-  font-size: 26px;
+  font-size: 1.5rem;
   letter-spacing: -0.023em;
   text-align: center;
   font-family: "Arimo";
   font-weight: 700;
   line-height: 32px;
-  margin: 50px auto;
+  margin: 2.5rem auto;
 }
 
 .subtitle {
@@ -66,12 +65,12 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   text-align: center;
-  margin: 0px auto 40px auto;
-  font-size: 14px;
+  margin: 0 auto 2rem auto;
+  font-size: 1rem;
 }
 
 .formTitle {
-  margin: 17px 0px 14px 410px;
+  margin: 1rem 0px 1rem 410px;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -349,13 +348,13 @@
 .modalBG1, .modalBG2 {
   animation: fadeIn2 ease-in-out 1s;
   z-index: 1;
-  width: 1920px;
-  height: 1080px;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   background-color: #7c7c7c;
   opacity: 40%;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
 .modalBG0 {
   display: none;

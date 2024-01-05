@@ -29,6 +29,7 @@ export default function PostId({ params }: { params: { postId: number } }) {
   const BASE_POST_IMG_URL = `${process.env.DEFAULT_POST_IMG_URL}`;
   let [postList, setPostList] = useState<postInfo[]>([]);
   const [modalState, setModalState] = useState(0);  // 게시글 삭제 모달 상태
+  const [deleteState, setDeleteState] = useState(0);  // 게시글 삭제완료 상태
 
   useEffect(() => {
     console.log(params.postId);
@@ -48,7 +49,8 @@ export default function PostId({ params }: { params: { postId: number } }) {
         params: { postId: params.postId },
       })
       .then((res) => {
-        setModalState(1);
+        console.log("게시글 삭제 완료");
+        router.push("/dashboard/challengers");
         // alert("게시글이 삭제되었습니다");
       })
       .catch((err) => {
@@ -77,7 +79,7 @@ export default function PostId({ params }: { params: { postId: number } }) {
             {postList[0].email === userInfo.email ? (
               <button
                 className={styles.deleteBtn}
-                onClick={deletePost}
+                onClick={() => setModalState(1)}
               >
                 삭제하기
               </button>
@@ -124,24 +126,25 @@ export default function PostId({ params }: { params: { postId: number } }) {
         <></>
       )}
       {/* 게시글 삭제 모달 */}
-      <div className={styles[`modal${modalState}`]}>
-        <p>게시글을 삭제하시겠습니까?</p>
-        <div className={styles.btnWrap}>
-          <button
-            className={styles.cancelBtn}
-            onClick={closeModal}
-          >
-            취소
-          </button>
-          <button
-            className={styles.deleteBtn}
-            onClick={() => {
-              closeModal();
-              router.push("/dashboard/challengers");
-            }}
-          >
-            삭제
-          </button>
+      <div className={styles[`modalBack${modalState}`]}>
+        <div className={styles.modal1}>
+          <p>게시글을 삭제하시겠습니까?</p>
+          <div className={styles.btnWrap}>
+            <button
+              className={styles.cancelBtn}
+              onClick={closeModal}
+            >
+              취소
+            </button>
+            <button
+              className={styles.deleteBtn}
+              onClick={() => {
+                deletePost();
+              }}
+            >
+              삭제
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles[`modalBG${modalState}`]} onClick={closeModal}></div>

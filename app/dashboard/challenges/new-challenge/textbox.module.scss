@@ -1,18 +1,19 @@
 .textbox {
   width: 34vw;
-  height: 70px;
+  height: 6vh;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: -1px;
+  letter-spacing: -0.05rem;
   color: black;
   border: none;
   text-decoration: none;
   background-color: white;
   border: 1px solid #e1e2e3;
-  border-radius: 10px;
-  padding-left: 30px;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
 
   &:focus {
     outline: none;
