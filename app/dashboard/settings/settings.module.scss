@@ -41,322 +41,325 @@
 $color: #383838;
 $blue: #6ab5ff;
 
-.settingsForm {
-  position: relative;
-  min-width: 78vw;
-  height: 100vh;
-  -webkit-box-pack: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.titleSec {
-  animation: fadeIn ease-in-out 1s;
-  height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Arimo_MED";
-  letter-spacing: -0.05rem;
-  margin: 0 0 6vh 0;
-  .title {
-    color: $blue;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 0;
-  }
-  .subtitle {
-    font-size: 0.9rem;
-    margin: 0;
-    color: #7c7c7c;
-  }
-}
-
-.bodySec {
-  width: 48vw;
-  height: 62vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.settingsBox, .settingsBox2 {
-  width: 100%;
-  height: 42vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border: 1px solid #e1e2e3;
-  border-radius: 0.5rem;
-  padding: 3vh 0;
-}
-
-.settingsBox2 {
-  height: 11vh;
-  justify-content: center;
-  padding: 0;
-}
-
-.form, .withdrawal{
-  width: 85%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  color: #383838;
-  background-color: white;
-  border: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  h3 {
-    font-family: "Arimo_BLD";
-    letter-spacing: -0.05rem;
-    font-size: 0.9rem;
-  }
-  p {
-    text-align: center;
-    width: 50%;
-    letter-spacing: -0.05rem;
-    font-size: 0.9rem;
-    font-family: "Arimo_RGR";
-  }
-  .chevrons {
-    width: 1.3rem;
-    height: 1.3rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .chevron {
-      width: 100%;
-      height: auto;
-    }
-  }
-}
-.settingsBox:nth-child(0) {
-  cursor: none;
-}
-.withdrawal {
-  height: 100%;
-}
-
-/* 모달 공통 스타일 */
-.editPassword0,
-.editAlias0,
-.editProfile0,
-.withdrawal0 {
-  display: none;
-}
-.editPassword1,
-.editAlias1,
-.editProfile1,
-.withdrawal1 {
-  animation: fadeIn ease-in-out 1s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 78vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .modal {
+/* 태블릿 가로 ~ 웹 브라우저 */
+@media (min-width: 769px) {
+  .settingsForm {
     position: relative;
-    border-radius: 0.55rem;
-    border: 1px solid #e1e2e3;
-    background-color: white;
-    box-shadow: 0.1rem 0.2rem 0.55rem #cacaca;
+    min-width: 78vw;
+    height: 100vh;
+    -webkit-box-pack: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .closeModal {
-    position: absolute;
-    width: 0.9rem;
-    height: auto;
-    right: 1.3rem;
-    top: 1.3rem;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  h3,
-  p {
-    letter-spacing: -0.05rem;
-    text-align: center;
-    margin: 0;
-    font-size: 0.9rem;
-    font-family: "Arimo_BLD";
-    font-weight: 600;
-  }
-  p {
-    font-size: 0.75rem;
-    font-family: "Arimo_RGR";
-    font-weight: 400;
-    line-height: 1.2rem;
-    margin: 1rem 0 0 0;
-  }
-  input {
-    letter-spacing: -0.05rem;
-    width: 77%;
-    font-family: "Arimo_RGR";
-    font-size: 0.75rem;
-    padding: 0 0.5rem;
-    height: 2.7rem;
-    align-items: center;
-    display: block;
-    border-radius: 0.2rem;
-    border: 1px solid #e1e2e3;
-    margin: 0;
-  }
-  .editBtn {
-    letter-spacing: -0.05rem;
-    font-family: "Arimo_BLD";
-    width: 84%;
-    height: 3rem;
-    font-size: 0.8rem;
-    margin: 0;
-    align-items: center;
-    display: block;
-    color: white;
-    background-color: $blue;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-}
 
-/* 비밀번호 변경 */
-.editPassword1 {
-  .modal {
-    width: 25rem;
-    height: 23rem;
-  }
-  h3 {
-    margin: 0 0 2rem 0;
-  }
-  input {
-    margin: 0.25rem 0;
-  }
-  .editBtn {
-    margin: 2rem 0 0 0;
-  }
-}
-
-/* 닉네임 변경 */
-.editAlias1 {
-  .modal {
-    width: 22rem;
-    height: 21rem;
-  }
-  input {
-    margin: 2.5rem 0;
-  }
-}
-
-/* 프로필이미지 변경 */
-.editProfile1 {
-  .modal {
-    width: 30rem;
-    height: 26rem;
-  }
-  .alignProfileBtn {
-    width: 68%;
+  .titleSec {
+    animation: fadeIn ease-in-out 1s;
+    height: 10vh;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
-  }
-  .editProfileBtn,
-  .editProfileBtn2 {
-    display: inline-block;
-    letter-spacing: -0.05rem;
-    font-family: "Arimo_BLD";
-    width: 46%;
-    height: 3rem;
-    font-size: 0.8rem;
-    margin: 0;
+    flex-direction: column;
     align-items: center;
-    color: white;
-    background-color: $blue;
+    justify-content: space-between;
+    font-family: "Arimo_MED";
+    letter-spacing: -0.05rem;
+    margin: 0 0 6vh 0;
+    .title {
+      color: $blue;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      margin: 0;
+      color: #7c7c7c;
+    }
+  }
+
+  .bodySec {
+    width: 48vw;
+    height: 62vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .settingsBox, .settingsBox2 {
+    width: 100%;
+    height: 42vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #e1e2e3;
+    border-radius: 0.5rem;
+    padding: 3vh 0;
+  }
+
+  .settingsBox2 {
+    height: 11vh;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .form, .withdrawal{
+    width: 85%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #383838;
+    background-color: white;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
+    h3 {
+      font-family: "Arimo_BLD";
+      letter-spacing: -0.05rem;
+      font-size: 0.9rem;
+    }
+    p {
+      text-align: center;
+      width: 50%;
+      letter-spacing: -0.05rem;
+      font-size: 0.9rem;
+      font-family: "Arimo_RGR";
+    }
+    .chevrons {
+      width: 1.3rem;
+      height: 1.3rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .chevron {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
-  .editProfileBtn2 {
-    background-color: #898989;
+  .settingsBox:nth-child(0) {
+    cursor: none;
   }
-}
-.imageUpload {
-  width: 80%;
-  height: 3rem;
-  border: 1px solid #e1e2e3;
-  border-radius: 8px;
-  margin: 2rem auto;
-  display: flex;
-  align-items: center;
-  button {
-    width: 7.5rem;
-    background-color: #6ab5ff;
-    height: 2.5rem;
-    color: white;
-    border-radius: 0.3rem;
-    border: none;
-    margin: 0 0 0 0.3rem;
+  .withdrawal {
+    height: 100%;
+  }
+
+  /* 모달 공통 스타일 */
+  .editPassword0,
+  .editAlias0,
+  .editProfile0,
+  .withdrawal0 {
+    display: none;
+  }
+  .editPassword1,
+  .editAlias1,
+  .editProfile1,
+  .withdrawal1 {
+    animation: fadeIn ease-in-out 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 78vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    .imgUpload {
-      width: 5rem;
+    .modal {
+      position: relative;
+      border-radius: 0.55rem;
+      border: 1px solid #e1e2e3;
+      background-color: white;
+      box-shadow: 0.1rem 0.2rem 0.55rem #cacaca;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .closeModal {
+      position: absolute;
+      width: 0.9rem;
       height: auto;
+      right: 1.3rem;
+      top: 1.3rem;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    h3,
+    p {
+      letter-spacing: -0.05rem;
+      text-align: center;
+      margin: 0;
+      font-size: 0.9rem;
+      font-family: "Arimo_BLD";
+      font-weight: 600;
+    }
+    p {
+      font-size: 0.75rem;
+      font-family: "Arimo_RGR";
+      font-weight: 400;
+      line-height: 1.2rem;
+      margin: 1rem 0 0 0;
+    }
+    input {
+      letter-spacing: -0.05rem;
+      width: 77%;
+      font-family: "Arimo_RGR";
+      font-size: 0.75rem;
+      padding: 0 0.5rem;
+      height: 2.7rem;
+      align-items: center;
+      display: block;
+      border-radius: 0.2rem;
+      border: 1px solid #e1e2e3;
       margin: 0;
     }
+    .editBtn {
+      letter-spacing: -0.05rem;
+      font-family: "Arimo_BLD";
+      width: 84%;
+      height: 3rem;
+      font-size: 0.8rem;
+      margin: 0;
+      align-items: center;
+      display: block;
+      color: white;
+      background-color: $blue;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
   }
-  p {
-    display: inline-block;
-    margin: 25px auto 25px 60px;
-    font-size: 14px;
-    position: relative;
-    top: -4px;
-  }
-}
 
-/* 회원탈퇴 */
-.withdrawal1 {
-  .modal {
-    width: 20rem;
-    height: 20rem;
+  /* 비밀번호 변경 */
+  .editPassword1 {
+    .modal {
+      width: 25rem;
+      height: 23rem;
+    }
+    h3 {
+      margin: 0 0 2rem 0;
+    }
+    input {
+      margin: 0.25rem 0;
+    }
+    .editBtn {
+      margin: 2rem 0 0 0;
+    }
   }
-  h3 {
-    margin: 1.8rem 0 5rem 0;
-  }
-  .editBtn {
-    background-color: #de5f5f;
-  }
-}
 
-.modalBG1 {
-  animation: fadeIn2 ease-in-out 1s;
-  z-index: 1;
-  width: 78vw;
-  height: 100vh;
-  position: absolute;
-  background-color: #7c7c7c;
-  opacity: 40%;
-  top: 0;
-}
-.modalBG0 {
-  display: none;
+  /* 닉네임 변경 */
+  .editAlias1 {
+    .modal {
+      width: 22rem;
+      height: 21rem;
+    }
+    input {
+      margin: 2.5rem 0;
+    }
+  }
+
+  /* 프로필이미지 변경 */
+  .editProfile1 {
+    .modal {
+      width: 30rem;
+      height: 26rem;
+    }
+    .alignProfileBtn {
+      width: 68%;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .editProfileBtn,
+    .editProfileBtn2 {
+      display: inline-block;
+      letter-spacing: -0.05rem;
+      font-family: "Arimo_BLD";
+      width: 46%;
+      height: 3rem;
+      font-size: 0.8rem;
+      margin: 0;
+      align-items: center;
+      color: white;
+      background-color: $blue;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .editProfileBtn2 {
+      background-color: #898989;
+    }
+  }
+  .imageUpload {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid #e1e2e3;
+    border-radius: 8px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    button {
+      width: 7.5rem;
+      background-color: #6ab5ff;
+      height: 2.5rem;
+      color: white;
+      border-radius: 0.3rem;
+      border: none;
+      margin: 0 0 0 0.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      .imgUpload {
+        width: 5rem;
+        height: auto;
+        margin: 0;
+      }
+    }
+    p {
+      display: inline-block;
+      margin: 25px auto 25px 60px;
+      font-size: 14px;
+      position: relative;
+      top: -4px;
+    }
+  }
+
+  /* 회원탈퇴 */
+  .withdrawal1 {
+    .modal {
+      width: 20rem;
+      height: 20rem;
+    }
+    h3 {
+      margin: 1.8rem 0 5rem 0;
+    }
+    .editBtn {
+      background-color: #de5f5f;
+    }
+  }
+
+  .modalBG1 {
+    animation: fadeIn2 ease-in-out 1s;
+    z-index: 1;
+    width: 78vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #7c7c7c;
+    opacity: 40%;
+    top: 0;
+  }
+  .modalBG0 {
+    display: none;
+  }
 }
