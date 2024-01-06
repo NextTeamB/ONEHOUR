@@ -5,7 +5,7 @@ import styles from "./challengers.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import userIcon from "../../../public/user-icon-box.png";
-import plusIcon from "../../../public/icon-plus-circle.png";
+import plusIcon from "../../../public/icon_plus_circle.png";
 import basicImg from "../../../public/challlengers-basic-img.png";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
