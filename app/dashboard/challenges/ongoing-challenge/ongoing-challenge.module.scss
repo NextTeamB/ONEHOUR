@@ -171,7 +171,7 @@ $green: #64dab5;
           justify-content: center;
           font-size: 0.55rem;
           font-weight: 600;
-          letter-spacing: -1px;
+          letter-spacing: -0.05rem;
           color: black;
           border: none;
           text-decoration: none;
@@ -349,7 +349,7 @@ $green: #64dab5;
   justify-content: center;
   gap: 9vh;
   .editBtn0 {
-    letter-spacing: -1px;
+    letter-spacing: -0.05rem;
     font-family: "Arimo_BLD";
     width: 84%;
     height: 2.8rem;
@@ -368,7 +368,7 @@ $green: #64dab5;
   }
   h4 {
     text-align: center;
-    letter-spacing: -1px;
+    letter-spacing: -0.05rem;
     font-family: "Arimo_RGR";
     font-weight: 500;
     color: $green;
@@ -384,7 +384,7 @@ $green: #64dab5;
   }
   p {
     font-size: 0.8rem;
-    letter-spacing: -1px;
+    letter-spacing: -0.05rem;
     font-family: "Arimo_BLD";
     font-weight: 600;
     text-align: center;
