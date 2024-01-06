@@ -92,7 +92,7 @@ const Navigator = (props: { children: ReactNode }) => {
                   router.push("/dashboard");
                 }}
                 className={styles.logoWrapper}>
-                <Image src={logo} height={35} alt="logoImage"></Image>
+                <Image className={styles.logoImg} src={logo} alt="logoImage"></Image>
               </div>
               <hr className={styles.breakline}></hr>
               <div className={styles.profileWrapper}>
@@ -110,55 +110,59 @@ const Navigator = (props: { children: ReactNode }) => {
               </div>
               <hr className={styles.breakline}></hr>
               <div className={styles.commentWrapper}>
-                <div>착실하게 하루 한 시간! 원아워와 함께 해요</div>
-              </div>
-              <div
-                onClick={() => {
-                  router.push("/dashboard/challenges");
-                }}
-                className={`${
-                  pathname?.includes("ongoing-challenge") &&
-                  styles.challengeButtonSelected
-                } ${styles.challengeButton}`}>
-                <p>
-                  {pathname?.includes("challenges")
-                    ? "LET’S GO !"
-                    : "START CHALLENGE"}
-                </p>
-                <IoIosCheckmarkCircle
-                  className={styles.challengeIcon}></IoIosCheckmarkCircle>
+                <p>착실하게 하루 한 시간! 원아워와 함께 해요</p>
+                <button
+                  onClick={() => {
+                    router.push("/dashboard/challenges");
+                  }}
+                  className={`${
+                    pathname?.includes("ongoing-challenge") &&
+                    styles.challengeButtonSelected
+                  } ${styles.challengeButton}`}>
+                  <p>
+                    {pathname?.includes("challenges")
+                      ? "LET’S GO !"
+                      : "START CHALLENGE"}
+                  </p>
+                  <IoIosCheckmarkCircle
+                    className={styles.challengeIcon}></IoIosCheckmarkCircle>
+                </button>
               </div>
               <hr className={styles.breakline}></hr>
               <div className={styles.menuWrapper}>
-                {menuData.map((menu, index) => {
-                  return (
-                    <div key={index}>
-                      <Link
-                        href={menu.path}
-                        className={`${styles.menuList} ${
-                          highlightMenu(menu.path) && styles.selected
-                        }`}>
-                        {menu.icon}
-                        <div className={styles.menuText}>{menu.name}</div>
-                      </Link>
-                    </div>
-                  );
-                })}
+                <div>
+                  {menuData.map((menu, index) => {
+                    return (
+                      <div key={index}>
+                        <Link
+                          href={menu.path}
+                          className={`${styles.menuList} ${
+                            highlightMenu(menu.path) && styles.selected
+                          }`}>
+                          {menu.icon}
+                          <div className={styles.menuText}>{menu.name}</div>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
               <hr className={styles.breakline}></hr>
               <div className={styles.subMenuWrapper}>
-                {subMenus.map((menu, index) => (
-                  <div
-                    className={styles.subMenuList}
-                    key={index}
-                    onClick={() => {
-                      if (menu === "로그아웃") {
-                        onLogout();
-                      }
-                    }}>
-                    <div>{menu}</div>
-                  </div>
-                ))}
+                <div className={styles.subMenuBox}>
+                  {subMenus.map((menu, index) => (
+                    <div
+                      className={styles.subMenuList}
+                      key={index}
+                      onClick={() => {
+                        if (menu === "로그아웃") {
+                          onLogout();
+                        }
+                      }}>
+                      <div>{menu}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

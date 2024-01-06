@@ -92,98 +92,101 @@ const NewPost = () => {
 
   return (
     <div className={styles.upper}>
-      <input
-        type="file"
-        name="postImgInput"
-        accept="image/*"
-        ref={postImgInputRef} // inputRef로 접근할 수 있도록 ref 지정
-        onChange={onUploadImg}
-        style={{ display: "none" }} // input 요소는 원하는대로 스타일링을 하는 것이 제한적이므로 이를 숨기고 따로 생성한 이미지 업로드 버튼 클릭 이벤트를 통해 이미지 업로드 구현
-      />
-      <div className={styles.titleWrap}>
-        <div className={styles.title}>새로운 게시글을 작성합니다</div>
-        <div className={styles.title_sub}>
-          커뮤니티 수칙을 위반한 내용의 게시물은 고지 없이 삭제될 수 있으며, 위반
-          시 법적 책임의 소지가 있음을 알립니다
-        </div>
-      </div>
-      <hr className={styles.underline1} />
-      <div className={styles.postBox}>
+      <div className={styles.wrapper}>
         <input
-          onChange={onChange}
-          name="postTitle"
-          type="text"
-          placeholder="제목을 입력하세요"
-        ></input>
-        <textarea
-          onChange={onChange}
-          name="postContent"
-          placeholder="본문을 입력하세요"
-        ></textarea>
-        <div className={styles.imgWrapper}>
-          <p>파일 크기는 10MB를 초과할 수 없습니다</p>
-          <h4 className={styles.fileName}>{trimedFileName}</h4>
-
-          <button
-            onClick={() => {
-              onUploadImgButtonClick(postImgInputRef);
-            }}
-          >
-            <Image
-              src={imageUpload}
-              alt="imageupload"
-              className={styles.imageUp}
-            />
-          </button>
-        </div>
-        {buttonClicked ? (
-          <div className={styles.buttonWrapper}>
-            <button
-              onClick={() => {
-                cancelPost();
-              }}
-            >
-              나가기
-            </button>
-            <button
-              onClick={() => {
-                setButtonClicked(false);
-                sendPost();
-              }}
-            >
-              작성하기
-              <Image
-                src={circleRight}
-                alt="circleRight"
-                className={styles.circleRight}
-              />
-            </button>
+          type="file"
+          name="postImgInput"
+          accept="image/*"
+          ref={postImgInputRef} // inputRef로 접근할 수 있도록 ref 지정
+          onChange={onUploadImg}
+          style={{ display: "none" }} // input 요소는 원하는대로 스타일링을 하는 것이 제한적이므로 이를 숨기고 따로 생성한 이미지 업로드 버튼 클릭 이벤트를 통해 이미지 업로드 구현
+        />
+        <div className={styles.titleWrap}>
+          <div className={styles.title}>새로운 게시글을 작성합니다</div>
+          <div className={styles.title_sub}>
+            커뮤니티 수칙을 위반한 내용의 게시물은 고지 없이 삭제될 수 있으며, 위반
+            시 법적 책임의 소지가 있음을 알립니다
           </div>
-        ) : (
-          <p className={styles.empty}>작성중입니다</p>
-        )}
-
-        {showModal && (
-          <div className={styles.modalBackdrop}>
-            <div className={styles.modal}>
-              <div className={styles.modalTop}>
+        </div>
+        <hr className={styles.underline1} />
+        <div className={styles.postBox}>
+          <input
+            onChange={onChange}
+            name="postTitle"
+            type="text"
+            placeholder="제목을 입력하세요"
+          ></input>
+          <textarea
+            onChange={onChange}
+            name="postContent"
+            placeholder="본문을 입력하세요"
+          ></textarea>
+          <div className={styles.imgWrapper}>
+            <div className={styles.imgSelect}>
+              <button
+                onClick={() => {
+                  onUploadImgButtonClick(postImgInputRef);
+                }}
+              >
                 <Image
-                  onClick={closeModal}
-                  src={close}
-                  alt="close"
-                  className={styles.closeIcon}
+                  src={imageUpload}
+                  alt="imageupload"
+                  className={styles.imageUp}
                 />
-              </div>
-              <div className={styles.modalText}>
-                <h3>게시글 작성을 취소하시겠습니까?</h3>
-                <p>작성 중인 내용은 저장되지 않습니다.</p>
-              </div>
-              <button onClick={confirmCancel} className={styles.cancelBtn}>
-                작성취소
+              </button>
+              <h4 className={styles.fileName}>{trimedFileName}</h4>
+            </div>
+            <p>파일 크기는 10MB를 초과할 수 없습니다</p>
+          </div>
+          {buttonClicked ? (
+            <div className={styles.buttonWrapper}>
+              <button
+                onClick={() => {
+                  cancelPost();
+                }}
+              >
+                나가기
+              </button>
+              <button
+                onClick={() => {
+                  setButtonClicked(false);
+                  sendPost();
+                }}
+              >
+                작성하기
+                <Image
+                  src={circleRight}
+                  alt="circleRight"
+                  className={styles.circleRight}
+                />
               </button>
             </div>
-          </div>
-        )}
+          ) : (
+            <p className={styles.empty}>작성중입니다</p>
+          )}
+
+          {showModal && (
+            <div className={styles.modalBackdrop}>
+              <div className={styles.modal}>
+                <div className={styles.modalTop}>
+                  <Image
+                    onClick={closeModal}
+                    src={close}
+                    alt="close"
+                    className={styles.closeIcon}
+                  />
+                </div>
+                <div className={styles.modalText}>
+                  <h3>게시글 작성을 취소하시겠습니까?</h3>
+                  <p>작성 중인 내용은 저장되지 않습니다.</p>
+                </div>
+                <button onClick={confirmCancel} className={styles.cancelBtn}>
+                  작성취소
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

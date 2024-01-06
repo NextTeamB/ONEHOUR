@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "./login.module.scss";
 import Image from "next/image";
-import logo from "../../public/logo.png";
+import logo from "../../public/logo-blue.png";
 // import kakao from "../../public/kakaotalk_logo_icon_147272.png";
 import chevron from "../../public/icons8-셰브론-오른쪽-52.png";
 import Link from "next/link";
@@ -79,13 +79,8 @@ function LoginForm() {
           alt="logo_login"
         />
         <h4 className={styles.LoginTitle}>
-          원아워서비스 이용을 위해 로그인해주세요
+          원아워 서비스 이용을 위해 로그인해주세요
         </h4>
-        <p className={styles.subtitle}>
-          원아워가 제공하는 서비스를
-          <br />
-          하나의 계정으로 모두 이용할 수 있습니다
-        </p>
         <p className={styles.formTitle}>이메일</p>
         <input
           className={
