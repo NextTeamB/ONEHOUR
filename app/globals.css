@@ -1,6 +1,6 @@
-@import url('https://fonts.cdnfonts.com/css/debussy');
-@import url('https://db.onlinewebfonts.com/c/91216119af97287db2788e2cf0cf4068?family=Helvetica+Rounded+LT+Black');
-@import url('https://db.onlinewebfonts.com/c/ac78111d5e1e6dc73eb1aaf06ec60963?family=Debussy');
+@import url("https://fonts.cdnfonts.com/css/debussy");
+@import url("https://db.onlinewebfonts.com/c/91216119af97287db2788e2cf0cf4068?family=Helvetica+Rounded+LT+Black");
+@import url("https://db.onlinewebfonts.com/c/ac78111d5e1e6dc73eb1aaf06ec60963?family=Debussy");
 
 @font-face {
   font-family: "Arimo";
@@ -11,27 +11,41 @@
   font-family: "Debussy";
   font-style: normal;
   font-weight: 500;
-  src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
+  src:
+    local("Debussy"),
+    url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format("woff");
 }
 
 @font-face {
   font-family: "Debussy";
   src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot");
-  src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")
+      format("svg");
 }
 
 @font-face {
   font-family: "Helvetica Rounded LT Black";
   src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot");
-  src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.svg#Helvetica Rounded LT Black")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.svg#Helvetica Rounded LT Black")
+      format("svg");
 }
 
 .Upper {
@@ -41,6 +55,52 @@
   margin: 0;
 }
 
+/* 작은 모바일 */
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 480px) {
+  html {
+    font-size: 10px;
+  }
+}
+/* 모바일 및 태블릿 세로 */
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* 태블릿 가로 및 소형 노트북 */
+@media (min-width: 769px) and (max-width: 1023px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 대형 노트북 */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+/* 대형 디스플레이 */
+@media (min-width: 1920px) {
+  html {
+    font-size: 22px;
+  }
+}
 /*
 .hidden {
   overflow: hidden;
