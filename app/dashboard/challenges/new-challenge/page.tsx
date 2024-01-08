@@ -35,7 +35,7 @@ export default function Newchallenge() {
         title: title,
         description: description,
         difficulty: difficulty,
-      }),
+      })
     );
     router.push("/dashboard/challenges/ongoing-challenge");
   };
@@ -54,7 +54,7 @@ export default function Newchallenge() {
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.section1}>
-            <span>START CHALLENGE !</span>
+          START CHALLENGE !
         </div>
         <div className={styles.section2}>
           <div className={styles.article}>
@@ -72,7 +72,6 @@ export default function Newchallenge() {
             <span>나의 다짐을 입력해주세요</span>
             <span>( 선택 )</span>
           </div>
-          <p></p>
           <TextBox value={description} onChange={setDescription} />
         </div>
         <div className={styles.section4}>

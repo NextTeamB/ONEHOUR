@@ -24,7 +24,8 @@
 
 @media (min-width: 990px) and (max-width: 1200px) {
   .root {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
   }
   .section1 {
     overflow: hidden;

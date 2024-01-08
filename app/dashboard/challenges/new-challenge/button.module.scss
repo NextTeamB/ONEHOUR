@@ -1,21 +1,25 @@
+
+/* 태블릿 가로 ~ 웹 브라우저 */
+@media (min-width: 769px) {
 .difficultyBtn {
-  position: relative;
-  width: 108px;
-  height: 108px;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  color: black;
-  border: none;
-  text-decoration: none;
-  background-color: white;
-  border: 1px solid #e1e2e3;
-  border-radius: 100px;
-  cursor: pointer;
-}
-.clicked {
-  background-color: #0b4f9f;
-  color: white;
+    position: relative;
+    width: 5.65vw;
+    height: 5.65vw;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.05rem;
+    color: black;
+    border: none;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #e1e2e3;
+    border-radius: 10rem;
+    cursor: pointer;
+  }
+  .clicked {
+    background-color: #0b4f9f;
+    color: white;
+  }
 }

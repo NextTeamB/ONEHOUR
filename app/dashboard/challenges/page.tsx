@@ -7,8 +7,8 @@ export default function challenge() {
   return (
     <>
       <div className={styles.root}>
-        <Image src={trophy} alt="trophy" className={styles.trophy} />
-        <div className={styles.textbox}>
+        <div className={styles.wrapper}>
+          <Image src={trophy} alt="trophy" className={styles.trophy} />
           <h1 className={styles.title}>
             챌린지를 90% 이상 달성하고 트로피를 획득하세요
           </h1>

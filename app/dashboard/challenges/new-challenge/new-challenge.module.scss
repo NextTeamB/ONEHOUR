@@ -59,117 +59,119 @@ $grey1: #383838;
 $grey2: #989898;
 $grey3: #e1e2e3;
 
-.root {
-  width: 84.3vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper {
-  width: 36vw;
-  height: 74vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0px;
-  font-family: "Arimo_BLD";
-  letter-spacing: -1px;
-  
-  .section1 {
-    width: 100%;
+/* 태블릿 가로 ~ 웹 브라우저 */
+@media (min-width: 769px) {
+  .root {
+    width: 78vw;
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    span {
-      font-size: 42px;
+    p, hr {
+      margin: 0;
+    }
+  }
+
+  .wrapper {
+    width: 35vw;
+    height: 74vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+    font-family: "Arimo_BLD";
+    letter-spacing: -0.05rem;
+    
+    .section1 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
       font-family: "Debussy", "Helvetica Rounded LT Black";
       color: $blue;
     }
-  }
 
-  .section3 {
-    .article {
-      color: black;
-      span:nth-child(1) {
+    .section3 {
+      .article {
         color: black;
+        span:nth-child(1) {
+          color: black;
+        }
+        span:nth-child(2) {
+          font-size: 0.55rem;
+          margin-left: 1rem;
+          color: $navy;
+        }
       }
-      span:nth-child(2) {
-        font-size: 13px;
-        margin-left: 20px;
+    }
+
+    .section4 {
+      .btnWrapper {
+        width: 36vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // button:not(:last-child) {
+        //   margin-right: 35px;
+        // }
+        margin-top: 0.5rem;
+      }
+    }
+
+    .section5 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .btn {
+        position: relative;
+        width: 8rem;
+        height: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: -0.05rem;
+        color: white;
+        border: none;
+        text-decoration: none;
+        border-radius: 10rem;
+      }
+      .btn:hover {
+        cursor: pointer;
+      }
+      .exitBtn {
+        background-color: $grey2;
+        margin-right: 1rem;
+      }
+      .startBtn {
+        background-color: #64DAB5;
+        display: flex;
+        align-items: center;
+        .arrowIcon {
+          width: 0.9rem;
+          height: auto;
+          margin: 2px 0 0 0.5rem;
+        }
+      }
+    }
+
+    .article {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      span:nth-child(1) {
+        color: $blue;
+      }
+      span:nth-child(3) {
+        font-size: 0.55rem;
+        margin-left: 0.6rem;
         color: $navy;
       }
     }
-  }
-
-  .section4 {
-    .btnWrapper {
-      width: 36vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      // button:not(:last-child) {
-      //   margin-right: 35px;
-      // }
-    }
-  }
-
-  .section5 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    .btn {
-      position: relative;
-      width: 150px;
-      height: 64px;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
+    .article_sub {
+      font-size: 0.6rem;
       font-weight: 600;
-      letter-spacing: -1px;
-      color: white;
-      border: none;
-      text-decoration: none;
-      border-radius: 80px;
+      color: $grey1;
     }
-    .btn:hover {
-      cursor: pointer;
-    }
-    .exitBtn {
-      background-color: $grey2;
-      margin-right: 15px;
-    }
-    .startBtn {
-      width: 174px;
-      background-color: #64DAB5;
-      display: flex;
-      align-items: center;
-      .arrowIcon {
-        width: 20px;
-        height: auto;
-        margin-top: 2px;
-        margin-left: 10px;
-      }
-    }
-  }
-
-  .article {
-    font-size: 25px;
-    font-weight: 600;
-    span:nth-child(1) {
-      color: $blue;
-    }
-    span:nth-child(3) {
-      font-size: 13px;
-      margin-left: 20px;
-      color: $navy;
-    }
-  }
-  .article_sub {
-    font-size: 14px;
-    font-weight: 600;
-    color: $grey1;
-    margin-bottom: 20px;
   }
 }
