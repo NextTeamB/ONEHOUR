@@ -55,6 +55,7 @@
   margin: 0;
 }
 
+<<<<<<< HEAD
 /* 작은 모바일 */
 @media (max-width: 400px) {
   html {
@@ -63,10 +64,19 @@
 }
 
 @media (min-width: 401px) and (max-width: 480px) {
+=======
+
+/* 작은 모바일 */
+@media (max-width: 480px) {
+>>>>>>> bec91aead3de84f80e7c90e54908809e3cc7713c
   html {
     font-size: 10px;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> bec91aead3de84f80e7c90e54908809e3cc7713c
 /* 모바일 및 태블릿 세로 */
 @media (min-width: 481px) and (max-width: 768px) {
   html {
@@ -101,6 +111,10 @@
     font-size: 22px;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> bec91aead3de84f80e7c90e54908809e3cc7713c
 /*
 .hidden {
   overflow: hidden;

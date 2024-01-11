@@ -339,7 +339,7 @@ export default function SignUp() {
       </div>
       <div className={styles[`modalBG${modalState}`]}></div>
       {/* 회원가입 완료 모달 */}
-      {signupModalState && (
+      {signupModalState === 1 && (
         <div className={styles.modal1}>
           <p>회원가입이 완료되었습니다.</p>
           <button

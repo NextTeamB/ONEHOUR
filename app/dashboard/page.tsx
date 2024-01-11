@@ -12,23 +12,22 @@ import { onLogout } from "@/util/onLogout";
 const Dashboard = () => {
   
   return (
-    <>
+    <div className={styles.Upper}>
       <div className={styles.adsSection}>
         <Image
           className={styles.ads_banner1}
           src={ads_banner1}
-          width={1620}
           alt="ads1-nike"
         />
         <button>자세히</button>
       </div>
       <div className={styles.people_news}>
-        <h2>원아워 피플뉴스</h2>
-        <Image className={styles.newsIcon} src={newsIcon} alt="news-icon" />
+        <div className={styles.title}>
+          <span>원아워 피플뉴스</span>
+          <Image className={styles.newsIcon} src={newsIcon} alt="news-icon" />
+        </div>
         <div className={styles.newsBox}>
-          <div className={styles.newsImage}>
-            <Image className={styles.news_pic} src={newsImg} alt="news-image" />
-          </div>
+          <Image className={styles.newsImage} src={newsImg} alt="news-image" />
           <div className={styles.newsText}>
             <h3>
               한국의 금융을 새로 쓰는 활동가, 김태훈 (주)뱅크샐러드 대표의
@@ -36,16 +35,11 @@ const Dashboard = () => {
             </h3>
             <p>
               처음 회사를 설립할 때에 제가 바라본 목표는 “내 자산관리를
-              어떻게하면 잘 할수 있을까?” 였어요
-              <br />
-              금융에 대해서 고민하던 저는, 사업을 시작하기 전에 필요한
-              제반사항이 바로 제가 직접 경험하는 것 이었죠
-              <br />
-              그래서 하루에 무조건 3번 자산 기록하기부터 시작됐어요 제 실천이.
-              그게 지금의 뱅크샐러드 가족들을
-              <br />
-              만들어 준 것 같아요. 여러분도 자신만의 목표를 열심히 실천하셔서
-              성장하셨으면 좋겠습니다!
+              어떻게하면 잘 할수 있을까?” 였어요. 금융에 대해서 고민하던 저는, 
+              사업을 시작하기 전에 필요한 제반사항이 바로 제가 직접 경험하는 것이었죠. 
+              그래서 하루에 무조건 3번 자산 기록하기부터 시작됐어요. 제 실천이.
+              그게 지금의 뱅크샐러드 가족들을 만들어 준 것 같아요. 여러분도 자신만의 
+              목표를 열심히 실천하셔서 성장하셨으면 좋겠습니다!
             </p>
             <button>본문으로</button>
           </div>
@@ -107,9 +101,8 @@ const Dashboard = () => {
           <br />
           성의진 학생
         </p>
-        <div className={styles.boxMargin}></div>
       </div>
-    </>
+    </div>
   );
 };
 
