@@ -7,6 +7,106 @@
 
 /* 모바일 */
 @media (max-width: 768px) {
+  .mainSection {
+    margin: 0 auto;
+    background-color: #6ab5ff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Arimo";
+    letter-spacing: -1px;
+    overflow: hidden;
+    .section1 {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+
+      .contentWrapper {
+        height: 40vh;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5vh;
+      }
+
+      .logoWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .logoTitle {
+          width: 29rem;
+          margin: 0 auto;
+          height: auto;
+        }
+        .subTitle {
+          color: white;
+          margin: 0 auto;
+          font-size: 1.34rem;
+          font-weight: 600;
+          margin-top: 0.4rem;
+          margin-bottom: 5rem;
+        }
+      }
+
+      .buttonWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2vw;
+        margin: 0 auto;
+        margin-top: -2vh;
+        button {
+          width: 26.2rem;
+          height: 4.6rem;
+          font-family: "Arimo";
+          font-size: 1.6rem;
+          font-weight: 700;
+          letter-spacing: -1px;
+          margin: 0 auto;
+          color: #0b4f9f;
+          background-color: white;
+          border: none;
+          box-shadow: 2px 4px 10px #00000029;
+          border-radius: 60rem;
+          cursor: pointer;
+        }
+      }
+
+      .footer {
+        margin: 1.4rem auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1vw;
+        font-weight: 600;
+        text-align: center;
+        color: white;
+        button {
+          border: none;
+          background-color: transparent;
+          color: white;
+          font-family: "Arimo_BLD";
+          font-weight: 600;
+          font-size: 1.6rem;
+          letter-spacing: -1px;
+          cursor: pointer;
+        }
+      }
+    }
+    .section2 {
+      display: none;
+    }
+  }
 }
 
 /* 브라우저 */
@@ -20,7 +120,7 @@
     align-items: center;
     justify-content: space-between;
     font-family: "Arimo";
-    letter-spacing: -0.05rem;
+    letter-spacing: -1px;
     overflow: hidden;
   }
 
@@ -30,6 +130,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
 
     .contentWrapper {
       height: 40vh;
@@ -46,13 +147,14 @@
       flex-direction: column;
       align-items: flex-start;
       .logoTitle {
-        width: 35vw;
+        width: 28rem;
         height: auto;
-        margin-left: -2vw;
+        margin-left: -2.2vw;
+        margin-bottom: 2rem;
       }
       .subTitle {
         color: white;
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 600;
         margin-top: -1rem;
       }
@@ -65,11 +167,12 @@
       justify-content: space-between;
       gap: 1vw;
       margin-top: -2vh;
+      margin-bottom: 1rem;
       button {
-        width: 11rem;
-        height: 3.8rem;
+        width: 9.2rem;
+        height: 3.2rem;
         font-family: "Arimo";
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 700;
         letter-spacing: -1px;
         color: #0b4f9f;
@@ -102,12 +205,12 @@
     }
   }
   .section2 {
-    width: 50vw;
+    width: 44vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;
+    // overflow: hidden;
 
     .card1 {
       height: 50vh;
