@@ -79,6 +79,12 @@ export default async function handler(req, res) {
       };
 
       await db.collection("userChallenges").insertOne(newChallenge);
+      await db
+        .collection("userAccount")
+        .updateOne(
+          { email: userCheck.email },
+          { $inc: { totalChallenge: challengeTime } }
+        );
       return res.status(200).json("챌린지 기록이 저장되었습니다");
     } catch {
       return res.status(500).json("서버에러가 발생하였습니다");
