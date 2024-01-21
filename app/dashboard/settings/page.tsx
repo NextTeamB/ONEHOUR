@@ -13,6 +13,7 @@ import { editPassword } from "@/util/onChangeUserInfo";
 import { fetchUserAccount, updateAlias } from "@/util/onSettings";
 import imageUpload from "../../../public/imageUpload.png";
 import { onImageUpload } from "@/util/onImageUpload";
+import { onLogout } from "@/util/onLogout";
 
 export interface userAccount {
   email: string;
@@ -95,6 +96,7 @@ export default function Settings() {
   const withdrawal = () => {
     axios.delete("/api/users/withdrawal").then((res) => {
       // alert("회원 탈퇴가 완료되었습니다");
+      onLogout();
       router.push("/");
     });
   };
@@ -129,7 +131,7 @@ export default function Settings() {
             <p>{userInfo.email}</p>
             <div className={styles.chevrons}></div>
           </div>
-          <button 
+          <button
             className={styles.form}
             onClick={() => {
               modalState[0]
@@ -140,14 +142,10 @@ export default function Settings() {
             <h3>닉네임</h3>
             <p>{userInfo.nickname}</p>
             <div className={styles.chevrons}>
-              <Image
-                className={styles.chevron}
-                src={chevron}
-                alt="chevron"
-              />
+              <Image className={styles.chevron} src={chevron} alt="chevron" />
             </div>
           </button>
-          <button 
+          <button
             className={styles.form}
             onClick={() => {
               modalState[1]
@@ -157,14 +155,10 @@ export default function Settings() {
           >
             <h3>프로필 이미지 변경</h3>
             <div className={styles.chevrons}>
-              <Image
-                className={styles.chevron}
-                src={chevron}
-                alt="chevron"
-              />
+              <Image className={styles.chevron} src={chevron} alt="chevron" />
             </div>
           </button>
-          <button 
+          <button
             className={styles.form}
             onClick={() => {
               modalState[3]
@@ -174,11 +168,7 @@ export default function Settings() {
           >
             <h3>비밀번호 변경</h3>
             <div className={styles.chevrons}>
-              <Image
-                className={styles.chevron}
-                src={chevron}
-                alt="chevron"
-              />
+              <Image className={styles.chevron} src={chevron} alt="chevron" />
             </div>
           </button>
         </div>
@@ -193,11 +183,7 @@ export default function Settings() {
           >
             <h3>회원 탈퇴</h3>
             <div className={styles.chevrons}>
-              <Image
-                className={styles.chevron}
-                src={chevron}
-                alt="chevron"
-              />
+              <Image className={styles.chevron} src={chevron} alt="chevron" />
             </div>
           </button>
         </div>
@@ -241,7 +227,7 @@ export default function Settings() {
           <p>
             이미지를 선택하여 업로드해주세요.
             <br />
-            커뮤니티 수칙을 위반하는 이미지 업로드 시, 
+            커뮤니티 수칙을 위반하는 이미지 업로드 시,
             <br />
             계정 이용에 불이익이 있을 수 있습니다.
           </p>
