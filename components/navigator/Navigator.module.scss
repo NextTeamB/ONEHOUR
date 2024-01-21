@@ -30,33 +30,40 @@
       format("svg");
 }
 
+@keyframes dropdown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 $color: #383838;
 $blue: #6ab5ff;
 .childrenWrapper {
   font-size: 0.7rem;
-  margin-left: 22vw;
-  width: 78vw;
+  margin-left: 20vw;
+  width: 80vw;
   // @include notebook {
   //    margin-left: 330px;
   // }
 }
 .navUpper {
-  font-size: 0.75rem;
-  position: fixed;
-  z-index: 999;
-  width: 22vw;
-  height: 100vh;
+  font-size: 0.7rem;
 }
 .navWrapper {
-  width: 100%;
+  position: fixed;
+  width: 20vw;
   height: 100%;
+  z-index: 999;
   background: #fff;
   padding: 4vh 3vw 0 3vw;
   box-sizing: border-box;
   font-family: "Arimo";
-  letter-spacing: -0.02rem;
+  letter-spacing: -0.03rem;
   overflow: auto;
-  box-shadow: 0.1rem 0.2rem 0.52rem #cecece;
+  box-shadow: 0.1rem 0.2rem 0.52rem rgba(0, 0, 0, 0.16);
 
   ::-webkit-scrollbar {
     display: none;
@@ -173,30 +180,29 @@ $blue: #6ab5ff;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    .menuList {
-      margin: 1rem 0.5rem;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      position: relative;
-      text-decoration: none;
-      color: $color;
-      // font-size: 0.7rem;
-      font-weight: 600;
-      .menuText {
-        margin-left: 1rem;
-      }
-      .menuIcon {
-        width: 1.3rem;
-        height: auto;
-        color: $color;
-      }
+  }
+  .menuList {
+    margin: 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: $color;
+    font-weight: 600;
+    .menuText {
+      margin-left: 1rem;
     }
-    .selected {
+    .menuIcon {
+      width: 1.3rem;
+      height: auto;
+      color: $color;
+    }
+  }
+  .selected {
+    color: $blue;
+    .menuIcon {
       color: $blue;
-      .menuIcon {
-        color: $blue;
-      }
     }
   }
 
@@ -213,6 +219,8 @@ $blue: #6ab5ff;
         font-size: 0.65rem;
         display: flex;
         align-items: center;
+        text-decoration: none;
+        color: inherit;
         cursor: pointer;
       }
     }
@@ -227,40 +235,113 @@ $blue: #6ab5ff;
     height: 91vh;
   }
   .navUpper {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
     width: 100vw;
-    height: 9vh;
     position: fixed;
-    z-index: 999;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    font-size: 1.5rem;
+  }
+  .navExpand {
+    height: 100vh;
   }
   .navWrapper {
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0.2rem 0.52rem #cecece;
+    width: 100vw;
+    height: 9vh;
+    box-shadow: 0 0.2rem 0.52rem rgba(0, 0, 0, 0.16);
     display: flex;
     align-items: center;
     padding: 0;
 
     .logoWrapper {
-      width: 30%;
-      height: auto;
-      padding: 0 0 0 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      width: 100vw;
+      position: relative;
+      box-sizing: border-box;
+      padding: 0 2rem;
       .logoImg {
-        width: 100%;
+        width: 30vw;
         height: auto;
         padding: 0;
+      }
+      .mobileMenuIcon {
+        width: 5vh;
+        height: auto;
       }
       img,
       span {
         cursor: pointer;
       }
     }
-
-    .breakline,
-    .profileWrapper,
-    .commentWrapper,
-    .menuWrapper,
+    .mobileMenuDropdownPosition {
+      position: fixed;
+      width: 100vw;
+      top: 9vh;
+      z-index: 998;
+      overflow: hidden;
+    }
+    .mobileMenuWrapper {
+      box-sizing: border-box;
+      height: 91vh;
+      padding: 0 3rem 3rem 3rem;
+      background-color: #fff;
+      animation: dropdown 0.4s ease;
+    }
+    .mobileProfileWrapper {
+      display: flex;
+      justify-content: space-between;
+      height: 11vh;
+      .profile {
+        width: 8vw;
+        height: 8vw;
+        margin-right: 2rem;
+      }
+    }
+    .commentWrapper {
+      height: auto;
+      width: 45vw;
+    }
+    .challengeButton {
+      font-size: 1.2rem;
+      height: 4.5rem;
+      padding: 0;
+      .challengeIcon {
+        position: absolute;
+        width: 3rem;
+        right: 4rem;
+        height: auto;
+      }
+    }
+    .menuWrapper {
+      display: block;
+      height: auto;
+      .menuList {
+        margin: 3vh;
+        .menuIcon {
+          width: 6vw;
+        }
+        .menuText {
+          margin-left: 2rem;
+        }
+      }
+    }
     .subMenuWrapper {
-      display: none;
+      display: flex;
+      justify-content: center;
+      .subMenuBox {
+        display: inline-block;
+        .subMenuList {
+          display: inline-block;
+          font-size: 1.4rem;
+          font-weight: 600;
+          letter-spacing: -0.1rem;
+        }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./term.module.scss";
+import styles from "./terms.module.scss";
 
 const page = () => {
   return (
