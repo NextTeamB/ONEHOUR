@@ -1,6 +1,6 @@
-@import url('https://fonts.cdnfonts.com/css/debussy');
-@import url('https://db.onlinewebfonts.com/c/91216119af97287db2788e2cf0cf4068?family=Helvetica+Rounded+LT+Black');
-@import url('https://db.onlinewebfonts.com/c/ac78111d5e1e6dc73eb1aaf06ec60963?family=Debussy');
+@import url("https://fonts.cdnfonts.com/css/debussy");
+@import url("https://db.onlinewebfonts.com/c/91216119af97287db2788e2cf0cf4068?family=Helvetica+Rounded+LT+Black");
+@import url("https://db.onlinewebfonts.com/c/ac78111d5e1e6dc73eb1aaf06ec60963?family=Debussy");
 
 @font-face {
   font-family: "Arimo";
@@ -11,27 +11,41 @@
   font-family: "Debussy";
   font-style: normal;
   font-weight: 500;
-  src: local("Debussy"), url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format('woff');
+  src:
+    local("Debussy"),
+    url("https://fonts.cdnfonts.com/s/4894/debussy.woff") format("woff");
 }
 
 @font-face {
   font-family: "Debussy";
   src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot");
-  src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")
+      format("svg");
 }
 
 @font-face {
   font-family: "Helvetica Rounded LT Black";
   src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot");
-  src: url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.svg#Helvetica Rounded LT Black")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/91216119af97287db2788e2cf0cf4068.svg#Helvetica Rounded LT Black")
+      format("svg");
 }
 
 .Upper {
@@ -41,7 +55,6 @@
   margin: 0;
 }
 
-
 /* 더 작은 모바일 */
 @media (max-width: 400px) {
   html {
@@ -50,12 +63,17 @@
 }
 
 /* 작은 모바일 */
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+
 @media (min-width: 401px) and (max-width: 480px) {
   html {
     font-size: 10px;
   }
 }
-
 /* 모바일 및 태블릿 세로 */
 @media (min-width: 481px) and (max-width: 768px) {
   html {
@@ -90,91 +108,3 @@
     font-size: 22px;
   }
 }
-
-/*
-.hidden {
-  overflow: hidden;
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-}
-
-/* Navigation box css setting */
-/*
-.Navbar1 {
-  background-color: #383838;
-  color: white;
-  width: 16%;
-  height: 80px;
-  position: fixed;
-  display: block;
-}
-
-.Navbar2 {
-  background-color: #38fe;
-  width: 16%;
-  height: 200px;
-  position: fixed;
-  display: block;
-  top: 80px;
-}
-.Navbar3 {
-  background-color: olive;
-  width: 16%;
-  height: 200px;
-  position: fixed;
-  display: block;
-  top: 280px;
-}
-.Navbar4 {
-  background-color: orange;
-  width: 16%;
-  height: 200px;
-  position: fixed;
-  display: block;
-  top: 480px;
-}
-.Navbar5 {
-  background-color: blue;
-  width: 16%;
-  height: 100px;
-  position: fixed;
-  display: block;
-  top: 680px;
-} */
-
-/* Navigation 1 inner contents Setting */
-/* 
-.innerNav {
-  display: inline-block;
-  padding-left: 20px;
-  line-height: 40px;
-} */
-
-/* Login Navigation section setting */
-
-/* .LoginBtn {
-  width: 80%;
-  height: 52px;
-  border: none;
-  margin: 24px 23px;
-  border-radius: 10px;
-}
-
-.innerNav_login {
-  display: inline-block;
-  padding-left: 48px;
-  padding-top: 56px;
-} */
-
-/* menu Navigation section setting */
-
-/* .innerNav_menu {
-  font-size: 18px;
-  margin: 20px 10px;
-}
-.innerNav3 {
-  margin: 48px auto;
-} */

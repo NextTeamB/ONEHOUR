@@ -17,14 +17,15 @@ export interface userRank {
   refreshToken: string;
   nickname: string;
   profileImgUrl: string;
+  totalChallenge: number;
 }
 
 export default function Time_Ranking() {
   let [userRanking, setUserRanking] = useState<userRank[][]>([]);
 
-  // useEffect(() => {
-  //   console.log(userRanking);
-  // }, [userRanking]);
+  useEffect(() => {
+    console.log(userRanking);
+  }, [userRanking]);
 
   useEffect(() => {
     axios
@@ -53,7 +54,7 @@ export default function Time_Ranking() {
               <div className={styles.profile}>
                 <img
                   className={styles.userProfile}
-                  src={userRanking[0][1].profileImgUrl}
+                  // src={userRanking[1][1].profileImgUrl}
                 />
                 <Image src={L2} alt="lauren" className={styles.lauren2} />
               </div>
@@ -62,15 +63,15 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][1].challengeTime}</h4>
-                <p>시간</p>
+                <h4>{userRanking[1][1].totalChallenge}</h4>
+                <p>포인트</p>
               </div>
             </div>
             <div className={styles.top3Box1}>
               <div className={styles.profile}>
                 <img
                   className={styles.userProfile}
-                  src={userRanking[0][0].profileImgUrl}
+                  src={userRanking[1][0].profileImgUrl}
                 />
                 <Image src={L0} alt="lauren" className={styles.lauren0} />
               </div>
@@ -79,15 +80,15 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][0].challengeTime}</h4>
-                <p>시간</p>
+                <h4>{userRanking[1][0].totalChallenge}</h4>
+                <p>포인트</p>
               </div>
             </div>
             <div className={styles.top3Box2}>
               <div className={styles.profile}>
                 <img
                   className={styles.userProfile}
-                  src={userRanking[0][2].profileImgUrl}
+                  src={userRanking[1][2].profileImgUrl}
                 />
                 <Image src={L1} alt="lauren" className={styles.lauren1} />
               </div>
@@ -96,8 +97,8 @@ export default function Time_Ranking() {
                 <p>님</p>
               </div>
               <div className={styles.totalChallenge}>
-                <h4>{userRanking[1][2].challengeTime}</h4>
-                <p>시간</p>
+                <h4>{userRanking[1][2].totalChallenge}</h4>
+                <p>포인트</p>
               </div>
             </div>
           </div>
@@ -121,12 +122,12 @@ export default function Time_Ranking() {
                   <p className={styles.nickname2}>
                     {userRanking[0][i].nickname}
                   </p>
-                  <p>총 도전시간</p>
+                  <p>총 점수</p>
                   <p>
                     {userRanking[0][i].challengeTime
                       ? userRanking[0][i].challengeTime
                       : "-"}
-                    시간
+                    포인트
                   </p>
                 </div>
               );

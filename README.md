@@ -207,13 +207,13 @@ $ npm run dev
 - "/login" 페이지 작업 완료
 - "/sign-up" 페이지 작업 완료
 - "/dashboard" 페이지 작업 완료
-- "/dashboard/challengers" 페이지 작업 중
-- "/dashboard/challenge" 페이지 작업 중
-- "/dashboard/challenge/new-challenge" 페이지 작업 중
-- "/dashboard/challenge/ongoing-challenge" 페이지 작업 중
-- "/dashboard/records" 페이지 작업 중
-- "/dashboard/settings" 페이지 작업 중 (이미지 함수 마운트)
-- "/dashboard/time-ranking" 페이지 작업 중
+- "/dashboard/challengers" 페이지 작업 완료
+- "/dashboard/challenge" 페이지 작업 완료
+- "/dashboard/challenge/new-challenge" 페이지 작업 완료
+- "/dashboard/challenge/ongoing-challenge" 페이지 작업 완료
+- "/dashboard/records" 페이지 작업 완료
+- "/dashboard/settings" 페이지 작업 완료
+- "/dashboard/time-ranking" 페이지 작업 완료
 
 <br/>
 
@@ -226,12 +226,13 @@ $ npm run dev
 - 유저 목표 기록 관련 API 구현 완료
 - 회원 정보 수정 및 삭제 API 구현 완료
 - 유저 랭킹 관련 API 구현 완료
-- 유저 랭킹 데이터 페이징 처리 구현 중
-- 이미지 버킷 연동 및 이미지 웹 마운트 구현 중
-- 요약 제표 API 구현 예정
+- 유저 랭킹 데이터 페이징 처리 구현 완료
+- 이미지 버킷 연동 및 이미지 웹 마운트 구현 완료
+- 요약 제표 API 구현 완료
+- 반응형 웹 구현 완료
 <br/>
 <br/>
 
 <h2>마지막 수정일자</h2>
-<h5>2023년 11월 1일 (수) : 담당자 김시훈</h5>
+<h5>2024년 01월 19일 (수) : 담당자 김시훈 기한</h5>
 <br/>
