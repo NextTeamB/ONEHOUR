@@ -55,6 +55,13 @@
   margin: 0;
 }
 
+/* 더 작은 모바일 */
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+
 /* 작은 모바일 */
 @media (max-width: 400px) {
   html {
