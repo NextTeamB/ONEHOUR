@@ -28,8 +28,8 @@ export default function PostId({ params }: { params: { postId: number } }) {
   const userInfo = useSelector((state: RootState) => state.user);
   const BASE_POST_IMG_URL = `${process.env.DEFAULT_POST_IMG_URL}`;
   let [postList, setPostList] = useState<postInfo[]>([]);
-  const [modalState, setModalState] = useState(0);  // 게시글 삭제 모달 상태
-  const [deleteState, setDeleteState] = useState(0);  // 게시글 삭제완료 상태
+  const [modalState, setModalState] = useState(0); // 게시글 삭제 모달 상태
+  const [deleteState, setDeleteState] = useState(0); // 게시글 삭제완료 상태
 
   useEffect(() => {
     console.log(params.postId);
@@ -41,6 +41,7 @@ export default function PostId({ params }: { params: { postId: number } }) {
       .catch((err) => {
         console.log(err);
       });
+    window.scrollTo(0, 0);
   }, []);
 
   const deletePost = () => {
@@ -56,12 +57,11 @@ export default function PostId({ params }: { params: { postId: number } }) {
       .catch((err) => {
         alert("작성자 본인만 게시글을 삭제할 수 있습니다");
       });
-  }
-  
+  };
+
   const closeModal = () => {
     setModalState(0); // 모달 닫기
   };
-
 
   return (
     <div className={styles.root}>
@@ -71,37 +71,36 @@ export default function PostId({ params }: { params: { postId: number } }) {
             {postList[0] ? (
               <>
                 <h2>{postList[0].title}</h2>
-                <p>{postList[0].date}</p>
+                <div className={styles.backBtnArea}>
+                  <button
+                    className={styles.backBtn}
+                    onClick={() => {
+                      router.back();
+                    }}>
+                    <Image
+                      src={backArrow}
+                      alt="backArrow"
+                      className={styles.backArrow}
+                    />
+                    목록으로
+                  </button>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <p>{postList[0].date}</p>
+                  {postList[0].email === userInfo.email ? (
+                    <button
+                      className={styles.deleteBtn}
+                      onClick={() => setModalState(1)}>
+                      삭제하기
+                    </button>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </>
             ) : (
               "게시글 정보 없음"
             )}
-            {postList[0].email === userInfo.email ? (
-              <button
-                className={styles.deleteBtn}
-                onClick={() => setModalState(1)}
-              >
-                삭제하기
-              </button>
-            ) : (
-              <></>
-            )}
-
-            <div className={styles.backBtnArea}>
-              <button
-                className={styles.backBtn}
-                onClick={() => {
-                  router.back();
-                }}
-              >
-                <Image
-                  src={backArrow}
-                  alt="backArrow"
-                  className={styles.backArrow}
-                />
-                목록으로
-              </button>
-            </div>
           </div>
           <hr />
           <div className={styles.articleSection}>
@@ -130,24 +129,22 @@ export default function PostId({ params }: { params: { postId: number } }) {
         <div className={styles.modal1}>
           <p>게시글을 삭제하시겠습니까?</p>
           <div className={styles.btnWrap}>
-            <button
-              className={styles.cancelBtn}
-              onClick={closeModal}
-            >
+            <button className={styles.cancelBtn} onClick={closeModal}>
               취소
             </button>
             <button
               className={styles.deleteBtn}
               onClick={() => {
                 deletePost();
-              }}
-            >
+              }}>
               삭제
             </button>
           </div>
         </div>
       </div>
-      <div className={styles[`modalBG${modalState}`]} onClick={closeModal}></div>
+      <div
+        className={styles[`modalBG${modalState}`]}
+        onClick={closeModal}></div>
     </div>
   );
 }
