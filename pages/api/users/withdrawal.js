@@ -13,22 +13,28 @@ export default async function handler(req, res) {
       let db = (await connectDB).db("onehour");
       let userCheck = await db
         .collection("userAccount")
-        .find({ _id: new ObjectId(decodeId) });
+        .find({ _id: new ObjectId(decodeId) })
+        .toArray();
 
       if (userCheck === null) {
         return res.status(403).json("요청에 대한 권한이 없습니다");
       }
 
       // 1. 해당 유저의 게시믈 삭제
-      await db.collection("userPosts").delete({ email: userCheck.email });
+      await db
+        .collection("userPosts")
+        .deleteMany({ email: userCheck[0].email });
 
       // 2. 해당 유저의 챌린지 기록 삭제
-      await db.collection("userChallenges").delete({ email: userCheck.email });
+      await db
+        .collection("userChallenges")
+        .deleteMany({ email: userCheck[0].email });
 
       // 3. 계정정보 삭제
-      await db.collection("userAccount").delete({ email: userCheck.email });
-
-      return res.status(200).json("회원 탈퇴가 완료되었습니다");
+      await db
+        .collection("userAccount")
+        .deleteMany({ email: userCheck[0].email });
+      return res.status(200).json("회원탈퇴가 완료되었습니다");
     } catch {
       return res.status(500).json("서버에러가 발생하였습니다");
     }
