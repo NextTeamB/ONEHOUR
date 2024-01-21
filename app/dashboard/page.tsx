@@ -19,7 +19,6 @@ const Dashboard = () => {
           src={ads_banner1}
           alt="ads1-nike"
         />
-        <button>자세히</button>
       </div>
       <div className={styles.people_news}>
         <div className={styles.title}>

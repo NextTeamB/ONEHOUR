@@ -17,11 +17,17 @@
 @font-face {
   font-family: "Debussy";
   src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot");
-  src: url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")format("svg");
+  src:
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ac78111d5e1e6dc73eb1aaf06ec60963.svg#Debussy")
+      format("svg");
 }
 
 $color: #383838;
@@ -36,18 +42,20 @@ $blue: #6ab5ff;
 }
 .navUpper {
   font-size: 0.75rem;
+  position: fixed;
+  z-index: 999;
+  width: 22vw;
+  height: 100vh;
 }
 .navWrapper {
-  position: fixed;
-  width: 22vw;
+  width: 100%;
+  height: 100%;
   background: #fff;
   padding: 4vh 3vw 0 3vw;
   box-sizing: border-box;
   font-family: "Arimo";
   letter-spacing: -0.02rem;
-  z-index: 999;
   overflow: auto;
-  height: 100%;
   box-shadow: 0.1rem 0.2rem 0.52rem #cecece;
 
   ::-webkit-scrollbar {
@@ -164,7 +172,7 @@ $blue: #6ab5ff;
     height: 33vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;    
+    justify-content: flex-start;
     .menuList {
       margin: 1rem 0.5rem;
       display: flex;
@@ -207,6 +215,52 @@ $blue: #6ab5ff;
         align-items: center;
         cursor: pointer;
       }
+    }
+  }
+}
+
+/* 모바일 및 태블릿 세로 */
+@media (max-width: 768px) {
+  .childrenWrapper {
+    margin: 9vh 0 0 0;
+    width: 100vw;
+    height: 91vh;
+  }
+  .navUpper {
+    width: 100vw;
+    height: 9vh;
+    position: fixed;
+    z-index: 999;
+  }
+  .navWrapper {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0.2rem 0.52rem #cecece;
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    .logoWrapper {
+      width: 30%;
+      height: auto;
+      padding: 0 0 0 2.5rem;
+      .logoImg {
+        width: 100%;
+        height: auto;
+        padding: 0;
+      }
+      img,
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .breakline,
+    .profileWrapper,
+    .commentWrapper,
+    .menuWrapper,
+    .subMenuWrapper {
+      display: none;
     }
   }
 }

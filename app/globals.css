@@ -42,8 +42,15 @@
 }
 
 
+/* 더 작은 모바일 */
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+
 /* 작은 모바일 */
-@media (max-width: 480px) {
+@media (min-width: 401px) and (max-width: 480px) {
   html {
     font-size: 10px;
   }

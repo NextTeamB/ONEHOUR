@@ -103,7 +103,7 @@ export default function Ongoing() {
     )
       .then((res) => {
         console.log(res);
-        router.push("/dashboard");
+        router.push("/dashboard/records");
       })
       .catch((err) => console.log(err));
   };
@@ -228,8 +228,10 @@ export default function Ongoing() {
           ) : (
             ""
           )}
-          <button
+          <Image
             className={styles.closeModal}
+            src={closeicon}
+            alt="chevron"
             onClick={() => {
               if (seconds >= 60) {
                 setIsRunning(false);
@@ -239,14 +241,7 @@ export default function Ongoing() {
                 setIsRunning(true);
               }
             }}
-          >
-            <Image
-              className={styles.closeicon}
-              src={closeicon}
-              width={20}
-              alt="chevron"
-            />
-          </button>
+          />
         </div>
         <div className={styles[`modalBG${modal}`]}></div>
       </div>

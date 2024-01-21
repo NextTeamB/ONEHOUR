@@ -65,26 +65,325 @@ $green: #64dab5;
 }
 
 /* 태블릿 가로 ~ 웹 브라우저 */
-@media (min-width: 769px) {
-  .root {
-    width: 78vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-  }
+.root {
+  width: 78vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 
-  .wrapper {
-    width: 73%;
-    height: 72vh;
+.wrapper {
+  width: 73%;
+  height: 72vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Arimo_BLD";
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+  .board1,
+  .mindBox,
+  .timerBox,
+  .comBox {
+    box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
+    border-radius: 1.5rem;
+  }
+  .board1 {
+    width: 48%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    font-family: "Arimo_BLD";
+    background-color: white;
+    .title {
+      width: 100%;
+      font-family: "Debussy", "Helvetica Rounded LT Black";
+      letter-spacing: 0;
+      color: $blue;
+      font-size: 1.25rem;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 10%;
+      &.stopped {
+        color: $green;
+      }
+    }
+    .trophy {
+      height: 35%;
+      width: auto;
+    }
+    .arrows {
+      height: 35%;
+      width: auto;
+    }
+    .content {
+      width: 100%;
+      color: $navy;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .progress {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 10%;
+      .curProgress {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 0.6rem;
+        span {
+          font-size: 1.1rem;
+          margin: auto 0.3rem;
+          color: $blue;
+          &.stopped {
+            color: $green;
+          }
+        }
+      }
+      .progressBar {
+        height: 2rem;
+        width: 100%;
+        box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
+        border-radius: 10rem;
+        background-color: white;
+        overflow: hidden;
+        .progressState {
+          height: 100%;
+          background-color: $skyblue;
+          transition: width 0.2s ease-in;
+          &.stopped {
+            background-color: $green;
+          }
+        }
+      }
+      .btnWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        button {
+          width: 4vw;
+          height: 4vw;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.55rem;
+          font-weight: 600;
+          letter-spacing: -0.05rem;
+          color: black;
+          border: none;
+          text-decoration: none;
+          background-color: white;
+          border: 1px solid #e1e2e3;
+          border-radius: 10rem;
+        }
+        .selected {
+          background-color: #0b4f9f;
+          color: white;
+        }
+      }
+    }
+  }
+  .board2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 48%;
+    height: 100%;
+    font-size: 0.75rem;
+    .mindBox,
+    .timerBox,
+    .comBox {
+      width: 100%;
+      height: 21.8vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    span {
+      width: 92%;
+      margin-top: 1.5rem;
+      margin-left: 1.5rem;
+    }
+
+    .mindBox {
+      background-color: white;
+      position: relative;
+      p {
+        position: absolute;
+        height: 100%;
+        width: 80%;
+        font-size: 0.9rem;
+        font-weight: 400;
+        text-align: center;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .timerBox {
+      background-color: $blue;
+      color: white;
+      position: relative;
+      &.stopped {
+        background-color: $green;
+      }
+      .timer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 100%;
+        font-weight: 400;
+        color: white;
+        margin: 0;
+        .time {
+          font-family: "Debussy";
+          font-size: 2.5rem;
+          letter-spacing: 0px;
+          padding: 0.25rem 0 0 0;
+          margin: 0;
+        }
+      }
+    }
+    .comBox {
+      background-color: #f7cecd;
+      button {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 4%;
+        border: none;
+        border-radius: 1.5rem;
+        background-color: #f7cecd;
+        color: #cc1a1a;
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+        &.stopped {
+          background-color: $skyblue;
+          color: #5d5d5d;
+        }
+      }
+      &.stopped {
+        background-color: $skyblue;
+      }
+      .stopIcon {
+        width: 7%;
+        height: auto;
+        margin: 0.125rem 0 0 -0.4rem;
+      }
+      .arrowIcon {
+        width: 3.3%;
+        height: auto;
+        margin: 0.1rem 0 0 0.4rem;
+      }
+    }
+  }
+}
+
+.modal0 {
+  display: none;
+}
+.modal1 {
+  animation: fadeIn ease-in-out 1s;
+  box-shadow: 0.125rem 0.25rem 0.75rem #cacaca;
+  position: absolute;
+  top: 30%;
+  left: 48%;
+  z-index: 2;
+  width: 26vw;
+  height: 40vh;
+  border-radius: 0.8rem;
+  border: 1px solid #e1e2e3;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9vh;
+  letter-spacing: -0.05rem;
+  font-family: "Arimo_BLD";
+  font-weight: 600;
+  text-align: center;
+  .editBtn0 {
+    width: 84%;
+    height: 2.8rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    color: white;
+    background-color: $blue;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 0;
+    cursor: pointer;
+  }
+  .editBtn1 {
+    display: none;
+  }
+  .closeModal {
+    position: absolute;
+    right: 1.8rem;
+    top: 1.8rem;
+    width: 1.1rem;
+    height: auto;
+    cursor: pointer;
+  }
+  p {
+    font-size: 0.8rem;
+    margin: 6vh 0 0 0;
+  }
+  
+  h4 {
+    text-align: center;
     letter-spacing: -0.05rem;
+    font-family: "Arimo_RGR";
+    font-weight: 500;
+    color: $green;
+    font-size: 0.8rem;
+  }
+}
+
+.modalBG1 {
+  animation: fadeIn2 ease-in-out 1s;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: #7c7c7c;
+  opacity: 40%;
+  top: 0;
+  left: 0;
+}
+.modalBG0 {
+  display: none;
+}
+
+/* 모바일 및 태블릿 세로 */
+@media (max-width: 768px) {
+  .root {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .wrapper {
+    width: 90%;
+    height: 92%;
+    margin: 0;
+    flex-direction: column;
+    justify-content: space-between;
     .board1,
     .mindBox,
     .timerBox,
@@ -93,255 +392,94 @@ $green: #64dab5;
       border-radius: 1.5rem;
     }
     .board1 {
-      width: 48%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
+      width: 100%;
+      height: 60%;
+      justify-content: center;
       .title {
         width: 100%;
-        font-family: "Debussy", "Helvetica Rounded LT Black";
-        letter-spacing: 0;
-        color: $blue;
-        font-size: 1.25rem;
-        text-align: center;
-        margin-top: 10%;
-        &.stopped {
-          color: $green;
-        }
+        font-size: 2rem;
+        margin: 0;
       }
       .trophy {
-        height: 35%;
-        width: auto;
+        height: 40%;
+        margin: 0;
       }
       .arrows {
-        height: 35%;
-        width: auto;
+        height: 40%;
+        margin: 0;
       }
       .content {
         width: 100%;
-        color: $navy;
-        font-size: 0.9rem;
-        text-align: center;
+        font-size: 1.4rem;
+        margin: 0 0 0.5rem 0;
       }
       .progress {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
-        align-items: flex-start;
-        margin-bottom: 10%;
+        margin: 0;
+        justify-content: center;
         .curProgress {
-          font-size: 0.6rem;
+          font-size: 1.1rem;
           span {
-            font-size: 1.1rem;
-            margin: auto 0.3rem;
-            color: $blue;
-            &.stopped {
-              color: $green;
-            }
+            font-size: 1.6rem;
           }
         }
         .progressBar {
-          height: 2rem;
-          width: 100%;
-          box-shadow: 0.125rem 0.25rem 0.625rem #00000029;
-          border-radius: 10rem;
-          background-color: white;
-          overflow: hidden;
-          .progressState {
-            height: 100%;
-            background-color: $skyblue;
-            transition: width 0.2s ease-in;
-            &.stopped {
-              background-color: $green;
-            }
-          }
+          height: 3rem;
         }
         .btnWrapper {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+          margin: 0.5rem 0 0 0;
           button {
-            width: 4vw;
-            height: 4vw;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.55rem;
-            font-weight: 600;
-            letter-spacing: -0.05rem;
-            color: black;
-            border: none;
-            text-decoration: none;
-            background-color: white;
-            border: 1px solid #e1e2e3;
-            border-radius: 10rem;
-          }
-          .selected {
-            background-color: #0b4f9f;
-            color: white;
+            width: 5.8rem;
+            height: 5.8rem;
+            font-size: 1rem;
           }
         }
       }
     }
     .board2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      width: 48%;
-      height: 100%;
-      font-size: 0.75rem;
+      width: 100%;
+      height: 37.3%;
+      font-size: 1.1rem;
       .mindBox,
       .timerBox,
       .comBox {
         width: 100%;
-        height: 21.8vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 29%;
       }
-
-      span {
-        width: 92%;
-        margin-top: 1.5rem;
-        margin-left: 1.5rem;
-      }
-
       .mindBox {
-        background-color: white;
-        position: relative;
         p {
-          position: absolute;
-          height: 21.8vh;
-          width: 80%;
-          font-size: 0.9rem;
-          font-weight: 400;
-          text-align: center;
-          margin: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          font-size: 1.3rem;
         }
       }
       .timerBox {
-        background-color: $blue;
-        color: white;
-        position: relative;
-        &.stopped {
-          background-color: $green;
+        .timer {
+          .time {
+            font-size: 3rem;
+          }
         }
       }
       .comBox {
-        background-color: #f7cecd;
         button {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
           gap: 4%;
-          border: none;
-          border-radius: 30px;
-          background-color: #f7cecd;
-          color: #cc1a1a;
-          font-size: 1.4rem;
-          font-weight: 600;
-          cursor: pointer;
-          &.stopped {
-            background-color: $skyblue;
-            color: #5d5d5d;
-          }
-        }
-        &.stopped {
-          background-color: $skyblue;
+          font-size: 1.7rem;
         }
         .stopIcon {
-          width: 7%;
-          height: auto;
+          width: 5%;
           margin: 0.125rem 0 0 -0.4rem;
         }
         .arrowIcon {
-          width: 3.3%;
-          height: auto;
-          margin: 0.1rem 0 0 0.4rem;
+          width: 2.7%;
+          margin: 0 0 0 0.4rem;
         }
       }
     }
   }
-
-  .timer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    height: 21.8vh;
-    font-weight: 400;
-    color: white;
-    margin: 0;
-    .circularProgress {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      svg {
-        transform: rotate(-90deg);
-      }
-    }
-    .circularBackground {
-      fill: none;
-      stroke: black;
-      stroke-width: 10;
-    }
-    .circularProgressBar {
-      fill: none;
-      stroke: white;
-      stroke-width: 10;
-      stroke-linecap: round;
-      transition: stroke-dasharray 0.2s ease-in;
-    }
-    .time {
-      font-family: "Debussy";
-      font-size: 2.5rem;
-      letter-spacing: 0px;
-      padding: 0.25rem 0 0 0;
-      margin: 0;
-    }
-    .buttons {
-      display: flex;
-      gap: 16px;
-      button {
-        padding: 8px 16px;
-        border: none;
-        background-color: #007bff;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
-
-  .modal0 {
-    display: none;
-  }
+  
   .modal1 {
-    animation: fadeIn ease-in-out 1s;
-    position: absolute;
-    box-shadow: 0.125rem 0.25rem 0.75rem #cacaca;
-    position: absolute;
-    top: 30%;
-    left: 48%;
+    top: 34%;
+    left: 16%;
     z-index: 2;
-    width: 26vw;
-    height: 40vh;
+    width: 68vw;
+    height: 32vh;
     border-radius: 0.8rem;
     border: 1px solid #e1e2e3;
     background-color: white;
@@ -349,63 +487,25 @@ $green: #64dab5;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 9vh;
+    gap: 7vh;
     .editBtn0 {
-      letter-spacing: -0.05rem;
-      font-family: "Arimo_BLD";
       width: 84%;
-      height: 2.8rem;
-      font-size: 0.8rem;
-      align-items: center;
-      display: block;
-      color: white;
-      background-color: $blue;
-      border: none;
-      border-radius: 0.5rem;
+      height: 4.2rem;
+      font-size: 1.3rem;
       margin: 0;
-      cursor: pointer;
-    }
-    .editBtn1 {
-      display: none;
-    }
-    h4 {
-      text-align: center;
-      letter-spacing: -0.05rem;
-      font-family: "Arimo_RGR";
-      font-weight: 500;
-      color: $green;
-      font-size: 1rem;
     }
     .closeModal {
-      position: absolute;
-      right: 1.8rem;
-      top: 1.8rem;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
+      top: 2rem;
+      right: 2rem;
+      width: 1.5rem;
     }
     p {
-      font-size: 0.8rem;
-      letter-spacing: -0.05rem;
-      font-family: "Arimo_BLD";
-      font-weight: 600;
-      text-align: center;
+      width: 90%;
+      font-size: 1.2rem;
       margin: 6vh 0 0 0;
     }
-  }
-
-  .modalBG1 {
-    animation: fadeIn2 ease-in-out 1s;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    background-color: #7c7c7c;
-    opacity: 40%;
-    top: 0;
-    left: 0;
-  }
-  .modalBG0 {
-    display: none;
+    h4 {
+      font-size: 1.3rem;
+    }
   }
 }

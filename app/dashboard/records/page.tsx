@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./records.module.scss";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +18,12 @@ import { useRouter } from "next/navigation";
 import { onContinuerBoard } from "@/util/onContinuerBoard.js";
 import loadImg from "../../../public/loadImg.png";
 import challenge from "../challenges/page";
+import useEmblaCarousel from "embla-carousel-react"
+import { EmblaCarouselType, EmblaOptionsType } from "embla-carousel"
+
+const OPTIONS: EmblaOptionsType = {}
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 export interface userRecord {
   title: string;
@@ -155,6 +160,45 @@ export default function Records() {
     return formattedDate;
   }
 
+  // Embla-Carousal 적용
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS)
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi]
+  )
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi]
+  )
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  )
+
+  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
+    setScrollSnaps(emblaApi.scrollSnapList())
+  }, [])
+
+  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+    setPrevBtnDisabled(!emblaApi.canScrollPrev())
+    setNextBtnDisabled(!emblaApi.canScrollNext())
+  }, [])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    onInit(emblaApi)
+    onSelect(emblaApi)
+    emblaApi.on('reInit', onInit)
+    emblaApi.on('reInit', onSelect)
+    emblaApi.on('select', onSelect)
+  }, [emblaApi, onInit, onSelect])
 
   return (
     <div className={styles.ground}>
@@ -170,78 +214,72 @@ export default function Records() {
               <p>{userInfo.nickname}님의 최근 원아워 레코즈를 정리해드릴게요</p>
             </div>
             <div className={styles.listUpper}>
-              {userChallenges ? (
-                <>
-                  <Image
-                    src={curIndex <= 0 ? gal : bal}
-                    alt="arrow"
-                    height={50}
-                    onClick={() => {
-                      setCurIndex((curIndex) => curIndex - 1); // 왼쪽 버튼 클릭 시 지금보다 인덱스가 줄어들어야 함!
-                      // 인덱스가 0보다 작거나 같아지면 인덱스를 0으로 고정
-                      if (curIndex <= 0) setCurIndex(0);
-                    }}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <div className={styles.recordsBoxWrapper}>
-                    {userChallenges
-                      .slice(curIndex, curIndex + 3)
-                      .map((challengeItem, i) => {
-                        // a -> challengeItem으로 변경해 알아보기 쉽게 했어요
-                        return (
-                          <div key={i}>
-                            <div
-                              className={styles.recordsBox}
-                              key={`records${i}`}
-                            >
-                              {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
-                              <div className={styles.cardImg}>
-                                {cardImg(challengeItem)}
-                              </div>
-                              <h4 className={styles.cardTitle}>
-                                {challengeItem.title}
-                              </h4>
-                              <p className={styles.cardDesc}>
-                                &quot; {challengeItem.description} &quot;
-                              </p>
-                              <p className={styles.cardDate}>
-                                {formatDateString(challengeItem.date)[0]} <br />
-                                {formatDateString(challengeItem.date)[1]}
-                              </p>
-                              <div className={styles.progressWrap}>
-                                <span>진행도</span>
-                                <div className={styles.progressBar}>
-                                  <div
-                                    className={styles.progressState}
-                                    style={{
-                                      width: `${challengeItem.challengeTime}%`,
-                                    }}
-                                  />
+              <button
+                className={styles.embla__button}
+                type="button"
+                onClick={scrollPrev}
+                disabled={prevBtnDisabled}
+              >
+                <Image
+                  className={styles.embla__button__svg} 
+                  src={bal}
+                  alt="arrow"
+                />
+              </button>
+              <div className={styles.recordsBoxWrap}>
+                  <div className={styles.embla}>
+                    <div className={styles.embla__viewport} ref={emblaRef}>
+                      <div className={styles.embla__container}>
+                        {userChallenges
+                          .map((challengeItem, i) => {
+                            return (
+                              <div className={styles.embla__slide} key={i}>
+                                <div className={styles.embla__recordsBox} key={`records${i}`}>
+                                  {/* 챌린지 아이템을 cardImg 파라미터로 넘겨주게 함!! 위에 cardImg 함수 수정했어요  */}
+                                  <div className={styles.cardImg}>
+                                    {cardImg(challengeItem)}
+                                  </div>
+                                  <h4 className={styles.cardTitle}>
+                                    {challengeItem.title}
+                                  </h4>
+                                  <p className={styles.cardDesc}>
+                                    &quot; {challengeItem.description} &quot;
+                                  </p>
+                                  <p className={styles.cardDate}>
+                                    {formatDateString(challengeItem.date)[0]} <br />
+                                    {formatDateString(challengeItem.date)[1]}
+                                  </p>
+                                  <div className={styles.progressWrap}>
+                                    <span>진행도</span>
+                                    <div className={styles.progressBar}>
+                                      <div
+                                        className={styles.progressState}
+                                        style={{
+                                          width: `${challengeItem.challengeTime}%`,
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        );
-                      }
-                    )}
+                            )
+                        })}
+                      </div>
+                    </div>
                   </div>
-                  <Image
-                    src={curIndex >= userChallenges.length - 3 ? gar : bar}
-                    alt="arrow"
-                    height={50}
-                    onClick={() => {
-                      setCurIndex((curIndex) => curIndex + 1); // 오른쪽 버튼 클릭 시 지금보다 인덱스가 커져야 함
-                      if (curIndex >= userChallenges.length - 3) {
-                        // 인덱스가 전체 챌린지 개수-3보다 같거나 커지면 인덱스를 전체 챌린지 개수-3으로 고정
-                        setCurIndex(userChallenges.length - 3);
-                      }
-                    }}
-                    style={{ cursor: "pointer" }}
-                  />
-                </>
-              ) : (
-                ""
-              )}
+              </div>
+              <button
+                className={styles.embla__button}
+                type="button"
+                onClick={scrollNext}
+                disabled={nextBtnDisabled}
+              >
+                <Image
+                  className={styles.embla__button__svg}
+                  src={bar}
+                  alt="arrow"
+                />
+              </button>
             </div>
           </div>
           <div className={styles.section2}>
@@ -353,7 +391,7 @@ function Loading() {
     <div className={styles.LoadingComp}>
       <Image src={loadImg} alt="loadimage" className={styles.loadImg} />
       <h1>챌린지 기록을 확인중입니다</h1>
-      <h2>아직 챌린지 기록이 없다면 아래 버튼을 눌러 기록을 시작해보세요!</h2>
+      <h2>아직 챌린지 기록이 없다면 <br /> 아래 버튼을 눌러 기록을 시작해보세요!</h2>
       <button
         onClick={() => {
           router.push("/dashboard/challenges");
