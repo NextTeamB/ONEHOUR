@@ -145,7 +145,7 @@ function LoginForm() {
           </Link>
           <hr className={styles.liner} />
           <div className={styles.partSection}>
-            <Link className={styles.terms} href="/term">
+            <Link className={styles.terms} href="/terms">
               이용약관
             </Link>
             <Link className={styles.policy} href="/privacy-policy">

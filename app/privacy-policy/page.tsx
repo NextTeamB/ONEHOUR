@@ -84,28 +84,24 @@ const page = () => {
           변동사항 발생 시 공지사항 또는 개인정보 처리방침을 통해 고지하도록
           하겠습니다.
         </p>
-        <div className={styles.tableBox}>
-          <span>
-            <div className={styles.tRow1}>
-              <p>수탁업체</p>
-            </div>
-            <div className={styles.tRow2}>
-              <p>위탁업무 및 내용</p>
-            </div>
-          </span>
-          <div className={styles.tCol1}>
-            <p>아마존 AWS 웹 서비스</p>
-          </div>
-          <div className={styles.tCol2}>
-            <p>서비스 제공을 위한 시스템 개발 및 운영</p>
-          </div>
-          <div className={styles.tCol3}>
-            <p>MongoDB Atlas</p>
-          </div>
-          <div className={styles.tCol4}>
-            <p>유저 정보 유지를 위한 제반 시스템 제공</p>
-          </div>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>수탁업체</th>
+              <th>위탁업무 및 내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>아마존 AWS 웹 서비스</td>
+              <td>서비스 제공을 위한 시스템 개발 및 운영</td>
+            </tr>
+            <tr>
+              <td>MongoDB Atlas</td>
+              <td>유저 정보 유지를 위한 제반 시스템 제공</td>
+            </tr>
+          </tbody>
+        </table>
         <h5>4. 개인정보의 보유 및 이용기간</h5>
         <p>
           “사이트”는 회원가입일로부터 서비스를 제공하는 기간 동안에 한하여

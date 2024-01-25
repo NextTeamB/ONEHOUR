@@ -24,7 +24,7 @@
     font-size: 36px;
     font-family: "Arimo_BLD";
     font-weight: 700;
-    margin: 180px 0px 120px 0px;
+    margin: 11rem 0px 8rem 0px;
     letter-spacing: -1px;
   }
   h5 {
@@ -44,5 +44,20 @@
   }
   .endText {
     margin: 40px 0px 180px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    width: 85vw;
+    h3 {
+      font-size: 3rem;
+      margin: 6rem 0px 8rem 0px;
+    }
+    h5 {
+      font-size: max(18px, 1.7rem);
+    }
+    p {
+      font-size: max(15px, 1.4rem);
+    }
   }
 }
