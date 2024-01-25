@@ -45,7 +45,7 @@ interface CheckStates {
 }
 
 export default function SignUp() {
-  const [modalState, setModalState] = useState(0);  // 이메일 중복확인 모달 상태
+  const [modalState, setModalState] = useState(0); // 이메일 중복확인 모달 상태
   const [signupModalState, setSignupModalState] = useState(0); // 회원가입 완료 여부 추가
   const router = useRouter();
 
@@ -182,7 +182,7 @@ export default function SignUp() {
       [name]: !checkStates[name],
     };
     setCheckStates(newCheckStates);
-  
+
     // 전체 동의 체크 여부 확인
     const allChecked = Object.values(newCheckStates).every((state) => state);
     setAllCheck(allChecked);
@@ -203,124 +203,129 @@ export default function SignUp() {
   return (
     <div className={styles.Upper}>
       <div className={styles.signUpBox}>
-        <span>
+        <div className={styles.signUpInputWrap}>
           <Link href="/login">
-            <button className={styles.closeBtn}>취소</button>
+            <button className={styles.closeBtn}>뒤로가기</button>
           </Link>
           <h4 className={styles.signUpTitle}>회원가입</h4>
-        </span>
-        <h5>이메일</h5>
-        <span>
-          <input
-            name="email"
-            onChange={handleChange}
-            type="email"
-            className={styles.emailInputBox}
-            placeholder="이메일을 입력해주세요"
-          ></input>
-          <button
-            className={styles.emailCheck}
-            onClick={() => {
-              axios
-                .post("api/users/idcheck", { email: formData.email })
-                .then(() => {
-                  setModalState(1); // 이메일 사용 가능한 경우 모달 열기
-                })
-                .catch(() => {
-                  setModalState(2); // 이메일 사용 불가능한 경우 모달 열기
-                  setFormData({ ...formData, email: "" });
-                });
-            }}
-          >
-            중복확인
-          </button>
+          <h5>이메일</h5>
+          <div className={styles.emailDiv}>
+            <input
+              name="email"
+              onChange={handleChange}
+              type="email"
+              className={styles.emailInputBox}
+              placeholder="이메일을 입력해주세요"></input>
+            <button
+              className={styles.emailCheck}
+              onClick={() => {
+                axios
+                  .post("api/users/idcheck", { email: formData.email })
+                  .then(() => {
+                    setModalState(1); // 이메일 사용 가능한 경우 모달 열기
+                  })
+                  .catch(() => {
+                    setModalState(2); // 이메일 사용 불가능한 경우 모달 열기
+                    setFormData({ ...formData, email: "" });
+                  });
+              }}>
+              중복확인
+            </button>
+          </div>
           {errorMessages.email && (
             <span className={`message error`}>{errorMessages.email}</span>
           )}
-        </span>
-        <h5>이름</h5>
-        <input
-          name="name"
-          onChange={handleChange}
-          type="text"
-          className={styles.nameInputBox}
-          placeholder="이름을 입력해주세요"
-        ></input>
-        {errorMessages.name && (
-          <span className={`message error`}>{errorMessages.name}</span>
-        )}
-        <h5>닉네임</h5>
-        <input
-          className={
-            isValid.nickname || formData.nickname === ""
-              ? styles.nicknameInputBox
-              : styles.nicknameInputBox1
-          }
-          onChange={handleChange}
-          name="nickname"
-          placeholder="닉네임을 입력해주세요"
-        ></input>
-        {errorMessages.nickname && (
-          <span className={`message error`}>{errorMessages.nickname}</span>
-        )}
-        <h5>비밀번호</h5>
-        <input
-          name="password"
-          onChange={handleChange}
-          type="password"
-          className={styles.passwordInputBox1}
-          placeholder="비밀번호를 입력해주세요"
-        ></input>
-        {errorMessages.password && (
-          <span className={`message error`}>{errorMessages.password}</span>
-        )}
-        <input
-          name="passwordConfirm"
-          onChange={handleChange}
-          type="password"
-          className={styles.passwordInputBox2}
-          placeholder="비밀번호를 다시 한번 입력해주세요"
-        ></input>
-        {errorMessages.passwordConfirm && (
-          <span className={`message error`}>
-            {errorMessages.passwordConfirm}
-          </span>
-        )}
-
-        <div className={styles.agreeForm1}>
+          <h5>이름</h5>
           <input
-            type="checkbox"
-            id="all-check"
-            checked={allCheck}
-            onChange={toggleAllCheck}
-          ></input>
-          <h5>전체 동의</h5>
-          <hr />
-        </div>
+            name="name"
+            onChange={handleChange}
+            type="text"
+            className={`${styles.nameInputBox} ${
+              isValid.name || formData.name === ""
+                ? ""
+                : styles.nicknameInputBox1
+            }`}
+            placeholder="이름을 입력해주세요"></input>
+          {errorMessages.name && (
+            <span className={`message error`}>{errorMessages.name}</span>
+          )}
+          <h5>닉네임</h5>
+          <input
+            className={`${styles.nicknameInputBox} ${
+              isValid.nickname || formData.nickname === ""
+                ? ""
+                : styles.nicknameInputBox1
+            }`}
+            onChange={handleChange}
+            name="nickname"
+            placeholder="닉네임을 입력해주세요"></input>
+          {errorMessages.nickname && (
+            <span className={`message error`}>{errorMessages.nickname}</span>
+          )}
+          <h5>비밀번호</h5>
+          <input
+            name="password"
+            onChange={handleChange}
+            type="password"
+            className={`${styles.nicknameInputBox} ${
+              isValid.password || formData.password === ""
+                ? ""
+                : styles.passwordInputBox1
+            }`}
+            placeholder="비밀번호를 입력해주세요"></input>
+          {errorMessages.password && (
+            <span className={`message error`}>{errorMessages.password}</span>
+          )}
+          <input
+            name="passwordConfirm"
+            onChange={handleChange}
+            type="password"
+            className={`${styles.nicknameInputBox} ${
+              isValid.passwordConfirm || formData.passwordConfirm === ""
+                ? ""
+                : styles.nicknameInputBox1
+            }`}
+            placeholder="비밀번호를 다시 한번 입력해주세요"></input>
+          {errorMessages.passwordConfirm && (
+            <span className={`message error`}>
+              {errorMessages.passwordConfirm}
+            </span>
+          )}
 
-        {/* 체크박스 로직 map함수로 뿌려줌 */}
-        {Object.keys(checkStates).map((checkStateName) => (
-          <div className={styles.agreeForm2} key={checkStateName}>
+          <div className={styles.agreeForm1}>
             <input
               type="checkbox"
-              id={checkStateName}
-              checked={checkStates[checkStateName]}
-              onChange={() => toggleCheck(checkStateName)}
-            ></input>
-            <h5>{checkDescriptions[checkStateName]}</h5>
+              id="all-check"
+              checked={allCheck}
+              onChange={toggleAllCheck}></input>
+            <h5>전체 동의</h5>
+            <hr />
           </div>
-        ))}
 
-        <button
-          type="submit"
-          onClick={() => {
-            setSignupModalState(1); // 회원가입 완료 시 상태 변경
-          }}
-          className={isSubmitDisabled ? styles.signUpBtn0 : styles.signUpBtn1}
-          disabled={isSubmitDisabled}
-        >
-          가입하기
-        </button>
+          {/* 체크박스 로직 map함수로 뿌려줌 */}
+          {Object.keys(checkStates).map((checkStateName) => (
+            <div className={styles.agreeForm2} key={checkStateName}>
+              <input
+                type="checkbox"
+                id={checkStateName}
+                checked={checkStates[checkStateName]}
+                onChange={() => toggleCheck(checkStateName)}></input>
+              <h5>{checkDescriptions[checkStateName]}</h5>
+            </div>
+          ))}
+
+          <button
+            type="submit"
+            onClick={() => {
+              setSignupModalState(1); // 회원가입 완료 시 상태 변경
+            }}
+            className={`${styles.signUpBtn0} ${
+              isSubmitDisabled ? "" : styles.signUpBtn1
+            }`}
+            disabled={isSubmitDisabled}>
+            가입하기
+          </button>
+        </div>
       </div>
 
       {/* 이메일 중복 확인 모달 창 렌더링 */}
@@ -330,10 +335,7 @@ export default function SignUp() {
             ? "사용할 수 있는 이메일입니다."
             : "사용할 수 없는 이메일입니다."}
         </p>
-        <button
-          className={styles.closeModal}
-          onClick={() => setModalState(0)}
-        >
+        <button className={styles.closeModal} onClick={() => setModalState(0)}>
           확인
         </button>
       </div>
@@ -346,8 +348,7 @@ export default function SignUp() {
             className={styles.closeModal}
             onClick={() => {
               onSignUp(formData, router); // 확인 버튼 회원가입
-            }}
-          >
+            }}>
             확인
           </button>
         </div>
