@@ -72,91 +72,88 @@ function LoginForm() {
   return (
     <div className={styles.LoginForm}>
       <div className={styles.LoginBox}>
-        <Image
-          className={styles.LOGO}
-          src={logo}
-          width={160}
-          alt="logo_login"
-        />
-        <h4 className={styles.LoginTitle}>
-          원아워 서비스 이용을 위해 로그인해주세요
-        </h4>
-        <p className={styles.formTitle}>이메일</p>
-        <input
-          className={
-            isActive || email === ""
-              ? styles.emailInputBox
-              : styles.emailInputBox1
-          }
-          onChange={handleInput}
-          onKeyUp={isPassedLogin}
-          type="email"
-          required
-          placeholder="이메일을 입력해주세요"
-        ></input>
-        <p
-          className={
-            isActive || email === "" ? styles.nowarning : styles.warning
-          }
-        >
-          올바른 이메일을 입력해주세요
-        </p>
-        <p className={styles.formTitle}>비밀번호</p>
-        <input
-          className={
-            isActivePw || password === ""
-              ? styles.emailInputBox
-              : styles.emailInputBox1
-          }
-          onChange={handleInputPw}
-          onKeyUp={isCorrectPassword}
-          type="password"
-          required
-          placeholder="비밀번호를 입력해주세요"
-        ></input>
-        <p
-          className={
-            isActivePw || password === "" ? styles.nowarning : styles.warning
-          }
-        >
-          올바른 비밀번호를 입력해주세요
-        </p>
-        <button
-          // type="submit"
-          // formMethod="post"
-          className={
-            isActive && email !== "" && isActivePw && password !== ""
-              ? styles.submitBtn
-              : styles.unactiveBtn
-          }
-          disabled={email === "" && password === "" ? true : false}
-          onClick={(e) => login(e)}
-        >
-          이메일로 계속하기
-        </button>
-        <Link className={styles.findBtnBox} href="/sign-up">
-          <button className={styles.findBtn}>
-            <p className={styles.forgotten}>회원이 아니시라면</p>
-            <span>
-              <Image
-                className={styles.chevron}
-                src={chevron}
-                width={16}
-                alt="chevron"
-              />
-            </span>
+        <div className={styles.LoginInputWrap}>
+          <Image
+            className={styles.LOGO}
+            src={logo}
+            width={160}
+            alt="logo_login"
+          />
+          <h4 className={styles.LoginTitle}>
+            원아워 서비스 이용을 위해 로그인해주세요
+          </h4>
+          <div>
+            <p className={styles.formTitle}>이메일</p>
+            <input
+              className={`${styles.emailInputBox} ${
+                isActive || email === "" ? "" : styles.emailInputBox1
+              }`}
+              onChange={handleInput}
+              onKeyUp={isPassedLogin}
+              type="email"
+              required
+              placeholder="이메일을 입력해주세요"></input>
+          </div>
+          <div>
+            <p
+              className={
+                isActive || email === "" ? styles.nowarning : styles.warning
+              }>
+              올바른 이메일을 입력해주세요
+            </p>
+            <p className={styles.formTitle}>비밀번호</p>
+            <input
+              className={`${styles.emailInputBox} ${
+                isActivePw || password === "" ? "" : styles.emailInputBox1
+              }`}
+              onChange={handleInputPw}
+              onKeyUp={isCorrectPassword}
+              type="password"
+              required
+              placeholder="비밀번호를 입력해주세요"></input>
+          </div>
+          <p
+            className={
+              isActivePw || password === "" ? styles.nowarning : styles.warning
+            }>
+            올바른 비밀번호를 입력해주세요
+          </p>
+          <button
+            // type="submit"
+            // formMethod="post"
+            className={
+              isActive && email !== "" && isActivePw && password !== ""
+                ? styles.submitBtn
+                : styles.unactiveBtn
+            }
+            disabled={email === "" && password === "" ? true : false}
+            onClick={(e) => login(e)}>
+            이메일로 계속하기
           </button>
-        </Link>
-        <hr className={styles.liner} />
-        <div className={styles.partSection}>
-          <Link className={styles.terms} href="/term">
-            이용약관
+          <Link className={styles.findBtnBox} href="/sign-up">
+            <button className={styles.findBtn}>
+              <p className={styles.forgotten}>회원이 아니시라면</p>
+              <span>
+                <Image
+                  className={styles.chevron}
+                  src={chevron}
+                  width={16}
+                  alt="chevron"
+                />
+              </span>
+            </button>
           </Link>
-          <Link className={styles.policy} href="/privacy-policy">
-            개인정보처리방침
-          </Link>
+          <hr className={styles.liner} />
+          <div className={styles.partSection}>
+            <Link className={styles.terms} href="/terms">
+              이용약관
+            </Link>
+            <Link className={styles.policy} href="/privacy-policy">
+              개인정보처리방침
+            </Link>
+          </div>
+          <p className={styles.footer}>Ⓒ NEXT PROJECT B TEAM</p>
         </div>
-        <p className={styles.footer}>Ⓒ NEXT PROJECT B TEAM</p>
       </div>
       {/* 로그인 에러 모달 */}
       {modalState.isOpen && (

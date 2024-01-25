@@ -27,31 +27,27 @@ const Home: NextPage = () => {
             <button
               onClick={() => {
                 router.push("/login");
-              }}
-            >
+              }}>
               시작하기
             </button>
             <button
               onClick={() => {
                 router.push("/info");
-              }}
-            >
+              }}>
               서비스 소개
             </button>
           </div>
           <div className={styles.footer}>
             <button
               onClick={() => {
-                router.push("/term");
-              }}
-            >
+                router.push("/terms");
+              }}>
               이용약관
             </button>
             <button
               onClick={() => {
                 router.push("/privacy-policy");
-              }}
-            >
+              }}>
               개인정보처리방침
             </button>
           </div>

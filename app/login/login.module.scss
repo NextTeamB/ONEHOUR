@@ -34,18 +34,23 @@
 
 .LoginBox {
   max-width: 1200px;
+  box-sizing: border-box;
   width: 100%;
   margin: auto auto;
   display: flex;
   /* align-items: flex-end; */
-  justify-items: center;
-  overflow: auto;
-  flex-direction: column;
   /* max-height: calc(100vh - 80px); */
   background-color: white;
   border: 1px solid #e1e2e3;
   border-radius: 0.5rem;
   padding: 1rem;
+  margin: 2rem auto;
+}
+.LoginInputWrap {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 0 auto;
 }
 .LoginTitle {
   font-size: 0.9rem;
@@ -69,7 +74,7 @@
 }
 
 .formTitle {
-  margin: 1rem 0px 1rem 410px;
+  margin: 1rem 0 1rem 0;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -78,9 +83,10 @@
 }
 
 .emailInputBox {
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 100%;
   height: 50px;
   min-height: 50px;
   padding: 0px 12px;
@@ -93,23 +99,13 @@
   color: #333;
 }
 .emailInputBox1 {
-  /* width: 100%; */
-  width: 30%;
-  margin: 0px auto 8px auto;
-  height: 50px;
-  min-height: 50px;
-  padding: 0px 12px;
-  outline: none;
-  background-color: transparent;
   border: 1px solid #fe415c;
-  border-radius: 5px;
   margin-bottom: 8px;
   font-size: 16px;
   color: #333;
 }
 
 .emailInputBox:focus {
-  /* width: 100%; */
   border: 1px solid #6ab5ff;
 }
 
@@ -172,7 +168,6 @@
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 8px;
-  margin-left: 410px;
 }
 
 .nowarning {
@@ -302,17 +297,16 @@
   font-weight: 400;
 }
 
-
 .modal0 {
   display: none;
 }
-.modal1, .modal2 {
+.modal1,
+.modal2 {
   animation: fadeIn ease-in-out 1s;
   position: absolute;
   box-shadow: 2px 4px 12px #cacaca;
   position: absolute;
-  top: 30%;
-  left: 38%;
+  top: 25%;
   z-index: 2;
   width: 460px;
   height: 420px;
@@ -344,11 +338,12 @@
   }
 }
 
-.modalBG1, .modalBG2 {
+.modalBG1,
+.modalBG2 {
   animation: fadeIn2 ease-in-out 1s;
   z-index: 1;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   position: absolute;
   background-color: #7c7c7c;
   opacity: 40%;
@@ -357,4 +352,71 @@
 }
 .modalBG0 {
   display: none;
+}
+@media (max-width: 1200px) {
+  .LoginBox {
+    width: 85vw;
+  }
+}
+@media (max-width: 768px) {
+  .LoginForm {
+    overflow-x: hidden;
+    height: 100%;
+  }
+  .LoginInputWrap {
+    height: 80vh;
+  }
+  .LOGO {
+    margin: 2vh auto;
+    padding-top: 5vh;
+    width: 15rem;
+    height: auto;
+  }
+  .LoginTitle {
+    margin: 0 auto;
+    font-size: 1.2rem;
+  }
+  .formTitle {
+    font-size: 1.2rem;
+  }
+  .emailInputBox1 {
+    height: 5vh;
+  }
+  .LoginBox {
+    box-sizing: border-box;
+    padding: 5vw;
+    width: 85vw;
+    .LoginInputWrap {
+      width: 100%;
+    }
+  }
+  .unactiveBtn {
+    width: 100%;
+    margin: 2rem auto;
+    font-size: 1.5rem;
+    height: 6.5vh;
+  }
+  .findBtn {
+    margin: 0 auto;
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  .liner {
+    width: 100%;
+    margin: 2rem auto;
+  }
+  .partSection {
+    margin: 0 auto;
+    a {
+      font-size: 1rem;
+    }
+  }
+  .emailInputBox {
+    height: 3vh;
+    font-size: 1.2rem;
+  }
+  .footer {
+    font-size: 1rem;
+  }
 }

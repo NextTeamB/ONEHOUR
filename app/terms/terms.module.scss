@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Arimo_BLD";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Arimo_RGR";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Arimo_MED";
+  src: url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+  font-weight: 500;
+}
+
+.content {
+  width: 72%;
+  min-height: 800px;
+  margin: 10px auto;
+  h3 {
+    font-size: 36px;
+    font-family: "Arimo_BLD";
+    font-weight: 700;
+    margin: 11rem 0px 8rem 0px;
+    letter-spacing: -1px;
+  }
+  h5 {
+    font-size: 20px;
+    font-family: "Arimo_BLD";
+    font-weight: 700;
+    margin: 80px 0px 20px 0px;
+    letter-spacing: -1px;
+  }
+  p {
+    font-family: "Arimo_RGR";
+    font-weight: 400;
+    font-size: 20px;
+    margin: 30px 0px;
+    letter-spacing: -1px;
+    color: #383838;
+  }
+  .endText {
+    margin: 40px 0px 180px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    width: 85vw;
+    h3 {
+      font-size: 3rem;
+      margin: 6rem 0px 8rem 0px;
+    }
+    h5 {
+      font-size: max(18px, 1.7rem);
+    }
+    p {
+      font-size: max(15px, 1.4rem);
+    }
+  }
+}
